@@ -1,0 +1,2802 @@
+{
+  "product": "G6",
+  "captured_at": "2026-11-19T10:27:09.4806188+08:00",
+  "source_subdirectory": "Creative/SBCommand/Product/G6/Presets/EQ",
+  "eqPresets": {
+    "Acoustic": {
+      "id": "Acoustic",
+      "label_zh": "原声音乐",
+      "order": 10,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "Acoustic.json",
+      "source_sha256": "4f8e4480055651aba6362fde15cb1135486c45aa18f56c03955a32595a7cee67",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            2,
+            0,
+            0,
+            2.5,
+            2,
+            2,
+            2,
+            3
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            2,
+            0,
+            0,
+            2.5,
+            2,
+            2,
+            2,
+            3
+          ]
+        }
+      }
+    },
+    "AdventureAndAction": {
+      "id": "AdventureAndAction",
+      "label_zh": "动作冒险",
+      "order": 150,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "AdventureAndAction.json",
+      "source_sha256": "7090da5ff34f331ff946e2fe64d8b34af001bac972999bebae2700c99c5cb6eb",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            4,
+            4,
+            -1,
+            -2,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "ApexLegend": {
+      "id": "ApexLegend",
+      "label_zh": "Apex 英雄",
+      "order": 151,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "ApexLegend.json",
+      "source_sha256": "09e9f7d71434feb83b63ed4113705d7d11e369fb86178fe846ffb9c496bfab53",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            3,
+            -1,
+            0,
+            -2,
+            0,
+            2,
+            -3,
+            2,
+            0
+          ]
+        }
+      }
+    },
+    "ArenaOfValor": {
+      "id": "ArenaOfValor",
+      "label_zh": "传说对决",
+      "order": 155,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "ArenaOfValor.json",
+      "source_sha256": "189aa2a0c860f243b4743e4fe165d4e32a85bfaa171f836a205505478d7ca36f",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            2,
+            2,
+            -2,
+            -2,
+            2,
+            2,
+            -3,
+            2,
+            0
+          ]
+        }
+      }
+    },
+    "BattleRoyale": {
+      "id": "BattleRoyale",
+      "label_zh": "大逃杀",
+      "order": 157,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "BattleRoyale.json",
+      "source_sha256": "23127f31bb33fd20e767b53c0e3bf7d3b6004b5b16e75b4c90c4dec86c619bc7",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            3,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0,
+            3,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            2,
+            0,
+            0,
+            2,
+            2,
+            2,
+            -3,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "CallofDutySeries": {
+      "id": "CallofDutySeries",
+      "label_zh": "使命召唤系列",
+      "order": 160,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "CallofDutySeries.json",
+      "source_sha256": "b6e003836d41207f2ac3a1e678e969aeded6233fa37f33488df30ff633b8b90f",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            3,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            4,
+            3,
+            -1,
+            -2,
+            2,
+            2,
+            2,
+            -4,
+            0,
+            2
+          ]
+        }
+      }
+    },
+    "Classical": {
+      "id": "Classical",
+      "label_zh": "古典音乐",
+      "order": 20,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "Classical.json",
+      "source_sha256": "a36c9d68a96a1fe854c389594e0bd84d3af85e9b3be9ae34f695fdde40170a47",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            1.5,
+            2,
+            1,
+            3,
+            1,
+            0,
+            3,
+            3
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            1.5,
+            2,
+            1,
+            3,
+            1,
+            0,
+            3,
+            3
+          ]
+        }
+      }
+    },
+    "CounterStrikeGlobalOffensive": {
+      "id": "CounterStrikeGlobalOffensive",
+      "label_zh": "反恐精英：全球攻势",
+      "order": 170,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "CounterStrikeGlobalOffensive.json",
+      "source_sha256": "b5661edaa7922e48d5fd096f0fdff79a784837c754d044ac0d5cc27579002298",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            -5,
+            3,
+            -3,
+            -3,
+            -2,
+            -2,
+            2,
+            0,
+            0,
+            3
+          ]
+        }
+      }
+    },
+    "Country": {
+      "id": "Country",
+      "label_zh": "乡村音乐",
+      "order": 30,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "Country.json",
+      "source_sha256": "51c953e7b3c8e589b9a61eb948475e00de3724ab21823d7a5e005783b32e4c65",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            2.5,
+            2.5,
+            2,
+            3,
+            3
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            2.5,
+            2.5,
+            2,
+            3,
+            3
+          ]
+        }
+      }
+    },
+    "Cyberpunk2077": {
+      "id": "Cyberpunk2077",
+      "label_zh": "赛博朋克 2077",
+      "order": 175,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "Cyberpunk2077.json",
+      "source_sha256": "dfe0f580c2872df2e2ce18ad107a7693fbbd1471c4a477fcd186c5b930f6309b",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            4,
+            0,
+            0,
+            0,
+            3,
+            3,
+            0,
+            3,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            3,
+            0,
+            -2,
+            0,
+            2,
+            2,
+            -3,
+            2,
+            0
+          ]
+        }
+      }
+    },
+    "Dance": {
+      "id": "Dance",
+      "label_zh": "舞曲",
+      "order": 40,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "Dance.json",
+      "source_sha256": "406167895505e0af6347450b4fd3e2c5614328f8b5447ae1df16bb583613bc12",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            1,
+            1.5,
+            0.5,
+            1.5,
+            2,
+            1,
+            2.5,
+            2.5
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            1,
+            1.5,
+            0.5,
+            1.5,
+            2,
+            1,
+            2.5,
+            2.5
+          ]
+        }
+      }
+    },
+    "DeathStranding": {
+      "id": "DeathStranding",
+      "label_zh": "死亡搁浅",
+      "order": 176,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "DeathStranding.json",
+      "source_sha256": "3270ecb431ead5329fc2e8cff38da3f0c3553b433b1a55c26f460dceedfbbe5f",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            2,
+            2,
+            0,
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ]
+        }
+      }
+    },
+    "DoomEternal": {
+      "id": "DoomEternal",
+      "label_zh": "毁灭战士：永恒",
+      "order": 177,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "DoomEternal.json",
+      "source_sha256": "2b42c36fb49ba47728bb4b696995d3707ac0d376896d45b9abe7001e7601ad6d",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            3,
+            0,
+            0,
+            0,
+            0,
+            -2,
+            0,
+            -2,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            2,
+            -2,
+            0,
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ]
+        }
+      }
+    },
+    "Dota2": {
+      "id": "Dota2",
+      "label_zh": "刀塔 2",
+      "order": 180,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "Dota2.json",
+      "source_sha256": "56c69b7c0ece86119567ac6381a0ff18b1aa65d277f4085ca818b979263e20d2",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            -5,
+            0,
+            -3,
+            -4,
+            -5,
+            -1,
+            -3,
+            -2,
+            -3,
+            -1
+          ]
+        }
+      }
+    },
+    "DrivingSimulation": {
+      "id": "DrivingSimulation",
+      "label_zh": "驾驶模拟",
+      "order": 190,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "DrivingSimulation.json",
+      "source_sha256": "8485f5a88b7a36f9c761a9774391df0a87a8dc48690c2df3e88eea3c8b396358",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            4,
+            4,
+            2,
+            2,
+            -2,
+            -2,
+            2,
+            0,
+            2,
+            0
+          ]
+        }
+      }
+    },
+    "EFT": {
+      "id": "EFT",
+      "label_zh": "逃离塔科夫",
+      "order": 192,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "EscapefromTarkov.json",
+      "source_sha256": "e6fb19775f71effc1f433bd6fa2c0da734edb283c75852dc3a64d54f19acb295",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            2,
+            -1,
+            0,
+            0,
+            2,
+            2,
+            -2,
+            2,
+            2
+          ]
+        }
+      }
+    },
+    "Flat": {
+      "id": "Flat",
+      "label_zh": "平直",
+      "order": 50,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "Flat.json",
+      "source_sha256": "fb524b291fc3f21f9fe3176d6c1297c12a857b4cd37095235801ebcc5a86830b",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "FootstepEnhancer": {
+      "id": "FootstepEnhancer",
+      "label_zh": "脚步增强",
+      "order": 30,
+      "type": 3,
+      "speaker_method": 1,
+      "source_file": "FootstepEnhancer.json",
+      "source_sha256": "dea621420662799f680f754abba3b624e16a5e707bd3d0dfc2e31ffc5cf5dd54",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            -4,
+            -5,
+            -3,
+            -5,
+            -3,
+            4,
+            5,
+            -4,
+            -4
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            -4,
+            -5,
+            -3,
+            -5,
+            -3,
+            4,
+            5,
+            -4,
+            -4
+          ]
+        }
+      }
+    },
+    "Fortnite": {
+      "id": "Fortnite",
+      "label_zh": "堡垒之夜",
+      "order": 195,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "Fortnite.json",
+      "source_sha256": "23c7e7040224c69fbc181f225666416750ed0e3a97ea1d59d78391acb753331e",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            2,
+            -2,
+            -2,
+            0,
+            0,
+            3,
+            -2,
+            2,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            2,
+            -2,
+            -2,
+            0,
+            0,
+            2,
+            -2,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "FPS": {
+      "id": "FPS",
+      "label_zh": "第一人称射击",
+      "order": 200,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "FPS.json",
+      "source_sha256": "c9ad7188d105100b043656fed9bd3d9cd6266548550c473a2ca4691e9e07bb28",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            3,
+            0,
+            0,
+            0,
+            3,
+            3,
+            -3,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            3,
+            -2,
+            -2,
+            0,
+            2,
+            2,
+            -5,
+            2,
+            1
+          ]
+        }
+      }
+    },
+    "Gaming": {
+      "id": "Gaming",
+      "label_zh": "游戏",
+      "order": 120,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "Gaming.json",
+      "source_sha256": "b92b78e2ff07fb1da5038b9eb2d4deca4108ddcbcc67332ffe187a4400306f17",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "GenshinImpact": {
+      "id": "GenshinImpact",
+      "label_zh": "原神",
+      "order": 205,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "GenshinImpact.json",
+      "source_sha256": "efa9dfef3b97ad98d353d162995d0ad702d5b77b1ba6895353bf6f0c46b4d57c",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            2,
+            2,
+            0,
+            0,
+            2,
+            2,
+            0,
+            2,
+            2
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            2,
+            0,
+            0,
+            0,
+            2,
+            5,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "HipHop": {
+      "id": "HipHop",
+      "label_zh": "嘻哈",
+      "order": 60,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "HipHop.json",
+      "source_sha256": "04010ed21cc0c0a421d3e374410a038892229aeeeb82b68616b41497bd53090a",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            2,
+            2.5,
+            1.5,
+            2.5,
+            0,
+            -2.5,
+            -1,
+            -1.5
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            2,
+            2.5,
+            1.5,
+            2.5,
+            0,
+            -2.5,
+            -1,
+            -1.5
+          ]
+        }
+      }
+    },
+    "Jazz": {
+      "id": "Jazz",
+      "label_zh": "爵士乐",
+      "order": 70,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "Jazz.json",
+      "source_sha256": "ed4506e40943554111ed41b368696ad9d4978f48a8968b37a0f6e472e98c69eb",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            2.5,
+            2.5,
+            3,
+            1,
+            1,
+            3,
+            3
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            2.5,
+            2.5,
+            3,
+            1,
+            1,
+            3,
+            3
+          ]
+        }
+      }
+    },
+    "LeagueOfLegends": {
+      "id": "LeagueOfLegends",
+      "label_zh": "英雄联盟",
+      "order": 210,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "LeagueOfLegends.json",
+      "source_sha256": "0ee1ed652f8ba19b004862e451148f67364e53a1de28443cfa00af8241a25dae",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            -3,
+            0,
+            -3,
+            -4,
+            -5,
+            -1,
+            -3,
+            -2,
+            2,
+            0
+          ]
+        }
+      }
+    },
+    "MetalGearSolidVThePhantomPain": {
+      "id": "MetalGearSolidVThePhantomPain",
+      "label_zh": "合金装备 V：幻痛",
+      "order": 220,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "MetalGearSolidVThePhantomPain.json",
+      "source_sha256": "3c1a1ccbb54cf8381b88008711640eec453d3d0aa849371b13a0b0b710a5f044",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            2,
+            -2,
+            1,
+            1,
+            1,
+            2,
+            -1,
+            -1,
+            0
+          ]
+        }
+      }
+    },
+    "MOBA": {
+      "id": "MOBA",
+      "label_zh": "多人在线战术竞技",
+      "order": 221,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "MOBA.json",
+      "source_sha256": "a0cda5ebceb37a5fb8e412845749953332b7ea1da0115401d909528269118b2c",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            3,
+            0,
+            0,
+            2,
+            0,
+            2,
+            -3,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "Movie": {
+      "id": "Movie",
+      "label_zh": "电影",
+      "order": 20,
+      "type": 3,
+      "speaker_method": 1,
+      "source_file": "Movie.json",
+      "source_sha256": "993418aa5998ca727b87082a0d2eb440fa2e8ef0c988b9c56353224904ddd510",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            4,
+            3,
+            -2,
+            -2,
+            2,
+            2,
+            1,
+            0,
+            1,
+            2
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            4,
+            3,
+            -2,
+            -2,
+            2,
+            2,
+            1,
+            0,
+            1,
+            2
+          ]
+        }
+      }
+    },
+    "Music": {
+      "id": "Music",
+      "label_zh": "音乐",
+      "order": 10,
+      "type": 3,
+      "speaker_method": 1,
+      "source_file": "Music.json",
+      "source_sha256": "5b576f40010a81791acb4584b90de909aafa18520c90c341e5dc01e9ac8c8e0b",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            2,
+            0,
+            -2,
+            0,
+            1,
+            2,
+            3,
+            3,
+            3.5
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            2,
+            0,
+            -2,
+            0,
+            1,
+            2,
+            3,
+            3,
+            3.5
+          ]
+        }
+      }
+    },
+    "Overwatch": {
+      "id": "Overwatch",
+      "label_zh": "守望先锋",
+      "order": 224,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "Overwatch.json",
+      "source_sha256": "bd6f05cae59cc88a2a433e54def3f3af899ba42e0b80199130c9b8c1dc9a6e84",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            2.5,
+            1.5,
+            -1.5,
+            1.5,
+            2,
+            2,
+            -3.5,
+            1.5,
+            2
+          ]
+        }
+      }
+    },
+    "PlayerUnknown": {
+      "id": "PlayerUnknown",
+      "label_zh": "绝地求生",
+      "order": 227,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "PlayerUnknown.json",
+      "source_sha256": "2c22c4a7baff7d4eaf045f03ddf3f5c50f981e18fa6eae848d55b3998e459f59",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            3,
+            -4,
+            -4,
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ]
+        }
+      }
+    },
+    "Pop": {
+      "id": "Pop",
+      "label_zh": "流行音乐",
+      "order": 80,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "Pop.json",
+      "source_sha256": "314aa74b663cff68491dec3f049bb6355a0ef71577efb4f27dc9adb50b87ec06",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            2.5,
+            0.5,
+            0.5,
+            3,
+            3
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            2.5,
+            0.5,
+            0.5,
+            3,
+            3
+          ]
+        }
+      }
+    },
+    "ProjectCars": {
+      "id": "ProjectCars",
+      "label_zh": "赛车计划",
+      "order": 230,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "ProjectCars.json",
+      "source_sha256": "ac9159b09a9744eff4d18fe0b69c876fbe78e75848242c04e2ecb90cd24f56c7",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            3,
+            0,
+            2,
+            2,
+            0,
+            2,
+            0,
+            -1,
+            -1
+          ]
+        }
+      }
+    },
+    "RealTimeStrategy": {
+      "id": "RealTimeStrategy",
+      "label_zh": "即时战略",
+      "order": 240,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "RealTimeStrategy.json",
+      "source_sha256": "e7802fe60bcb1350c7506931d76ffc2cbbc856233a27c26a68ff9e7aff38e479",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            -2,
+            -3,
+            0,
+            -2,
+            2,
+            0,
+            -3,
+            -1,
+            0
+          ]
+        }
+      }
+    },
+    "RDR2": {
+      "id": "RDR2",
+      "label_zh": "荒野大镖客：救赎 2",
+      "order": 245,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "RedDeadRedemption2.json",
+      "source_sha256": "b0c75316a70a2c3fb2ecd6f58c0d1bc06414c8901be235ca4ef84781c0db18cd",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            3,
+            0,
+            0,
+            0,
+            3,
+            3,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            2,
+            2,
+            0,
+            -2,
+            3,
+            2,
+            -2,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "RnB": {
+      "id": "RnB",
+      "label_zh": "节奏布鲁斯",
+      "order": 90,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "RnB.json",
+      "source_sha256": "27163205580b1f3292a7257aca34017f4c06effae975db3c788bcb719a77006c",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            -1.5,
+            2.5,
+            1.5,
+            2,
+            0,
+            2,
+            1
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            -1.5,
+            2.5,
+            1.5,
+            2,
+            0,
+            2,
+            1
+          ]
+        }
+      }
+    },
+    "Rock": {
+      "id": "Rock",
+      "label_zh": "摇滚",
+      "order": 100,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "Rock.json",
+      "source_sha256": "bca5fbca30fbefa01fa1726b537f338182b683c43267d56f4457ecb6336bb50e",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            2,
+            1,
+            0,
+            3,
+            1,
+            -1,
+            3,
+            3
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            2,
+            1,
+            0,
+            3,
+            1,
+            -1,
+            3,
+            3
+          ]
+        }
+      }
+    },
+    "RocketLeague": {
+      "id": "RocketLeague",
+      "label_zh": "火箭联盟",
+      "order": 250,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "RocketLeague.json",
+      "source_sha256": "7bf66927e9c8e1549e102db85b0825f9bff21ef6c2ee4ec49cc7ab89dffb1520",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            3,
+            -2,
+            2,
+            2,
+            0,
+            2,
+            0,
+            -2,
+            0
+          ]
+        }
+      }
+    },
+    "RPG": {
+      "id": "RPG",
+      "label_zh": "角色扮演",
+      "order": 255,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "RPG.json",
+      "source_sha256": "65676e756b86d5df15c6b575b3c4e537195a34aad2967b229ac37b4e97c59e71",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "Stadium": {
+      "id": "Stadium",
+      "label_zh": "体育场",
+      "order": 260,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "Stadium.json",
+      "source_sha256": "4ec02f35b4dcc70aa2a9c808d3995dc093629a8b1eb72eed95ab79ec79f2511c",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            -3,
+            2,
+            3,
+            3,
+            2,
+            -2,
+            3,
+            0
+          ]
+        }
+      }
+    },
+    "TheWitcher3WildHunt": {
+      "id": "TheWitcher3WildHunt",
+      "label_zh": "巫师 3：狂猎",
+      "order": 270,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "TheWitcher3WildHunt.json",
+      "source_sha256": "67afa66783e25d0fd0c4880762bb6e8ac4d6ab0abed360b91658b25dc6cfd49d",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            4,
+            -2,
+            0,
+            0,
+            2,
+            2,
+            0,
+            -2,
+            0
+          ]
+        }
+      }
+    },
+    "Rainbow6Siege": {
+      "id": "Rainbow6Siege",
+      "label_zh": "彩虹六号：围攻",
+      "order": 280,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "TomClancysRainbowSixSiege.json",
+      "source_sha256": "dd086da450974473463468884d8356f9b218becf31942efcc8a7f53ae3c2cab1",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            3,
+            2,
+            0,
+            0,
+            3,
+            3,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            3,
+            0,
+            0,
+            -2,
+            2,
+            3,
+            -3,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "Vocal": {
+      "id": "Vocal",
+      "label_zh": "人声",
+      "order": 110,
+      "type": 0,
+      "speaker_method": 1,
+      "source_file": "Vocal.json",
+      "source_sha256": "5a217eb652e716a2a06d24dfcbe2bfc7ec8552a1b09673f2ea88c75df740fc31",
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            -1.5,
+            -0.5,
+            3,
+            3,
+            3,
+            0,
+            0,
+            1
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            -1.5,
+            -0.5,
+            3,
+            3,
+            3,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    }
+  }
+}

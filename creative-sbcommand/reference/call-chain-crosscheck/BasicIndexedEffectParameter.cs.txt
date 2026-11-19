@@ -1,0 +1,66 @@
+using System;
+using Creative.Platform.Devices.Models;
+
+namespace Creative.Platform.Devices.Features.Effects;
+
+public class BasicIndexedEffectParameter : BasicEffectParameter, IIndexedEffectParameter, IEffectParameter, IDevicePropertySupported, IRestoreable, IDevicePropertyNotifiable
+{
+	public IDeviceRepositoryKey[] IndexedPropertykeys { get; }
+
+	public object[] EffectParameterRangeConfigs { get; private set; }
+
+	public int NumIndexes { get; }
+
+	public BasicIndexedEffectParameter(DeviceEndpoint deviceEndpoint, IDeviceRepository deviceRepository, Type scalableType, string effectParameterId, IDeviceRepositoryKey[] indexedPropertykeys, object[] effectParameterRangeConfigs)
+		: base(deviceEndpoint, deviceRepository, scalableType, effectParameterId)
+	{
+		IndexedPropertykeys = indexedPropertykeys;
+		NumIndexes = IndexedPropertykeys.Length;
+		EffectParameterRangeConfigs = effectParameterRangeConfigs;
+		NumIndexes = IndexedPropertykeys.Length;
+		base.InterestedKeys.AddRange(IndexedPropertykeys);
+	}
+
+	public BasicIndexedEffectParameter(DeviceEndpoint deviceEndpoint, IDeviceRepository deviceRepository, Type scalableType, string effectParameterId, IDeviceRepositoryKey firstIndexPropertykey, object effectParameterRangeConfig, int numIndexes)
+		: base(deviceEndpoint, deviceRepository, scalableType, effectParameterId)
+	{
+		NumIndexes = numIndexes;
+		IndexedPropertykeys = new IDeviceRepositoryKey[numIndexes];
+		EffectParameterRangeConfigs = new object[numIndexes];
+		for (int i = 0; i < numIndexes; i++)
+		{
+			IndexedPropertykeys[i] = firstIndexPropertykey.GenerateIndexedKey(i);
+			EffectParameterRangeConfigs[i] = effectParameterRangeConfig;
+			base.InterestedKeys.Add(IndexedPropertykeys[i]);
+		}
+	}
+
+	public virtual T GetValue<T>(int index)
+	{
+		MatchConfiguredType(typeof(T));
+		return base.DeviceRepository.GetValue<T>(IndexedPropertykeys[index]);
+	}
+
+	public virtual void SetValue<T>(int index, T value)
+	{
+		MatchConfiguredType(typeof(T));
+		if (BasicEffectParameter.EffectParamBoundaryCheckFuncDict[typeof(T)](value, EffectParameterRangeConfigs[index]))
+		{
+			base.DeviceRepository.SetValue(IndexedPropertykeys[index], value);
+		}
+	}
+
+	public virtual EffectParameterRangeConfig<T> GetEffectScaleConfig<T>(int index)
+	{
+		MatchConfiguredType(typeof(T));
+		return (EffectParameterRangeConfig<T>)EffectParameterRangeConfigs[index];
+	}
+
+	public override void Restore()
+	{
+		for (int i = 0; i < EffectParameterRangeConfigs.Length; i++)
+		{
+			BasicEffectParameter.EffectParamRestoreActionDict[base.ScalableType](base.DeviceRepository, IndexedPropertykeys[i], EffectParameterRangeConfigs[i]);
+		}
+	}
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "path": "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll",
+    "sha256": "9337d9cabc9c5de4a5026833adf308115885b1b9d884928fae24edbfaf736e9f",
+    "command": [
+      "C:\\Program Files\\dotnet\\dotnet.exe",
+      "--roll-forward",
+      "Major",
+      "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\ilspycmd\\tools\\net8.0\\any\\ilspycmd.dll",
+      "--disable-updatecheck",
+      "-p",
+      "-o",
+      "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\.contract-repro-tnhzt7gw\\devices",
+      "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll"
+    ]
+  },
+  {
+    "path": "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Mixer.dll",
+    "sha256": "e1f1cdcd2d79e8ba006912f76c263b2dad0c04407875d3cc58e7c324d63eb88e",
+    "command": [
+      "C:\\Program Files\\dotnet\\dotnet.exe",
+      "--roll-forward",
+      "Major",
+      "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\ilspycmd\\tools\\net8.0\\any\\ilspycmd.dll",
+      "--disable-updatecheck",
+      "-p",
+      "-o",
+      "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\.contract-repro-tnhzt7gw\\mixer",
+      "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Mixer.dll"
+    ]
+  },
+  {
+    "path": "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.SBConnect.UI.Framework.dll",
+    "sha256": "c6359888f96fde91aa48073e652bfbf462a47e3d8de88b7d7b60f21c1fb2f4b3",
+    "command": [
+      "C:\\Program Files\\dotnet\\dotnet.exe",
+      "--roll-forward",
+      "Major",
+      "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\ilspycmd\\tools\\net8.0\\any\\ilspycmd.dll",
+      "--disable-updatecheck",
+      "-p",
+      "-o",
+      "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\.contract-repro-tnhzt7gw\\uifw",
+      "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.SBConnect.UI.Framework.dll"
+    ]
+  }
+]

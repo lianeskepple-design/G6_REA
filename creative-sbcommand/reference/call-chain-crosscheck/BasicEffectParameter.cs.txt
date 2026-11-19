@@ -1,0 +1,103 @@
+using System;
+using System.Collections.Generic;
+using Creative.Platform.Devices.Models;
+using Creative.Platform.Devices.Models.CDCDevices;
+
+namespace Creative.Platform.Devices.Features.Effects;
+
+public class BasicEffectParameter : DevicePropertySupportedCommonBase, IEffectParameter, IDevicePropertySupported, IRestoreable, IDevicePropertyNotifiable
+{
+	protected static HashSet<Type> SupportedTypes;
+
+	protected static Dictionary<Type, Action<IDeviceRepository, IDeviceRepositoryKey, object>> EffectParamRestoreActionDict;
+
+	protected static Dictionary<Type, Func<object, object, bool>> EffectParamBoundaryCheckFuncDict;
+
+	public string EffectParameterId { get; set; }
+
+	public Type ScalableType { get; }
+
+	static BasicEffectParameter()
+	{
+		SupportedTypes = new HashSet<Type>();
+		EffectParamRestoreActionDict = new Dictionary<Type, Action<IDeviceRepository, IDeviceRepositoryKey, object>>();
+		EffectParamBoundaryCheckFuncDict = new Dictionary<Type, Func<object, object, bool>>();
+		SupportedTypes.Add(typeof(float));
+		SupportedTypes.Add(typeof(long));
+		SupportedTypes.Add(typeof(ulong));
+		SupportedTypes.Add(typeof(int));
+		SupportedTypes.Add(typeof(uint));
+		SupportedTypes.Add(typeof(double));
+		SupportedTypes.Add(typeof(EaxVector));
+		SupportedTypes.Add(typeof(CDCRawLibrary.DeviceProfileDataFormat));
+		EffectParamRestoreActionDict[typeof(float)] = delegate(IDeviceRepository psw, IDeviceRepositoryKey pk, object config)
+		{
+			psw.SetValue(pk, ((EffectParameterRangeConfig<float>)config).Default);
+		};
+		EffectParamRestoreActionDict[typeof(double)] = delegate(IDeviceRepository psw, IDeviceRepositoryKey pk, object config)
+		{
+			psw.SetValue(pk, ((EffectParameterRangeConfig<double>)config).Default);
+		};
+		EffectParamRestoreActionDict[typeof(int)] = delegate(IDeviceRepository psw, IDeviceRepositoryKey pk, object config)
+		{
+			psw.SetValue(pk, ((EffectParameterRangeConfig<int>)config).Default);
+		};
+		EffectParamRestoreActionDict[typeof(long)] = delegate(IDeviceRepository psw, IDeviceRepositoryKey pk, object config)
+		{
+			psw.SetValue(pk, ((EffectParameterRangeConfig<long>)config).Default);
+		};
+		EffectParamBoundaryCheckFuncDict[typeof(float)] = delegate(object val, object config)
+		{
+			float num = (float)val;
+			EffectParameterRangeConfig<float> effectParameterRangeConfig = (EffectParameterRangeConfig<float>)config;
+			return num >= effectParameterRangeConfig.Min && num <= effectParameterRangeConfig.Max;
+		};
+		EffectParamBoundaryCheckFuncDict[typeof(double)] = delegate(object val, object config)
+		{
+			double num = (double)val;
+			EffectParameterRangeConfig<double> effectParameterRangeConfig = (EffectParameterRangeConfig<double>)config;
+			return num >= effectParameterRangeConfig.Min && num <= effectParameterRangeConfig.Max;
+		};
+		EffectParamBoundaryCheckFuncDict[typeof(int)] = delegate(object val, object config)
+		{
+			int num = (int)val;
+			EffectParameterRangeConfig<int> effectParameterRangeConfig = (EffectParameterRangeConfig<int>)config;
+			return num >= effectParameterRangeConfig.Min && num <= effectParameterRangeConfig.Max;
+		};
+		EffectParamBoundaryCheckFuncDict[typeof(long)] = delegate(object val, object config)
+		{
+			long num = (long)val;
+			EffectParameterRangeConfig<long> effectParameterRangeConfig = (EffectParameterRangeConfig<long>)config;
+			return num >= effectParameterRangeConfig.Min && num <= effectParameterRangeConfig.Max;
+		};
+		EffectParamBoundaryCheckFuncDict[typeof(CDCRawLibrary.DeviceProfileDataFormat)] = (object val, object config) => true;
+	}
+
+	public BasicEffectParameter(DeviceEndpoint deviceEndpoint, IDeviceRepository deviceRepository, Type scalableType, string effectParameterId)
+		: base(deviceEndpoint, deviceRepository)
+	{
+		ValidateType(scalableType);
+		ScalableType = scalableType;
+		EffectParameterId = effectParameterId;
+	}
+
+	protected void MatchConfiguredType(Type type)
+	{
+		if (type != ScalableType)
+		{
+			throw new NotSupportedException($"Type {type} does not match configured type {ScalableType} in BasicScalableFeature!");
+		}
+	}
+
+	protected static void ValidateType(Type type)
+	{
+		if (!SupportedTypes.Contains(type))
+		{
+			throw new NotSupportedException($"Type {type} is not supported in BasicScalableFeature!");
+		}
+	}
+
+	public override void Restore()
+	{
+	}
+}

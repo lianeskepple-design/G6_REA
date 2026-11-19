@@ -1,0 +1,70 @@
+{
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "empty input does not advance source cursor",
+      "passed": true
+    },
+    {
+      "name": "startup recovers after waiting for PCM",
+      "passed": true
+    },
+    {
+      "name": "underflow does not accumulate an unpayable cursor",
+      "passed": true
+    },
+    {
+      "name": "fresh PCM recovers after underflow",
+      "passed": true
+    },
+    {
+      "name": "buffer bounded at half a second",
+      "passed": true,
+      "details": {
+        "queued": 22528,
+        "dropped": 190337
+      }
+    },
+    {
+      "name": "statistics are throttled",
+      "passed": true,
+      "details": {
+        "newReports": 3
+      }
+    },
+    {
+      "name": "nonfinite input cannot poison output",
+      "passed": true
+    },
+    {
+      "name": "incomplete stereo frames rejected",
+      "passed": true
+    },
+    {
+      "name": "linear SRC 44100 to 48000 preserves timing and stereo",
+      "passed": true,
+      "details": {
+        "maxAbsError": 7.45058248430297e-09
+      }
+    },
+    {
+      "name": "linear SRC 48000 to 44100 preserves timing and stereo",
+      "passed": true,
+      "details": {
+        "maxAbsError": 7.399900442406349e-09
+      }
+    },
+    {
+      "name": "linear SRC 96000 to 48000 preserves timing and stereo",
+      "passed": true,
+      "details": {
+        "maxAbsError": 0
+      }
+    },
+    {
+      "name": "stop terminates worklet processing",
+      "passed": true
+    }
+  ],
+  "passed_checks": 12
+}

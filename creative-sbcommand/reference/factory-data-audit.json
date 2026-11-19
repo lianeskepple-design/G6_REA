@@ -1,0 +1,588 @@
+{
+  "date": "2026-11-12",
+  "scope": "offline installed factory files only",
+  "g6_eq_count": 34,
+  "g6_profiles_count": 23,
+  "ae9_eq_count": 35,
+  "shared_eq_count": 29,
+  "shared_eq_differences": [
+    "ArenaOfValor",
+    "CounterStrikeGlobalOffensive",
+    "Dota2",
+    "FPS",
+    "Gaming",
+    "Overwatch",
+    "PlayerUnknown"
+  ],
+  "g6_eq_speaker_headphone_differences": [
+    "AdventureAndAction",
+    "ApexLegend",
+    "ArenaOfValor",
+    "CallofDutySeries",
+    "CounterStrikeGlobalOffensive",
+    "Dota2",
+    "DrivingSimulation",
+    "FPS",
+    "Fortnite",
+    "LeagueOfLegends",
+    "MetalGearSolidVThePhantomPain",
+    "Overwatch",
+    "PlayerUnknown",
+    "ProjectCars",
+    "RealTimeStrategy",
+    "RocketLeague",
+    "Stadium",
+    "TheWitcher3WildHunt"
+  ],
+  "zero_gain_modes": {
+    "FPS": [
+      "Speaker"
+    ],
+    "CallofDutySeries": [
+      "Speaker"
+    ],
+    "DrivingSimulation": [
+      "Speaker"
+    ]
+  },
+  "source_export_mismatches": [],
+  "sources": [
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Acoustic.json",
+      "sha256": "4f8e4480055651aba6362fde15cb1135486c45aa18f56c03955a32595a7cee67"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\AdventureAndAction.json",
+      "sha256": "7090da5ff34f331ff946e2fe64d8b34af001bac972999bebae2700c99c5cb6eb"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\ApexLegend.json",
+      "sha256": "09e9f7d71434feb83b63ed4113705d7d11e369fb86178fe846ffb9c496bfab53"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\ArenaOfValor.json",
+      "sha256": "189aa2a0c860f243b4743e4fe165d4e32a85bfaa171f836a205505478d7ca36f"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\CallofDutySeries.json",
+      "sha256": "b9c5feab9eb5ec69a978f48ca137410aa1d9798e005d0304deb3354a63de07df"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Classical.json",
+      "sha256": "a36c9d68a96a1fe854c389594e0bd84d3af85e9b3be9ae34f695fdde40170a47"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\CounterStrikeGlobalOffensive.json",
+      "sha256": "b5661edaa7922e48d5fd096f0fdff79a784837c754d044ac0d5cc27579002298"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Country.json",
+      "sha256": "51c953e7b3c8e589b9a61eb948475e00de3724ab21823d7a5e005783b32e4c65"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Dance.json",
+      "sha256": "406167895505e0af6347450b4fd3e2c5614328f8b5447ae1df16bb583613bc12"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Dota2.json",
+      "sha256": "56c69b7c0ece86119567ac6381a0ff18b1aa65d277f4085ca818b979263e20d2"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\DrivingSimulation.json",
+      "sha256": "8485f5a88b7a36f9c761a9774391df0a87a8dc48690c2df3e88eea3c8b396358"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Flat.json",
+      "sha256": "fb524b291fc3f21f9fe3176d6c1297c12a857b4cd37095235801ebcc5a86830b"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\FootstepEnhancer.json",
+      "sha256": "dea621420662799f680f754abba3b624e16a5e707bd3d0dfc2e31ffc5cf5dd54"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Fortnite.json",
+      "sha256": "23c7e7040224c69fbc181f225666416750ed0e3a97ea1d59d78391acb753331e"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\FPS.json",
+      "sha256": "d91a80f569d3d0d311d50db76ed1cff03c19b1152aa18b7322a352e58dd7fd04"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Gaming.json",
+      "sha256": "b92b78e2ff07fb1da5038b9eb2d4deca4108ddcbcc67332ffe187a4400306f17"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\HipHop.json",
+      "sha256": "04010ed21cc0c0a421d3e374410a038892229aeeeb82b68616b41497bd53090a"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Jazz.json",
+      "sha256": "ed4506e40943554111ed41b368696ad9d4978f48a8968b37a0f6e472e98c69eb"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\LeagueOfLegends.json",
+      "sha256": "0ee1ed652f8ba19b004862e451148f67364e53a1de28443cfa00af8241a25dae"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\MetalGearSolidVThePhantomPain.json",
+      "sha256": "3c1a1ccbb54cf8381b88008711640eec453d3d0aa849371b13a0b0b710a5f044"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Movie.json",
+      "sha256": "993418aa5998ca727b87082a0d2eb440fa2e8ef0c988b9c56353224904ddd510"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Music.json",
+      "sha256": "5b576f40010a81791acb4584b90de909aafa18520c90c341e5dc01e9ac8c8e0b"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Overwatch.json",
+      "sha256": "bd6f05cae59cc88a2a433e54def3f3af899ba42e0b80199130c9b8c1dc9a6e84"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\PlayerUnknown.json",
+      "sha256": "2c22c4a7baff7d4eaf045f03ddf3f5c50f981e18fa6eae848d55b3998e459f59"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Pop.json",
+      "sha256": "314aa74b663cff68491dec3f049bb6355a0ef71577efb4f27dc9adb50b87ec06"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\ProjectCars.json",
+      "sha256": "ac9159b09a9744eff4d18fe0b69c876fbe78e75848242c04e2ecb90cd24f56c7"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\RealTimeStrategy.json",
+      "sha256": "e7802fe60bcb1350c7506931d76ffc2cbbc856233a27c26a68ff9e7aff38e479"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\RnB.json",
+      "sha256": "27163205580b1f3292a7257aca34017f4c06effae975db3c788bcb719a77006c"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Rock.json",
+      "sha256": "bca5fbca30fbefa01fa1726b537f338182b683c43267d56f4457ecb6336bb50e"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\RocketLeague.json",
+      "sha256": "7bf66927e9c8e1549e102db85b0825f9bff21ef6c2ee4ec49cc7ab89dffb1520"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\RPG.json",
+      "sha256": "65676e756b86d5df15c6b575b3c4e537195a34aad2967b229ac37b4e97c59e71"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Stadium.json",
+      "sha256": "4ec02f35b4dcc70aa2a9c808d3995dc093629a8b1eb72eed95ab79ec79f2511c"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\TheWitcher3WildHunt.json",
+      "sha256": "67afa66783e25d0fd0c4880762bb6e8ac4d6ab0abed360b91658b25dc6cfd49d"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\Vocal.json",
+      "sha256": "5a217eb652e716a2a06d24dfcbe2bfc7ec8552a1b09673f2ea88c75df740fc31"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\AdventureAndAction.json",
+      "sha256": "ad46d7da959a90c3dcd4e4599d3e403aa62e13047f023a29131d4254f14f2704"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\ApexLegend.json",
+      "sha256": "611d607e35ad08619a33e67ab655cf66088dafe9b354423f70d379e07b6d9f40"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\ArenaOfValor.json",
+      "sha256": "571074decbfb42cf1bb92d65c2e0018cd4625ffcae5272544532bbf74ef59c1c"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\BaseProfile.json",
+      "sha256": "c9f3d5975d63f50d67f5f05aba9fb91de1df57a0dd05ddefe38f3cd7b0221bd8"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\CallOfDutySeries.json",
+      "sha256": "00d2f39a80d78f1fe4c3966a38b41439faba3db89af80b4653e2003a8da365a4"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\CounterStrike.json",
+      "sha256": "dff00cc55327962c292674d6cf603dc671fdccd9d41803c6110d84c0f87a2ba3"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\Dota2.json",
+      "sha256": "f3c6be3fb01b0b06abc5c34ed22f252c80c49efad10a199c1b61725a1c4f365f"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\DrivingSimulation.json",
+      "sha256": "203c727c0ce5cb9ae571c7f85723e3233a5ec92263e289a0ca97d4a9b45df4fd"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\Fortnite.json",
+      "sha256": "e17512305a1fe762007497155bdccf5b5051d073cd69e87b8bea6a6b3956a13f"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\FPS.json",
+      "sha256": "e9a3855cf4848d68deeff138469fdc9fc8710a574942492e0b0d32f1145eee9d"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\Gaming.json",
+      "sha256": "ffb3e85f25a632fa116434499a0d87cbd83de42ba864d5522c3e5f04b8a9558f"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\LeagueOfLegends.json",
+      "sha256": "f998ae6574cbde60afe2354e4094d924ba4337e195f96b4ada91c3e03546adca"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\MetalGearSolidVThePhantomPain.json",
+      "sha256": "ac24de61ec1ad3d3d15f370aa21d31f78784e91334d2ee950b0fb3c4db68f8a7"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\Movie.json",
+      "sha256": "c4a7111101af8f3233f21880c865750048c8878930e1faff068b4a518a782546"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\Music.json",
+      "sha256": "ab79e21238483e8362d8591d07623e75588fee3a4fd5397bb46df90d7e9bbf2d"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\Overwatch.json",
+      "sha256": "706e91d6ea9bbcda1551da7afa9359ae4783d4f52814cff5f987bab65229435a"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\PlayerUnknown.json",
+      "sha256": "88ffdc30537912c5ae7e8db1663336935f2fb188831335fd2f4753b5a2547b0e"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\ProjectCars.json",
+      "sha256": "bf68f2b48841c22f55ff617476fd78ffc782cae2c3723cf9acbfd5994ecb9d16"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\RealTimeStrategy.json",
+      "sha256": "fd2812673ce06bef46c581812db6a848ac2a9d9fa4b90cfe28f4f954fe314825"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\RocketLeague.json",
+      "sha256": "5f6f0432ee3093727aba239fb6ccb1b0c1b0a5c8094dd90465204e76a9de1c6d"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\RPG.json",
+      "sha256": "04a2e9af9faf27469cee38fb8641e357df6290f7659e57ade21c6d1edfc80190"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\Stadium.json",
+      "sha256": "5eb76a3b35aaa8e8a037cbd921729e5ed3ea784ce439e6bd897df6cb153e51ac"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\TheWitcher3WildHunt.json",
+      "sha256": "9ed07a31f47f52dbbdaa914e47e38ef2a08449a8efe440ebbc4a400bf24013e6"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Acoustic.json",
+      "sha256": "18de1f3fe7607cd092fcd1e32d690bc412f3eb7996629615ba41eeb0fe2c687e"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\AdventureAndAction.json",
+      "sha256": "b11d33d777e95a2a37377290c66f6c16662bc9445d5c8cfe05484f58237916ef"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\ApexLegend.json",
+      "sha256": "5fb71fa3b6528921f04a503aa13d6db2caf61728e824174911201bea35c2a209"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\ArenaOfValor.json",
+      "sha256": "e99c18d904b4d3e3f26d8b492ef8f4c11e5df30bebd7858077d460f0dc194a12"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Battlefield1.json",
+      "sha256": "15118056bd89a0c7c2c663d426196ce67e185caa36df157997442bd41a6f7fde"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\CallofDutyInfiniteWarfare.json",
+      "sha256": "0f9e81eba191e46f50275034cfb5190f0f23e0d85b89ae571c2d17a8efd0046a"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Cinema.json",
+      "sha256": "f29d4226193a8a3d14591ea3a10a04ac27b65546ae1dbc5a2ab870be7f464d27"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Classical.json",
+      "sha256": "10f4a6e9a1d838b38afb8d44f162e0780a44b18c079eb22691ca294898aa50af"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Concert.json",
+      "sha256": "254212812170876b3cee99188a3651fac2709a172a1ffa6304aa6b22f4f652b8"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\CounterStrike.json",
+      "sha256": "1043248663b6fda53d8ed475f98c6c4b4018a919f5d66ab3d87b8c88d7ab956e"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Country.json",
+      "sha256": "7202c51bf058cc866479b9b67933331c58882f515064da98012181e5dc9632c2"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Dance.json",
+      "sha256": "4c16823c7aad37a2ae826805ac7d4e0725124dc6d2450fbd99a30f3bb1a30717"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Dota2.json",
+      "sha256": "242581e1520e8fcc57acc1e99ece453f363302f45bc6d347a21078a6b0a0cff5"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Flat.json",
+      "sha256": "2be6d217c0d03105c22718ee6496e8a235200367c5a96f668d03d653ac040988"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Fortnite.json",
+      "sha256": "b7e4d5ddd6408418a6851e0239bc06146f65586fd4a36d96aa6e2d25cfbf8ceb"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\FPS.json",
+      "sha256": "08ae8ca27175aa0f224b3ae84748f129d14d77ddb1c2ea852cd3040ae8b2c964"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Gaming.json",
+      "sha256": "5726cb4952bfdc6b4a7f6f0cbe84cbba68131b10fbf06c7dddb1edcda473705e"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\HipHop.json",
+      "sha256": "2be5b2a3522a4b5f7d556fc21e2792646d580843f10db0f0b7c56c785803aab6"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Jazz.json",
+      "sha256": "4444d138b7b2b34b95a477084c11c116b87cef828b1d5e12c78bcd43b715647a"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\LeagueOfLegends.json",
+      "sha256": "947dee697b53e9c08e72761f2a841325d3cfcb6db2a0bfca85802f503b61b71d"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\MetalGearSolidVThePhantomPain.json",
+      "sha256": "38288b64473577fdb158578e65f0e0594045c633f1948d0ccf5a58c54622ea3d"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Night.json",
+      "sha256": "c700e4f23ebf641a3b345af0332eef5f87cdddd7880c0d7d1acc321b3266085d"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Overwatch.json",
+      "sha256": "550f93de764f57a8c3575ca38de84db9983a66cbea79f2424963757bd7fb01af"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\PlayerUnknown.json",
+      "sha256": "0f414f8e623dfa761148552e8ed3461e43d8079432a19bf82b1213add89730cd"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Pop.json",
+      "sha256": "9d7d0f88f07554687005d6eaf03c86f0193898deda7a76dd83a066c51c92e5d4"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\ProjectCars.json",
+      "sha256": "ad9d698c606994d80d40cfd51e69d5b31d41709b69e6802ee31c95b4c758a2d4"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Racing.json",
+      "sha256": "2891a6a1969a734abcc77c323302aa4d07224726ced9d1bbff2ed70c476bd5b3"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\RealTimeStrategy.json",
+      "sha256": "f078d4929b595917ea7948ea612f570e1a822b1181d19493442ebdf045e6e423"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\RnB.json",
+      "sha256": "ebc5923cdb67f5e92fb9eac7d2652cd3a641e0d1cc1f6cd6eaba54a6425142b2"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Rock.json",
+      "sha256": "10a30a200158460b08bdbeb105cb278cf040c4c982d2205d3105e2d1cea42f6d"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\RocketLeague.json",
+      "sha256": "209d92d86114bf42c21d5bd08904ce2720e73ff514b3f27cba38a02e6b23202e"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\RPG.json",
+      "sha256": "51dee5c724e2406b5f33a4046eeb20be68c46597da3e4f889b9657f3c546fd63"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Stadium.json",
+      "sha256": "dcdb0cf7aa0920ac7213ea9cd63a27a6455cc3e3d868609af2f83618e35375b5"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\TheWitcher3WildHunt.json",
+      "sha256": "1a89f55254e06cf05d28dc2ff2380bcc0992b9c75cb09b6a4e542cb35acfddae"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\Vocal.json",
+      "sha256": "408866d3790a2d39234807708b78b4b6cfb4884af4c075e0512259d7f765667b"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\AdventureAndAction.json",
+      "sha256": "95b64880873fb8ab80cb10bdbc8acc7f53bd12d62cf560035af048f5010a638f"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\ApexLegend.json",
+      "sha256": "77fe40629f1fa1f33cfbbd97bf197dc5ab713d5ef25856b7c89c42dff87ad130"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\ArenaOfValor.json",
+      "sha256": "8537c3cb2643a8509b08f0b6c90c617b3c47fb76736ea61f874264dbde55b707"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\BaseProfile.json",
+      "sha256": "bd0b7ea29eafa09c5a838930784c45b3bd67cc57bd423a9e9736f03339f5e906"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\Battlefield1.json",
+      "sha256": "bd19aec25f1714fc3d00cf9b6580fd440138a0f61d8620fd6cb3a3ac78b48a2b"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\CallOfDuty.json",
+      "sha256": "aa5c412d580ff97b99c8390549919559e37e48cb66c9200148ca5ccc5690f35f"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\Cinema.json",
+      "sha256": "395b948ed29ea0d83fbcb7de90b4193d6d396755be41bce5f84b6afa1e9e4a9a"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\Concert.json",
+      "sha256": "9d66e611e9a7f92d529186163637f18fb5d5cd620766ab6d607aedc33bbf9d31"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\CounterStrike.json",
+      "sha256": "56fc6da2ff92cd5bc178cc943d20def40af7a0c067e254736a89e2ec761fbcff"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\Dota2.json",
+      "sha256": "3c0d423a5f2d4d5318dcf74bae67139f54e8a94e8d6f0edd00c2e4c691da7aab"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\Fortnite.json",
+      "sha256": "5b57d1299980f4c0cce60aa9abb7eaa1f0790ed46a93232cc3e27482ff75e873"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\FPS.json",
+      "sha256": "4e2c5fc62ffba51dafb6a6fd5078abbf0373789108c79dfa6a05f152031ca840"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\Gaming.json",
+      "sha256": "f9ae7c5cce4df4569ffe5eb905150780875abf2da40e116a3b073d8e627f682f"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\LeagueOfLegends.json",
+      "sha256": "a55613c16249a54c053f211cf47cf514a11ba0282c58ba51adb059ecd20db68b"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\MetalGearSolidVThePhantomPain.json",
+      "sha256": "fe05bb06bd074380047f39baf38e014b756cc50cc56ffdcb649a06f198795286"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\Night.json",
+      "sha256": "ec98b3557f8903fd7f1d2f5a55fed2ec6bbfc7690d8f11cc004ae21659265ea4"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\Overwatch.json",
+      "sha256": "f03b0e32655f5aa4d2eef7207d9336378e619d891a17752f40c5a5d6c93dd768"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\PlayerUnknown.json",
+      "sha256": "8dabbabe46ac2d742452a36edf4fd2f58a44cd409ac47e350b6d72b487849319"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\ProjectCars.json",
+      "sha256": "998d94ba176e9be957e9fb5bed508d9ffe6ed53f68a4728194930f19ce47e541"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\Racing.json",
+      "sha256": "7653aeb4afb29597c648fb47353f7fb361d98c7fd04901228279ad67b33fa21e"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\RealTimeStrategy.json",
+      "sha256": "d1804947c0359132c7ba40a464e9423b7ca4cef9684147f0c0ab89967feabc2e"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\RocketLeague.json",
+      "sha256": "a9630fb970919d7743058dc236e360f15daf1482c2ed2f9e4544780bf56535d7"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\RPG.json",
+      "sha256": "205dea80951b347e348ad28d13df625865d95f4054f552b6169ffc8c5b7918fd"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\Stadium.json",
+      "sha256": "d5effcc065b40019fc31e3d6c91f66aa19f243926be1b89f243d42f28ce54d7e"
+    },
+    {
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\TheWitcher3WildHunt.json",
+      "sha256": "a1904d7427c4f01fe5f2b9bcca23a26a098f4acfcec2f95a25f828ebdbc58302"
+    }
+  ],
+  "combined_export_note": "g6-product-data.json omits type and speaker_method in EQ entries; settings and order match the standalone export.",
+  "reverb": {
+    "presets": 19,
+    "records_per_preset": 32,
+    "total_records": 608,
+    "value_types": {
+      "Float": 437,
+      "Bool": 152,
+      "Integer": 19
+    },
+    "param_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      258
+    ],
+    "json_xml_mismatches": [],
+    "embedded_xml_matches_installed_dll": true,
+    "embedded_xml_offset": "0x9738",
+    "installed_dll_sha256": "564069833549063cda80f14f27d2e5e3f33edbabdfaf5e31b01eb551c77959fe"
+  },
+  "ae9_profile_export_mismatches": [],
+  "shared_eq_differences_by_mode": {
+    "Speaker": [
+      "ArenaOfValor",
+      "CounterStrikeGlobalOffensive",
+      "Dota2",
+      "Gaming",
+      "Overwatch",
+      "PlayerUnknown"
+    ],
+    "Headphone": [
+      "ArenaOfValor",
+      "CounterStrikeGlobalOffensive",
+      "Dota2",
+      "FPS",
+      "Gaming",
+      "Overwatch",
+      "PlayerUnknown"
+    ]
+  }
+}

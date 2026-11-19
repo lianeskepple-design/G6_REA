@@ -1,0 +1,59 @@
+{
+  "generated": "2026-11-13",
+  "scope": "G6 USB interrupt endpoint 0x85 parameter notifications",
+  "wire_format": {
+    "template": "5a 11 <len> <count> 00 ( 96 <id> <float32_le> )*",
+    "invariant": "len == 2 + 6 * count",
+    "byte3_means": "entry_count",
+    "byte3_was_previously_misread_as": "scope",
+    "confidence": "high",
+    "samples": [
+      { "file": "sbx-master-02.pcap", "frame": 37310, "len": 8, "count": 1 },
+      { "file": "sbx-master-02.pcap", "frame": 58555, "len": 8, "count": 1 },
+      { "file": "scout-01.pcap", "frame": 22585, "len": 50, "count": 8 },
+      { "file": "scout-01.pcap", "frame": 22595, "len": 20, "count": 3 },
+      { "file": "scout-01.pcap", "frame": 8217, "len": 14, "count": 2 }
+    ]
+  },
+  "id_space": {
+    "organisation": "flat 0..255",
+    "namespaces": false,
+    "note": "0x9600 two-byte reading is arithmetically equivalent but the 0x96 tag is constant and carries no per-parameter information; no factory file uses a 0x96xx namespace."
+  },
+  "confirmed": [
+    {
+      "id": 0,
+      "meaning": "SBX Master on/off",
+      "evidence": "frame 37310 (SBX off) = 0.0; frame 58555 (SBX on) = 1.0; frame 8217 (Scout on) = 0.0, matching SoundCoreScoutFeature forcing SBX master off",
+      "confidence": "high"
+    },
+    {
+      "id": 5,
+      "meaning": "SmartVol normalised value",
+      "evidence": "0.7400000095 observed while UI SmartVol = 74 (74/100)",
+      "confidence": "medium",
+      "caveat": "single observation, no single-variable differential test yet"
+    }
+  ],
+  "observed_ids": [0, 2, 4, 5, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 24],
+  "unmapped_ids": "all remaining observed ids have value 0.0, semantics unknown",
+  "refuted_candidates": [
+    { "namespace": "_etParamEfxMasterControl", "key_values": { "SCOUTModeMasterOnOff": 6, "SBXMasterOnOff": 7 }, "verdict": "does not match id 0 or 5" },
+    { "namespace": "_etParamSmartVolume", "key_values": { "Enable": 0, "Strength": 1, "Mode": 2, "Plus": 3 }, "verdict": "does not match id 5" },
+    { "namespace": "etEfxMasterCtrlFeatBitPos", "key_values": { "SmartVolume": 2 }, "verdict": "bit position, not an id" },
+    { "namespace": "MalcolmControlID", "key_values": { "SBXMasterOnOff": 1314, "ScoutModeOnOff": 1201 }, "verdict": "AE-9 family numbering" },
+    { "namespace": "VT1728MALCOLMSCPQUERY_ParamType", "key_values": { "range": "0..157", "AECEnable": 0, "NoiseReductionStrength": 5 }, "verdict": "structurally closest (flat device parameter table) but VT1728/AE-9 numbering" },
+    { "namespace": "APOINFO_HW_IDENTIFIER / ItemControlID", "verdict": "no match" },
+    { "namespace": "SndCrUSB.DLL eParam* names", "verdict": "MIDL metadata only: names without numeric values" }
+  ],
+  "excluded_misread": {
+    "byte": "0x07 in write command 5a 26 05 07 <01|02> 00 <val> 00",
+    "why": "identical for SBX and Scout, while _etParamEfxMasterControl assigns them 7 and 6; therefore a shared command selector, not a parameter id"
+  },
+  "next_step": "Single-variable differential capture: change exactly one parameter (e.g. SmartVol 74 -> 50) and diff the ids whose float value changes.",
+  "reproducibility": {
+    "managed": "36 assemblies decompiled; Constant table read via dnfile; ConstantRow.Value must be decoded as little-endian raw_data[1:] (calibrated against _etFeature and _etParamEfxMasterControl)",
+    "native": "SndCrUSB.DLL MIDL metadata block 0x300000-0x390000, 441 records / 79 blocks; record = [len][xx xx xx] <name> [u32 block][u32 string offset or 0xFFFFFFFF]",
+    "intermediates": "C:/Users/Administrator/AppData/Local/Temp/g6map/"
+  }
+}

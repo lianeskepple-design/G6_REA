@@ -1,0 +1,108 @@
+{
+  "date": "2026-11-12",
+  "binary_sha256": "7708efe035c16985c34b11ce12d1ede47373adb0f37878a72c11afaa080bd8d4",
+  "tests": [
+    {
+      "name": "Footstep impulse vs SciPy SOS",
+      "passed": true,
+      "max_abs_error": 1.8607795165825891e-09
+    },
+    {
+      "name": "channel isolation (left-only excitation, right == 0)",
+      "passed": true
+    },
+    {
+      "name": "shape and rate",
+      "passed": true
+    },
+    {
+      "name": "Flat identity",
+      "passed": true
+    },
+    {
+      "name": "signed -6 dB attenuation",
+      "passed": true
+    },
+    {
+      "name": "positive +6 dB is gain, not a limiter",
+      "passed": true,
+      "peak": 1.5962098836898804
+    },
+    {
+      "name": "existing output preserved",
+      "passed": true
+    },
+    {
+      "name": "hardlink output rejected without overwrite",
+      "passed": true
+    },
+    {
+      "name": "same input output preserved",
+      "passed": true
+    },
+    {
+      "name": "huge +1000 dB rejected without output",
+      "passed": true,
+      "exit_code": 1
+    },
+    {
+      "name": "+1e10 dB pow gain overflow rejected without output",
+      "passed": true,
+      "exit_code": 1
+    },
+    {
+      "name": "negative infinity headroom rejected without output",
+      "passed": true,
+      "exit_code": 1
+    },
+    {
+      "name": "NaN headroom rejected without output",
+      "passed": true,
+      "exit_code": 1
+    },
+    {
+      "name": "positive infinity headroom rejected without output",
+      "passed": true,
+      "exit_code": 1
+    },
+    {
+      "name": "silent input +1000 dB rejected without output",
+      "passed": true,
+      "exit_code": 1
+    },
+    {
+      "name": "invalid preset no output",
+      "passed": true
+    },
+    {
+      "name": "WAV PCM_16",
+      "passed": true
+    },
+    {
+      "name": "WAV PCM_24",
+      "passed": true
+    },
+    {
+      "name": "WAV PCM_32",
+      "passed": true
+    },
+    {
+      "name": "WAV FLOAT",
+      "passed": true
+    },
+    {
+      "name": "FPS modes truly differ",
+      "passed": true
+    },
+    {
+      "name": "repeat run byte-identical",
+      "passed": true
+    },
+    {
+      "name": "exact 34 factory IDs",
+      "passed": true
+    }
+  ],
+  "passed": 23,
+  "total": 23
+}

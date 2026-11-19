@@ -1,0 +1,43 @@
+using Creative.Platform.Devices.Features.Effects;
+using Creative.Platform.Devices.Models;
+
+namespace Creative.Platform.Devices.Features;
+
+public class CDCApoXBassXFi23Feature : BasicToggleableFeature
+{
+	public CDCApoXBassXFi23Feature(DeviceEndpoint deviceEndpoint, IDeviceRepository deviceRepository, string featureId, IDeviceRepositoryKey enableKey, bool isEnabledDefault)
+		: base(deviceEndpoint, deviceRepository, featureId, enableKey, isEnabledDefault)
+	{
+	}
+
+	public override T GetValue<T>(string effectId)
+	{
+		if ("BassMgmtSubwooferGainId".Equals(effectId))
+		{
+			IEffectParameter effectParameter = GetEffectParameter(effectId);
+			if (effectParameter is ByValueEffectParameter<T>)
+			{
+				ByValueEffectParameter<T> byValueEffectParameter = GetEffectParameter(effectId) as ByValueEffectParameter<T>;
+				return byValueEffectParameter.GetValue();
+			}
+		}
+		return base.GetValue<T>(effectId);
+	}
+
+	public override void SetValue<T>(T newValue, string effectId)
+	{
+		if ("BassMgmtSubwooferGainId".Equals(effectId))
+		{
+			IEffectParameter effectParameter = GetEffectParameter(effectId);
+			if (effectParameter is ByValueEffectParameter<T>)
+			{
+				ByValueEffectParameter<T> byValueEffectParameter = effectParameter as ByValueEffectParameter<T>;
+				byValueEffectParameter.SetValue(newValue);
+			}
+		}
+		else
+		{
+			base.SetValue(newValue, effectId);
+		}
+	}
+}

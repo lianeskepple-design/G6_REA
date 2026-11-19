@@ -1,0 +1,32 @@
+{
+  "python": "3.12.10",
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "sounddevice": "0.5.6",
+    "soundfile": "0.14.0",
+    "matplotlib": "3.11.2",
+    "dnfile": "0.18.0"
+  },
+  "checks": {
+    "wav_roundtrip": true,
+    "scipy_filter": true,
+    "plot_render": true,
+    "portaudio_hostapis": [
+      "MME",
+      "Windows DirectSound",
+      "Windows WASAPI",
+      "Windows WDM-KS"
+    ]
+  },
+  "capture": {
+    "wireshark": "4.6.9",
+    "usbpcap": "1.5.4.0",
+    "driver_state": "Stopped",
+    "capture_interfaces_verified": false
+  },
+  "decompiler": {
+    "ILSpy": "11.2.0.10050",
+    "ilspycmd": "9.1.0.7988"
+  }
+}

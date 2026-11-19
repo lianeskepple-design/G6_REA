@@ -1,0 +1,358 @@
+{
+  "date": "2026-11-12",
+  "presets": 34,
+  "mode_curves": 68,
+  "factory_csv_rows": 68,
+  "response_csv_rows": 69632,
+  "pdf_pages": 34,
+  "rust_binary_sha256": "dce6fd5df6bd741b2be2a08dbd1463aaa8245a22971198cf18cfddf96140b58a",
+  "impulse_frames": 131072,
+  "sample_rate": 48000,
+  "max_rust_fft_response_error_db": 6.405480164062283e-07,
+  "browser_math_cases": 2448,
+  "max_browser_vs_scipy_error_db": 3.0820679342014046e-10,
+  "checks": [
+    {
+      "preset": "Acoustic",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 3.34048538497278e-07
+    },
+    {
+      "preset": "Acoustic",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 3.34048538497278e-07
+    },
+    {
+      "preset": "Music",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 2.961528577927197e-07
+    },
+    {
+      "preset": "Music",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 2.961528577927197e-07
+    },
+    {
+      "preset": "Classical",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 1.7388001616325255e-07
+    },
+    {
+      "preset": "Classical",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 1.7388001616325255e-07
+    },
+    {
+      "preset": "Movie",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 1.0181638820938588e-07
+    },
+    {
+      "preset": "Movie",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 1.0181638820938588e-07
+    },
+    {
+      "preset": "Country",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 3.600483815700481e-07
+    },
+    {
+      "preset": "Country",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 3.600483815700481e-07
+    },
+    {
+      "preset": "FootstepEnhancer",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 2.6162859079192913e-07
+    },
+    {
+      "preset": "FootstepEnhancer",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 2.6162859079192913e-07
+    },
+    {
+      "preset": "Dance",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 1.9387691436306698e-07
+    },
+    {
+      "preset": "Dance",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 1.9387691436306698e-07
+    },
+    {
+      "preset": "Flat",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "Flat",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "HipHop",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 3.8090191845085997e-07
+    },
+    {
+      "preset": "HipHop",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 3.8090191845085997e-07
+    },
+    {
+      "preset": "Jazz",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 1.9659500005708708e-07
+    },
+    {
+      "preset": "Jazz",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 1.9659500005708708e-07
+    },
+    {
+      "preset": "Pop",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 3.105427122326865e-07
+    },
+    {
+      "preset": "Pop",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 3.105427122326865e-07
+    },
+    {
+      "preset": "RnB",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 6.588960843600944e-08
+    },
+    {
+      "preset": "RnB",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 6.588960843600944e-08
+    },
+    {
+      "preset": "Rock",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 2.600124431317852e-07
+    },
+    {
+      "preset": "Rock",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 2.600124431317852e-07
+    },
+    {
+      "preset": "Vocal",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 3.215563484371131e-07
+    },
+    {
+      "preset": "Vocal",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 3.215563484371131e-07
+    },
+    {
+      "preset": "Gaming",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "Gaming",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "AdventureAndAction",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "AdventureAndAction",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 5.143813726071755e-07
+    },
+    {
+      "preset": "ApexLegend",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "ApexLegend",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 1.3533545062394126e-07
+    },
+    {
+      "preset": "ArenaOfValor",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "ArenaOfValor",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 2.0893169905278342e-07
+    },
+    {
+      "preset": "CallofDutySeries",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "CallofDutySeries",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 4.363665659923299e-07
+    },
+    {
+      "preset": "CounterStrikeGlobalOffensive",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "CounterStrikeGlobalOffensive",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 2.6131501229542664e-07
+    },
+    {
+      "preset": "Dota2",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "Dota2",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 1.333988299823119e-07
+    },
+    {
+      "preset": "DrivingSimulation",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "DrivingSimulation",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 5.147958939133446e-07
+    },
+    {
+      "preset": "Fortnite",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 4.4012446132057903e-07
+    },
+    {
+      "preset": "Fortnite",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 3.1232132258196543e-07
+    },
+    {
+      "preset": "FPS",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "FPS",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 2.634011169178052e-07
+    },
+    {
+      "preset": "LeagueOfLegends",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "LeagueOfLegends",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 1.9609837487166715e-07
+    },
+    {
+      "preset": "MetalGearSolidVThePhantomPain",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "MetalGearSolidVThePhantomPain",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 1.4099746148410475e-07
+    },
+    {
+      "preset": "Overwatch",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "Overwatch",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 3.131587598126373e-07
+    },
+    {
+      "preset": "PlayerUnknown",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "PlayerUnknown",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 6.405480164062283e-07
+    },
+    {
+      "preset": "ProjectCars",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "ProjectCars",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 2.6437545080915115e-07
+    },
+    {
+      "preset": "RealTimeStrategy",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "RealTimeStrategy",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 1.922406331900106e-07
+    },
+    {
+      "preset": "RocketLeague",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "RocketLeague",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 2.6912460304728825e-07
+    },
+    {
+      "preset": "RPG",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "RPG",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "Stadium",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "Stadium",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 2.6187434087887596e-07
+    },
+    {
+      "preset": "TheWitcher3WildHunt",
+      "mode": "Speaker",
+      "max_abs_response_error_db": 0.0
+    },
+    {
+      "preset": "TheWitcher3WildHunt",
+      "mode": "Headphone",
+      "max_abs_response_error_db": 1.4374069945422008e-07
+    }
+  ],
+  "result": "PASS",
+  "boundary": "Validates current software EQ frequency responses only; no sound card measurement."
+}

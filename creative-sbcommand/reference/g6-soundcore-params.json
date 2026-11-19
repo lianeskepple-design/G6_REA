@@ -1,0 +1,308 @@
+{
+  "source": {
+    "assembly": "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll",
+    "type": "CTSoundCore parameter enums"
+  },
+  "enums": {
+    "_etParamCMSS3D": [
+      {
+        "name": "eParamCMSS3D_Enable",
+        "value": 0
+      },
+      {
+        "name": "eParamCMSS3D_Immersionlevel",
+        "value": 1
+      },
+      {
+        "name": "eParamCMSS3D_ImmersionMode",
+        "value": 2
+      }
+    ],
+    "_etParamCrystalizer": [
+      {
+        "name": "eParamCrystalizer_Enable",
+        "value": 0
+      },
+      {
+        "name": "eParamCrystalizer_Level",
+        "value": 1
+      }
+    ],
+    "_etParamCustomEQ": [
+      {
+        "name": "eParamCustomEQ_Enable",
+        "value": 0
+      },
+      {
+        "name": "eParamCustomEQ_PreampGain",
+        "value": 1
+      },
+      {
+        "name": "eParamCustomEQ_Band0_Gain",
+        "value": 2
+      },
+      {
+        "name": "eParamCustomEQ_Band1_Gain",
+        "value": 3
+      },
+      {
+        "name": "eParamCustomEQ_Band2_Gain",
+        "value": 4
+      },
+      {
+        "name": "eParamCustomEQ_Band3_Gain",
+        "value": 5
+      },
+      {
+        "name": "eParamCustomEQ_Band4_Gain",
+        "value": 6
+      },
+      {
+        "name": "eParamCustomEQ_Band5_Gain",
+        "value": 7
+      },
+      {
+        "name": "eParamCustomEQ_Band6_Gain",
+        "value": 8
+      },
+      {
+        "name": "eParamCustomEQ_Band7_Gain",
+        "value": 9
+      },
+      {
+        "name": "eParamCustomEQ_Band8_Gain",
+        "value": 10
+      },
+      {
+        "name": "eParamCustomEQ_Band9_Gain",
+        "value": 11
+      },
+      {
+        "name": "eParamCustomEQ_MultibandBassLevel",
+        "value": 64
+      },
+      {
+        "name": "eParamCustomEQ_MultibandTrebleLevel",
+        "value": 65
+      },
+      {
+        "name": "eParamCustomEQ_EnumMultibandPreset",
+        "value": 256
+      },
+      {
+        "name": "eParamCustomEQ_EnumAllMultibandPresets",
+        "value": 257
+      },
+      {
+        "name": "eParamCustomEQ_ActiveMultibandPreset",
+        "value": 258
+      },
+      {
+        "name": "eParamCustomEQ_SaveMultibandPreset",
+        "value": 259
+      },
+      {
+        "name": "eParamCustomEQ_RemoveMultibandPreset",
+        "value": 260
+      },
+      {
+        "name": "eParamCustomEQ_EnumVoicingPreset",
+        "value": 512
+      },
+      {
+        "name": "eParamCustomEQ_EnumAllVoicingPresets",
+        "value": 513
+      },
+      {
+        "name": "eParamCustomEQ_ActiveVoicingPreset",
+        "value": 514
+      }
+    ],
+    "_etParamDialogPlus": [
+      {
+        "name": "eParamDialogPlus_Enable",
+        "value": 0
+      },
+      {
+        "name": "eParamDialogPlus_Strength",
+        "value": 1
+      },
+      {
+        "name": "eParamDialogPlus_Mode",
+        "value": 2
+      }
+    ],
+    "_etParamEfxMasterControl": [
+      {
+        "name": "eParamEfxMasterControl_THXMasterOnOff_Features",
+        "value": 0
+      },
+      {
+        "name": "eParamEfxMasterControl_THXMasterOnOff_FeaturesLastState",
+        "value": 1
+      },
+      {
+        "name": "eParamEfxMasterControl_THXMasterOnOff",
+        "value": 2
+      },
+      {
+        "name": "eParamEfxMasterControl_VIPMasterOnOff_Features",
+        "value": 3
+      },
+      {
+        "name": "eParamEfxMasterControl_VIPMasterOnOff_FeaturesLastState",
+        "value": 4
+      },
+      {
+        "name": "eParamEfxMasterControl_VIPMasterOnOff",
+        "value": 5
+      },
+      {
+        "name": "eParamEfxMasterControl_SCOUTModeMasterOnOff",
+        "value": 6
+      },
+      {
+        "name": "eParamEfxMasterControl_SBXMasterOnOff",
+        "value": 7
+      },
+      {
+        "name": "eParamEfxMasterControl_SBXMasterOnOff_Features",
+        "value": 8
+      },
+      {
+        "name": "eParamEfxMasterControl_SBXMasterOnOff_FeaturesLastState",
+        "value": 9
+      }
+    ],
+    "_etParamGraphicEQ": [
+      {
+        "name": "eParamGraphicEQ_Enable",
+        "value": 0
+      },
+      {
+        "name": "eParamGraphicEQ_PreampGain",
+        "value": 1
+      },
+      {
+        "name": "eParamGraphicEQ_Band0_Gain",
+        "value": 2
+      },
+      {
+        "name": "eParamGraphicEQ_Band1_Gain",
+        "value": 3
+      },
+      {
+        "name": "eParamGraphicEQ_Band2_Gain",
+        "value": 4
+      },
+      {
+        "name": "eParamGraphicEQ_Band3_Gain",
+        "value": 5
+      },
+      {
+        "name": "eParamGraphicEQ_Band4_Gain",
+        "value": 6
+      },
+      {
+        "name": "eParamGraphicEQ_Band5_Gain",
+        "value": 7
+      },
+      {
+        "name": "eParamGraphicEQ_Band6_Gain",
+        "value": 8
+      },
+      {
+        "name": "eParamGraphicEQ_Band7_Gain",
+        "value": 9
+      },
+      {
+        "name": "eParamGraphicEQ_Band8_Gain",
+        "value": 10
+      },
+      {
+        "name": "eParamGraphicEQ_Band9_Gain",
+        "value": 11
+      },
+      {
+        "name": "eParamGraphicEQ_BassLevel",
+        "value": 64
+      },
+      {
+        "name": "eParamGraphicEQ_TrebleLevel",
+        "value": 65
+      },
+      {
+        "name": "eParamGraphicEQ_EnumPreset",
+        "value": 256
+      },
+      {
+        "name": "eParamGraphicEQ_EnumAllPresets",
+        "value": 257
+      },
+      {
+        "name": "eParamGraphicEQ_ActivePreset",
+        "value": 258
+      },
+      {
+        "name": "eParamGraphicEQ_SavePreset",
+        "value": 259
+      },
+      {
+        "name": "eParamGraphicEQ_RemovePreset",
+        "value": 260
+      }
+    ],
+    "_etParamSimpleSurround": [
+      {
+        "name": "eParamSimpleSurround_Enable",
+        "value": 0
+      },
+      {
+        "name": "eParamSimpleSurround_Level",
+        "value": 1
+      }
+    ],
+    "_etParamSmartVolume": [
+      {
+        "name": "eParamSmartVolume_Enable",
+        "value": 0
+      },
+      {
+        "name": "eParamSmartVolume_Strength",
+        "value": 1
+      },
+      {
+        "name": "eParamSmartVolume_Mode",
+        "value": 2
+      },
+      {
+        "name": "eParamSmartVolume_PlusMode",
+        "value": 3
+      }
+    ],
+    "_etParamSurroundType": [
+      {
+        "name": "eParamSurroundType_Active",
+        "value": 0
+      }
+    ],
+    "_etParamXBass": [
+      {
+        "name": "eParamXBass_Enable",
+        "value": 0
+      },
+      {
+        "name": "eParamXBass_Strength",
+        "value": 1
+      },
+      {
+        "name": "eParamXBass_Freq_Hz",
+        "value": 2
+      }
+    ]
+  },
+  "usb_parameter_ids": {
+    "status": "unverified",
+    "note": "These are per-feature SoundCore offsets. The `5a 11` id namespace is device-side and still requires the online single-band capture."
+  }
+}

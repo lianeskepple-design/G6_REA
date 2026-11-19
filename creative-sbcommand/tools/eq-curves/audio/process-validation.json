@@ -1,0 +1,68 @@
+{
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "Windows process-loopback build support",
+      "passed": true,
+      "build": 26300
+    },
+    {
+      "name": "helper capability probe is available",
+      "passed": true
+    },
+    {
+      "name": "generic process list includes own background target",
+      "passed": true
+    },
+    {
+      "name": "nonlocal Host rejected",
+      "passed": true
+    },
+    {
+      "name": "invalid token rejected before launch",
+      "passed": true
+    },
+    {
+      "name": "foreign Origin rejected before launch",
+      "passed": true
+    },
+    {
+      "name": "WebSocket HTTP/1.1 upgrade",
+      "passed": true
+    },
+    {
+      "name": "real native activation ready",
+      "passed": true,
+      "rate": 48000
+    },
+    {
+      "name": "real PCM throughput and complete stereo frames",
+      "passed": true,
+      "bytes": 522240,
+      "seconds": 1.312000000005355,
+      "bytes_per_second": 398048.7804861802
+    },
+    {
+      "name": "fragmented client ping parsed without corruption",
+      "passed": true
+    },
+    {
+      "name": "client close stops helper without stopping target",
+      "passed": true
+    },
+    {
+      "name": "idle fixture ready",
+      "passed": true
+    },
+    {
+      "name": "no-packet interval does not abort capture",
+      "passed": true
+    },
+    {
+      "name": "close works even when stdout has no PCM",
+      "passed": true
+    }
+  ],
+  "scope": "Only a task-created silent Python target and a temporary no-audio fixture; no existing user application was captured.",
+  "passed_checks": 14
+}

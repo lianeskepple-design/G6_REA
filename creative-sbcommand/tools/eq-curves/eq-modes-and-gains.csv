@@ -1,0 +1,69 @@
+﻿preset_id,中文整理名,分类,output_mode,原厂Type,Order,preamp_db,gain_31Hz_db,gain_62Hz_db,gain_125Hz_db,gain_250Hz_db,gain_500Hz_db,gain_1000Hz_db,gain_2000Hz_db,gain_4000Hz_db,gain_8000Hz_db,gain_16000Hz_db
+Acoustic,原声,音乐风格,Speaker,0,10,0.0,0,0,2,0,0,2.5,2,2,2,3
+Acoustic,原声,音乐风格,Headphone,0,10,0.0,0,0,2,0,0,2.5,2,2,2,3
+Music,音乐,通用与增强,Speaker,3,10,0.0,3,2,0,-2,0,1,2,3,3,3.5
+Music,音乐,通用与增强,Headphone,3,10,0.0,3,2,0,-2,0,1,2,3,3,3.5
+Classical,古典,音乐风格,Speaker,0,20,0.0,0,0,1.5,2,1,3,1,0,3,3
+Classical,古典,音乐风格,Headphone,0,20,0.0,0,0,1.5,2,1,3,1,0,3,3
+Movie,电影,通用与增强,Speaker,3,20,0.0,4,3,-2,-2,2,2,1,0,1,2
+Movie,电影,通用与增强,Headphone,3,20,0.0,4,3,-2,-2,2,2,1,0,1,2
+Country,乡村,音乐风格,Speaker,0,30,0.0,0,0,0,0,2,2.5,2.5,2,3,3
+Country,乡村,音乐风格,Headphone,0,30,0.0,0,0,0,0,2,2.5,2.5,2,3,3
+FootstepEnhancer,脚步增强,通用与增强,Speaker,3,30,0.0,2,-4,-5,-3,-5,-3,4,5,-4,-4
+FootstepEnhancer,脚步增强,通用与增强,Headphone,3,30,0.0,2,-4,-5,-3,-5,-3,4,5,-4,-4
+Dance,舞曲,音乐风格,Speaker,0,40,0.0,0,0,1,1.5,0.5,1.5,2,1,2.5,2.5
+Dance,舞曲,音乐风格,Headphone,0,40,0.0,0,0,1,1.5,0.5,1.5,2,1,2.5,2.5
+Flat,平直,通用与增强,Speaker,0,50,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Flat,平直,通用与增强,Headphone,0,50,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+HipHop,嘻哈,音乐风格,Speaker,0,60,0.0,0,0,2,2.5,1.5,2.5,0,-2.5,-1,-1.5
+HipHop,嘻哈,音乐风格,Headphone,0,60,0.0,0,0,2,2.5,1.5,2.5,0,-2.5,-1,-1.5
+Jazz,爵士,音乐风格,Speaker,0,70,0.0,0,0,0,2.5,2.5,3,1,1,3,3
+Jazz,爵士,音乐风格,Headphone,0,70,0.0,0,0,0,2.5,2.5,3,1,1,3,3
+Pop,流行,音乐风格,Speaker,0,80,0.0,0,0,1,1,0,2.5,0.5,0.5,3,3
+Pop,流行,音乐风格,Headphone,0,80,0.0,0,0,1,1,0,2.5,0.5,0.5,3,3
+RnB,R&B,音乐风格,Speaker,0,90,0.0,0,0,0,-1.5,2.5,1.5,2,0,2,1
+RnB,R&B,音乐风格,Headphone,0,90,0.0,0,0,0,-1.5,2.5,1.5,2,0,2,1
+Rock,摇滚,音乐风格,Speaker,0,100,0.0,0,0,2,1,0,3,1,-1,3,3
+Rock,摇滚,音乐风格,Headphone,0,100,0.0,0,0,2,1,0,3,1,-1,3,3
+Vocal,人声,音乐风格,Speaker,0,110,0.0,0,0,-1.5,-0.5,3,3,3,0,0,1
+Vocal,人声,音乐风格,Headphone,0,110,0.0,0,0,-1.5,-0.5,3,3,3,0,0,1
+Gaming,游戏通用,游戏与场景,Speaker,0,120,0.0,0,0,0,0,0,0,0,0,0,0
+Gaming,游戏通用,游戏与场景,Headphone,0,120,0.0,0,0,0,0,0,0,0,0,0,0
+AdventureAndAction,动作与冒险,游戏与场景,Speaker,0,150,0.0,0,0,0,0,0,0,0,0,0,0
+AdventureAndAction,动作与冒险,游戏与场景,Headphone,0,150,0.0,4,4,-1,-2,0,0,3,0,0,0
+ApexLegend,Apex 英雄,游戏与场景,Speaker,0,151,0.0,0,0,0,0,0,0,0,0,0,0
+ApexLegend,Apex 英雄,游戏与场景,Headphone,0,151,0.0,2,3,-1,0,-2,0,2,-3,2,0
+ArenaOfValor,传说对决,游戏与场景,Speaker,0,155,0.0,0,0,0,0,0,0,0,0,0,0
+ArenaOfValor,传说对决,游戏与场景,Headphone,0,155,0.0,2,2,2,-2,-2,2,2,-3,2,0
+CallofDutySeries,使命召唤系列,游戏与场景,Speaker,0,160,0.0,0,0,0,0,0,0,0,0,0,0
+CallofDutySeries,使命召唤系列,游戏与场景,Headphone,0,160,0.0,0,3,-3,-3,-2,-2,2,0,0,0
+CounterStrikeGlobalOffensive,CS:GO,游戏与场景,Speaker,0,170,0.0,0,0,0,0,0,0,0,0,0,0
+CounterStrikeGlobalOffensive,CS:GO,游戏与场景,Headphone,0,170,0.0,-5,3,-3,-3,-2,-2,2,0,0,3
+Dota2,Dota 2,游戏与场景,Speaker,0,180,0.0,0,0,0,0,0,0,0,0,0,0
+Dota2,Dota 2,游戏与场景,Headphone,0,180,0.0,-5,0,-3,-4,-5,-1,-3,-2,-3,-1
+DrivingSimulation,驾驶模拟,游戏与场景,Speaker,0,190,0.0,0,0,0,0,0,0,0,0,0,0
+DrivingSimulation,驾驶模拟,游戏与场景,Headphone,0,190,0.0,4,4,2,2,-2,-2,2,0,2,0
+Fortnite,堡垒之夜,游戏与场景,Speaker,0,195,0.0,0,2,-2,-2,0,0,3,-2,2,0
+Fortnite,堡垒之夜,游戏与场景,Headphone,0,195,0.0,2,2,-2,-2,0,0,2,-2,0,0
+FPS,第一人称射击,游戏与场景,Speaker,0,200,0.0,0,0,0,0,0,0,0,0,0,0
+FPS,第一人称射击,游戏与场景,Headphone,0,200,0.0,4,3,0,0,0,-2,-2,0,0,2
+LeagueOfLegends,英雄联盟,游戏与场景,Speaker,0,210,0.0,0,0,0,0,0,0,0,0,0,0
+LeagueOfLegends,英雄联盟,游戏与场景,Headphone,0,210,0.0,-3,0,-3,-4,-5,-1,-3,-2,2,0
+MetalGearSolidVThePhantomPain,合金装备 V：幻痛,游戏与场景,Speaker,0,220,0.0,0,0,0,0,0,0,0,0,0,0
+MetalGearSolidVThePhantomPain,合金装备 V：幻痛,游戏与场景,Headphone,0,220,0.0,2,2,-2,1,1,1,2,-1,-1,0
+Overwatch,守望先锋,游戏与场景,Speaker,0,224,0.0,0,0,0,0,0,0,0,0,0,0
+Overwatch,守望先锋,游戏与场景,Headphone,0,224,0.0,2,2.5,1.5,-1.5,1.5,2,2,-3.5,1.5,2
+PlayerUnknown,PUBG / 绝地求生,游戏与场景,Speaker,0,227,0.0,0,0,0,0,0,0,0,0,0,0
+PlayerUnknown,PUBG / 绝地求生,游戏与场景,Headphone,0,227,0.0,0,3,-4,-4,0,2,2,0,2,0
+ProjectCars,赛车计划,游戏与场景,Speaker,0,230,0.0,0,0,0,0,0,0,0,0,0,0
+ProjectCars,赛车计划,游戏与场景,Headphone,0,230,0.0,0,3,0,2,2,0,2,0,-1,-1
+RealTimeStrategy,即时战略,游戏与场景,Speaker,0,240,0.0,0,0,0,0,0,0,0,0,0,0
+RealTimeStrategy,即时战略,游戏与场景,Headphone,0,240,0.0,0,-2,-3,0,-2,2,0,-3,-1,0
+RocketLeague,火箭联盟,游戏与场景,Speaker,0,250,0.0,0,0,0,0,0,0,0,0,0,0
+RocketLeague,火箭联盟,游戏与场景,Headphone,0,250,0.0,3,3,-2,2,2,0,2,0,-2,0
+RPG,角色扮演,游戏与场景,Speaker,0,255,0.0,0,0,0,0,0,0,0,0,0,0
+RPG,角色扮演,游戏与场景,Headphone,0,255,0.0,0,0,0,0,0,0,0,0,0,0
+Stadium,体育场,游戏与场景,Speaker,0,260,0.0,0,0,0,0,0,0,0,0,0,0
+Stadium,体育场,游戏与场景,Headphone,0,260,0.0,0,0,-3,2,3,3,2,-2,3,0
+TheWitcher3WildHunt,巫师 3：狂猎,游戏与场景,Speaker,0,270,0.0,0,0,0,0,0,0,0,0,0,0
+TheWitcher3WildHunt,巫师 3：狂猎,游戏与场景,Headphone,0,270,0.0,3,4,-2,0,0,2,2,0,-2,0

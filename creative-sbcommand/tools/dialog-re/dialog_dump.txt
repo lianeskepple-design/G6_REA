@@ -1,0 +1,413 @@
+INFO  Using log config file: jar:file:/D:/tools/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (1169 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (2718 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    D:\tmp_ghidra_dialog\scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating project: D:\tmp_ghidra_dialog\DialogProj (HeadlessAnalyzer)  
+INFO  Creating project: D:\tmp_ghidra_dialog\DialogProj (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: D:\tmp_ghidra_dialog\DialogProj (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///C:/Windows/System32/KSUSBAPO64.dll (HeadlessAnalyzer)  
+INFO  Using Loader: Portable Executable (PE) (ProgramLoader)  
+INFO  Using Language/Compiler: x86:LE:64:default:windows (ProgramLoader)  
+INFO  Using Library Search Path: [., C:\WINDOWS\SysWOW64, C:\Program Files\Microsoft\jdk-21.0.12.101-hotspot\bin, C:\WINDOWS\Sun\Java\bin, C:\WINDOWS\system32, C:\WINDOWS, C:\Users\Administrator\.local\bin, C:\Users\Administrator\bin, C:\Program Files\Git\mingw64\bin, C:\Program Files\Git\usr\local\bin, C:\Program Files\Git\usr\bin, C:\Program Files (x86)\VMware\VMware Workstation\bin, C:\Ruby33-x64\bin, C:\WINDOWS\System32\Wbem, C:\WINDOWS\System32\WindowsPowerShell\v1.0, C:\Program Files\dotnet, C:\Program Files\Git\cmd, C:\Program Files\nodejs, C:\Program Files\Bandizip, C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn, C:\Program Files\Microsoft SQL Server\160\Tools\Binn, C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn, C:\Program Files\Microsoft SQL Server\160\DTS\Binn, C:\WINDOWS\System32\OpenSSH, C:\Program Files\WSL, C:\Program Files\PowerShell\7, C:\Users\Administrator\.cargo\bin, C:\Users\Administrator\AppData\Local\omp-studio\omp\bin, C:\Program Files (x86)\Arm GNU Toolchain arm-none-eabi\14.2 rel1\bin, C:\Users\Administrator\AppData\Local\Programs\orca\resources\bin, C:\Users\Administrator\AppData\Roaming\kero\bin, C:\Users\Administrator\AppData\Roaming\npm, C:\Users\Administrator\AppData\Local\Programs\herdr-app, C:\Users\Administrator\AppData\Local\Programs\herdr-core, C:\Users\Administrator\AppData\Local\omp, C:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code\bin, C:\Users\Administrator\AppData\Local\Alma\bin, C:\Users\Administrator\AppData\Local\Programs\Cua\cua-driver\bin, C:\Users\Administrator\AppData\Local\GitHubDesktop\bin, C:\Users\Administrator\.pane\bin, C:\Users\Administrator\AppData\Local\Programs\ZCode\resources\tools\ripgrep, C:\Users\Administrator\AppData\Local\Programs\ZCode\resources\tools\ugrep, C:\Program Files\Git\usr\bin\vendor_perl, C:\Program Files\Git\usr\bin\core_perl] (ProgramLoader)  
+INFO  TLS callbacks at 1800e48a8 (TLSDirectory)  
+INFO  TLS callbacks at 1800af9d8 (TLSDirectory)  
+WARN  Invalid or missing function at 1800c3808 (ExportDataDirectory)  
+INFO  TLS callbacks at 180647f08 (TLSDirectory)  
+WARN  Invalid or missing function at 18073165c (ExportDataDirectory)  
+INFO  TLS callbacks at 180040e80 (TLSDirectory)  
+WARN  Invalid or missing function at 1800d5a7c (ExportDataDirectory)  
+INFO  Additional info:
+Loading file:///C:/Windows/System32/KSUSBAPO64.dll?MD5=62e80aeedded9eeb9bfcc5f5bb52b2d7...
+------------------------------------------------
+
+Searching 41 paths for library ADVAPI32.DLL...
+Loading file:///C:/Windows/System32/advapi32.dll?MD5=c873ef8fdf02248e9a023dda81c9330b...
+Using existing exports file: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\advapi32.exports
+WARNING: Existing exports file may not be an exact match.
+Library not saved to project.
+------------------------------------------------
+
+Searching 41 paths for library IPHLPAPI.DLL...
+Loading file:///C:/Windows/System32/IPHLPAPI.DLL?MD5=83dec801c76510408b01f09eb80d7590...
+Using existing exports file: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\iphlpapi.exports
+WARNING: Existing exports file may not be an exact match.
+Library not saved to project.
+------------------------------------------------
+
+Searching 41 paths for library KERNEL32.DLL...
+Loading file:///C:/Windows/System32/kernel32.dll?MD5=a87115f2b32e0bdca676b0c029bf125e...
+Using existing exports file: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\kernel32.exports
+WARNING: Existing exports file may not be an exact match.
+Library not saved to project.
+------------------------------------------------
+
+Searching 41 paths for library OLE32.DLL...
+Loading file:///C:/Windows/System32/ole32.dll?MD5=6e583c8528c48b05be49e08c32b845bf...
+[ole32.dll]: failed to create WEVTResource at 180183740: Failed to resolve data length for WEVTResource
+Using existing exports file: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\ole32.exports
+WARNING: Existing exports file may not be an exact match.
+Library not saved to project.
+------------------------------------------------
+
+Searching 41 paths for library OLEAUT32.DLL...
+Loading file:///C:/Windows/System32/oleaut32.dll?MD5=9f2993e32c0738800bd40c07aa07cb0a...
+Using existing exports file: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\oleaut32.exports
+Library not saved to project.
+------------------------------------------------
+
+Searching 41 paths for library SETUPAPI.DLL...
+Loading file:///C:/Windows/System32/setupapi.dll?MD5=b5fbea668c69f2acfad110b674bb110b...
+[setupapi.dll]: failed to create WEVTResource at 18047fe28: Failed to resolve data length for WEVTResource
+Using existing exports file: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\setupapi.exports
+Library not saved to project.
+------------------------------------------------
+
+Searching 41 paths for library SHELL32.DLL...
+Loading file:///C:/Windows/System32/shell32.dll?MD5=784a002193b2b2a5641e9590fce95a60...
+Using existing exports file: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\shell32.exports
+WARNING: Existing exports file may not be an exact match.
+Library not saved to project.
+------------------------------------------------
+
+Searching 41 paths for library SHLWAPI.DLL...
+Loading file:///C:/Windows/System32/shlwapi.dll?MD5=e7fd7900bd168e6a1f30f7342b93684f...
+Using existing exports file: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\shlwapi.exports
+WARNING: Existing exports file may not be an exact match.
+Library not saved to project.
+------------------------------------------------
+
+Searching 41 paths for library USER32.DLL...
+Loading file:///C:/Windows/System32/user32.dll?MD5=aeb97bef7364da6131d5dffdc65ab4c4...
+[user32.dll]: failed to create WEVTResource at 1800f6a70: Failed to resolve data length for WEVTResource
+Using existing exports file: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\user32.exports
+WARNING: Existing exports file may not be an exact match.
+Library not saved to project.
+------------------------------------------------
+
+Applying C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\kernel32.exports
+Applying C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\ole32.exports
+Applying C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\oleaut32.exports
+Applying C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\advapi32.exports
+Applying C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\user32.exports
+Applying C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\setupapi.exports
+Applying C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\shlwapi.exports
+Applying C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\shell32.exports
+Applying C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win64\iphlpapi.exports
+Linking the External Programs of 'KSUSBAPO64.dll' to imported libraries...
+  [KERNEL32.DLL] -> not found in project
+  [OLE32.DLL] -> not found in project
+  [OLEAUT32.DLL] -> not found in project
+  [ADVAPI32.DLL] -> not found in project
+  [USER32.DLL] -> not found in project
+  [SETUPAPI.DLL] -> not found in project
+  [SHLWAPI.DLL] -> not found in project
+  [SHELL32.DLL] -> not found in project
+  [IPHLPAPI.DLL] -> not found in project
+------------------------------------------------
+
+ (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  ANALYZING all memory and code: file:///C:/Windows/System32/KSUSBAPO64.dll (HeadlessAnalyzer)  
+WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\data\PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  
+WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\data\PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  
+INFO  Skipping PDB processing: failed to locate PDB file in configured locations (PdbUniversalAnalyzer)  
+INFO  Use a script to set the PDB file location. I.e.,
+    PdbAnalyzer.setPdbFileOption(currentProgram, new File("/path/to/pdb/file.pdb")); or
+    PdbUniversalAnalyzer.setPdbFileOption(currentProgram, new File("/path/to/pdb/file.pdb"));
+Or set the symbol server search configuration using:    PdbPlugin.saveSymbolServerServiceConfig(...);
+ This must be done using a pre-script (prior to analysis). (PdbUniversalAnalyzer)  
+INFO  Packed database cache: C:\Users\Administrator\AppData\Local\ghidra\packed-db-cache (PackedDatabaseCache)  
+INFO  Applied data type archive: windows_vs12_64 (ApplyDataArchiveAnalyzer)  
+INFO  Applied data type archive: windows_vs12_64 (ApplyDataArchiveAnalyzer)  
+ERROR Could not create Data at address 18016c52b (DemangledVariable)  
+ERROR Could not create Data at address 18016c557 (DemangledVariable)  
+INFO  -----------------------------------------------------
+    ASCII Strings                              0.751 secs
+    Apply Data Archives                        0.501 secs
+    Call Convention ID                         0.875 secs
+    Call-Fixup Installer                       0.056 secs
+    Create Address Tables                      0.492 secs
+    Create Address Tables - One Time           0.434 secs
+    Create Function                            0.094 secs
+    Data Reference                             0.875 secs
+    Decompiler Switch Analysis                57.264 secs
+    Demangler Microsoft                        0.182 secs
+    Disassemble Entry Points                   8.346 secs
+    Embedded Media                             0.048 secs
+    External Entry References                  0.000 secs
+    Function ID                                4.533 secs
+    Function Start Search                      0.073 secs
+    Non-Returning Functions - Discovered       0.942 secs
+    Non-Returning Functions - Known            0.014 secs
+    PDB Universal                              0.017 secs
+    Reference                                  0.541 secs
+    Scalar Operand References                  2.646 secs
+    Shared Return Calls                        0.533 secs
+    Stack                                     12.723 secs
+    Subroutine References                      0.401 secs
+    Subroutine References - One Time           0.025 secs
+    Windows x86 PE Exception Handling          3.137 secs
+    Windows x86 PE RTTI Analyzer              11.735 secs
+    Windows x86 Thread Environment Block (TEB) Analyzer     0.017 secs
+    WindowsResourceReference                   0.997 secs
+    x86 Constant Reference Analyzer           10.099 secs
+-----------------------------------------------------
+     Total Time   118 secs
+-----------------------------------------------------
+ (AutoAnalysisManager)  
+INFO  REPORT: Analysis succeeded for file: file:///C:/Windows/System32/KSUSBAPO64.dll (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: DumpC.java '0x180077b20' '0x180077860' '0x180077ee0' '0x1800d77e8'  (HeadlessAnalyzer)  
+INFO  SCRIPT: D:\tmp_ghidra_dialog\scripts\DumpC.java (HeadlessAnalyzer)  
+INFO  DumpC.java> ===== 0x180077b20 ===== (GhidraScript)  
+INFO  DumpC.java> FUNCTION FUN_180077b20 @ 180077b20 (GhidraScript)  
+INFO  DumpC.java> 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+ulonglong FUN_180077b20(undefined4 param_1,undefined8 param_2)
+
+{
+  ulonglong uVar1;
+  longlong in_RCX;
+  longlong *local_res18 [2];
+  
+  if ((DAT_180207c10 & 1) == 0) {
+    DAT_180207c10 = DAT_180207c10 | 1;
+    _DAT_180207b80 = DAT_18018dd68;
+    _DAT_180207b70 = _DAT_18018dd58;
+    uRam0000000180207b78 = _UNK_18018dd60;
+    _DAT_180207b94 = DAT_18018dd80;
+    _DAT_180207b84 = _DAT_18018dd70;
+    uRam0000000180207b8c = _UNK_18018dd78;
+    _DAT_180207ba8 = DAT_18018dd98;
+    _DAT_180207b98 = _DAT_18018dd88;
+    uRam0000000180207ba0 = _UNK_18018dd90;
+    _DAT_180207bbc = DAT_18018ddb0;
+    _DAT_180207bac = _DAT_18018dda0;
+    uRam0000000180207bb4 = _UNK_18018dda8;
+    _DAT_180207bd0 = DAT_18018ddc8;
+    _DAT_180207be4 = DAT_18018dde0;
+    _DAT_180207bc0 = _DAT_18018ddb8;
+    uRam0000000180207bc8 = _UNK_18018ddc0;
+    _DAT_180207bf8 = DAT_18018ddf8;
+    _DAT_180207bd4 = _DAT_18018ddd0;
+    uRam0000000180207bdc = _UNK_18018ddd8;
+    _DAT_180207c0c = DAT_18018de10;
+    _DAT_180207be8 = _DAT_18018dde8;
+    uRam0000000180207bf0 = _UNK_18018ddf0;
+    _DAT_180207bfc = _DAT_18018de00;
+    uRam0000000180207c00 = _UNK_18018de04;
+    uRam0000000180207c04 = _UNK_18018de08;
+    uRam0000000180207c08 = _UNK_18018de0c;
+    param_1 = _DAT_18018de00;
+  }
+  FUN_18000ed70(param_1,&DAT_180207b70,8);
+  uVar1 = FUN_18000e740(in_RCX,param_2);
+  if (-1 < (int)uVar1) {
+    local_res18[0] = *(longlong **)(in_RCX + 0x18);
+    if (local_res18[0] != (longlong *)0x0) {
+      (**(code **)(*local_res18[0] + 8))();
+    }
+    FUN_1800815c0(local_res18,&DAT_18018dd58,in_RCX + 0x84);
+    local_res18[0] = *(longlong **)(in_RCX + 0x18);
+    *(undefined4 *)(in_RCX + 0x80) = *(undefined4 *)(in_RCX + 0x84);
+    if (local_res18[0] != (longlong *)0x0) {
+      (**(code **)(*local_res18[0] + 8))();
+    }
+    FUN_180081710(local_res18,&DAT_18018dd70,in_RCX + 0xf8);
+    local_res18[0] = *(longlong **)(in_RCX + 0x18);
+    *(undefined4 *)(in_RCX + 0xf4) = *(undefined4 *)(in_RCX + 0xf8);
+    if (local_res18[0] != (longlong *)0x0) {
+      (**(code **)(*local_res18[0] + 8))();
+    }
+    FUN_180081710(local_res18,&DAT_18018dd88,in_RCX + 0x100);
+    local_res18[0] = *(longlong **)(in_RCX + 0x18);
+    *(undefined4 *)(in_RCX + 0xfc) = *(undefined4 *)(in_RCX + 0x100);
+    if (local_res18[0] != (longlong *)0x0) {
+      (**(code **)(*local_res18[0] + 8))();
+    }
+    FUN_180081710(local_res18,&DAT_18018dda0,in_RCX + 0x108);
+    local_res18[0] = *(longlong **)(in_RCX + 0x18);
+    *(undefined4 *)(in_RCX + 0x104) = *(undefined4 *)(in_RCX + 0x108);
+    if (local_res18[0] != (longlong *)0x0) {
+      (**(code **)(*local_res18[0] + 8))();
+    }
+    FUN_180081710(local_res18,&DAT_18018ddb8,in_RCX + 0x110);
+    local_res18[0] = *(longlong **)(in_RCX + 0x18);
+    *(undefined4 *)(in_RCX + 0x10c) = *(undefined4 *)(in_RCX + 0x110);
+    if (local_res18[0] != (longlong *)0x0) {
+      (**(code **)(*local_res18[0] + 8))();
+    }
+    FUN_180081710(local_res18,&DAT_18018ddd0,in_RCX + 0x118);
+    local_res18[0] = *(longlong **)(in_RCX + 0x18);
+    *(undefined4 *)(in_RCX + 0x114) = *(undefined4 *)(in_RCX + 0x118);
+    if (local_res18[0] != (longlong *)0x0) {
+      (**(code **)(*local_res18[0] + 8))();
+    }
+    FUN_180081710(local_res18,&DAT_18018dde8,in_RCX + 0x120);
+    local_res18[0] = *(longlong **)(in_RCX + 0x18);
+    *(undefined4 *)(in_RCX + 0x11c) = *(undefined4 *)(in_RCX + 0x120);
+    if (local_res18[0] != (longlong *)0x0) {
+      (**(code **)(*local_res18[0] + 8))();
+    }
+    FUN_180081710(local_res18,&DAT_18018de00,in_RCX + 0x128);
+    *(undefined4 *)(in_RCX + 0x124) = *(undefined4 *)(in_RCX + 0x128);
+    uVar1 = uVar1 & 0xffffffff;
+  }
+  return uVar1;
+}
+
+ (GhidraScript)  
+INFO  DumpC.java> ===== 0x180077860 ===== (GhidraScript)  
+INFO  DumpC.java> FUNCTION FUN_180077860 @ 180077860 (GhidraScript)  
+INFO  DumpC.java> 
+ulonglong FUN_180077860(longlong param_1,ulonglong param_2,longlong param_3)
+
+{
+  undefined8 *puVar1;
+  ulonglong uVar2;
+  longlong *plVar3;
+  undefined8 *puVar4;
+  longlong lVar5;
+  uint uVar6;
+  
+  if (*(longlong **)(param_1 + 8) == (longlong *)0x0) {
+    return 0x80004005;
+  }
+  uVar2 = (**(code **)(**(longlong **)(param_1 + 8) + 0x40))();
+  if ((-1 < (int)uVar2) && (*(int *)(param_1 + 0x80) != 0)) {
+    param_3 = param_3 - param_1;
+    lVar5 = 8;
+    puVar4 = (undefined8 *)(param_1 + 0x790);
+    do {
+      puVar1 = puVar4 + 1;
+      puVar4[-0x20] = *(undefined8 *)(param_3 + -0x5a8 + (longlong)puVar4);
+      *puVar4 = *(undefined8 *)(param_3 + -0x530 + (longlong)puVar1);
+      puVar4[8] = *(undefined8 *)(param_3 + -0x4f0 + (longlong)puVar1);
+      puVar4[0x10] = *(undefined8 *)(param_3 + -0x4b0 + (longlong)puVar1);
+      puVar4[-0x10] = *(undefined8 *)(param_3 + -0x5b0 + (longlong)puVar1);
+      puVar4[0x18] = *(undefined8 *)(param_3 + -0x530 + (longlong)puVar1);
+      puVar4[0x20] = *(undefined8 *)(param_3 + -0x4f0 + (longlong)puVar1);
+      puVar4[0x28] = *(undefined8 *)(param_3 + -0x4b0 + (longlong)puVar1);
+      lVar5 = lVar5 + -1;
+      puVar4 = puVar1;
+    } while (lVar5 != 0);
+    uVar6 = 0;
+    uVar2 = uVar2 & 0xffffffff;
+    if ((int)((param_2 & 0xffffffff) / (ulonglong)*(uint *)(param_1 + 0x5c)) != 0) {
+      do {
+        FUN_1800b3da0(param_1 + 0x130,param_1 + 0x690);
+        plVar3 = (longlong *)(param_1 + 0x790);
+        lVar5 = 8;
+        do {
+          if (plVar3[-0x20] != 0) {
+            plVar3[-0x20] = plVar3[-0x20] + (ulonglong)*(uint *)(param_1 + 0x5c) * 4;
+          }
+          if (*plVar3 != 0) {
+            *plVar3 = *plVar3 + (ulonglong)*(uint *)(param_1 + 0x5c) * 4;
+          }
+          if (plVar3[8] != 0) {
+            plVar3[8] = plVar3[8] + (ulonglong)*(uint *)(param_1 + 0x5c) * 4;
+          }
+          if (plVar3[0x10] != 0) {
+            plVar3[0x10] = plVar3[0x10] + (ulonglong)*(uint *)(param_1 + 0x5c) * 4;
+          }
+          if (plVar3[-0x10] != 0) {
+            plVar3[-0x10] = plVar3[-0x10] + (ulonglong)*(uint *)(param_1 + 0x5c) * 4;
+          }
+          if (plVar3[0x18] != 0) {
+            plVar3[0x18] = plVar3[0x18] + (ulonglong)*(uint *)(param_1 + 0x5c) * 4;
+          }
+          if (plVar3[0x20] != 0) {
+            plVar3[0x20] = plVar3[0x20] + (ulonglong)*(uint *)(param_1 + 0x5c) * 4;
+          }
+          if (plVar3[0x28] != 0) {
+            plVar3[0x28] = plVar3[0x28] + (ulonglong)*(uint *)(param_1 + 0x5c) * 4;
+          }
+          plVar3 = plVar3 + 1;
+          lVar5 = lVar5 + -1;
+        } while (lVar5 != 0);
+        uVar6 = uVar6 + 1;
+      } while (uVar6 < (uint)((param_2 & 0xffffffff) / (ulonglong)*(uint *)(param_1 + 0x5c)));
+    }
+  }
+  return uVar2;
+}
+
+ (GhidraScript)  
+INFO  DumpC.java> ===== 0x180077ee0 ===== (GhidraScript)  
+INFO  DumpC.java> FUNCTION FUN_180077ee0 @ 180077ee0 (GhidraScript)  
+INFO  DumpC.java> 
+undefined8 FUN_180077ee0(longlong param_1)
+
+{
+  if (*(int *)(param_1 + 0xf0) != 0) {
+    *(undefined4 *)(param_1 + 0x80) = *(undefined4 *)(param_1 + 0x84);
+    *(undefined4 *)(param_1 + 0xf4) = *(undefined4 *)(param_1 + 0xf8);
+    *(undefined4 *)(param_1 + 0xfc) = *(undefined4 *)(param_1 + 0x100);
+    *(undefined4 *)(param_1 + 0x104) = *(undefined4 *)(param_1 + 0x108);
+    *(undefined4 *)(param_1 + 0x10c) = *(undefined4 *)(param_1 + 0x110);
+    *(undefined4 *)(param_1 + 0x114) = *(undefined4 *)(param_1 + 0x118);
+    *(undefined4 *)(param_1 + 0x11c) = *(undefined4 *)(param_1 + 0x120);
+    *(undefined4 *)(param_1 + 0x124) = *(undefined4 *)(param_1 + 0x128);
+    FUN_180078210();
+  }
+  return 0;
+}
+
+ (GhidraScript)  
+INFO  DumpC.java> ===== 0x1800d77e8 ===== (GhidraScript)  
+INFO  DumpC.java> FUNCTION FUN_1800d77e8 @ 1800d77e8 (GhidraScript)  
+INFO  DumpC.java> 
+void FUN_1800d77e8(void)
+
+{
+  code *pcVar1;
+  
+  pcVar1 = DecodePointer(DAT_180208e70);
+  if (pcVar1 != (code *)0x0) {
+    (*pcVar1)();
+  }
+  FUN_1800e9370(0,1);
+                    /* WARNING: Subroutine does not return */
+  FUN_1800e938c();
+}
+
+ (GhidraScript)  
+INFO  ANALYZING changes made by post scripts: file:///C:/Windows/System32/KSUSBAPO64.dll (HeadlessAnalyzer)  
+INFO  REPORT: Post-analysis succeeded for file: file:///C:/Windows/System32/KSUSBAPO64.dll (HeadlessAnalyzer)  
+INFO  /KSUSBAPO64.dll: file created (Administrator) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /KSUSBAPO64.dll (DialogProj:/KSUSBAPO64.dll) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  

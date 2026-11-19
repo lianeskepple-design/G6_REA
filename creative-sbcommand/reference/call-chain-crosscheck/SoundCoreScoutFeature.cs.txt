@@ -1,0 +1,88 @@
+using System.Reflection;
+using Creative.Platform.Devices.Models;
+using log4net;
+
+namespace Creative.Platform.Devices.Features;
+
+public class SoundCoreScoutFeature : BasicToggleableFeature, IScoutFeature, IDevicePropertySupported, IRestoreable, IDevicePropertyNotifiable
+{
+	private new static readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
+	public IFeatureToggleable Surround { get; set; }
+
+	public IFeatureToggleable Crystalizer { get; set; }
+
+	public IFeatureToggleable XBass { get; set; }
+
+	public IFeatureToggleable SVM { get; set; }
+
+	public IFeatureToggleable DialogPlus { get; set; }
+
+	public IFeatureToggleable GraphicsEQ { get; set; }
+
+	public bool SurroundEnable { get; private set; }
+
+	public bool CrystalizerEnable { get; private set; }
+
+	public bool XBassEnable { get; private set; }
+
+	public bool SVMEnable { get; private set; }
+
+	public bool DialogPlusEnable { get; private set; }
+
+	public bool GraphicsEQEnable { get; private set; }
+
+	public SoundCoreScoutFeature(DeviceEndpoint deviceEndpoint, IDeviceRepository deviceRepository, string featureId, IDeviceRepositoryKey enableKey, bool isEnabledDefault)
+		: base(deviceEndpoint, deviceRepository, featureId, enableKey, isEnabledDefault)
+	{
+	}
+
+	public override void Disable()
+	{
+		if (base.DeviceRepository.GetValue<bool>(base.EnableKey))
+		{
+			base.DeviceRepository.SetValue(base.EnableKey, val: false);
+		}
+	}
+
+	public override void Enable()
+	{
+		if (!base.DeviceRepository.GetValue<bool>(base.EnableKey))
+		{
+			SurroundEnable = Surround?.IsEnabled() ?? false;
+			CrystalizerEnable = Crystalizer?.IsEnabled() ?? false;
+			XBassEnable = XBass?.IsEnabled() ?? false;
+			SVMEnable = SVM?.IsEnabled() ?? false;
+			DialogPlusEnable = DialogPlus?.IsEnabled() ?? false;
+			GraphicsEQEnable = GraphicsEQ?.IsEnabled() ?? false;
+			Logger.Debug((object)$"Surround {SurroundEnable}, Crystalizer {CrystalizerEnable}, XBass {XBassEnable}, SVM {SVMEnable}, DialogPlus {DialogPlusEnable}, GEQ {GraphicsEQEnable}");
+			base.DeviceRepository.SetValue(base.EnableKey, val: true);
+		}
+	}
+
+	public void Enable(bool surround, bool crystalizer, bool xbass, bool svm, bool dialogplus, bool graphiceq)
+	{
+		if (base.DeviceRepository.GetValue<bool>(base.EnableKey))
+		{
+			base.DeviceRepository.SetValue(base.EnableKey, val: false);
+		}
+		Surround?.SetEnabled(surround);
+		Crystalizer?.SetEnabled(crystalizer);
+		XBass?.SetEnabled(xbass);
+		SVM?.SetEnabled(svm);
+		DialogPlus?.SetEnabled(dialogplus);
+		GraphicsEQ?.SetEnabled(graphiceq);
+		SurroundEnable = surround;
+		CrystalizerEnable = crystalizer;
+		XBassEnable = xbass;
+		SVMEnable = svm;
+		DialogPlusEnable = dialogplus;
+		GraphicsEQEnable = graphiceq;
+		base.DeviceRepository.SetValue(base.EnableKey, val: true);
+	}
+
+	private IDeviceRepositoryKey GetKey(string keyId)
+	{
+		return base.DeviceRepository.GetKey(keyId);
+	}
+}

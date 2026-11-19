@@ -1,0 +1,1103 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-12T16:10:00+08:00",
+  "title": "Creative Sound Blaster Command 参数范围契约（离线静态分析）",
+  "seeAlso": [
+    "reference/parameter-ranges.md",
+    "reference/offline-contracts/README.md",
+    "reference/offline-contracts/sources.md",
+    "reference/offline-contracts/call-chains.md",
+    "reference/offline-contracts/ranges-ui-constants.tsv"
+  ],
+  "scope": {
+    "method": "read-only static analysis",
+    "didNot": [
+      "execute or load vendor DLLs",
+      "modify registry",
+      "access devices"
+    ],
+    "surfaces": [
+      "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\*.dll",
+      "C:\\ProgramData\\Creative\\SBCommand\\Product\\{AE9,G6}\\Presets\\EQ\\*.json",
+      "C:\\ProgramData\\Creative\\SBCommand\\Product\\{AE9,G6}\\Profiles\\*.json"
+    ],
+    "toolUpdateNote": "Targets were analyzed as local files. Initial ILSpy invocations could perform default version checks; subsequent calls disable update checks. No external target interaction."
+  },
+  "layers": {
+    "uiConstant": {
+      "description": "range constants hard-coded in Creative.Platform.Devices.dll FeatureEnrichers; what SB Command allows the user to enter",
+      "confidence": "static",
+      "authoritativeFor": "UI allowed input range"
+    },
+    "driverRuntime": {
+      "description": "CtSndCr::GetParamInfo -> _stParamInfo{minVal,maxVal,stepSize,defaultVal,paramAttrib,szDescription[32]}, implemented by native COM server KsMalcCtl (internal name of SndCrUSB.DLL)",
+      "confidence": "structure static / values unknown",
+      "authoritativeFor": "hardware accepted range; NOT queryable offline"
+    },
+    "factoryPreset": {
+      "description": "values chosen by the vendor in shipped preset files / embedded XML",
+      "confidence": "observational",
+      "authoritativeFor": "nothing normative; sampling points only"
+    }
+  },
+  "sources": [
+    {
+      "role": "ui-constants, feature graph, transports",
+      "path": "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll",
+      "size": 647680,
+      "assemblyVersion": "2.4.67.0",
+      "fileVersion": "2.4.67.0",
+      "sha256": "9337d9cabc9c5de4a5026833adf308115885b1b9d884928fae24edbfaf736e9f"
+    },
+    {
+      "role": "runtime range query (GetParamInfoRange), MalcolmControl",
+      "path": "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Mixer.dll",
+      "size": 222720,
+      "assemblyVersion": "2.4.67.0",
+      "sha256": "e1f1cdcd2d79e8ba006912f76c263b2dad0c04407875d3cc58e7c324d63eb88e"
+    },
+    {
+      "role": "CtSndCr COM type definitions (_stParamInfo, ISoundCore)",
+      "path": "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Interop.CtSndCr.dll",
+      "size": 34816,
+      "assemblyVersion": "1.0.0.72",
+      "sha256": "7956f40c9b67957ab9d7a924099217ce2d009a703bd8e8c211d7fef816154dbd"
+    },
+    {
+      "role": "WPF view models (granularity -> slider step, percent scaling), Scout page",
+      "path": "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.SBConnect.UI.Framework.dll",
+      "size": 993792,
+      "sha256": "c6359888f96fde91aa48073e652bfbf462a47e3d8de88b7d7b60f21c1fb2f4b3"
+    },
+    {
+      "role": "native COM server KsMalcCtl.DLL (driver side), embedded <SoundCorePresets> XML",
+      "path": "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\SndCrUSB.DLL",
+      "size": 3988480,
+      "internalDllName": "KsMalcCtl.DLL",
+      "sha256": "564069833549063cda80f14f27d2e5e3f33edbabdfaf5e31b01eb551c77959fe"
+    },
+    {
+      "role": "factory EQ presets",
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Presets\\EQ\\*.json",
+      "count": 35
+    },
+    {
+      "role": "factory EQ presets",
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Presets\\EQ\\*.json",
+      "count": 34
+    },
+    {
+      "role": "factory SBX profiles",
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles\\*.json",
+      "count": 25
+    },
+    {
+      "role": "factory SBX profiles",
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Profiles\\*.json",
+      "count": 23
+    },
+    {
+      "role": "G6 product view models",
+      "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Creative.SBConnect2.G6.dll",
+      "size": 139760,
+      "sha256": "f24f56bf3747ad377b3d28c8e53d8ea6447c817c35605330d4bff9fbd1f78590"
+    }
+  ],
+  "tooling": {
+    "decompiler": "ilspycmd 9.1.0.7988 (ICSharpCode.Decompiler 9.1.0.7988)",
+    "decompilerInvocation": "C:/Program Files/dotnet/dotnet.exe --roll-forward Major tools/ilspycmd/tools/net8.0/any/ilspycmd.dll",
+    "python": "tools/audio-env/Scripts/python.exe 3.12.10 (dnfile 0.18.0, pefile)",
+    "powershellWrapper": "tools/ilspycmd.cmd (verified working: ilspycmd: 9.1.0.7988)"
+  },
+  "uiConstants": [
+    {
+      "parameterId": "GraphicEqBandLevelEffectParameterId",
+      "feature": "GraphicEqFeatureId",
+      "indexed": true,
+      "indexCount": 10,
+      "indexBasis": "CTTHXCommonPropKeys.CTPKEY_GraphicEQ_Gain9.pid + 1",
+      "type": "float",
+      "min": -24.0,
+      "max": 24.0,
+      "step": 1.0,
+      "default": 0.0,
+      "unit": "dB",
+      "unitBasis": "observed (preset JSON declares Unit=dB and same value scale)",
+      "scope": "all products",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.GraphicsEqFeatureEnricher",
+        "method": "EnrichUndetermined",
+        "il": [
+          "IL_004b ldc.r4 -24",
+          "IL_0050 ldc.r4 24",
+          "IL_0055 ldc.r4 1",
+          "IL_005a ldc.r4 0.0"
+        ],
+        "snippet": "snippets/03-GraphicsEqFeatureEnricher.cs"
+      },
+      "transport": [
+        "soundcore",
+        "cdc",
+        "apo"
+      ]
+    },
+    {
+      "parameterId": "GraphicPreAmpEffectParameterId",
+      "feature": "GraphicEqFeatureId",
+      "type": "float",
+      "min": -12.0,
+      "max": 12.0,
+      "step": 1.0,
+      "default": 0.0,
+      "unit": "dB",
+      "scope": "all products",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.GraphicsEqFeatureEnricher",
+        "method": "EnrichUndetermined",
+        "il": [
+          "IL_00cc ldc.r4 -12",
+          "IL_00d1 ldc.r4 12",
+          "IL_00d6 ldc.r4 1",
+          "IL_00db ldc.r4 0.0"
+        ]
+      },
+      "transport": [
+        "soundcore",
+        "cdc",
+        "apo"
+      ]
+    },
+    {
+      "parameterId": "graphicEqBandFrequencies",
+      "feature": "GraphicEqFeatureId",
+      "kind": "fixed-band-layout",
+      "values": [
+        31,
+        62,
+        125,
+        250,
+        500,
+        1000,
+        2000,
+        4000,
+        8000,
+        16000
+      ],
+      "unit": "Hz",
+      "scope": "all products (hard-coded in framework, duplicated in WPF view model)",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.GraphicsEqFeature",
+        "method": "static ctor / EqBandFrequecies",
+        "snippet": "snippets/05-GraphicsEqFeature-band-frequencies.cs",
+        "duplicate": "Creative.SBConnect.UI.Framework.ViewModels.Equalizer.EqBandViewModel.freqs (same 10 values)"
+      }
+    },
+    {
+      "parameterId": "MicEqBandLevelEffectParameterId",
+      "feature": "MicEqFeatureId",
+      "indexed": true,
+      "indexCount": 10,
+      "type": "float",
+      "min": -24.0,
+      "max": 24.0,
+      "step": 1.0,
+      "default": 0.0,
+      "unit": "dB",
+      "scope": "VIP / X-Fi class devices with mic EQ",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.MicEqFeatureEnricher",
+        "method": "EnrichUndetermined",
+        "il": [
+          "IL_002c ldc.r4 -24",
+          "IL_0031 ldc.r4 24",
+          "IL_0036 ldc.r4 1",
+          "IL_003b ldc.r4 0.0",
+          "IL_0078 ldc.i4.s 10"
+        ]
+      }
+    },
+    {
+      "parameterId": "MicEqPreAmpEffectParameterId",
+      "feature": "MicEqFeatureId",
+      "type": "float",
+      "min": -12.0,
+      "max": 12.0,
+      "step": 1.0,
+      "default": 0.0,
+      "unit": "dB",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.MicEqFeatureEnricher",
+        "method": "EnrichUndetermined",
+        "il": [
+          "IL_008f ldc.r4 -12",
+          "IL_0094 ldc.r4 12",
+          "IL_0099 ldc.r4 1",
+          "IL_009e ldc.r4 0.0"
+        ]
+      }
+    },
+    {
+      "parameterId": "XBassCrossOverFrequencyEffectParameterId",
+      "feature": "XBassXFi23FeatureId",
+      "type": "float",
+      "min": 10.0,
+      "max": 1000.0,
+      "step": 1.0,
+      "default": 80.0,
+      "unit": "Hz",
+      "scope": "all products that expose XBass",
+      "modality": "redirected to BassMgmtCrossOverFreqEffectParameterId when SpeakerMode != HeadPhone and HasSubwoofer",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.XBassXFi23FeatureEnricher",
+        "method": "EnrichUndetermined",
+        "il": [
+          "IL_007e ldc.r4 10",
+          "IL_0083 ldc.r4 1000",
+          "IL_0088 ldc.r4 1",
+          "IL_008d ldc.r4 80"
+        ],
+        "snippet": "snippets/04-XBassXFi23FeatureEnricher.cs",
+        "runtimeBehaviour": "snippets/09-XBassXFi23Feature.cs GetEffectParameter()/GetEnablePropertykey()"
+      }
+    },
+    {
+      "parameterId": "XBassStrengthEffectParameterId",
+      "feature": "XBassXFi23FeatureId",
+      "type": "float",
+      "variants": [
+        {
+          "when": "repository is SoundCoreRepository (hardware CtSndCr) AND ProductCodeName != \"Kratos2\"",
+          "min": 0.0,
+          "max": 1.0,
+          "step": 0.01,
+          "default": 0.5,
+          "unit": "normalized"
+        },
+        {
+          "when": "otherwise (CDC / APO property store, or Kratos2 hardware)",
+          "min": 0.0,
+          "max": 100.0,
+          "step": 1.0,
+          "default": 50.0,
+          "unit": "percent"
+        }
+      ],
+      "note": "same physical knob, two dimensions; no conversion happens anywhere - only the declared range changes",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.XBassXFi23FeatureEnricher",
+        "method": "EnrichUndetermined",
+        "il": [
+          "IL_00c5 ldc.r4 0.0 / IL_00ca ldc.r4 100 / IL_00cf ldc.r4 1 / IL_00d4 ldc.r4 50  (percent variant)",
+          "IL_00a0 ldstr \"Kratos2\" (hardware-id gate)"
+        ],
+        "productIdMap": "Creative.Platform.Devices.Models.SupportedModels: USB_BUS\\FUNC_00&VEN_041E&DEV_0000&SUBSYS_30CA -> Kratos2"
+      }
+    },
+    {
+      "parameterId": "BassMgmtCrossOverFreqEffectParameterId",
+      "feature": "XBassXFi23FeatureId / BassManagement",
+      "type": "float",
+      "min": 10.0,
+      "max": 1000.0,
+      "step": 1.0,
+      "default": 80.0,
+      "unit": "Hz",
+      "scope": "ProductCodeName != \"G6\"",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "types": [
+          "Creative.Platform.Devices.Features.Enrichers.XBassXFi23FeatureEnricher (IL_0092 ctor)",
+          "Creative.Platform.Devices.Features.Enrichers.ApoBassRedirectionFeatureEnricher"
+        ]
+      }
+    },
+    {
+      "parameterId": "BassMgmtSubwooferGainId",
+      "feature": "XBassXFi23FeatureId",
+      "type": "bool",
+      "kind": "ByValueEffectParameter<bool>",
+      "min": null,
+      "max": null,
+      "step": null,
+      "default": null,
+      "unit": "boolean",
+      "note": "NOT a numeric gain; boolean switch (subwoofer boost on/off)",
+      "scope": "ProductCodeName != \"G6\"",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.XBassXFi23FeatureEnricher",
+        "line": 28
+      }
+    },
+    {
+      "parameterId": "EaxEnvironmentEffectParameterId",
+      "feature": "EAXEnvironmentFeatureId / ImmersionFeatureId",
+      "type": "long",
+      "min": -6000,
+      "max": 1200,
+      "step": 10,
+      "default": 0,
+      "unit": "millibel (1/100 dB) - inferred from EAX convention",
+      "unitBasis": "inferred",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "types": [
+          "Creative.Platform.Devices.Features.Enrichers.EaxEnvironmentFeatureEnricher",
+          "Creative.Platform.Devices.Features.Enrichers.ImmersionFeatureEnricher"
+        ],
+        "il": [
+          "IL_0058 ldc.i4 -6000",
+          "IL_005e ldc.i4 1200",
+          "IL_0064 ldc.i4.s 10",
+          "IL_0067 ldc.i4.0"
+        ],
+        "snippet": "snippets/07-EaxEnvironmentFeatureEnricher.cs"
+      }
+    },
+    {
+      "parameterId": "Eax3* (24 parameters)",
+      "feature": "Eax3FeatureId",
+      "type": "per-parameter (ulong/float/long/EaxVector)",
+      "min": null,
+      "max": null,
+      "step": null,
+      "default": null,
+      "unit": "EAX4 convention",
+      "note": "no range config at all: BasicNonIndexedEffectParameter(..., null) => boundary check skipped entirely",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.Eax3FeatureEnricher",
+        "method": "EnrichUndetermined / CreateNonIndexedEffectParam(..., null)"
+      },
+      "parameterList": [
+        "Eax3EnvironmentEffectParameterId",
+        "Eax3EnvironmentSizeEffectParameterId",
+        "Eax3EnvironmentDiffusionEffectParameterId",
+        "Eax3RoomEffectParameterId",
+        "Eax3RoomHfEffectParameterId",
+        "Eax3RoomLfEffectParameterId",
+        "Eax3DecayTimeEffectParameterId",
+        "Eax3DecayHfRatioEffectParameterId",
+        "Eax3DecayLfRatioEffectParameterId",
+        "Eax3ReflectionEffectParameterId",
+        "Eax3ReflectionsDelayEffectParameterId",
+        "Eax3ReflectionsPanEffectParameterId",
+        "Eax3ReverbEffectParameterId",
+        "Eax3ReverbDelayEffectParameterId",
+        "Eax3ReverbPanEffectParameterId",
+        "Eax3EchoTimeEffectParameterId",
+        "Eax3EchoDepthEffectParameterId",
+        "Eax3ModulationTimeEffectParameterId",
+        "Eax3ModulationDepthEffectParameterId",
+        "Eax3AirAbsorptionEffectParameterId",
+        "Eax3HfReferenceEffectParameterId",
+        "Eax3LfReferenceEffectParameterId",
+        "Eax3RoomRolloffFactorParameterId",
+        "Eax3FlagsParameterId"
+      ]
+    },
+    {
+      "parameterId": "CmssSurroundEffectParameterId",
+      "feature": "CMSSSurroundFeatureId / ImmersionFeatureId",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0,
+      "step": 0.01,
+      "default": 0.4,
+      "unit": "normalized",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "types": [
+          "Creative.Platform.Devices.Features.Enrichers.CmssSurroundFeatureEnricher",
+          "Creative.Platform.Devices.Features.Enrichers.ImmersionFeatureEnricher"
+        ],
+        "il": [
+          "IL_0032 ldc.r4 0.0",
+          "IL_0037 ldc.r4 1",
+          "IL_003c ldc.r4 0.01",
+          "IL_0041 ldc.r4 0.4"
+        ]
+      }
+    },
+    {
+      "parameterId": "CrystalizerLevelEffectParameterId",
+      "feature": "CrystalizerFeatureId",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0,
+      "step": 0.01,
+      "default": 0.65,
+      "unit": "normalized",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.CrystalizerFeatureEnricher",
+        "il": [
+          "IL_0058 ldc.r4 0.0",
+          "IL_005d ldc.r4 1",
+          "IL_0062 ldc.r4 0.01",
+          "IL_0067 ldc.r4 0.65"
+        ]
+      }
+    },
+    {
+      "parameterId": "CrystalizerPreAttenuationEffectParameterId",
+      "feature": "CrystalizerFeatureId",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0,
+      "step": 0.01,
+      "default": 1.0,
+      "unit": "normalized",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.CrystalizerFeatureEnricher",
+        "il": [
+          "IL_00ae ldc.r4 0.0",
+          "IL_00b3 ldc.r4 1"
+        ]
+      }
+    },
+    {
+      "parameterId": "DialogAdvantageEffectParameterId",
+      "feature": "DialogAdvantageFeatureId",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0,
+      "step": 0.01,
+      "default": 0.05,
+      "unit": "normalized",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.DialogAdvantageFeatureEnricher",
+        "line": 19
+      }
+    },
+    {
+      "parameterId": "SmartVolumeEffectParameterId",
+      "feature": "SVMFeatureId",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0,
+      "step": 0.01,
+      "default": 0.74,
+      "unit": "normalized",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.SmartVolumeFeatureEnricher",
+        "line": 21
+      }
+    },
+    {
+      "parameterId": "MicSmartVolumeEffectParameterId",
+      "feature": "MicSVMFeatureId",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0,
+      "step": 0.01,
+      "default": 0.74,
+      "unit": "normalized",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.MicSmartVolumeFeatureEnricher",
+        "line": 19
+      }
+    },
+    {
+      "parameterId": "MicBoostLevelParameterId",
+      "feature": "MicBoostFeatureId",
+      "type": "float",
+      "min": 0.0,
+      "max": 30.0,
+      "step": 10.0,
+      "default": 0.0,
+      "unit": "dB",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.MicBoostFeatureEnricher",
+        "line": 13
+      }
+    },
+    {
+      "parameterId": "NoiseReductionEffectParameterId",
+      "feature": "NoiseReductionFeatureId",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0,
+      "step": 0.01,
+      "default": 0.5,
+      "unit": "normalized",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.NoiseReductionFeatureEnricher",
+        "line": 19
+      }
+    },
+    {
+      "parameterId": "CalibrationLevelEffectParameterId",
+      "feature": "CalibrationFeatureId",
+      "indexed": true,
+      "type": "float",
+      "min": -20.0,
+      "max": 20.0,
+      "step": 1.0,
+      "default": 0.0,
+      "unit": "dB",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.CalibrationFeatureEnricher",
+        "line": 11
+      }
+    },
+    {
+      "parameterId": "CalibrationDelayEffectParameterId",
+      "feature": "CalibrationFeatureId",
+      "indexed": true,
+      "type": "float",
+      "min": 0.0,
+      "max": 0.015,
+      "step": 0.001,
+      "default": 0.0,
+      "unit": "s",
+      "evidence": {
+        "dll": "Creative.Platform.Devices.dll",
+        "type": "Creative.Platform.Devices.Features.Enrichers.CalibrationFeatureEnricher",
+        "line": 12
+      }
+    },
+    {
+      "parameterId": "ScoutFeatureId",
+      "feature": "eFeature_EfxMasterControl (SoundCore path)",
+      "type": "bool",
+      "min": null,
+      "max": null,
+      "step": null,
+      "default": false,
+      "unit": "boolean",
+      "note": "Scout Mode has no numeric parameters in any managed assembly; sub-chain is a set of feature on/off snapshots",
+      "evidence": {
+        "soundcoreKey": "_etFeature.eFeature_EfxMasterControl = 1610612737, param index 6 (eParamEfxMasterControl_SCOUTModeMasterOnOff)",
+        "apoKey": "PROPERTYKEY {F0C45844-CE1D-4D97-B5EC-AA7A22A71613} pid 0 (CTPKEY_Scout_Enable)",
+        "apoGating": "ApoFeatureChecker: EFXNODE_THX_SCOUT_CMSS3D|EFXNODE_THX_REALITY3D_SCOUT_CMSS3D AND EFXNODE_THX_SCOUT_GRAPHICEQ|EFXNODE_THX_REALITY3D_SCOUT_GRAPHICEQ",
+        "subChain": [
+          "GraphicEqFeatureId",
+          "EAXEnvironmentFeatureId",
+          "CMSSSurroundFeatureId",
+          "SVMFeatureId",
+          "DialogAdvantageFeatureId",
+          "XBassXFi23FeatureId",
+          "CrystalizerFeatureId"
+        ],
+        "snippet": "snippets/06-ScoutModeFeatureEnricher.cs"
+      },
+      "unresolved": {
+        "scoutGeqGains": "PROPERTYKEYs CTPKEY_Scout_GEQ_Gain0..9 (pid 10..19) and _PreampGain (pid 5) are declared but never read/written by any managed code; CTAudEp.dll has zero 'Scout' strings",
+        "scoutGeqFrequencies": "unknown"
+      }
+    }
+  ],
+  "immersionMapping": {
+    "startReverbThresholdPct": 0.5,
+    "reverbMaxPercentage": 0.8,
+    "formula": "reverb = (surround - thr*range) / (max - thr*range) * ((eaxMax-eaxMin)*0.8) + eaxMin ; thr*range = 0.5*(surroundMax-surroundMin)",
+    "workedExample": {
+      "surroundRange": [
+        0.0,
+        1.0
+      ],
+      "eaxRange": [
+        -6000,
+        1200
+      ],
+      "atSurround0_5": -6000,
+      "atSurround1_0": -240,
+      "note": "millibel: -60 dB .. -2.4 dB"
+    },
+    "evidence": {
+      "dll": "Creative.Platform.Devices.dll",
+      "types": [
+        "ImmersionFeature (defaults)",
+        "ImmersionReverbAlgo"
+      ],
+      "snippet": "snippets/08-ImmersionReverbAlgo.cs"
+    }
+  },
+  "observed": {
+    "eqPresets": {
+      "ae9": {
+        "files": 35,
+        "unit": "dB",
+        "bandMin": -5.0,
+        "bandMax": 4.5,
+        "nonIntegerSamples": 83,
+        "preamp": 0.0,
+        "resolution": 0.5
+      },
+      "g6": {
+        "files": 34,
+        "unit": "dB",
+        "bandMin": -5.0,
+        "bandMax": 5.0,
+        "nonIntegerSamples": 56,
+        "preamp": 0.0,
+        "resolution": 0.5
+      },
+      "frequencies": [
+        31,
+        62,
+        125,
+        250,
+        500,
+        1000,
+        2000,
+        4000,
+        8000,
+        16000
+      ],
+      "warning": "observed envelope is NOT the allowed range (allowed is -24..24 dB)"
+    },
+    "sbxProfiles": {
+      "ae9": {
+        "files": 25,
+        "levelMin": 0.0,
+        "levelMax": 0.74,
+        "levelSamples": 250,
+        "xover": 80
+      },
+      "g6": {
+        "files": 23,
+        "levelMin": 0.0,
+        "levelMax": 0.74,
+        "levelSamples": 230,
+        "xover": 80
+      },
+      "note": "all level values sit inside the declared 0..1 range; XOver is always the 80 Hz default - proves nothing about allowed range"
+    },
+    "micReverbPresets": {
+      "source": "SndCrUSB.DLL embedded <SoundCorePresets> at offset 0x9738, 49455 bytes",
+      "featureId": 805306369,
+      "presetCount": 19,
+      "presetNames": [
+        "Auditorium",
+        "Ball Park",
+        "Bath Room",
+        "Cathedral",
+        "Chapel",
+        "Church",
+        "Concert Hall",
+        "Default",
+        "Garage",
+        "Haunted Cavern",
+        "Indoor Arena",
+        "Jazz Club",
+        "Living Room",
+        "Opera House",
+        "Psychotic",
+        "Recording Studio",
+        "Small Room",
+        "Theater",
+        "Underwater"
+      ],
+      "paramEnvelopes": {
+        "1": {
+          "name": "RoomLevel",
+          "min": -10.0,
+          "max": 0.0,
+          "distinct": 2
+        },
+        "2": {
+          "name": "RoomHF",
+          "min": -60.0,
+          "max": 0.0,
+          "distinct": 12
+        },
+        "3": {
+          "name": "RoomLF",
+          "min": 0.0,
+          "max": 0.0,
+          "distinct": 1
+        },
+        "4": {
+          "name": "DecayTime",
+          "min": 0.17,
+          "max": 14.67,
+          "distinct": 18,
+          "unit": "s (inferred)"
+        },
+        "5": {
+          "name": "DecayHFRatio",
+          "min": 0.1,
+          "max": 1.54,
+          "distinct": 14
+        },
+        "6": {
+          "name": "DecayLFRatio",
+          "min": 0.96,
+          "max": 1.788,
+          "distinct": 7
+        },
+        "7": {
+          "name": "ReflectionsLevel",
+          "min": -45.0,
+          "max": 10.0,
+          "distinct": 18
+        },
+        "8": {
+          "name": "ReflectionsDelay",
+          "min": 1.0,
+          "max": 100.0,
+          "distinct": 10,
+          "unit": "ms (inferred)"
+        },
+        "9": {
+          "name": "ReverbLevel",
+          "min": -100.0,
+          "max": 17.0,
+          "distinct": 18
+        },
+        "10": {
+          "name": "ReverbDelay",
+          "min": 2.0,
+          "max": 93.0,
+          "distinct": 11,
+          "unit": "ms (inferred)"
+        },
+        "11": {
+          "name": "Size",
+          "min": 1.0,
+          "max": 21.6,
+          "distinct": 10,
+          "unit": "unknown"
+        },
+        "12": {
+          "name": "Diffusion",
+          "min": 37.0,
+          "max": 100.0,
+          "distinct": 5
+        },
+        "13": {
+          "name": "AirAbsorptionHF",
+          "min": -0.07,
+          "max": -0.05,
+          "distinct": 2
+        },
+        "14": {
+          "name": "DecayTimeScale",
+          "min": 1.0,
+          "max": 1.0,
+          "distinct": 1
+        },
+        "15": {
+          "name": "DecayHFLimit",
+          "min": 0.0,
+          "max": 1.0,
+          "distinct": 2
+        },
+        "16": {
+          "name": "ReflectionsLevelScale",
+          "min": 1.0,
+          "max": 1.0,
+          "distinct": 1
+        },
+        "17": {
+          "name": "ReflectionsDelayScale",
+          "min": 1.0,
+          "max": 1.0,
+          "distinct": 1
+        },
+        "18": {
+          "name": "ReverbLevelScale",
+          "min": 1.0,
+          "max": 1.0,
+          "distinct": 1
+        },
+        "19": {
+          "name": "ReverbDelayScale",
+          "min": 1.0,
+          "max": 1.0,
+          "distinct": 1
+        },
+        "20": {
+          "name": "HFReference/HFCutOff",
+          "min": 5000.0,
+          "max": 5030.0,
+          "distinct": 2,
+          "unit": "Hz (inferred)"
+        },
+        "21": {
+          "name": "LFReference/LFCutOff",
+          "min": 250.0,
+          "max": 253.0,
+          "distinct": 2,
+          "unit": "Hz (inferred)"
+        },
+        "22": {
+          "name": "ModulationRate/DetuneRate",
+          "min": 0.25,
+          "max": 17.5,
+          "distinct": 6
+        },
+        "23": {
+          "name": "ModulationDepth/DetuneDepth",
+          "min": 0.0,
+          "max": 100.0,
+          "distinct": 3
+        },
+        "24": {
+          "name": "EchoDepth",
+          "min": 0.0,
+          "max": 100.0,
+          "distinct": 4
+        },
+        "25": {
+          "name": "EchoRate",
+          "min": 4.0,
+          "max": 13.0,
+          "distinct": 5
+        },
+        "26": {
+          "name": "ModulationRateScale",
+          "min": 0.0,
+          "max": 1.0,
+          "distinct": 2
+        },
+        "27": {
+          "name": "EchoRateScale",
+          "min": 0.0,
+          "max": 1.0,
+          "distinct": 2
+        },
+        "28": {
+          "name": "ReflectionsPanAzimuth",
+          "min": 0.0,
+          "max": 127.0,
+          "distinct": 2
+        },
+        "29": {
+          "name": "ReflectionsPanDiverge",
+          "min": 25.0,
+          "max": 100.0,
+          "distinct": 2
+        },
+        "30": {
+          "name": "ReverbPanAzimuth",
+          "min": 0.0,
+          "max": 0.0,
+          "distinct": 1
+        },
+        "31": {
+          "name": "ReverbPanDiverge",
+          "min": 100.0,
+          "max": 100.0,
+          "distinct": 1
+        },
+        "258": {
+          "name": "ActivePreset",
+          "min": 1.0,
+          "max": 19.0,
+          "distinct": 19
+        }
+      },
+      "warning": "envelopes are vendor sampling points, not allowed ranges; units are inferred except where noted"
+    },
+    "micReverbRecordTypes": {
+      "total": 608,
+      "Float": 437,
+      "Bool": 152,
+      "Integer": 19,
+      "perPreset": "ParamId 1..31 plus ActivePreset 258; Enable 0 absent"
+    }
+  },
+  "runtimeQuery": {
+    "api": "CTSoundCore.ISoundCore::GetParamInfo(_stParam, out _stParamInfo)",
+    "managedWrapper": "Creative.Platform.Mixer.SoundCoreObject.GetParamInfoRange(MalcolmControlID, out double def, out double min, out double max, out double step, out uint attrib)",
+    "struct": "_stParamInfo{_stParam paramId; _etParamType paramType; uint paramDataSize; _stParamValue minVal; _stParamValue maxVal; _stParamValue stepSize; _stParamValue defaultVal; uint paramAttrib; sbyte[32] szDescription;}",
+    "paramTypes": [
+      "eParamType_Float=0",
+      "eParamType_Bool=1",
+      "eParamType_Dword=2",
+      "eParamType_LongInt=3",
+      "eParamType_Select=4",
+      "eParamType_VarSize=5"
+    ],
+    "interfaceIid": "6111E7C4-3EA4-47ED-B074-C638875282C4",
+    "interfaceVtableOrder": [
+      "BindHardware",
+      "EnumContexts",
+      "GetContextInfo",
+      "GetContext",
+      "SetContext",
+      "EnumFeatures",
+      "_VtblGap1_1",
+      "EnumParams",
+      "GetParamInfo",
+      "GetParamValue",
+      "SetParamValue",
+      "_VtblGap2_4",
+      "GetParamValueEx_unsafe",
+      "SetParamValueEx_unsafe"
+    ],
+    "implementation": "native COM server, DLL internal name KsMalcCtl.DLL (= SndCrUSB.DLL); exports only DllCanUnloadNow/DllGetClassObject/DllInstall/DllRegisterServer/DllUnregisterServer",
+    "usedBySbCommandSbxPanel": false,
+    "consequence": "hardware-dependent min/max/step are not observable offline -> unknown",
+    "cheapestOnlinePath": "Enable SB Command debug logging and read 'Get Param info <ID>: Default .. / Min .. / Max .. / Step .. / Attribute ..' emitted by SoundCoreObject.GetParamInfoRange"
+  },
+  "transports": {
+    "soundcore": {
+      "path": "Feature.SetValue -> BasicNonIndexedEffectParameter.SetValue -> SoundCoreRepository.SetValue<T> -> ISoundCore.SetParamValue(_stParam,_stParamValue)",
+      "encodings": {
+        "float": "eParamType_Float + paramVal.floatVal",
+        "int/uint": "eParamType_Dword + dwordVal",
+        "long/ulong": "eParamType_Dword + dwordVal (32-bit truncation for long)",
+        "bool": "eParamType_Bool + boolVal 0/1"
+      },
+      "unitConversion": "none"
+    },
+    "cdc": {
+      "path": "Feature.SetValue -> CDCDeviceRepository.SetValue -> CDCRepositoryKey.SetValue -> CTCDCLibrary.CTCDCCMD_SetMalcolmEffectValue(paramType, srcID, flValue)",
+      "unitConversion": "none (flValue passthrough)",
+      "indexedParamRule": "paramType = CTCDCMALCOLMEFFECT_ParamType_GraphicEQBand0Gain + index"
+    },
+    "apo": {
+      "path": "Feature.SetValue -> PropStoreRepository.SetValue -> PROPVARIANT -> PolicyConfigPropertyStore.SetPropertyValue(endpointId, PropstoreEp=0|PropstoreFx=1, PROPERTYKEY, pv)",
+      "encodings": {
+        "float": "vt=4 (VT_R4)",
+        "bool": "vt=11",
+        "double": "vt=5",
+        "int": "vt=22",
+        "uint": "vt=23",
+        "ulong": "vt=19",
+        "long": "vt=3"
+      },
+      "unitConversion": "none"
+    }
+  },
+  "propertyKeys": {
+    "GraphicEQ_Enable": {
+      "guid": "9A9D0CB2-4DC9-494C-8210-9848AE1AA629",
+      "pid": 0
+    },
+    "GraphicEQ_PreampGain": {
+      "guid": "DDCF8D90-DE27-4DE4-AF57-088B8AD78FDF",
+      "pid": 0
+    },
+    "GraphicEQ_Gain0..9": {
+      "guid": "2B88C76D-D07C-4E97-8922-1BAC9F6D5935",
+      "pid": "0..9"
+    },
+    "GraphicEQ_CenterFreq": {
+      "guid": "D24674DF-40D7-4442-8E9E-096594514CAC",
+      "pid": 0
+    },
+    "GraphicEQ_Bandwidth": {
+      "guid": "02939409-6AE1-42DD-862B-209DEB053FF4",
+      "pid": 0
+    },
+    "BassMgmt_Enable": {
+      "guid": "0519A199-4BC2-4379-8ED8-3D4B26BDD5DB",
+      "pid": 0
+    },
+    "BassMgmt_XBassStrength": {
+      "guid": "DD527E35-21A5-4CA6-AB90-8AD464FB55E3",
+      "pid": 0
+    },
+    "BassMgmt_XOverFrequency": {
+      "guid": "836D3BC0-7C99-4E38-990F-68775ABC8335",
+      "pid": 0
+    },
+    "BassMgmt_SubwooferBoost": {
+      "guid": "3414179D-69EE-4A36-809C-CD30148F7718",
+      "pid": 0
+    },
+    "Crossover_Freq_For": {
+      "guid": "3F23DBC5-12D1-4D62-89ED-BC458337E0FC",
+      "pid": "0=External,1=Internal,2=Headphone"
+    },
+    "Environment": {
+      "guid": "90B7F7E6-7DA2-4564-9858-91957A70B552",
+      "pid": "0=Enable,1=Level"
+    },
+    "Scout": {
+      "guid": "F0C45844-CE1D-4D97-B5EC-AA7A22A71613",
+      "pid": "0=Enable,1=SVM_Enable,2=SVM_Strength,3=SVM_Mode,4=GEQ_Enable,5=GEQ_PreampGain,10..19=GEQ_Gain0..9"
+    },
+    "EAX3Reverb": {
+      "guid": "C90924E4-C3D3-49A4-8C1C-C0BBACB018B3",
+      "pid": "per CTPropKeys.CTPKEY_EAX3Reverb_*"
+    }
+  },
+  "validationRules": {
+    "boundaryCheck": "min <= value <= max ; out-of-range values are silently dropped (no clamp, no exception)",
+    "stepEnforced": false,
+    "stepUsage": "WPF slider step only (EqBandViewModel.Step = Granularity ; AggregatedFeatureViewModel.Step = CalculatePercentage(Granularity))",
+    "nullConfigMeans": "no boundary check at all (EAX3 parameters)",
+    "evidence": {
+      "snippet": "snippets/02-BasicNonIndexedEffectParameter.cs",
+      "il": [
+        "BasicNonIndexedEffectParameter::SetValue IL_0010 ldsfld EffectParamBoundaryCheckFuncDict",
+        "IL_002c brfalse.s (null config => skip)"
+      ]
+    }
+  },
+  "scaling": {
+    "modelLayer": "physical units, passthrough",
+    "uiLayer": {
+      "percentSlider": "AggregatedFeatureViewModel: maxPercent=100,minPercent=0; Value(int) = (Maximum-Minimum)/(realMaximum-realMinimum)*(value-realMinimum)+0.5",
+      "eqSlider": "EqBandViewModel uses physical value and Step=Granularity (1 dB)"
+    },
+    "transportLayer": "no conversion"
+  },
+  "unknowns": [
+    "driver _stParamInfo min/max/step/default per parameter (needs online query or native disassembly)",
+    "MicEQ 8 bands CenterFreq (_etParamVIP_MicEQ 10..17) and Width (18..25) ranges",
+    "EAX3 24 parameter ranges (managed config is null)",
+    "32 mic reverb parameter ranges; Size unit/dimension",
+    "Scout Mode GEQ gains and band frequencies (no read/write references observed in inspected managed assemblies; native implementation not established)",
+    "BassManagement SpeakerSize_FLFR/FCSW/RLRR/SLSR (driver enum 2..5) semantics and range"
+  ],
+  "errataAgainstPreviousReports": [
+    {
+      "claim": "EQ step is 0.1 dB",
+      "correction": "model granularity is 1 dB; shipped preset files use 0.5 dB resolution; no 0.1 evidence anywhere",
+      "file": "reference/creative-dsp-parameters.md §5.1"
+    },
+    {
+      "claim": "EQ band frequencies were derived from factory preset JSON",
+      "correction": "they are hard-coded framework constants (GraphicsEqFeature.EqBandFrequecies and EqBandViewModel.freqs); the JSON merely matches them",
+      "file": "reference/creative-dsp-parameters.md §5.1"
+    },
+    {
+      "claim": "BassManagement SubwooferBoost is a gain",
+      "correction": "it is a boolean switch (ByValueEffectParameter<bool>) in this build",
+      "file": "reference/creative-dsp-parameters.md §5.3"
+    },
+    {
+      "claim": "reverb times are seconds expressed in milliseconds",
+      "correction": "DecayTime observed 0.17..14.67 reads as seconds; only *Delay parameters are millisecond-scale",
+      "file": "reference/creative-dsp-parameters.md §4"
+    },
+    {
+      "claim": "parameter ranges still missing; need to expand Devices managed code",
+      "correction": "ranges are fully present in Devices enrichers; what is missing is the driver-side GetParamInfo values",
+      "file": "reference/creative-dsp-parameters.md §9"
+    },
+    {
+      "claim": "60 parameter enums in Interop.CtSndCr",
+      "correction": "51 (Devices/Mixer) / 52 (Interop.CtSndCr) _etParam* enums are present in this install",
+      "file": "reference/creative-dsp-parameters.md §3"
+    }
+  ],
+  "verifiedFactoryAudit": "factory-data-audit.json",
+  "g6ProductAssembly": {
+    "role": "G6 product view models",
+    "path": "C:\\ProgramData\\Creative\\SBCommand\\Product\\G6\\Creative.SBConnect2.G6.dll",
+    "size": 139760,
+    "sha256": "f24f56bf3747ad377b3d28c8e53d8ea6447c817c35605330d4bff9fbd1f78590"
+  }
+}

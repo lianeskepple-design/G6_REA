@@ -1,0 +1,4 @@
+constants 3f7cb296 bf79652c 3a9d1800 3b9cd000 3cd027e0 36ca0000 39888889 30
+quiet_gain 3f800000
+loud input_rms 3eb53fbf output_rms 3ded0c5d gain 3e6db742
+release_gain 3f441520

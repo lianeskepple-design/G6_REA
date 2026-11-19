@@ -1,0 +1,129 @@
+using Creative.Platform.Devices.Features.PropKeys;
+using Creative.Platform.Devices.Models;
+
+namespace Creative.Platform.Devices.Features;
+
+public class ApoScoutFeature : BasicToggleableFeature
+{
+	public BasicToggleableFeature MasterOnOff { get; set; }
+
+	public BasicToggleableFeature GraphicEqualizer { get; set; }
+
+	public BasicToggleableFeature EAXEnvironment { get; set; }
+
+	public override void OnPropertyValueChanged(IDeviceRepositoryKey propertykey)
+	{
+		if (propertykey.Equals(base.EnableKey))
+		{
+			base.OnPropertyValueChanged(propertykey);
+		}
+		else if (IsConflictingFeatureEnabled(propertykey) && IsEnabled())
+		{
+			base.Disable();
+		}
+	}
+
+	protected bool IsConflictingFeatureEnabled(IDeviceRepositoryKey propertykey)
+	{
+		if (propertykey.Equals(MasterOnOff?.EnableKey) && MasterOnOff != null && MasterOnOff.IsEnabled())
+		{
+			return true;
+		}
+		if (propertykey.Equals(GraphicEqualizer?.EnableKey) && GraphicEqualizer != null && GraphicEqualizer.IsEnabled())
+		{
+			return true;
+		}
+		if (propertykey.Equals(EAXEnvironment?.EnableKey) && EAXEnvironment != null && EAXEnvironment.IsEnabled())
+		{
+			return true;
+		}
+		if (CTTHXCommonPropKeys.CTPKEY_Reality3D_Enable.Equals(propertykey) && GetFeatureEnable(GetKey("Reality3DFeatureId")))
+		{
+			return true;
+		}
+		return false;
+	}
+
+	public override void Disable()
+	{
+		if (base.DeviceRepository.GetValue<bool>(base.EnableKey))
+		{
+			base.DeviceRepository.SetValue(base.EnableKey, val: false);
+			RestoreConflictingFeatureStatus(GetKey("ScoutMasterOnOffLastStateAttributeId"), MasterOnOff);
+			RestoreConflictingFeatureStatus(GetKey("ScoutEqLastStateAttributeId"), GraphicEqualizer);
+			RestoreConflictingFeatureStatus(GetKey("ScoutReverbLastStateAttributeId"), EAXEnvironment);
+			RestoreConflictingFeatureStatus(GetKey("Reality3DFeatureId"), GetKey("ScoutReality3DLastStateAttributeId"));
+		}
+	}
+
+	public override void Enable()
+	{
+		if (!base.DeviceRepository.GetValue<bool>(base.EnableKey))
+		{
+			base.DeviceRepository.SetValue(base.EnableKey, val: true);
+			StoreConflictingFeatureStatus(GetKey("ScoutMasterOnOffLastStateAttributeId"), MasterOnOff);
+			StoreConflictingFeatureStatus(GetKey("ScoutEqLastStateAttributeId"), GraphicEqualizer);
+			StoreConflictingFeatureStatus(GetKey("ScoutReverbLastStateAttributeId"), EAXEnvironment);
+			StoreConflictingFeatureStatus(GetKey("Reality3DFeatureId"), GetKey("ScoutReality3DLastStateAttributeId"));
+		}
+	}
+
+	private IDeviceRepositoryKey GetKey(string keyId)
+	{
+		return base.DeviceRepository.GetKey(keyId);
+	}
+
+	protected void RestoreConflictingFeatureStatus(IDeviceRepositoryKey lastStatePropertykey, BasicToggleableFeature feature)
+	{
+		if (feature != null && base.DeviceRepository.GetValue<bool>(lastStatePropertykey))
+		{
+			feature.Enable();
+		}
+	}
+
+	protected void StoreConflictingFeatureStatus(IDeviceRepositoryKey lastStatePropertykey, BasicToggleableFeature feature)
+	{
+		if (feature != null)
+		{
+			bool flag = feature.IsEnabled();
+			base.DeviceRepository.SetValue(lastStatePropertykey, flag);
+			if (flag)
+			{
+				feature.Disable();
+			}
+		}
+	}
+
+	protected void RestoreConflictingFeatureStatus(IDeviceRepositoryKey featureEnablePropertykey, IDeviceRepositoryKey lastStatePropertykey)
+	{
+		bool value = base.DeviceRepository.GetValue<bool>(lastStatePropertykey);
+		if (value)
+		{
+			base.DeviceRepository.SetValue(featureEnablePropertykey, value);
+		}
+	}
+
+	protected void StoreConflictingFeatureStatus(IDeviceRepositoryKey featureEnablePropertykey, IDeviceRepositoryKey lastStatePropertykey)
+	{
+		bool value = base.DeviceRepository.GetValue<bool>(featureEnablePropertykey);
+		if (value)
+		{
+			base.DeviceRepository.SetValue(lastStatePropertykey, value);
+		}
+	}
+
+	protected bool GetFeatureEnable(IDeviceRepositoryKey featureEnablePropertykey)
+	{
+		return base.DeviceRepository.GetValue<bool>(featureEnablePropertykey);
+	}
+
+	protected void SetFeatureEnable(IDeviceRepositoryKey featureEnablePropertykey, bool bEnable)
+	{
+		base.DeviceRepository.SetValue(featureEnablePropertykey, bEnable);
+	}
+
+	public ApoScoutFeature(DeviceEndpoint deviceEndpoint, IDeviceRepository deviceRepository, string featureId, IDeviceRepositoryKey enableKey, bool isEnabledDefault)
+		: base(deviceEndpoint, deviceRepository, featureId, enableKey, isEnabledDefault)
+	{
+	}
+}

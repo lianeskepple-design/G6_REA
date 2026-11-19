@@ -1,0 +1,171 @@
+0x18008e920: push       rbx
+0x18008e922: push       rbp
+0x18008e923: push       rsi
+0x18008e924: push       rdi
+0x18008e925: push       r14
+0x18008e927: sub        rsp, 0x440
+0x18008e92e: mov        rax, qword ptr [rip + 0x169a5b]   ; -> 0x1801f8390  f32=2.5424194e-11  f64=2.3683975271086844e-310  i32=0x2ddfa232
+0x18008e935: xor        rax, rsp
+0x18008e938: mov        qword ptr [rsp + 0x430], rax
+0x18008e940: mov        rax, qword ptr [rcx + 0xc58]
+0x18008e947: mov        r14d, r8d
+0x18008e94a: mov        rsi, rdx
+0x18008e94d: shl        r14d, 7
+0x18008e951: mov        edi, 4
+0x18008e956: mov        ebx, r8d
+0x18008e959: lea        rdx, [rax + r14*4]
+0x18008e95d: mov        rbp, rcx
+0x18008e960: lea        rcx, [rsp + 0x30]
+0x18008e965: mov        rax, rdx
+0x18008e968: mov        r8d, edi
+0x18008e96b: nop        dword ptr [rax + rax]
+0x18008e970: movups     xmm0, xmmword ptr [rax]
+0x18008e973: lea        rcx, [rcx + 0x80]
+0x18008e97a: lea        rax, [rax + 0x80]
+0x18008e981: movups     xmmword ptr [rcx - 0x80], xmm0
+0x18008e985: movups     xmm1, xmmword ptr [rax - 0x70]
+0x18008e989: movups     xmmword ptr [rcx - 0x70], xmm1
+0x18008e98d: movups     xmm0, xmmword ptr [rax - 0x60]
+0x18008e991: movups     xmmword ptr [rcx - 0x60], xmm0
+0x18008e995: movups     xmm1, xmmword ptr [rax - 0x50]
+0x18008e999: movups     xmmword ptr [rcx - 0x50], xmm1
+0x18008e99d: movups     xmm0, xmmword ptr [rax - 0x40]
+0x18008e9a1: movups     xmmword ptr [rcx - 0x40], xmm0
+0x18008e9a5: movups     xmm1, xmmword ptr [rax - 0x30]
+0x18008e9a9: movups     xmmword ptr [rcx - 0x30], xmm1
+0x18008e9ad: movups     xmm0, xmmword ptr [rax - 0x20]
+0x18008e9b1: movups     xmmword ptr [rcx - 0x20], xmm0
+0x18008e9b5: movups     xmm1, xmmword ptr [rax - 0x10]
+0x18008e9b9: movups     xmmword ptr [rcx - 0x10], xmm1
+0x18008e9bd: dec        r8
+0x18008e9c0: jne        0x18008e970
+0x18008e9c2: mov        rax, rsi
+0x18008e9c5: lea        rcx, [rsp + 0x230]
+0x18008e9cd: mov        r8, rdi
+0x18008e9d0: movups     xmm0, xmmword ptr [rax]
+0x18008e9d3: movups     xmm1, xmmword ptr [rax + 0x10]
+0x18008e9d7: lea        rcx, [rcx + 0x80]
+0x18008e9de: lea        rax, [rax + 0x80]
+0x18008e9e5: movups     xmmword ptr [rcx - 0x80], xmm0
+0x18008e9e9: movups     xmm0, xmmword ptr [rax - 0x60]
+0x18008e9ed: movups     xmmword ptr [rcx - 0x70], xmm1
+0x18008e9f1: movups     xmm1, xmmword ptr [rax - 0x50]
+0x18008e9f5: movups     xmmword ptr [rcx - 0x60], xmm0
+0x18008e9f9: movups     xmm0, xmmword ptr [rax - 0x40]
+0x18008e9fd: movups     xmmword ptr [rcx - 0x50], xmm1
+0x18008ea01: movups     xmm1, xmmword ptr [rax - 0x30]
+0x18008ea05: movups     xmmword ptr [rcx - 0x40], xmm0
+0x18008ea09: movups     xmm0, xmmword ptr [rax - 0x20]
+0x18008ea0d: movups     xmmword ptr [rcx - 0x30], xmm1
+0x18008ea11: movups     xmm1, xmmword ptr [rax - 0x10]
+0x18008ea15: movups     xmmword ptr [rcx - 0x20], xmm0
+0x18008ea19: movups     xmmword ptr [rcx - 0x10], xmm1
+0x18008ea1d: dec        r8
+0x18008ea20: jne        0x18008e9d0
+0x18008ea22: mov        rax, rsi
+0x18008ea25: mov        rcx, rdi
+0x18008ea28: nop        dword ptr [rax + rax]
+0x18008ea30: movups     xmm0, xmmword ptr [rax]
+0x18008ea33: lea        rdx, [rdx + 0x80]
+0x18008ea3a: lea        rax, [rax + 0x80]
+0x18008ea41: movups     xmmword ptr [rdx - 0x80], xmm0
+0x18008ea45: movups     xmm1, xmmword ptr [rax - 0x70]
+0x18008ea49: movups     xmmword ptr [rdx - 0x70], xmm1
+0x18008ea4d: movups     xmm0, xmmword ptr [rax - 0x60]
+0x18008ea51: movups     xmmword ptr [rdx - 0x60], xmm0
+0x18008ea55: movups     xmm1, xmmword ptr [rax - 0x50]
+0x18008ea59: movups     xmmword ptr [rdx - 0x50], xmm1
+0x18008ea5d: movups     xmm0, xmmword ptr [rax - 0x40]
+0x18008ea61: movups     xmmword ptr [rdx - 0x40], xmm0
+0x18008ea65: movups     xmm1, xmmword ptr [rax - 0x30]
+0x18008ea69: movups     xmmword ptr [rdx - 0x30], xmm1
+0x18008ea6d: movups     xmm0, xmmword ptr [rax - 0x20]
+0x18008ea71: movups     xmmword ptr [rdx - 0x20], xmm0
+0x18008ea75: movups     xmm1, xmmword ptr [rax - 0x10]
+0x18008ea79: movups     xmmword ptr [rdx - 0x10], xmm1
+0x18008ea7d: dec        rcx
+0x18008ea80: jne        0x18008ea30
+0x18008ea82: mov        rcx, qword ptr [rip + 0x1633f7]   ; -> 0x1801f1e80  f32=-2.98334201e-39  f64=3.1840455443028542e-314  i32=-0x7fdf83a8
+0x18008ea89: lea        r8, [rip + 0x107140]   ; -> 0x180195bd0  f32=0  f64=1.4399093154122836e-33  i32=0x0
+0x18008ea90: lea        rdx, [rsp + 0x30]
+0x18008ea95: mov        rax, qword ptr [rcx]
+0x18008ea98: mov        r9d, 0x100
+0x18008ea9e: call       qword ptr [rax + 0x178]
+0x18008eaa4: mov        rcx, qword ptr [rip + 0x1633d5]   ; -> 0x1801f1e80  f32=-2.98334201e-39  f64=3.1840455443028542e-314  i32=-0x7fdf83a8
+0x18008eaab: lea        rax, [rbx + 0xe5]
+0x18008eab2: mov        r10, qword ptr [rcx]
+0x18008eab5: lea        rax, [rbx + rax*2]
+0x18008eab9: lea        rdx, [rsp + 0x30]
+0x18008eabe: lea        r9, [rax*8]
+0x18008eac6: mov        r8d, 0x100
+0x18008eacc: add        r9, rbp
+0x18008eacf: call       qword ptr [r10 + 0x2b8]
+0x18008ead6: mov        rcx, qword ptr [rip + 0x1633a3]   ; -> 0x1801f1e80  f32=-2.98334201e-39  f64=3.1840455443028542e-314  i32=-0x7fdf83a8
+0x18008eadd: lea        rax, [rbx*4 + 0x1d3]
+0x18008eae5: mov        r10, qword ptr [rcx]
+0x18008eae8: add        rax, rbx
+0x18008eaeb: lea        rdx, [rsp + 0x30]
+0x18008eaf0: lea        r9, [rax*8]
+0x18008eaf8: mov        r8d, 0x100
+0x18008eafe: add        r9, rbp
+0x18008eb01: call       qword ptr [r10 + 0x2a8]
+0x18008eb08: mov        rcx, qword ptr [rip + 0x163371]   ; -> 0x1801f1e80  f32=-2.98334201e-39  f64=3.1840455443028542e-314  i32=-0x7fdf83a8
+0x18008eb0f: lea        r8, [rip + 0x1070ba]   ; -> 0x180195bd0  f32=0  f64=1.4399093154122836e-33  i32=0x0
+0x18008eb16: mov        rax, qword ptr [rcx]
+0x18008eb19: lea        rdx, [rsp + 0x30]
+0x18008eb1e: mov        r9d, 0x100
+0x18008eb24: call       qword ptr [rax + 0x178]
+0x18008eb2a: mov        rbx, qword ptr [rbp + 0xc58]
+0x18008eb31: mov        rcx, qword ptr [rip + 0x163348]   ; -> 0x1801f1e80  f32=-2.98334201e-39  f64=3.1840455443028542e-314  i32=-0x7fdf83a8
+0x18008eb38: mov        rax, qword ptr [rcx]
+0x18008eb3b: add        rbx, 0x600
+0x18008eb42: lea        rdx, [rsp + 0x30]
+0x18008eb47: lea        rbx, [rbx + r14*4]
+0x18008eb4b: mov        r9d, 0x80
+0x18008eb51: mov        r8, rbx
+0x18008eb54: call       qword ptr [rax + 0x1f8]
+0x18008eb5a: lea        rax, [rsp + 0x230]
+0x18008eb62: movups     xmm0, xmmword ptr [rax]
+0x18008eb65: lea        rbx, [rbx + 0x80]
+0x18008eb6c: lea        rax, [rax + 0x80]
+0x18008eb73: movups     xmmword ptr [rbx - 0x80], xmm0
+0x18008eb77: movups     xmm1, xmmword ptr [rax - 0x70]
+0x18008eb7b: movups     xmmword ptr [rbx - 0x70], xmm1
+0x18008eb7f: movups     xmm0, xmmword ptr [rax - 0x60]
+0x18008eb83: movups     xmmword ptr [rbx - 0x60], xmm0
+0x18008eb87: movups     xmm1, xmmword ptr [rax - 0x50]
+0x18008eb8b: movups     xmmword ptr [rbx - 0x50], xmm1
+0x18008eb8f: movups     xmm0, xmmword ptr [rax - 0x40]
+0x18008eb93: movups     xmmword ptr [rbx - 0x40], xmm0
+0x18008eb97: movups     xmm1, xmmword ptr [rax - 0x30]
+0x18008eb9b: movups     xmmword ptr [rbx - 0x30], xmm1
+0x18008eb9f: movups     xmm0, xmmword ptr [rax - 0x20]
+0x18008eba3: movups     xmmword ptr [rbx - 0x20], xmm0
+0x18008eba7: movups     xmm1, xmmword ptr [rax - 0x10]
+0x18008ebab: movups     xmmword ptr [rbx - 0x10], xmm1
+0x18008ebaf: dec        rdi
+0x18008ebb2: jne        0x18008eb62
+0x18008ebb4: mov        rcx, qword ptr [rip + 0x1632c5]   ; -> 0x1801f1e80  f32=-2.98334201e-39  f64=3.1840455443028542e-314  i32=-0x7fdf83a8
+0x18008ebbb: lea        r9, [rip + 0x10740e]   ; -> 0x180195fd0  f32=1  f64=0.0078313220146810636  i32=0x3f800000
+0x18008ebc2: lea        r8, [rsp + 0x30]
+0x18008ebc7: mov        rax, qword ptr [rcx]
+0x18008ebca: mov        rdx, rsi
+0x18008ebcd: mov        dword ptr [rsp + 0x20], 0x80
+0x18008ebd5: call       qword ptr [rax + 0x180]
+0x18008ebdb: mov        rcx, qword ptr [rsp + 0x430]
+0x18008ebe3: xor        rcx, rsp
+0x18008ebe6: call       0x1800d6ed0
+0x18008ebeb: add        rsp, 0x440
+0x18008ebf2: pop        r14
+0x18008ebf4: pop        rdi
+0x18008ebf5: pop        rsi
+0x18008ebf6: pop        rbp
+0x18008ebf7: pop        rbx
+0x18008ebf8: ret        
+0x18008ebf9: int3       
+0x18008ebfa: int3       
+0x18008ebfb: int3       
+0x18008ebfc: int3       
+0x18008ebfd: int3       
+0x18008ebfe: int3       
+0x18008ebff: int3       

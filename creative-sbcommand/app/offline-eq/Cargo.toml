@@ -1,0 +1,20 @@
+[package]
+name = "aurora-offline-eq"
+version = "0.1.0"
+edition = "2021"
+description = "Offline WAV equalizer applying the factory Creative G6 EQ preset curves with software RBJ peaking biquads"
+publish = false
+
+[[bin]]
+name = "offline-eq"
+path = "src/main.rs"
+
+[lib]
+name = "aurora_offline_eq"
+path = "src/lib.rs"
+
+[dependencies]
+serde_json = "1"
+
+[profile.release]
+opt-level = 2

@@ -1,0 +1,4396 @@
+{
+ "source": "Platform/SndCrUSB.DLL <.SoundCorePresets> block",
+ "feature_id": 805306369,
+ "param_names_from": "Interop.CtSndCr.dll _etParamReverb",
+ "presets": [
+  {
+   "id": 1,
+   "name": "Auditorium",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -4.76
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 4.32
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.59
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.232
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -7.89
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 20.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": -2.89
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 30.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 21.6
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 250.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "Ball Park",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 14.67
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 1.54
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": 7.8
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 88.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": -100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 76.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 7.5
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 250.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 0.25
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 30.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 13.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "2"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "Bath Room",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -12.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 1.49
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.54
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.232
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -3.7
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 7.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": 10.3
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 11.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 1.4
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 250.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "3"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "name": "Cathedral",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -5.1
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 3.72
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.62
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.283
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -16.1
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 20.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": -4.8
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 40.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 7.5
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 250.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "4"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "name": "Chapel",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -28.3
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 2.01
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.49
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -45.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 5.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": -3.6
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 12.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 10.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 75.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.07
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 250.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 4.8
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 5.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.7
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "5"
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "name": "Church",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -5.1
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 2.21
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 1.21
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.242
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -11.1
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 20.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": -6.7
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 40.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 7.5
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 250.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "6"
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "name": "Concert Hall",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -5.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 3.92
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.7
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -12.3
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 20.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": -0.02
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 29.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 19.6
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 250.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "7"
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "name": "Default",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": -10.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -1.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 3.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.83
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": 10.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": 2.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 20.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 5.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 250.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 30.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "0"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "0"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "8"
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "name": "Garage",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 1.41
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.71
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.242
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": 3.3
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 26.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": -9.1
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 12.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 10.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 80.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 250.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 0.7
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "9"
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "name": "Haunted Cavern",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -5.1
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 5.43
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.65
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.394
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -3.9
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 20.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": -4.2
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 40.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 7.5
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 50.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5030.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 253.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 8.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "10"
+    }
+   ]
+  },
+  {
+   "id": 11,
+   "name": "Indoor Arena",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -5.1
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 2.61
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.48
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 0.96
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -13.3
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 20.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": -7.9
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 40.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 2.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 37.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 253.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 12.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "11"
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "name": "Jazz Club",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -5.1
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 1.21
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.7
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 0.96
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -1.7
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 6.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": 7.3
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 93.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 10.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 253.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 17.5
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 127.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 25.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "12"
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "name": "Living Room",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -60.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 0.5
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.1
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 0.96
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -13.76
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 3.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": -11.04
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 2.5
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 253.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "13"
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "name": "Opera House",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -5.1
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 2.91
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.76
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.788
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -7.8
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 20.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": -7.9
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 40.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 7.5
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 253.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "14"
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "name": "Psychotic",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -1.51
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 7.56
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.91
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -6.26
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 20.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": 13.74
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 30.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 1.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 50.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "0"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 250.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 0.25
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "15"
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "name": "Recording Studio",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -60.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 0.17
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.1
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -12.04
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 1.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": 2.07
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 2.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 1.4
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 250.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "16"
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "name": "Small Room",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -4.5
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 0.4
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.83
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.788
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -16.1
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 2.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": 4.2
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 3.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 2.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 253.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "17"
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "name": "Theater",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -5.1
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 1.11
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.76
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.232
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -12.8
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 20.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": -9.7
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 40.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 7.5
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 250.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "18"
+    }
+   ]
+  },
+  {
+   "id": 19,
+   "name": "Underwater",
+   "type": "Standard",
+   "params": [
+    {
+     "feature_id": 805306369,
+     "param_id": 1,
+     "name": "RoomLevel",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 2,
+     "name": "RoomHF",
+     "type": "Float",
+     "value": -40.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 3,
+     "name": "RoomLF",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 4,
+     "name": "DecayTime",
+     "type": "Float",
+     "value": 1.49
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 5,
+     "name": "DecayHFRatio",
+     "type": "Float",
+     "value": 0.1
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 6,
+     "name": "DecayLFRatio",
+     "type": "Float",
+     "value": 1.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 7,
+     "name": "ReflectionsLevel",
+     "type": "Float",
+     "value": -4.49
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 8,
+     "name": "ReflectionsDelay",
+     "type": "Float",
+     "value": 7.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 9,
+     "name": "ReverbLevel",
+     "type": "Float",
+     "value": 17.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 10,
+     "name": "ReverbDelay",
+     "type": "Float",
+     "value": 11.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 11,
+     "name": "Size",
+     "type": "Float",
+     "value": 1.8
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 12,
+     "name": "Diffusion",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 13,
+     "name": "AirAbsorptionHF",
+     "type": "Float",
+     "value": -0.05
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 14,
+     "name": "DecayTimeScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 15,
+     "name": "DecayHFLimit",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 16,
+     "name": "ReflectionsLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 17,
+     "name": "ReflectionsDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 18,
+     "name": "ReverbLevelScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 19,
+     "name": "ReverbDelayScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 20,
+     "name": "HFCutOff",
+     "type": "Float",
+     "value": 5000.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 21,
+     "name": "LFCutOff",
+     "type": "Float",
+     "value": 250.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 22,
+     "name": "DetuneRate",
+     "type": "Float",
+     "value": 0.85
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 23,
+     "name": "DetuneDepth",
+     "type": "Float",
+     "value": 34.8
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 24,
+     "name": "EchoDepth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 25,
+     "name": "EchoRate",
+     "type": "Float",
+     "value": 4.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 26,
+     "name": "DetuneRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 27,
+     "name": "EchoRateScale",
+     "type": "Bool",
+     "value": "1"
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 28,
+     "name": "ReflectionsPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 29,
+     "name": "ReflectionsPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 30,
+     "name": "ReverbPanAzimuth",
+     "type": "Float",
+     "value": 0.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 31,
+     "name": "ReverbPanDiverge",
+     "type": "Float",
+     "value": 100.0
+    },
+    {
+     "feature_id": 805306369,
+     "param_id": 258,
+     "name": "?",
+     "type": "Integer",
+     "value": "19"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1831 @@
+{
+ "source": "C:\\ProgramData\\Creative\\SBCommand\\Product\\AE9\\Profiles",
+ "count": 25,
+ "profiles": [
+  {
+   "file": "AdventureAndAction.json",
+   "id": "AdventureAndAction",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.2
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.3,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.2
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.3,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "ApexLegend.json",
+   "id": "ApexLegend",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.2
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.2
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "ArenaOfValor.json",
+   "id": "ArenaOfValor",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.25
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.4,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.2,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.5
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.4,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.3,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "BaseProfile.json",
+   "id": "BaseProfile",
+   "order": 0,
+   "type": 4,
+   "product": "",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": true,
+      "Level": 0
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": true,
+      "Level": 0
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "Battlefield1.json",
+   "id": "Battlefield1",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "Mastering Engineer",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.2
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.25
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.4,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.2
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "CallOfDuty.json",
+   "id": "CallofDutyInfiniteWarfare",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.12
+     },
+     "Crystalizer": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.3,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.2
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "Cinema.json",
+   "id": "Cinema",
+   "order": 20,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "Sound Designer",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.55
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.2,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.55
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.2,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "Concert.json",
+   "id": "Concert",
+   "order": 30,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "DJ Fiera",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.4,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.6,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.4,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.6,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "CounterStrike.json",
+   "id": "CounterStrikeGlobalOffensive",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": false,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.2
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "Dota2.json",
+   "id": "Dota2",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": false,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.35
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.2,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": true,
+      "Level": 0.2
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.4
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.2
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.3,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "FPS.json",
+   "id": "FPS",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.12
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.65
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.2,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.2,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.12
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.65
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.2,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.2,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "Fortnite.json",
+   "id": "Fortnite",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.25
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.55
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.4
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "Gaming.json",
+   "id": "Gaming",
+   "order": 10,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.1,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.1,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "LeagueOfLegends.json",
+   "id": "LeagueOfLegends",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": false,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": false,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "MetalGearSolidVThePhantomPain.json",
+   "id": "MetalGearSolidVThePhantomPain",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.5
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.5
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "Night.json",
+   "id": "Night",
+   "order": 40,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "Audio Enthusiast",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.55
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.2,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.74,
+      "Mode": 2
+     },
+     "DialogPlus": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.55
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.2,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.74,
+      "Mode": 2
+     },
+     "DialogPlus": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "Overwatch.json",
+   "id": "Overwatch",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": false,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.2
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "PlayerUnknown.json",
+   "id": "PlayerUnknown",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.15
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.45
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.45
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "ProjectCars.json",
+   "id": "ProjectCars",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.4
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.4
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "RPG.json",
+   "id": "RPG",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.35
+     },
+     "Crystalizer": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.2,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.3,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": true,
+      "Level": 0.15
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.35
+     },
+     "Crystalizer": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.2,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.3,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": true,
+      "Level": 0.15
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "Racing.json",
+   "id": "Racing",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Crystalizer": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.4,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Crystalizer": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": true,
+      "Level": 0.2,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.4,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "RealTimeStrategy.json",
+   "id": "RealTimeStrategy",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": false,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.5,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": false,
+      "Level": 0.67
+     },
+     "Crystalizer": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.5,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "RocketLeague.json",
+   "id": "RocketLeague",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.5
+     },
+     "Crystalizer": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.5
+     },
+     "Crystalizer": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": false,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "Stadium.json",
+   "id": "Stadium",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.4
+     },
+     "Crystalizer": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.4
+     },
+     "Crystalizer": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.74,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": true,
+      "Level": 0.3
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  },
+  {
+   "file": "TheWitcher3WildHunt.json",
+   "id": "TheWitcher3WildHunt",
+   "order": 100,
+   "type": 0,
+   "product": "AE9",
+   "creator": "The Sound Blaster Team",
+   "profession": "",
+   "settings": {
+    "speaker": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.65
+     },
+     "Crystalizer": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.3,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    },
+    "headphone": {
+     "Surround": {
+      "Enable": true,
+      "Level": 0.65
+     },
+     "Crystalizer": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Bass": {
+      "Enable": false,
+      "Level": 0.5,
+      "XOver": 80,
+      "SubWooferGain": false
+     },
+     "SVM": {
+      "Enable": true,
+      "Level": 0.3,
+      "Mode": 0
+     },
+     "DialogPlus": {
+      "Enable": false,
+      "Level": 0.5
+     },
+     "Scout": {
+      "Enable": false
+     },
+     "SBXMaster": {
+      "Enable": true
+     }
+    }
+   }
+  }
+ ]
+}

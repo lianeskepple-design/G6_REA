@@ -1,0 +1,221 @@
+{
+  "source": {
+    "assembly": "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll",
+    "type": "Creative.Platform.Devices.Features.PropKeys.CTTHXCommonPropKeys",
+    "type_row": 260,
+    "method": ".cctor",
+    "method_row": 1593,
+    "method_rva": "0x181a8"
+  },
+  "graphic_eq": {
+    "pid_range": [
+      0,
+      9
+    ],
+    "bands": [
+      {
+        "index": 0,
+        "pid": 0,
+        "hz": 31
+      },
+      {
+        "index": 1,
+        "pid": 1,
+        "hz": 62
+      },
+      {
+        "index": 2,
+        "pid": 2,
+        "hz": 125
+      },
+      {
+        "index": 3,
+        "pid": 3,
+        "hz": 250
+      },
+      {
+        "index": 4,
+        "pid": 4,
+        "hz": 500
+      },
+      {
+        "index": 5,
+        "pid": 5,
+        "hz": 1000
+      },
+      {
+        "index": 6,
+        "pid": 6,
+        "hz": 2000
+      },
+      {
+        "index": 7,
+        "pid": 7,
+        "hz": 4000
+      },
+      {
+        "index": 8,
+        "pid": 8,
+        "hz": 8000
+      },
+      {
+        "index": 9,
+        "pid": 9,
+        "hz": 16000
+      }
+    ]
+  },
+  "scout_geq": {
+    "pid_range": [
+      10,
+      19
+    ],
+    "bands": [
+      {
+        "index": 0,
+        "pid": 10,
+        "hz": 31.25
+      },
+      {
+        "index": 1,
+        "pid": 11,
+        "hz": 62.5
+      },
+      {
+        "index": 2,
+        "pid": 12,
+        "hz": 125
+      },
+      {
+        "index": 3,
+        "pid": 13,
+        "hz": 250
+      },
+      {
+        "index": 4,
+        "pid": 14,
+        "hz": 500
+      },
+      {
+        "index": 5,
+        "pid": 15,
+        "hz": 1000
+      },
+      {
+        "index": 6,
+        "pid": 16,
+        "hz": 2000
+      },
+      {
+        "index": 7,
+        "pid": 17,
+        "hz": 4000
+      },
+      {
+        "index": 8,
+        "pid": 18,
+        "hz": 8000
+      },
+      {
+        "index": 9,
+        "pid": 19,
+        "hz": 16000
+      }
+    ]
+  },
+  "scout_family": [
+    {
+      "pid": 0,
+      "name": "CTPKEY_Scout_Enable",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 1,
+      "name": "CTPKEY_Scout_SVM_Enable",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 2,
+      "name": "CTPKEY_Scout_SVM_Strength",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 3,
+      "name": "CTPKEY_Scout_SVM_Mode",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 4,
+      "name": "CTPKEY_Scout_GEQ_Enable",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 5,
+      "name": "CTPKEY_Scout_GEQ_PreampGain",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 10,
+      "name": "CTPKEY_Scout_GEQ_Gain0",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 11,
+      "name": "CTPKEY_Scout_GEQ_Gain1",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 12,
+      "name": "CTPKEY_Scout_GEQ_Gain2",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 13,
+      "name": "CTPKEY_Scout_GEQ_Gain3",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 14,
+      "name": "CTPKEY_Scout_GEQ_Gain4",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 15,
+      "name": "CTPKEY_Scout_GEQ_Gain5",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 16,
+      "name": "CTPKEY_Scout_GEQ_Gain6",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 17,
+      "name": "CTPKEY_Scout_GEQ_Gain7",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 18,
+      "name": "CTPKEY_Scout_GEQ_Gain8",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 19,
+      "name": "CTPKEY_Scout_GEQ_Gain9",
+      "base": "CTPKEY_Scout_Guid"
+    },
+    {
+      "pid": 20,
+      "name": "CTPKEY_Scout_Reverb_Enable",
+      "base": "CTPKEY_Scout_Guid"
+    }
+  ],
+  "usb_parameter_ids": {
+    "status": "unverified",
+    "note": "`5a 11` notifications use a device-side id namespace. These APO PIDs are not the USB ids; run the online single-band capture before writing any USB mapping."
+  },
+  "notes": [
+    "PIDs are scoped by the property-set GUID; both families use the same numeric values only inside their own GUID.",
+    "Scout family base is CTPKEY_Scout_Guid: enable=0, SVM=1/2/3, GEQ enable=4, preamp=5, gains=10..19, reverb enable=20."
+  ]
+}

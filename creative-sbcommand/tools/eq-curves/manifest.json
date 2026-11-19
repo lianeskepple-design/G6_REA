@@ -1,0 +1,562 @@
+{
+  "date": "2026-11-12",
+  "source": "D:\\工程\\逆向工程\\creative-sbcommand\\reference\\g6-eq-presets.json",
+  "source_sha256": "50ec42b6881277daa0b524ce33cd0d2632b07bd10670a4ec1e9ba3971a26628e",
+  "software_source": "D:\\工程\\逆向工程\\creative-sbcommand\\app\\src\\bin\\sbc-eq.rs",
+  "software_source_sha256": "cbe08e70624db0df1cc22294e181be6e742298086ed88b9c800ff41b7887ba0c",
+  "presets": 34,
+  "output_mode_curves": 68,
+  "different_mode_pairs": 18,
+  "same_mode_pairs": 16,
+  "frequency_points_per_curve": 1024,
+  "sample_rate_hz": 48000,
+  "Q": 1.0,
+  "extra_gain_db": 0.0,
+  "peak_summary": [
+    {
+      "preset_id": "Acoustic",
+      "mode": "Speaker",
+      "peak_db": 3.4939629715462477,
+      "peak_hz": 1973.1717682017118,
+      "min_db": 0.054207486711581945,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Acoustic",
+      "mode": "Headphone",
+      "peak_db": 3.4939629715462477,
+      "peak_hz": 1973.1717682017118,
+      "min_db": 0.054207486711581945,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Music",
+      "mode": "Speaker",
+      "peak_db": 4.527149859218512,
+      "peak_hz": 4119.201024806648,
+      "min_db": -1.7091733484278158,
+      "min_hz": 251.61512315575635
+    },
+    {
+      "preset_id": "Music",
+      "mode": "Headphone",
+      "peak_db": 4.527149859218512,
+      "peak_hz": 4119.201024806648,
+      "min_db": -1.7091733484278158,
+      "min_hz": 251.61512315575635
+    },
+    {
+      "preset_id": "Classical",
+      "mode": "Speaker",
+      "peak_db": 3.814850420324558,
+      "peak_hz": 990.9338371955678,
+      "min_db": 0.055495389538290994,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Classical",
+      "mode": "Headphone",
+      "peak_db": 3.814850420324558,
+      "peak_hz": 990.9338371955678,
+      "min_db": 0.055495389538290994,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Movie",
+      "mode": "Speaker",
+      "peak_db": 4.832009102943598,
+      "peak_hz": 33.18725594106656,
+      "min_db": -1.801772859976931,
+      "min_hz": 205.4755733429772
+    },
+    {
+      "preset_id": "Movie",
+      "mode": "Headphone",
+      "peak_db": 4.832009102943598,
+      "peak_hz": 33.18725594106656,
+      "min_db": -1.801772859976931,
+      "min_hz": 205.4755733429772
+    },
+    {
+      "preset_id": "Country",
+      "mode": "Speaker",
+      "peak_db": 4.177360975542593,
+      "peak_hz": 1946.7034134141345,
+      "min_db": 0.0045586615283868814,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Country",
+      "mode": "Headphone",
+      "peak_db": 4.177360975542593,
+      "peak_hz": 1946.7034134141345,
+      "min_db": 0.0045586615283868814,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "FootstepEnhancer",
+      "mode": "Speaker",
+      "peak_db": 5.026466881786774,
+      "peak_hz": 3526.6658021223743,
+      "min_db": -7.3937493500162255,
+      "min_hz": 126.36200431369657
+    },
+    {
+      "preset_id": "FootstepEnhancer",
+      "mode": "Headphone",
+      "peak_db": 5.026466881786774,
+      "peak_hz": 3526.6658021223743,
+      "min_db": -7.3937493500162255,
+      "min_hz": 126.36200431369657
+    },
+    {
+      "preset_id": "Dance",
+      "mode": "Speaker",
+      "peak_db": 3.2044321429125566,
+      "peak_hz": 7929.950289664396,
+      "min_db": 0.03765468926205151,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Dance",
+      "mode": "Headphone",
+      "peak_db": 3.2044321429125566,
+      "peak_hz": 7929.950289664396,
+      "min_db": 0.03765468926205151,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Flat",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Flat",
+      "mode": "Headphone",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "HipHop",
+      "mode": "Speaker",
+      "peak_db": 3.7355317423667205,
+      "peak_hz": 249.92182825839737,
+      "min_db": -2.631936994313503,
+      "min_hz": 4231.975961435626
+    },
+    {
+      "preset_id": "HipHop",
+      "mode": "Headphone",
+      "peak_db": 3.7355317423667205,
+      "peak_hz": 249.92182825839737,
+      "min_db": -2.631936994313503,
+      "min_hz": 4231.975961435626
+    },
+    {
+      "preset_id": "Jazz",
+      "mode": "Speaker",
+      "peak_db": 4.392174370656813,
+      "peak_hz": 932.5061324461536,
+      "min_db": 0.02173859354804488,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Jazz",
+      "mode": "Headphone",
+      "peak_db": 4.392174370656813,
+      "peak_hz": 932.5061324461536,
+      "min_db": 0.02173859354804488,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Pop",
+      "mode": "Speaker",
+      "peak_db": 3.5691800037970283,
+      "peak_hz": 8147.055411750499,
+      "min_db": 0.03385129096393296,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Pop",
+      "mode": "Headphone",
+      "peak_db": 3.5691800037970283,
+      "peak_hz": 8147.055411750499,
+      "min_db": 0.03385129096393296,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "RnB",
+      "mode": "Speaker",
+      "peak_db": 2.8098383586811297,
+      "peak_hz": 984.2651473763756,
+      "min_db": -0.7296143030231727,
+      "min_hz": 216.88055278322685
+    },
+    {
+      "preset_id": "RnB",
+      "mode": "Headphone",
+      "peak_db": 2.8098383586811297,
+      "peak_hz": 984.2651473763756,
+      "min_db": -0.7296143030231727,
+      "min_hz": 216.88055278322685
+    },
+    {
+      "preset_id": "Rock",
+      "mode": "Speaker",
+      "peak_db": 3.3883669207078166,
+      "peak_hz": 1018.0634917135785,
+      "min_db": 0.06070374621969254,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Rock",
+      "mode": "Headphone",
+      "peak_db": 3.3883669207078166,
+      "peak_hz": 1018.0634917135785,
+      "min_db": 0.06070374621969254,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Vocal",
+      "mode": "Speaker",
+      "peak_db": 4.789287165407634,
+      "peak_hz": 1004.4070700430451,
+      "min_db": -1.392856648501375,
+      "min_hz": 122.99467256166234
+    },
+    {
+      "preset_id": "Vocal",
+      "mode": "Headphone",
+      "peak_db": 4.789287165407634,
+      "peak_hz": 1004.4070700430451,
+      "min_db": -1.392856648501375,
+      "min_hz": 122.99467256166234
+    },
+    {
+      "preset_id": "Gaming",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Gaming",
+      "mode": "Headphone",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "AdventureAndAction",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "AdventureAndAction",
+      "mode": "Headphone",
+      "peak_db": 5.280948809567852,
+      "peak_hz": 34.559436497439656,
+      "min_db": -1.927128971194346,
+      "min_hz": 248.23992873176758
+    },
+    {
+      "preset_id": "ApexLegend",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "ApexLegend",
+      "mode": "Headphone",
+      "peak_db": 3.393727865114768,
+      "peak_hz": 55.81845304332701,
+      "min_db": -1.9200880697823175,
+      "min_hz": 494.3014364108951
+    },
+    {
+      "preset_id": "ArenaOfValor",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "ArenaOfValor",
+      "mode": "Headphone",
+      "peak_db": 3.0744551382862007,
+      "peak_hz": 59.717732551028206,
+      "min_db": -1.9817707140281131,
+      "min_hz": 390.2586845271925
+    },
+    {
+      "preset_id": "CallofDutySeries",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "CallofDutySeries",
+      "mode": "Headphone",
+      "peak_db": 1.9657814257406994,
+      "peak_hz": 56.5773886925194,
+      "min_db": -4.44703430346003,
+      "min_hz": 248.23992873176758
+    },
+    {
+      "preset_id": "CounterStrikeGlobalOffensive",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "CounterStrikeGlobalOffensive",
+      "mode": "Headphone",
+      "peak_db": 3.007757693851672,
+      "peak_hz": 16005.004556322107,
+      "min_db": -4.530583779469697,
+      "min_hz": 246.5693478884132
+    },
+    {
+      "preset_id": "Dota2",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Dota2",
+      "mode": "Headphone",
+      "peak_db": -0.34934998994556216,
+      "peak_hz": 20000.0,
+      "min_db": -7.080687718643125,
+      "min_hz": 468.3078761437054
+    },
+    {
+      "preset_id": "DrivingSimulation",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "DrivingSimulation",
+      "mode": "Headphone",
+      "peak_db": 5.974954100459012,
+      "peak_hz": 58.52018029682104,
+      "min_db": -2.003879125547561,
+      "min_hz": 814.7055411750499
+    },
+    {
+      "preset_id": "Fortnite",
+      "mode": "Speaker",
+      "peak_db": 2.5004899031107053,
+      "peak_hz": 1920.5901082053376,
+      "min_db": -2.5012990091420484,
+      "min_hz": 225.84782859877077
+    },
+    {
+      "preset_id": "Fortnite",
+      "mode": "Headphone",
+      "peak_db": 2.498591733171738,
+      "peak_hz": 33.86639727251139,
+      "min_db": -2.4779418904374824,
+      "min_hz": 228.918568812285
+    },
+    {
+      "preset_id": "FPS",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "FPS",
+      "mode": "Headphone",
+      "peak_db": 5.007684756616037,
+      "peak_hz": 33.6384864976174,
+      "min_db": -2.6807706514893903,
+      "min_hz": 1747.3462379017544
+    },
+    {
+      "preset_id": "LeagueOfLegends",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "LeagueOfLegends",
+      "mode": "Headphone",
+      "peak_db": 1.3461056675432173,
+      "peak_hz": 8599.26001182962,
+      "min_db": -7.056304054409248,
+      "min_hz": 465.15630350720585
+    },
+    {
+      "preset_id": "MetalGearSolidVThePhantomPain",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "MetalGearSolidVThePhantomPain",
+      "mode": "Headphone",
+      "peak_db": 2.5612487551121306,
+      "peak_hz": 34.095852210853884,
+      "min_db": -1.1399915521784116,
+      "min_hz": 7666.686561371914
+    },
+    {
+      "preset_id": "Overwatch",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Overwatch",
+      "mode": "Headphone",
+      "peak_db": 3.51362288054112,
+      "peak_hz": 59.717732551028206,
+      "min_db": -2.3279446083403488,
+      "min_hz": 4063.945584848018
+    },
+    {
+      "preset_id": "PlayerUnknown",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "PlayerUnknown",
+      "mode": "Headphone",
+      "peak_db": 2.68529228965777,
+      "peak_hz": 1831.9213684336783,
+      "min_db": -5.018193177371342,
+      "min_hz": 224.32793992534963
+    },
+    {
+      "preset_id": "ProjectCars",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "ProjectCars",
+      "mode": "Headphone",
+      "peak_db": 3.1672561978977254,
+      "peak_hz": 63.03238207788926,
+      "min_db": -1.1148759268301902,
+      "min_hz": 15790.31157023727
+    },
+    {
+      "preset_id": "RealTimeStrategy",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "RealTimeStrategy",
+      "mode": "Headphone",
+      "peak_db": 1.151472980624257,
+      "peak_hz": 1053.0224258400076,
+      "min_db": -3.7437877232983685,
+      "min_hz": 118.11117574194157
+    },
+    {
+      "preset_id": "RocketLeague",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "RocketLeague",
+      "mode": "Headphone",
+      "peak_db": 3.9347708375597152,
+      "peak_hz": 34.559436497439656,
+      "min_db": -1.8837062957944668,
+      "min_hz": 8092.228153419615
+    },
+    {
+      "preset_id": "RPG",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "RPG",
+      "mode": "Headphone",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Stadium",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "Stadium",
+      "mode": "Headphone",
+      "peak_db": 4.570821782044038,
+      "peak_hz": 932.5061324461536,
+      "min_db": -2.193596810319357,
+      "min_hz": 116.52681874155496
+    },
+    {
+      "preset_id": "TheWitcher3WildHunt",
+      "mode": "Speaker",
+      "peak_db": 0.0,
+      "peak_hz": 20.0,
+      "min_db": 0.0,
+      "min_hz": 20.0
+    },
+    {
+      "preset_id": "TheWitcher3WildHunt",
+      "mode": "Headphone",
+      "peak_db": 4.543557539290762,
+      "peak_hz": 54.33098653547063,
+      "min_db": -1.865960604235293,
+      "min_hz": 8092.228153419615
+    }
+  ],
+  "boundary": "Software-model theoretical response; not a hardware measurement. Chinese labels/categories are editorial."
+}

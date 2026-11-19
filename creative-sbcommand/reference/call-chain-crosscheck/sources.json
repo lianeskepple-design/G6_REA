@@ -1,0 +1,187 @@
+{
+  "assembly": "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll",
+  "sha256": "9337d9cabc9c5de4a5026833adf308115885b1b9d884928fae24edbfaf736e9f",
+  "tool": "ilspycmd 9.1.0.7988",
+  "classes": [
+    {
+      "type": "Creative.Platform.Devices.Features.GraphicsEqFeature",
+      "exit_code": 0,
+      "evidence": "GraphicsEqFeature.cs.txt",
+      "command": [
+        "C:/Program Files/dotnet/dotnet.exe",
+        "--roll-forward",
+        "Major",
+        "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\ilspycmd\\tools\\net8.0\\any\\ilspycmd.dll",
+        "--disable-updatecheck",
+        "-t",
+        "Creative.Platform.Devices.Features.GraphicsEqFeature",
+        "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll"
+      ]
+    },
+    {
+      "type": "Creative.Platform.Devices.Features.Enrichers.GraphicsEqFeatureEnricher",
+      "exit_code": 0,
+      "evidence": "GraphicsEqFeatureEnricher.cs.txt",
+      "command": [
+        "C:/Program Files/dotnet/dotnet.exe",
+        "--roll-forward",
+        "Major",
+        "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\ilspycmd\\tools\\net8.0\\any\\ilspycmd.dll",
+        "--disable-updatecheck",
+        "-t",
+        "Creative.Platform.Devices.Features.Enrichers.GraphicsEqFeatureEnricher",
+        "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll"
+      ]
+    },
+    {
+      "type": "Creative.Platform.Devices.Features.Effects.EffectParameterRangeConfig`1",
+      "exit_code": 0,
+      "evidence": "EffectParameterRangeConfig-1.cs.txt",
+      "command": [
+        "C:/Program Files/dotnet/dotnet.exe",
+        "--roll-forward",
+        "Major",
+        "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\ilspycmd\\tools\\net8.0\\any\\ilspycmd.dll",
+        "--disable-updatecheck",
+        "-t",
+        "Creative.Platform.Devices.Features.Effects.EffectParameterRangeConfig`1",
+        "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll"
+      ]
+    },
+    {
+      "type": "Creative.Platform.Devices.Features.ImmersionReverbAlgo",
+      "exit_code": 0,
+      "evidence": "ImmersionReverbAlgo.cs.txt",
+      "command": [
+        "C:/Program Files/dotnet/dotnet.exe",
+        "--roll-forward",
+        "Major",
+        "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\ilspycmd\\tools\\net8.0\\any\\ilspycmd.dll",
+        "--disable-updatecheck",
+        "-t",
+        "Creative.Platform.Devices.Features.ImmersionReverbAlgo",
+        "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll"
+      ]
+    },
+    {
+      "type": "Creative.Platform.Devices.Features.Enrichers.XBassXFi23FeatureEnricher",
+      "exit_code": 0,
+      "evidence": "XBassXFi23FeatureEnricher.cs.txt",
+      "command": [
+        "C:/Program Files/dotnet/dotnet.exe",
+        "--roll-forward",
+        "Major",
+        "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\ilspycmd\\tools\\net8.0\\any\\ilspycmd.dll",
+        "--disable-updatecheck",
+        "-t",
+        "Creative.Platform.Devices.Features.Enrichers.XBassXFi23FeatureEnricher",
+        "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll"
+      ]
+    },
+    {
+      "type": "Creative.Platform.Devices.Features.XBassXFi23Feature",
+      "exit_code": 0,
+      "evidence": "XBassXFi23Feature.cs.txt",
+      "command": [
+        "C:/Program Files/dotnet/dotnet.exe",
+        "--roll-forward",
+        "Major",
+        "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\ilspycmd\\tools\\net8.0\\any\\ilspycmd.dll",
+        "--disable-updatecheck",
+        "-t",
+        "Creative.Platform.Devices.Features.XBassXFi23Feature",
+        "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll"
+      ]
+    },
+    {
+      "type": "Creative.Platform.Devices.Features.SoundCoreScoutFeature",
+      "exit_code": 0,
+      "evidence": "SoundCoreScoutFeature.cs.txt",
+      "command": [
+        "C:/Program Files/dotnet/dotnet.exe",
+        "--roll-forward",
+        "Major",
+        "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\ilspycmd\\tools\\net8.0\\any\\ilspycmd.dll",
+        "--disable-updatecheck",
+        "-t",
+        "Creative.Platform.Devices.Features.SoundCoreScoutFeature",
+        "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll"
+      ]
+    },
+    {
+      "type": "Creative.Platform.Devices.Features.ApoScoutFeature",
+      "exit_code": 0,
+      "evidence": "ApoScoutFeature.cs.txt",
+      "command": [
+        "C:/Program Files/dotnet/dotnet.exe",
+        "--roll-forward",
+        "Major",
+        "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\ilspycmd\\tools\\net8.0\\any\\ilspycmd.dll",
+        "--disable-updatecheck",
+        "-t",
+        "Creative.Platform.Devices.Features.ApoScoutFeature",
+        "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll"
+      ]
+    },
+    {
+      "type": "Creative.Platform.Devices.Features.Effects.BasicEffectParameter",
+      "exit_code": 0,
+      "evidence": "BasicEffectParameter.cs.txt",
+      "command": [
+        "C:/Program Files/dotnet/dotnet.exe",
+        "--roll-forward",
+        "Major",
+        "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\ilspycmd\\tools\\net8.0\\any\\ilspycmd.dll",
+        "--disable-updatecheck",
+        "-t",
+        "Creative.Platform.Devices.Features.Effects.BasicEffectParameter",
+        "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll"
+      ]
+    },
+    {
+      "type": "Creative.Platform.Devices.Features.Effects.BasicIndexedEffectParameter",
+      "exit_code": 0,
+      "evidence": "BasicIndexedEffectParameter.cs.txt",
+      "command": [
+        "C:/Program Files/dotnet/dotnet.exe",
+        "--roll-forward",
+        "Major",
+        "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\ilspycmd\\tools\\net8.0\\any\\ilspycmd.dll",
+        "--disable-updatecheck",
+        "-t",
+        "Creative.Platform.Devices.Features.Effects.BasicIndexedEffectParameter",
+        "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll"
+      ]
+    },
+    {
+      "type": "Creative.Platform.Devices.Features.Effects.BasicNonIndexedEffectParameter",
+      "exit_code": 0,
+      "evidence": "BasicNonIndexedEffectParameter.cs.txt",
+      "command": [
+        "C:/Program Files/dotnet/dotnet.exe",
+        "--roll-forward",
+        "Major",
+        "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\ilspycmd\\tools\\net8.0\\any\\ilspycmd.dll",
+        "--disable-updatecheck",
+        "-t",
+        "Creative.Platform.Devices.Features.Effects.BasicNonIndexedEffectParameter",
+        "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll"
+      ]
+    },
+    {
+      "type": "Creative.Platform.Devices.Features.CDCApoXBassXFi23Feature",
+      "exit_code": 0,
+      "evidence": "CDCApoXBassXFi23Feature.cs.txt",
+      "command": [
+        "C:/Program Files/dotnet/dotnet.exe",
+        "--roll-forward",
+        "Major",
+        "D:\\工程\\逆向工程\\creative-sbcommand\\tools\\ilspycmd\\tools\\net8.0\\any\\ilspycmd.dll",
+        "--disable-updatecheck",
+        "-t",
+        "Creative.Platform.Devices.Features.CDCApoXBassXFi23Feature",
+        "C:\\Program Files (x86)\\Creative\\Sound Blaster Command\\Platform\\Creative.Platform.Devices.dll"
+      ]
+    }
+  ]
+}

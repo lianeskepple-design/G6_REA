@@ -1,0 +1,267 @@
+{
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "fixture A/B paused position",
+      "passed": true,
+      "details": {
+        "ab": true,
+        "positions": {
+          "a": 5.5,
+          "b": 5.5,
+          "aPaused": true,
+          "bPaused": true
+        },
+        "count": 68,
+        "decoded": 33,
+        "paused": true,
+        "gum": 0
+      }
+    },
+    {
+      "name": "all fixture mode mappings",
+      "passed": true,
+      "details": 68
+    },
+    {
+      "name": "all 33 WAV metadata readable",
+      "passed": true,
+      "details": 33
+    },
+    {
+      "name": "fixture does not start playback or microphone",
+      "passed": true
+    },
+    {
+      "name": "lab starts without context or capture",
+      "passed": true,
+      "details": {
+        "ctx": true,
+        "gum": 0,
+        "secure": true
+      }
+    },
+    {
+      "name": "loopback is secure context",
+      "passed": true
+    },
+    {
+      "name": "synthetic fixture loads in lab",
+      "passed": true
+    },
+    {
+      "name": "local file decodes without capture",
+      "passed": true,
+      "details": {
+        "seconds": 16,
+        "channels": 2,
+        "rate": 48000,
+        "gum": 0
+      }
+    },
+    {
+      "name": "68 native WebAudio curves match catalogue",
+      "passed": true,
+      "details": {
+        "curves": 68,
+        "max_error_db": 2.7582075574628107e-06
+      }
+    },
+    {
+      "name": "same source feeds both A/B branches",
+      "passed": true,
+      "details": {
+        "a": true,
+        "b": true
+      }
+    },
+    {
+      "name": "pause retains playback position",
+      "passed": true,
+      "details": {
+        "offset": 0.26133333333333336
+      }
+    },
+    {
+      "name": "seek retains midpoint",
+      "passed": true,
+      "details": {
+        "offset": 8
+      }
+    },
+    {
+      "name": "refresh does not request microphone",
+      "passed": true
+    },
+    {
+      "name": "output routing reports success or explicit fallback",
+      "passed": true,
+      "details": {
+        "ok": true,
+        "error": "",
+        "mode": "context",
+        "status": "已通过 AudioContext.setSinkId 路由至 系统默认输出。"
+      }
+    },
+    {
+      "name": "name authorization stops temporary capture",
+      "passed": true
+    },
+    {
+      "name": "fake mic replaces file but starts muted",
+      "passed": true,
+      "details": {
+        "stoppedFile": true,
+        "muted": true,
+        "live": true,
+        "gum": 2
+      }
+    },
+    {
+      "name": "fake mic monitoring honors EQ B",
+      "passed": true,
+      "details": {
+        "a": 0,
+        "b": 0.9998350739479065
+      }
+    },
+    {
+      "name": "stop monitoring closes both gates",
+      "passed": true
+    },
+    {
+      "name": "stopping mic releases all fake tracks",
+      "passed": true
+    },
+    {
+      "name": "generic background client connects through real process helper",
+      "passed": true,
+      "details": {
+        "ok": true,
+        "ready": true,
+        "kind": "desktop-process",
+        "rate": 48000,
+        "label": "python · PID 25588 · 后台",
+        "muted": true
+      }
+    },
+    {
+      "name": "native process capture starts with monitoring muted",
+      "passed": true
+    },
+    {
+      "name": "native PCM reaches the browser",
+      "passed": true,
+      "details": {
+        "frames": 5760
+      }
+    },
+    {
+      "name": "silent target is reported as captured silence",
+      "passed": true
+    },
+    {
+      "name": "stopping process capture clears its state",
+      "passed": true
+    },
+    {
+      "name": "synthetic shared-tab stream is an EQ source",
+      "passed": true,
+      "details": {
+        "label": "共享标签页声音",
+        "kind": "display",
+        "sample_rate": 48000,
+        "displaySurface": "browser",
+        "localPlaybackSuppressed": true
+      }
+    },
+    {
+      "name": "tab share requests audio suppression and excludes this EQ page",
+      "passed": true
+    },
+    {
+      "name": "capture label follows actual track settings",
+      "passed": true
+    },
+    {
+      "name": "stop shared capture releases audio and video",
+      "passed": true
+    },
+    {
+      "name": "no-audio share fails and releases video",
+      "passed": true,
+      "details": {
+        "message": "没有返回音频轨道；本次共享已停止。请选择标签页并勾选共享音频，单独共享窗口可能不带音频。",
+        "active": false,
+        "ended": true
+      }
+    },
+    {
+      "name": "late share result after cancel cannot reactivate capture",
+      "passed": true,
+      "details": {
+        "active": false,
+        "ended": true
+      }
+    },
+    {
+      "name": "share permission rejection is explicit",
+      "passed": true,
+      "details": {
+        "message": "test denied",
+        "active": false
+      }
+    },
+    {
+      "name": "dispose releases contexts and capture",
+      "passed": true
+    },
+    {
+      "name": "no audio POST upload requests",
+      "passed": true
+    },
+    {
+      "name": "no uncaught browser exceptions",
+      "passed": true,
+      "details": []
+    }
+  ],
+  "fixture": {
+    "ab": true,
+    "positions": {
+      "a": 5.5,
+      "b": 5.5,
+      "aPaused": true,
+      "bPaused": true
+    },
+    "count": 68,
+    "decoded": 33,
+    "paused": true,
+    "gum": 0
+  },
+  "local_file": {
+    "seconds": 16,
+    "channels": 2,
+    "rate": 48000,
+    "gum": 0
+  },
+  "native_curve_max_error_db": 2.7582075574628107e-06,
+  "fake_devices": true,
+  "muted": true,
+  "audio_upload_requests": 0,
+  "native_target_alive_after_stop": true,
+  "native_capture_helpers_started": 1,
+  "native_capture_helpers_all_exited": true,
+  "passed_checks": 34,
+  "tested_files_sha256": {
+    "tools/eq-curves/audio-lab.js": "5e5eece760ee53f03c4a29cc23020b10d89df71cd5a6ff2612149b740519088a",
+    "tools/eq-curves/audio-lab.html": "eb4699cccf51dbe85402c711b3e55c6415f166d1fcf94baea026a1b16a009d85",
+    "tools/eq-curves/process-capture-worklet.js": "92f935dafdabb6a8a4e01720de0e1ea709a1b2a36f5d4d5fd64c00dcc8c9c720",
+    "tools/process-audio-backend.py": "a677de8e163280f5c59a0b106b56c48fc6774edbe5d558911f3000a8c56c83c8",
+    "tools/serve-eq-lab.py": "9e51eda7d5d0e9991a9265a0ffedb6ee97eb56f2c758cb0f2f47f51da95e8985",
+    "tools/native-process-loopback/process-loopback.exe": "4cf8c8564fe9b8e50dae40f13d2e510a61eaeeb53d4e3fcd965b7cba95e1ea10",
+    "tools/native-process-loopback/Program.cs": "4be3ab9eaa6dfd0a1fa65b13d1e89b0e39e065ff927d403b5c1b035e5a52c7b3",
+    "start-eq-lab.cmd": "87d0524f272132de12d98aef33904697da80d85ad0b9200965180ada82260bc9"
+  },
+  "scope": "Real browser, original fixture/local-file regressions, real native capture of a task-created silent target, and synthetic getDisplayMedia streams; no existing user application or real screen was captured."
+}

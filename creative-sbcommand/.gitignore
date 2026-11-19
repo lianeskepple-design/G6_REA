@@ -1,0 +1,43 @@
+# Rust / C build outputs
+app/target/
+target/
+build/
+out/
+dist/
+tmp/
+temp/
+*.log
+
+# Local toolchains and downloaded tools
+tools/audio-env/
+tools/ILSpy/
+tools/ilspycmd/
+tools/__pycache__/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Generated measurements, captures and evidence
+capture/
+investigation.cany/
+curvemeas-*/
+tools/eq-curves/audio/wavs/
+*.pcap
+*.wav
+*.cany
+
+# Packaged / compiled artifacts
+*.zip
+*.exe
+*.dll
+*.pdb
+*.obj
+*.lib
+*.hda
+
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

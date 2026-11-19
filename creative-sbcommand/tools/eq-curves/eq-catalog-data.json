@@ -1,0 +1,2224 @@
+{
+  "sample_rate": 48000,
+  "q": 1.0,
+  "extra_gain_db": 0.0,
+  "date": "2026-11-12",
+  "order": [
+    "Acoustic",
+    "Music",
+    "Classical",
+    "Movie",
+    "Country",
+    "FootstepEnhancer",
+    "Dance",
+    "Flat",
+    "HipHop",
+    "Jazz",
+    "Pop",
+    "RnB",
+    "Rock",
+    "Vocal",
+    "Gaming",
+    "AdventureAndAction",
+    "ApexLegend",
+    "ArenaOfValor",
+    "CallofDutySeries",
+    "CounterStrikeGlobalOffensive",
+    "Dota2",
+    "DrivingSimulation",
+    "Fortnite",
+    "FPS",
+    "LeagueOfLegends",
+    "MetalGearSolidVThePhantomPain",
+    "Overwatch",
+    "PlayerUnknown",
+    "ProjectCars",
+    "RealTimeStrategy",
+    "RocketLeague",
+    "RPG",
+    "Stadium",
+    "TheWitcher3WildHunt"
+  ],
+  "labels": {
+    "Acoustic": "原声",
+    "AdventureAndAction": "动作与冒险",
+    "ApexLegend": "Apex 英雄",
+    "ArenaOfValor": "传说对决",
+    "CallofDutySeries": "使命召唤系列",
+    "Classical": "古典",
+    "CounterStrikeGlobalOffensive": "CS:GO",
+    "Country": "乡村",
+    "Dance": "舞曲",
+    "Dota2": "Dota 2",
+    "DrivingSimulation": "驾驶模拟",
+    "Flat": "平直",
+    "FootstepEnhancer": "脚步增强",
+    "Fortnite": "堡垒之夜",
+    "FPS": "第一人称射击",
+    "Gaming": "游戏通用",
+    "HipHop": "嘻哈",
+    "Jazz": "爵士",
+    "LeagueOfLegends": "英雄联盟",
+    "MetalGearSolidVThePhantomPain": "合金装备 V：幻痛",
+    "Movie": "电影",
+    "Music": "音乐",
+    "Overwatch": "守望先锋",
+    "PlayerUnknown": "PUBG / 绝地求生",
+    "Pop": "流行",
+    "ProjectCars": "赛车计划",
+    "RealTimeStrategy": "即时战略",
+    "RnB": "R&B",
+    "Rock": "摇滚",
+    "RocketLeague": "火箭联盟",
+    "RPG": "角色扮演",
+    "Stadium": "体育场",
+    "TheWitcher3WildHunt": "巫师 3：狂猎",
+    "Vocal": "人声"
+  },
+  "categories": {
+    "Acoustic": "音乐风格",
+    "Music": "通用与增强",
+    "Classical": "音乐风格",
+    "Movie": "通用与增强",
+    "Country": "音乐风格",
+    "FootstepEnhancer": "通用与增强",
+    "Dance": "音乐风格",
+    "Flat": "通用与增强",
+    "HipHop": "音乐风格",
+    "Jazz": "音乐风格",
+    "Pop": "音乐风格",
+    "RnB": "音乐风格",
+    "Rock": "音乐风格",
+    "Vocal": "音乐风格",
+    "Gaming": "游戏与场景",
+    "AdventureAndAction": "游戏与场景",
+    "ApexLegend": "游戏与场景",
+    "ArenaOfValor": "游戏与场景",
+    "CallofDutySeries": "游戏与场景",
+    "CounterStrikeGlobalOffensive": "游戏与场景",
+    "Dota2": "游戏与场景",
+    "DrivingSimulation": "游戏与场景",
+    "Fortnite": "游戏与场景",
+    "FPS": "游戏与场景",
+    "LeagueOfLegends": "游戏与场景",
+    "MetalGearSolidVThePhantomPain": "游戏与场景",
+    "Overwatch": "游戏与场景",
+    "PlayerUnknown": "游戏与场景",
+    "ProjectCars": "游戏与场景",
+    "RealTimeStrategy": "游戏与场景",
+    "RocketLeague": "游戏与场景",
+    "RPG": "游戏与场景",
+    "Stadium": "游戏与场景",
+    "TheWitcher3WildHunt": "游戏与场景"
+  },
+  "presets": {
+    "Acoustic": {
+      "id": "Acoustic",
+      "order": 10,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            2,
+            0,
+            0,
+            2.5,
+            2,
+            2,
+            2,
+            3
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            2,
+            0,
+            0,
+            2.5,
+            2,
+            2,
+            2,
+            3
+          ]
+        }
+      }
+    },
+    "AdventureAndAction": {
+      "id": "AdventureAndAction",
+      "order": 150,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            4,
+            4,
+            -1,
+            -2,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "ApexLegend": {
+      "id": "ApexLegend",
+      "order": 151,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            3,
+            -1,
+            0,
+            -2,
+            0,
+            2,
+            -3,
+            2,
+            0
+          ]
+        }
+      }
+    },
+    "ArenaOfValor": {
+      "id": "ArenaOfValor",
+      "order": 155,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            2,
+            2,
+            -2,
+            -2,
+            2,
+            2,
+            -3,
+            2,
+            0
+          ]
+        }
+      }
+    },
+    "CallofDutySeries": {
+      "id": "CallofDutySeries",
+      "order": 160,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            3,
+            -3,
+            -3,
+            -2,
+            -2,
+            2,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "Classical": {
+      "id": "Classical",
+      "order": 20,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            1.5,
+            2,
+            1,
+            3,
+            1,
+            0,
+            3,
+            3
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            1.5,
+            2,
+            1,
+            3,
+            1,
+            0,
+            3,
+            3
+          ]
+        }
+      }
+    },
+    "CounterStrikeGlobalOffensive": {
+      "id": "CounterStrikeGlobalOffensive",
+      "order": 170,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            -5,
+            3,
+            -3,
+            -3,
+            -2,
+            -2,
+            2,
+            0,
+            0,
+            3
+          ]
+        }
+      }
+    },
+    "Country": {
+      "id": "Country",
+      "order": 30,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            2.5,
+            2.5,
+            2,
+            3,
+            3
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            2.5,
+            2.5,
+            2,
+            3,
+            3
+          ]
+        }
+      }
+    },
+    "Dance": {
+      "id": "Dance",
+      "order": 40,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            1,
+            1.5,
+            0.5,
+            1.5,
+            2,
+            1,
+            2.5,
+            2.5
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            1,
+            1.5,
+            0.5,
+            1.5,
+            2,
+            1,
+            2.5,
+            2.5
+          ]
+        }
+      }
+    },
+    "Dota2": {
+      "id": "Dota2",
+      "order": 180,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            -5,
+            0,
+            -3,
+            -4,
+            -5,
+            -1,
+            -3,
+            -2,
+            -3,
+            -1
+          ]
+        }
+      }
+    },
+    "DrivingSimulation": {
+      "id": "DrivingSimulation",
+      "order": 190,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            4,
+            4,
+            2,
+            2,
+            -2,
+            -2,
+            2,
+            0,
+            2,
+            0
+          ]
+        }
+      }
+    },
+    "FPS": {
+      "id": "FPS",
+      "order": 200,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            4,
+            3,
+            0,
+            0,
+            0,
+            -2,
+            -2,
+            0,
+            0,
+            2
+          ]
+        }
+      }
+    },
+    "Flat": {
+      "id": "Flat",
+      "order": 50,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "FootstepEnhancer": {
+      "id": "FootstepEnhancer",
+      "order": 30,
+      "type": 3,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            -4,
+            -5,
+            -3,
+            -5,
+            -3,
+            4,
+            5,
+            -4,
+            -4
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            -4,
+            -5,
+            -3,
+            -5,
+            -3,
+            4,
+            5,
+            -4,
+            -4
+          ]
+        }
+      }
+    },
+    "Fortnite": {
+      "id": "Fortnite",
+      "order": 195,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            2,
+            -2,
+            -2,
+            0,
+            0,
+            3,
+            -2,
+            2,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            2,
+            -2,
+            -2,
+            0,
+            0,
+            2,
+            -2,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "Gaming": {
+      "id": "Gaming",
+      "order": 120,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "HipHop": {
+      "id": "HipHop",
+      "order": 60,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            2,
+            2.5,
+            1.5,
+            2.5,
+            0,
+            -2.5,
+            -1,
+            -1.5
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            2,
+            2.5,
+            1.5,
+            2.5,
+            0,
+            -2.5,
+            -1,
+            -1.5
+          ]
+        }
+      }
+    },
+    "Jazz": {
+      "id": "Jazz",
+      "order": 70,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            2.5,
+            2.5,
+            3,
+            1,
+            1,
+            3,
+            3
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            2.5,
+            2.5,
+            3,
+            1,
+            1,
+            3,
+            3
+          ]
+        }
+      }
+    },
+    "LeagueOfLegends": {
+      "id": "LeagueOfLegends",
+      "order": 210,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            -3,
+            0,
+            -3,
+            -4,
+            -5,
+            -1,
+            -3,
+            -2,
+            2,
+            0
+          ]
+        }
+      }
+    },
+    "MetalGearSolidVThePhantomPain": {
+      "id": "MetalGearSolidVThePhantomPain",
+      "order": 220,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            2,
+            -2,
+            1,
+            1,
+            1,
+            2,
+            -1,
+            -1,
+            0
+          ]
+        }
+      }
+    },
+    "Movie": {
+      "id": "Movie",
+      "order": 20,
+      "type": 3,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            4,
+            3,
+            -2,
+            -2,
+            2,
+            2,
+            1,
+            0,
+            1,
+            2
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            4,
+            3,
+            -2,
+            -2,
+            2,
+            2,
+            1,
+            0,
+            1,
+            2
+          ]
+        }
+      }
+    },
+    "Music": {
+      "id": "Music",
+      "order": 10,
+      "type": 3,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            2,
+            0,
+            -2,
+            0,
+            1,
+            2,
+            3,
+            3,
+            3.5
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            2,
+            0,
+            -2,
+            0,
+            1,
+            2,
+            3,
+            3,
+            3.5
+          ]
+        }
+      }
+    },
+    "Overwatch": {
+      "id": "Overwatch",
+      "order": 224,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            2,
+            2.5,
+            1.5,
+            -1.5,
+            1.5,
+            2,
+            2,
+            -3.5,
+            1.5,
+            2
+          ]
+        }
+      }
+    },
+    "PlayerUnknown": {
+      "id": "PlayerUnknown",
+      "order": 227,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            3,
+            -4,
+            -4,
+            0,
+            2,
+            2,
+            0,
+            2,
+            0
+          ]
+        }
+      }
+    },
+    "Pop": {
+      "id": "Pop",
+      "order": 80,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            2.5,
+            0.5,
+            0.5,
+            3,
+            3
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            2.5,
+            0.5,
+            0.5,
+            3,
+            3
+          ]
+        }
+      }
+    },
+    "ProjectCars": {
+      "id": "ProjectCars",
+      "order": 230,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            3,
+            0,
+            2,
+            2,
+            0,
+            2,
+            0,
+            -1,
+            -1
+          ]
+        }
+      }
+    },
+    "RPG": {
+      "id": "RPG",
+      "order": 255,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "RealTimeStrategy": {
+      "id": "RealTimeStrategy",
+      "order": 240,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            -2,
+            -3,
+            0,
+            -2,
+            2,
+            0,
+            -3,
+            -1,
+            0
+          ]
+        }
+      }
+    },
+    "RnB": {
+      "id": "RnB",
+      "order": 90,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            -1.5,
+            2.5,
+            1.5,
+            2,
+            0,
+            2,
+            1
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            -1.5,
+            2.5,
+            1.5,
+            2,
+            0,
+            2,
+            1
+          ]
+        }
+      }
+    },
+    "Rock": {
+      "id": "Rock",
+      "order": 100,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            2,
+            1,
+            0,
+            3,
+            1,
+            -1,
+            3,
+            3
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            2,
+            1,
+            0,
+            3,
+            1,
+            -1,
+            3,
+            3
+          ]
+        }
+      }
+    },
+    "RocketLeague": {
+      "id": "RocketLeague",
+      "order": 250,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            3,
+            -2,
+            2,
+            2,
+            0,
+            2,
+            0,
+            -2,
+            0
+          ]
+        }
+      }
+    },
+    "Stadium": {
+      "id": "Stadium",
+      "order": 260,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            -3,
+            2,
+            3,
+            3,
+            2,
+            -2,
+            3,
+            0
+          ]
+        }
+      }
+    },
+    "TheWitcher3WildHunt": {
+      "id": "TheWitcher3WildHunt",
+      "order": 270,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            3,
+            4,
+            -2,
+            0,
+            0,
+            2,
+            2,
+            0,
+            -2,
+            0
+          ]
+        }
+      }
+    },
+    "Vocal": {
+      "id": "Vocal",
+      "order": 110,
+      "type": 0,
+      "speaker_method": 1,
+      "settings": {
+        "Speaker": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            -1.5,
+            -0.5,
+            3,
+            3,
+            3,
+            0,
+            0,
+            1
+          ]
+        },
+        "Headphone": {
+          "preamp": 0.0,
+          "freqs": [
+            31,
+            62,
+            125,
+            250,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000
+          ],
+          "values": [
+            0,
+            0,
+            -1.5,
+            -0.5,
+            3,
+            3,
+            3,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    }
+  }
+}
