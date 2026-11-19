@@ -48,7 +48,14 @@ PDF：所有音效在 G6 板载 SB-Axx1 上处理，PC 只调参。
 PDF：HRTF 双耳滤波器组、ITD/IID、专有 HRTF 数据集，仅耳机输出。
 我们：`g6_surround.c` 还原的是 CMSS3D 的**五通道增益矩阵**（0.9535/0.3015 = 17.5° 的 cos/sin、稳态/过渡斜坡），没有 HRTF FIR 表、没有 ITD/IID、没有耳机/线路输出路由判断。
 
-判断：我们的 Surround 只是矩阵/声像层，**不是 PDF 描述的完整 HRTF 渲染器**。如果目标是软件复刻 G6 的空间感，需要补 HRTF 滤波器组或从 DLL/固件里找 HRTF 数据。
+证据分级：
+
+- **逆向（代码级）**：`KSUSBAPO64.dll` 的 `0x180093990` 把 mask + strength 映射到 5 个目标增益；`0x180093B30` 生成稳态矩阵；`0x180093DD0` 做块内线性过渡。常量 `0.9535/0.3015`、`0.2875`、中置/LFE 的 `0.2/0.5/0.1` 和 13 个 mask 分支都来自反编译，不是听感拟合。
+- **对拍证据**：`tools/apo-eq-coeff/surround_test.c` 与独立 `surround_ref.py` 逐位一致，`verify_surround.cmd` 输出 `PASS: CMSS3D mask table, steady matrix and transition ramp match`。
+- **推断（未验证）**：mask 的“语义”——哪些 bit 对应 FL/FR/FC/LFE/BL/BR、哪个 mask 算 5.1/7.1——是按通道顺序和产品资料解释的；没有 G6 实机逐通道回环，不能证明硬件 CMSS3D 与 APO 完全一致。
+- **未实现**：HRTF FIR、ITD/IID、耳机专用路由、专有 HRIR 数据集。
+
+判断：我们的 Surround 是**已逆向的 CMSS3D 矩阵/声像层**，不是 PDF 描述的完整 HRTF 渲染器。公式可以复现，mask 语义和硬件听感仍需实机验证；如果目标是软件复刻 G6 的空间感，需要补 HRTF 滤波器组或从 DLL/固件里找 HRTF 数据。
 
 ### 3. Crystalizer：非线性谐波 vs 我们的时变滤波
 

@@ -113,6 +113,7 @@
 
 - Surround：`0x180093990` 把掩码与强度映射到五个目标增益（前/额外/中置/LFE），`0x180093B30` 稳态、`0x180093DD0` 过渡；常量 0.9535/0.3015 为 17.5° 的 cos/sin。
 - 掩码表覆盖 0x03b/0x033/0x603/0x60b、0x007/0x00f、0x037/0x03f/0x607/0x60f、0x637/0x63b/0x63f/0x633/0x70f；稳态路径做前/额外增益、中置→前、LFE→额外及后置复制；过渡路径按块内线性斜坡。
+- 证据分级：函数地址、常量、13 个 mask 分支和稳态/过渡公式是反编译并用 `surround_ref.py` 逐位对拍；mask 的 FL/FR/FC/LFE/BL/BR 声道语义是按通道顺序和产品资料推断，未做 G6 实机逐通道验证；没有 HRTF FIR/ITD/IID。
 - SVM：`0x180092A50` 给出按采样率的 k1/k2（48 kHz 0.9871/-0.9742）；`0x180092DA0` 给出 40 ms 能量平滑、10 ms 增益平滑、1.9 ms 攻击、8 s 释放、80 ms 斜坡与 30 样本前瞻；`0x180092F30` 为样本循环。
 - 新增 `reference/g6_surround.c/h` 与 `reference/g6_svm.c/h`；探针 `surround_test.c` / `svm_test.c` 与 `surround_ref.py` / `svm_ref.py` 对照通过。
 

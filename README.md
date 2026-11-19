@@ -34,6 +34,8 @@ SHA-256：`f7c649544e8d738df4fb814609f2adc48fbe95091a1ae11ac842910020037156`
 EQ -> Crystalizer -> Bass -> Dialog+ -> Surround(仅 6ch) -> Smart Volume
 ```
 
+> **Surround 说明**：矩阵公式、常量和 13 个 mask 分支是从 `KSUSBAPO64.dll` 反编译出来的，C 实现与独立 Python 参考逐位对拍通过（`verify_surround.cmd`）。但 mask 的声道语义（FL/FR/FC/LFE/BL/BR）有推断成分，且没有 HRTF FIR、ITD/IID、耳机专用路由；它不是算法工程师 PDF 里的 HRTF 渲染器。详见 [g6-algorithm-review.md §2](creative-sbcommand/reference/g6-algorithm-review.md)。
+
 ## 仓库结构
 
 ```text
@@ -134,7 +136,7 @@ verify_svm.cmd           # PASS
 
 - **没有实体 G6**：Scout 实机十段、USB id↔频段实测、硬件回环暂停。
 - **Bass / Dialog+ 不是逐位还原**：SBX Bass 的 Missing Fundamental 与 Dialog+ 的实际 DSP 不在主机 APO/SPI 里；当前是 PDF 方向的参考近似。
-- **Surround 不是 HRTF**：只有 CMSS3D 矩阵/声像层，没有 HRTF FIR 组。
+- **Surround 不是 HRTF**：CMSS3D 矩阵层已逆向并对拍；mask 声道语义有推断成分，没有 HRTF FIR、ITD/IID 或耳机专用路由。
 - **SVM 是全带简化版**：不是多频段 AGC+DRC+limiter。
 - **实时客户端只做立体声**：Surround 未放进 `sbc-live`。
 - **Crystalizer `+0xF18` 默认直通**：系数源仍未找到。
