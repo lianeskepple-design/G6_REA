@@ -125,6 +125,7 @@ verify_svm.cmd           # PASS
 | 文档 | 内容 |
 |---|---|
 | [HTML 调研报告](creative-sbcommand/reference/g6-research-report.html) | 单文件离线报告：摘要、模块结果、Surround 专题、Bass/Dialog、验证与边界 |
+| [PDF 调研报告](creative-sbcommand/reference/g6-research-report.pdf) | 同上的 A4 打印版（8 页） |
 | [offline-progress.md](creative-sbcommand/reference/offline-progress.md) | 总进度、测试证据、边界 |
 | [g6-bass-dialog.md](creative-sbcommand/reference/g6-bass-dialog.md) | Bass / Dialog+ 参考实现与逆向状态 |
 | [g6-bass-dialog-vtable.md](creative-sbcommand/reference/g6-bass-dialog-vtable.md) | Bass `CBassManagementEfxMod` / `CBassMgmtEfxMod`、Dialog SPI vtable |
