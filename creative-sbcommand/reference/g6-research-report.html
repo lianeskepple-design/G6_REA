@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sound BlasterX G6 逆向调研报告</title>
+<style>
+  :root {
+    --bg: #f5f7fa;
+    --paper: #ffffff;
+    --ink: #17202a;
+    --muted: #5b6b7c;
+    --line: #dce3ea;
+    --brand: #0b5c8a;
+    --brand-2: #0f8b8d;
+    --green: #1b7f4b;
+    --green-bg: #e8f6ee;
+    --blue: #1d5fa8;
+    --blue-bg: #e9f1fb;
+    --amber: #9a6500;
+    --amber-bg: #fff5dd;
+    --red: #a12b2b;
+    --red-bg: #fdecec;
+    --code: #eef2f6;
+    --shadow: 0 12px 32px rgba(15, 35, 55, .08);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+    line-height: 1.75;
+  }
+  a { color: var(--brand); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .layout {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 28px;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 28px 22px 60px;
+  }
+  nav.toc {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 16px;
+    box-shadow: var(--shadow);
+    font-size: 14px;
+  }
+  nav.toc h2 {
+    margin: 0 0 10px;
+    font-size: 13px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  nav.toc a {
+    display: block;
+    padding: 6px 8px;
+    border-radius: 8px;
+    color: var(--ink);
+  }
+  nav.toc a:hover { background: var(--code); text-decoration: none; }
+  main {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  header.hero {
+    padding: 42px 48px 34px;
+    background:
+      radial-gradient(900px 320px at 12% -10%, rgba(15, 139, 141, .38), transparent 62%),
+      linear-gradient(135deg, #08324f 0%, #0b5c8a 58%, #0f8b8d 100%);
+    color: #fff;
+  }
+  header.hero .eyebrow {
+    font-size: 13px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    opacity: .8;
+  }
+  header.hero h1 {
+    margin: 10px 0 12px;
+    font-size: 36px;
+    line-height: 1.25;
+    font-weight: 700;
+  }
+  header.hero p.lead {
+    margin: 0;
+    max-width: 780px;
+    font-size: 17px;
+    color: rgba(255,255,255,.9);
+  }
+  header.hero .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    margin-top: 22px;
+    font-size: 13px;
+    color: rgba(255,255,255,.82);
+  }
+  .content { padding: 36px 48px 48px; }
+  section { margin: 0 0 42px; scroll-margin-top: 24px; }
+  section > h2 {
+    margin: 0 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--line);
+    font-size: 24px;
+    color: #0a3b5c;
+  }
+  h3 { margin: 26px 0 8px; font-size: 18px; color: #123c57; }
+  h4 { margin: 18px 0 6px; font-size: 15px; color: #1c4a66; }
+  p { margin: 8px 0; }
+  ul, ol { margin: 8px 0 8px 22px; padding: 0; }
+  li { margin: 4px 0; }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 18px 0 4px;
+  }
+  .card {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 15px 16px;
+    background: linear-gradient(180deg, #fff, #fbfcfd);
+  }
+  .card .num { font-size: 26px; font-weight: 700; color: var(--brand); line-height: 1.2; }
+  .card .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .pill {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .pill.re { color: var(--green); background: var(--green-bg); }
+  .pill.check { color: var(--blue); background: var(--blue-bg); }
+  .pill.infer { color: var(--amber); background: var(--amber-bg); }
+  .pill.miss { color: var(--red); background: var(--red-bg); }
+  .table-wrap { overflow-x: auto; margin: 14px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 680px;
+  }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 9px 11px;
+    vertical-align: top;
+    text-align: left;
+  }
+  th { background: #eef4f8; color: #123c57; font-weight: 600; }
+  tbody tr:nth-child(even) td { background: #fafcfd; }
+  code, .mono {
+    font-family: "Cascadia Mono", "Consolas", "SFMono-Regular", monospace;
+    font-size: 13px;
+  }
+  code {
+    background: var(--code);
+    padding: 1px 5px;
+    border-radius: 5px;
+    overflow-wrap: anywhere;
+  }
+  td code, th code {
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+  pre {
+    background: #0f2233;
+    color: #dce9f5;
+    padding: 16px 18px;
+    border-radius: 12px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  pre code { background: transparent; padding: 0; color: inherit; }
+  .callout {
+    border-left: 4px solid var(--brand-2);
+    background: #f2fafb;
+    padding: 12px 16px;
+    border-radius: 0 10px 10px 0;
+    margin: 14px 0;
+  }
+  .callout.warn { border-left-color: #c98a00; background: #fffaf0; }
+  .callout.danger { border-left-color: #b33a3a; background: #fff6f6; }
+  .flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin: 14px 0;
+  }
+  .flow .node {
+    background: #eaf3f9;
+    border: 1px solid #c8ddec;
+    color: #123c57;
+    border-radius: 9px;
+    padding: 7px 12px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .flow .arrow { color: var(--muted); font-size: 13px; }
+  .footer {
+    margin-top: 30px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .toc-note { margin-top: 14px; font-size: 12px; color: var(--muted); line-height: 1.5; }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; padding: 14px; }
+    nav.toc { position: static; }
+    header.hero { padding: 30px 24px; }
+    header.hero h1 { font-size: 28px; }
+    .content { padding: 26px 22px 34px; }
+  }
+  @media print {
+    body { background: #fff; }
+    .layout { display: block; max-width: none; padding: 0; }
+    nav.toc { display: none; }
+    main { border: 0; box-shadow: none; border-radius: 0; }
+    header.hero { padding: 24px 28px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .content { padding: 20px 28px; }
+    section { page-break-inside: avoid; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="toc" aria-label="目录">
+    <h2>目录</h2>
+    <a href="#summary">摘要</a>
+    <a href="#background">1. 背景与目标</a>
+    <a href="#method">2. 方法与证据分级</a>
+    <a href="#modules">3. DSP 模块结果</a>
+    <a href="#surround">4. Surround 专题</a>
+    <a href="#bass-dialog">5. Bass 与 Dialog+</a>
+    <a href="#clients">6. 客户端与打包</a>
+    <a href="#verification">7. 验证</a>
+    <a href="#limits">8. 边界与未完成</a>
+    <a href="#conclusion">9. 结论</a>
+    <div class="toc-note">
+      证据等级：<br>
+      <span class="pill re">逆向</span>
+      <span class="pill check">对拍</span>
+      <span class="pill infer">推断</span>
+      <span class="pill miss">未实现</span>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="eyebrow">Reverse Engineering Report</div>
+      <h1>Sound BlasterX G6 逆向调研报告</h1>
+      <p class="lead">
+        主机 APO、DSP 复刻与实机边界：把 Creative Sound BlasterX G6 的 Windows 音频处理链拆开，
+        区分哪些已经到函数/系数级，哪些只是参考近似，哪些必须等实机。
+      </p>
+      <div class="meta">
+        <span>日期：2026-11-19</span>
+        <span>目标：KSUSBAPO64.dll 1.2.109.0</span>
+        <span>平台：Windows 10/11 x64</span>
+        <span>状态：主机 APO 已闭合，硬件项暂停</span>
+      </div>
+    </header>
+
+    <div class="content">
+      <section id="summary">
+        <h2>摘要</h2>
+        <div class="cards">
+          <div class="card"><div class="num">4</div><div class="label">代码级还原模块<br>EQ / Crystalizer / Surround 矩阵 / SVM</div></div>
+          <div class="card"><div class="num">2</div><div class="label">参考近似模块<br>Bass / Dialog+</div></div>
+          <div class="card"><div class="num">31</div><div class="label">Rust 测试通过<br>22 + 6 + 3</div></div>
+          <div class="card"><div class="num">2</div><div class="label">硬件阻塞项<br>Scout 实机十段 / 回环</div></div>
+        </div>
+        <p>
+          目标二进制是 <code>KSUSBAPO64.dll</code> 1.2.109.0，SHA-256
+          <code>f7c649544e8d738df4fb814609f2adc48fbe95091a1ae11ac842910020037156</code>。
+          主机 APO 的 EQ、Crystalizer、CMSS3D Surround、Smart Volume 已到函数/系数级并有独立对拍；
+          Bass 与 Dialog+ 是按算法工程师 PDF 方向做的参考近似；G6 板载 DSP 的 SBX Bass、Dialog+、HRTF 数据没有拿到。
+        </p>
+        <div class="callout">
+          <strong>一句话结论：</strong>
+          主机 APO 能拆的都拆了；Bass/Dialog+ 的硬件算法、HRTF 数据和 Scout 实机映射，在没有 G6、且固件提取不现实的前提下，不能继续往下编。
+        </div>
+      </section>
+
+      <section id="background">
+        <h2>1. 背景与目标</h2>
+        <p>
+          Sound BlasterX G6 是 Creative 的 USB 声卡，Sound Blaster Command 通过 USB 下发参数，
+          Windows 侧由 <code>KSUSBAPO64.dll</code>（64 位 APO）和 <code>KSUSBSPI64.dll</code>（属性/控制接口）参与处理。
+          项目目标不是简单调 EQ，而是回答三个问题：
+        </p>
+        <ol>
+          <li>G6 的每个音效在主机侧到底有没有实现？</li>
+          <li>如果有，算法、系数、数据流能不能逐位复刻？</li>
+          <li>如果没有，是硬件 DSP、固件，还是只能做参考近似？</li>
+        </ol>
+        <p>
+          约束：本机没有实体 G6（PnP 中 <code>VID_041E&amp;PID_3256</code> 均为 Present=False），
+          也没有可用的 USB/IP 直通层；用户已明确 G6 固件提取不现实。因此所有结论只能来自静态逆向、
+          参数枚举、独立参考对拍和已有抓包，不能声称“实机听感一致”。
+        </p>
+      </section>
+
+      <section id="method">
+        <h2>2. 方法与证据分级</h2>
+        <h3>2.1 工具链</h3>
+        <ul>
+          <li><strong>Ghidra 12.1.4 headless</strong>：反编译、RTTI TypeDescriptor/CompleteObjectLocator/vftable 解析、函数/数据交叉引用。</li>
+          <li><strong>capstone / pefile</strong>：节表、导入导出、常量与指令级确认。</li>
+          <li><strong>ILSpy / 托管层参数枚举</strong>：Sound Blaster Command 的 <code>_etParam*</code> 与 SoundCore 参数 ID。</li>
+          <li><strong>独立参考实现</strong>：C 探针 + Python/NumPy 参考，逐位或容差对拍。</li>
+          <li><strong>USB / APO 参数映射</strong>：已有抓包、注册表/INI、APO PID 提取脚本。</li>
+        </ul>
+        <h3>2.2 证据分级</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>等级</th><th>含义</th><th>本项目例子</th></tr></thead>
+            <tbody>
+              <tr><td><span class="pill re">逆向</span></td><td>反编译/反汇编直接得到函数、常量、分支或数据流</td><td>EQ 系数、Crystalizer 分析滤波、CMSS3D 矩阵、SVM 时间常数</td></tr>
+              <tr><td><span class="pill check">对拍</span></td><td>独立实现与逆向公式逐位/容差一致</td><td>EQ 7/7、Crystalizer 延迟/dry 叠加、Surround mask 表、SVM 曲线</td></tr>
+              <tr><td><span class="pill infer">推断</span></td><td>数值来自代码，但语义/映射按通道顺序、产品资料解释</td><td>Surround mask 的 FL/FR/FC/LFE/BL/BR 归属；部分 USB id↔频段</td></tr>
+              <tr><td><span class="pill miss">未实现</span></td><td>没有代码级证据，或需要硬件/固件/专有数据</td><td>HRTF FIR、SBX Bass 谐波内核、Dialog+ 实际 DSP、Scout 实机十段</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="modules">
+        <h2>3. DSP 模块结果</h2>
+        <p>处理链顺序：</p>
+        <div class="flow">
+          <span class="node">EQ</span><span class="arrow">→</span>
+          <span class="node">Crystalizer</span><span class="arrow">→</span>
+          <span class="node">Bass</span><span class="arrow">→</span>
+          <span class="node">Dialog+</span><span class="arrow">→</span>
+          <span class="node">Surround（仅 6ch）</span><span class="arrow">→</span>
+          <span class="node">Smart Volume</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>模块</th><th>结论</th><th>证据等级</th><th>关键地址 / 常量</th><th>限制</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>EQ</strong></td>
+                <td>10 段（低架 + 8 峰值 + 高架），按 APO 原厂系数实现；耳机/扬声器预设、preamp/headroom</td>
+                <td><span class="pill re">逆向</span> <span class="pill check">对拍</span></td>
+                <td>Rust ↔ C 7/7 位级一致；工厂预设来自 APO</td>
+                <td>预设响度/音色仍受输出设备影响</td>
+              </tr>
+              <tr>
+                <td><strong>Crystalizer</strong></td>
+                <td>3 阶分析滤波、动态系数、128 样本块、256 点 Hann 两缓冲 OLA、<code>+0x1F8</code> dry 叠加、128 样本延迟、<code>+0xF18</code> 输出级</td>
+                <td><span class="pill re">逆向</span> <span class="pill check">对拍</span></td>
+                <td><code>0x18008E920</code>、<code>0x180146190</code>、<code>0x180195BD0</code>、<code>0x180195FD0</code></td>
+                <td><code>+0xF18</code> 默认直通，系数源未找到</td>
+              </tr>
+              <tr>
+                <td><strong>Surround</strong></td>
+                <td>CMSS3D 五通道增益矩阵：mask + strength → 5 个目标增益，稳态矩阵 + 块内过渡</td>
+                <td><span class="pill re">逆向</span> <span class="pill check">对拍</span></td>
+                <td><code>0x180093990</code>、<code>0x180093B30</code>、<code>0x180093DD0</code>；<code>0.9535/0.3015</code> = 17.5° cos/sin</td>
+                <td>mask 声道语义为推断；无 HRTF/ITD/IID；仅 6ch</td>
+              </tr>
+              <tr>
+                <td><strong>Smart Volume</strong></td>
+                <td>全带 AGC：40 ms 能量平滑、10 ms 增益平滑、1.9 ms 攻击、8 s 释放、80 ms 斜坡、30 样本前瞻</td>
+                <td><span class="pill re">逆向</span> <span class="pill check">对拍</span></td>
+                <td><code>0x180092A50</code>、<code>0x180092DA0</code>、<code>0x180092F30</code>；48 kHz k1/k2 = 0.9871 / -0.9742</td>
+                <td>不是 PDF 的多频段 AGC+DRC+limiter</td>
+              </tr>
+              <tr>
+                <td><strong>Bass</strong></td>
+                <td>参考近似：低通 → x²/x³ → 高通 → 平滑；APO 实际是 bass management + 限幅</td>
+                <td><span class="pill re">逆向</span>（APO 链）<br><span class="pill infer">推断</span>（参考实现）</td>
+                <td><code>FUN_180089780</code>、<code>FUN_1800cc170/cc310/cc560/cb5e0</code></td>
+                <td>不是 SBX Missing Fundamental；谐波内核不在主机 APO</td>
+              </tr>
+              <tr>
+                <td><strong>Dialog+</strong></td>
+                <td>参考近似：2–4 kHz 带通 + 包络/慢噪声底 + <code>snr/(snr+1)</code> 门</td>
+                <td><span class="pill infer">推断</span></td>
+                <td>SPI <code>FUN_0044C1AC/0044C62C</code>；APO <code>CVocalSuppressorEfxMod</code> 仅为候选</td>
+                <td>实际 DSP 未找到；<code>CVocalSuppressor</code> 是 4 段滤波器组，不是 Dialog+</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="surround">
+        <h2>4. Surround 专题：逆向矩阵，不是 HRTF</h2>
+        <p>
+          这是最容易被误解的一块。当前 <code>g6_surround.c</code> 实现的是 <strong>CMSS3D 五通道增益矩阵</strong>，
+          不是算法工程师 PDF 里的 HRTF 双耳渲染。
+        </p>
+
+        <h3>4.1 已逆向的部分</h3>
+        <ul>
+          <li><code>0x180093990</code>：mask + strength → 5 个目标增益（前 / 额外 / 中置 / LFE）。</li>
+          <li><code>0x180093B30</code>：稳态矩阵，做前/额外增益、中置→前、LFE→额外及后置复制。</li>
+          <li><code>0x180093DD0</code>：块内线性过渡斜坡。</li>
+          <li>常量 <code>0.9535 / 0.3015</code> 是 17.5° 的 cos/sin；<code>0.2875</code>、中置/LFE 的 <code>0.2 / 0.5 / 0.1</code> 都来自反编译。</li>
+          <li>13 个 mask 分支：<code>0x03b/0x033/0x603/0x60b</code>、<code>0x007/0x00f</code>、<code>0x037/0x03f/0x607/0x60f</code>、<code>0x637/0x63b/0x63f/0x633/0x70f</code>。</li>
+        </ul>
+
+        <h3>4.2 对拍证据</h3>
+        <pre><code>PASS: CMSS3D mask table, steady matrix and transition ramp match</code></pre>
+        <p>
+          <code>tools/apo-eq-coeff/surround_test.c</code>（C 实现）与独立 <code>surround_ref.py</code>（Python/NumPy）
+          对 13 个 mask 表、稳态矩阵、8 样本过渡斜坡逐位一致；<code>verify_surround.cmd</code> 现场重跑通过。
+        </p>
+
+        <h3>4.3 推断与未实现</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>项目</th><th>状态</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td>mask 的声道语义</td><td><span class="pill infer">推断</span></td><td>哪些 bit 对应 FL/FR/FC/LFE/BL/BR、哪个 mask 算 5.1/7.1，按通道顺序和产品资料解释</td></tr>
+              <tr><td>G6 硬件 CMSS3D 一致性</td><td><span class="pill miss">未验证</span></td><td>没有实机逐通道回环，不能证明硬件与 APO 完全一致</td></tr>
+              <tr><td>HRTF FIR / HRIR 数据</td><td><span class="pill miss">未实现</span></td><td>PDF 描述的双耳滤波器组、专有 HRTF 数据集</td></tr>
+              <tr><td>ITD / IID / 耳机路由</td><td><span class="pill miss">未实现</span></td><td>当前矩阵没有方向相关的延迟/电平差与耳机专用处理</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>4.4 矩阵 vs HRTF</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>维度</th><th>当前 CMSS3D 矩阵</th><th>PDF / 算法工程师描述</th></tr></thead>
+            <tbody>
+              <tr><td>核心</td><td>5 通道增益矩阵</td><td>HRTF FIR 滤波器组</td></tr>
+              <tr><td>方向线索</td><td>幅度声像</td><td>方向相关的 HRIR/HRTF</td></tr>
+              <tr><td>时间/电平差</td><td>无 ITD/IID</td><td>有 ITD/IID</td></tr>
+              <tr><td>输出路由</td><td>无耳机专用判断</td><td>仅耳机输出生效</td></tr>
+              <tr><td>验证方法</td><td>mask 表/稳态/斜坡对拍</td><td>双耳脉冲响应、方向频响/延迟</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout warn">
+          <strong>判断：</strong>
+          Surround 的矩阵层是逆向的、可复现的；但“Surround”作为一个完整产品效果，相对 PDF 仍是残缺的。
+          如果测试方法是 HRTF/双耳脉冲响应，它对不上；如果测试的是通道增益/声像矩阵，它是对得上的。
+        </div>
+      </section>
+
+      <section id="bass-dialog">
+        <h2>5. Bass 与 Dialog+：边界与修正</h2>
+
+        <h3>5.1 Bass：主机 APO 是 bass management，不是 Missing Fundamental</h3>
+        <p>逆向过程中有过两次修正，最终数据流如下：</p>
+        <div class="flow">
+          <span class="node">6 声道输入</span><span class="arrow">→</span>
+          <span class="node">一阶高通（卫星声道去低频）</span><span class="arrow">→</span>
+          <span class="node">原始声道 -15 dB 汇总到 LFE/sub</span><span class="arrow">→</span>
+          <span class="node">软拐点限幅 + 增益包络平滑</span>
+        </div>
+        <ul>
+          <li><code>FUN_180089780</code>：每声道一阶高通，<code>H(z)=c(z⁻¹-1)/(1+a2z⁻¹)</code>，<code>c=-2/(k+2)</code>、<code>a2=(k-2)/(k+2)</code>、<code>k=3π*cutoff/fs</code>。</li>
+          <li><code>FUN_1800cc170</code>：线性幅度 → dBFS，frexp + 三次 log2 多项式，<code>-6.0206 = -20log10(2)</code>。</li>
+          <li><code>FUN_1800cc310</code>：dB 域软拐点限幅器。</li>
+          <li><code>FUN_1800cc560</code>：10-tap FIR 平滑<strong>增益包络</strong>，不是音频。</li>
+          <li><code>FUN_1800cb5e0</code>：dB 包络 → 线性增益的三次映射，不是波形整形。</li>
+        </ul>
+        <p>
+          另有一条 <code>CBassMgmtEfxMod</code>（THX bass management）：解析 <code>bass</code> 配置文件的
+          <code>crossover</code>/<code>boostlevel</code>/<code>virtuallevel</code>，做双二阶交叉滤波 + 128 帧参数淡化。
+          两条都是 bass management；SBX Bass 的 Missing Fundamental 谐波内核不在主机 APO。
+        </p>
+
+        <h3>5.2 Dialog+：主机侧只有参数处理器</h3>
+        <ul>
+          <li><code>KSUSBAPO64.dll</code> 没有 Dialog 类；32/64 位 APO 的 EfxMod 类名列表一致（各 118 个），均无 Dialog。</li>
+          <li><code>KSUSBSPI64.dll</code> 只有 <code>THXDialogueAdvantage_Amount/isEnabled</code> 参数处理器：
+            <code>FUN_0044C1AC</code>、<code>FUN_0044C62C</code>，属性 ID <code>0x100000005/6</code>、<code>0x200000005/6</code>；
+            处理器 vtable 在 <code>0x4078F0</code> 附近，只做属性读写，没有采样循环。</li>
+          <li><code>CVocalSuppressorEfxMod</code>（vftable <code>0x18018de98</code>）是 4 段可交叉淡化滤波器组，
+            属性 GUID <code>{1ee40950-a46c-45eb-a50c-f1fd995c0166}</code>，更像人声抑制/卡拉 OK，不是 2–4 kHz 对白增强。</li>
+          <li>结论：Dialog+ 的实际 DSP 未找到，可能在 G6 固件/硬件；当前 <code>g6_dialog.c</code> 是参考近似。</li>
+        </ul>
+      </section>
+
+      <section id="clients">
+        <h2>6. 客户端与打包</h2>
+        <h3>6.1 三个程序</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>程序</th><th>功能</th><th>关键点</th></tr></thead>
+            <tbody>
+              <tr><td><code>sbc-live</code></td><td>实时 WASAPI 桌面客户端：麦克风 → EQ → Crystalizer → Bass → Dialog+ → SVM → 输出</td><td>eframe/egui、设备选择、输入增益、效果开关/滑杆、RMS、underrun/overrun、buffer ms；60 ms 预缓冲；中文界面</td></tr>
+              <tr><td><code>sbc-dsp</code></td><td>离线 WAV 处理：EQ 预设、Crystalizer、Bass、Dialog+、6ch Surround、SVM</td><td>输出 float32 WAV；输入输出不能相同/输出不能已存在</td></tr>
+              <tr><td><code>sbc-eq</code></td><td>仅 EQ 的 WAV 渲染与预设列表</td><td>与桌面 EQ 页共用 <code>eq_core</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>6.2 构建与运行</h3>
+        <pre><code>cd creative-sbcommand/app
+cargo build --release
+
+# 静态 CRT
+$env:RUSTFLAGS = "-C target-feature=+crt-static"
+$env:G6_STATIC_CRT = "1"
+cargo build --release --target x86_64-pc-windows-msvc</code></pre>
+        <p>
+          <code>build.rs</code> 生成 <code>target/g6dsp-compile.bat</code>，调用 <code>vcvars64.bat</code>，
+          用 MSVC 编译 <code>reference/</code> 下的 C 源并打包 <code>g6dsp.lib</code>。
+          <code>G6_VCVARS</code> 可覆盖 vcvars 路径；中文工程路径下对象输出放 ASCII 的
+          <code>target/g6dsp-cc-&lt;profile&gt;</code>。
+        </p>
+
+        <h3>6.3 打包</h3>
+        <p>
+          <code>dist/sbc-live-1.0.0-win64.zip</code> 含 <code>sbc-live.exe</code>、<code>sbc-dsp.exe</code>、
+          <code>sbc-eq.exe</code>、<code>README.txt</code>、<code>run-sbc-live.cmd</code>、<code>SHA256SUMS.txt</code>。
+          静态 CRT，<code>dumpbin -dependents</code> 只剩系统 DLL，目标机不需要 Rust/VC++ 运行库。
+          当前 ZIP SHA-256：<code>fe3cff79442e5d1c328ff3942b304e8c285022d929d9dc635c9d70a56b29c76b</code>。
+          ZIP 不进 Git，建议用 GitHub Releases 分发。
+        </p>
+      </section>
+
+      <section id="verification">
+        <h2>7. 验证</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>检查</th><th>结果</th></tr></thead>
+            <tbody>
+              <tr><td><code>cargo test</code></td><td>31 passed（22 + 6 + 3）</td></tr>
+              <tr><td>EQ Rust ↔ C</td><td>7/7 位级一致</td></tr>
+              <tr><td><code>verify_crystalizer.cmd</code></td><td>PASS：<code>delay_ok 1</code>、<code>drymix_ok 1</code>、<code>drymix_delta 0</code></td></tr>
+              <tr><td><code>verify_surround.cmd</code></td><td>PASS：mask 表、稳态矩阵、过渡斜坡 match</td></tr>
+              <tr><td><code>verify_svm.cmd</code></td><td>PASS</td></tr>
+              <tr><td>2ch 直通</td><td>输出与输入逐位一致</td></tr>
+              <tr><td>实时 UU 虚拟对 30 秒</td><td>buffer 48 ms；0 underrun / 0 overrun</td></tr>
+              <tr><td>USB 麦克风 → 蓝牙耳机 10 秒</td><td>buffer 170 ms；0 / 0</td></tr>
+              <tr><td>免安装包</td><td>静态 CRT；5 个文件 SHA-256 一致；解压后可运行</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="limits">
+        <h2>8. 边界与未完成</h2>
+        <ul>
+          <li><strong>没有实体 G6</strong>：Scout 实机十段、USB id↔频段实测、硬件回环全部暂停。</li>
+          <li><strong>G6 固件提取不现实</strong>：用户已明确；因此 SBX Bass 谐波内核、Dialog+ 实际 DSP、HRTF 数据集无法取得。</li>
+          <li><strong>Bass / Dialog+ 是参考近似</strong>：按 PDF 的算法类别实现，不是 G6 硬件/APO 的逐位还原。</li>
+          <li><strong>Surround 是矩阵层</strong>：公式已逆向/对拍；mask 语义有推断；无 HRTF FIR、ITD/IID、耳机路由。</li>
+          <li><strong>SVM 是全带简化版</strong>：不是多频段 AGC+DRC+limiter。</li>
+          <li><strong>Crystalizer <code>+0xF18</code> 默认直通</strong>：输出级系数源未找到。</li>
+          <li><strong>实时客户端只做立体声</strong>：Surround 未放进 <code>sbc-live</code>。</li>
+        </ul>
+      </section>
+
+      <section id="conclusion">
+        <h2>9. 结论</h2>
+        <p>
+          这个项目已经把“主机 APO 能证明的部分”和“必须靠硬件/固件的部分”分开了：
+        </p>
+        <ul>
+          <li><strong>已证明并复刻</strong>：EQ、Crystalizer、CMSS3D 矩阵、Smart Volume，以及它们的数据流/常量/时间常数。</li>
+          <li><strong>已定位但非谐波内核</strong>：Bass 的 bass management 与限幅包络、Dialog+ 的 SPI 参数处理器。</li>
+          <li><strong>只能参考近似</strong>：Missing Fundamental Bass、2–4 kHz Dialog+、HRTF Surround。</li>
+          <li><strong>必须等实机/公开数据</strong>：Scout 实机十段、USB id↔频段、硬件回环、专有 HRTF/固件 DSP。</li>
+        </ul>
+        <div class="callout">
+          <strong>建议的下一步：</strong>
+          主机侧只做收尾（限幅参数、bass management 公式整理）；若有 G6 实机，再按
+          <code>tools/scout-measure/run-g6-hardware.ps1</code> 做逐通道/双耳回环。没有实机时，不应再为硬件算法编造“逐位还原”的结论。
+        </div>
+        <div class="footer">
+          本报告基于静态逆向、独立对拍与已有抓包；不包含 Creative 原厂二进制或固件。
+          Sound Blaster、Sound BlasterX、G6 是 Creative Technology Ltd. 的商标。
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</body>
+</html>
