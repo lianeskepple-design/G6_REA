@@ -2,12 +2,12 @@ INFO  Using log config file: jar:file:/D:/tools/ghidra_12.1.4_PUBLIC/Ghidra/Fram
 INFO  Using log file: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
 INFO  Loading user preferences: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
 INFO  Searching for classes... (ClassSearcher)  
-INFO  Class search complete (4373 ms) (ClassSearcher)  
+INFO  Class search complete (4110 ms) (ClassSearcher)  
 INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
 INFO  Initializing Random Number Generator... (SecureRandomFactory)  
 INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
 INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
-INFO  Headless startup complete (9021 ms) (AnalyzeHeadless)  
+INFO  Headless startup complete (8527 ms) (AnalyzeHeadless)  
 INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
 INFO  HEADLESS Script Paths:
     D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
@@ -37,395 +37,253 @@ INFO  HEADLESS: execution starts (HeadlessAnalyzer)
 INFO  Opening existing project: D:\tmp_ghidra_g6probe\G6Probe (HeadlessAnalyzer)  
 INFO  Opening project: D:\tmp_ghidra_g6probe\G6Probe (HeadlessProject)  
 INFO  REPORT: Processing project file: /KSUSBAPO64.dll (HeadlessAnalyzer)  
-INFO  REPORT: Execute script: G6Probe.java 'scan' '0xf14' '0xf18' '0xf1c' '0xf20' '0xf24' 'dump' '0x18008daf0' '0x180092a50' '0x180092da0' '0x180092f30'  (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: G6Probe.java 'data' '0x180198f28:0x18' 'data' '0x180185498:0x10' 'data' '0x180191558:0x10' 'xref' '0x180096fe0' 'xref' '0x180198f28' 'disasm' '0x180096fe0:40' 'disasm' '0x180092820:12' 'dump' '0x180096fe0' '0x180098120' '0x180098470' '0x180092810'  (HeadlessAnalyzer)  
 INFO  SCRIPT: D:\工程\逆向工程\creative-sbcommand\tools\apo-eq-coeff\ghidra_scripts\G6Probe.java (HeadlessAnalyzer)  
-INFO  G6Probe.java> ##### SCAN displacement 0xf14 ##### (GhidraScript)  
-INFO  G6Probe.java> ##### 0 hit(s) for 0xf14 ##### (GhidraScript)  
-INFO  G6Probe.java> ##### SCAN displacement 0xf18 ##### (GhidraScript)  
-INFO  G6Probe.java> ##### 0 hit(s) for 0xf18 ##### (GhidraScript)  
-INFO  G6Probe.java> ##### SCAN displacement 0xf1c ##### (GhidraScript)  
-INFO  G6Probe.java> 18006edba  MOVUPS XMM1,xmmword ptr [RCX + 0xf1c]   |  FUN_18006ed10@18006ed10 (GhidraScript)  
-INFO  G6Probe.java> 18006fdda  MOVUPS xmmword ptr [RCX + 0xf1c],XMM5   |  FUN_18006fc90@18006fc90 (GhidraScript)  
-INFO  G6Probe.java> 180070423  MOVUPS xmmword ptr [RBX + 0xf1c],XMM1   |  FUN_18006fc90@18006fc90 (GhidraScript)  
-INFO  G6Probe.java> 18008f156  LEA RAX,[RBX + 0xf1c]   |  FUN_18008ed70@18008ed70 (GhidraScript)  
-INFO  G6Probe.java> ##### 4 hit(s) for 0xf1c ##### (GhidraScript)  
-INFO  G6Probe.java> ##### SCAN displacement 0xf20 ##### (GhidraScript)  
-INFO  G6Probe.java> 1800cf9e7  LEA RCX,[RBP + 0xf20]   |  FUN_1800cea70@1800cea70 (GhidraScript)  
-INFO  G6Probe.java> 1800cf9fe  LEA RAX,[RBP + 0xf20]   |  FUN_1800cea70@1800cea70 (GhidraScript)  
-INFO  G6Probe.java> 1800cfa19  LEA RCX,[RBP + 0xf20]   |  FUN_1800cea70@1800cea70 (GhidraScript)  
-INFO  G6Probe.java> 1800d0b57  LEA RCX,[RBP + 0xf20]   |  FUN_1800cfbe0@1800cfbe0 (GhidraScript)  
-INFO  G6Probe.java> 1800d0b6e  LEA RAX,[RBP + 0xf20]   |  FUN_1800cfbe0@1800cfbe0 (GhidraScript)  
-INFO  G6Probe.java> 1800d0b89  LEA RCX,[RBP + 0xf20]   |  FUN_1800cfbe0@1800cfbe0 (GhidraScript)  
-INFO  G6Probe.java> 1800d1cc7  LEA RCX,[RBP + 0xf20]   |  FUN_1800d0d50@1800d0d50 (GhidraScript)  
-INFO  G6Probe.java> 1800d1cde  LEA RAX,[RBP + 0xf20]   |  FUN_1800d0d50@1800d0d50 (GhidraScript)  
-INFO  G6Probe.java> 1800d1cf9  LEA RCX,[RBP + 0xf20]   |  FUN_1800d0d50@1800d0d50 (GhidraScript)  
-INFO  G6Probe.java> 1800d2e37  LEA RCX,[RBP + 0xf20]   |  FUN_1800d1ec0@1800d1ec0 (GhidraScript)  
-INFO  G6Probe.java> 1800d2e4e  LEA RAX,[RBP + 0xf20]   |  FUN_1800d1ec0@1800d1ec0 (GhidraScript)  
-INFO  G6Probe.java> 1800d2e69  LEA RCX,[RBP + 0xf20]   |  FUN_1800d1ec0@1800d1ec0 (GhidraScript)  
-INFO  G6Probe.java> 1800d3fa7  LEA RCX,[RBP + 0xf20]   |  FUN_1800d3030@1800d3030 (GhidraScript)  
-INFO  G6Probe.java> 1800d3fbe  LEA RAX,[RBP + 0xf20]   |  FUN_1800d3030@1800d3030 (GhidraScript)  
-INFO  G6Probe.java> 1800d3fd9  LEA RCX,[RBP + 0xf20]   |  FUN_1800d3030@1800d3030 (GhidraScript)  
-INFO  G6Probe.java> 18015f7f1  LEA RCX,[RBP + 0xf20]   |  FUN_18015d4c0@18015d4c0 (GhidraScript)  
-INFO  G6Probe.java> ##### 16 hit(s) for 0xf20 ##### (GhidraScript)  
-INFO  G6Probe.java> ##### SCAN displacement 0xf24 ##### (GhidraScript)  
-INFO  G6Probe.java> ##### 0 hit(s) for 0xf24 ##### (GhidraScript)  
-INFO  G6Probe.java> ===== 0x18008daf0 ===== (GhidraScript)  
-INFO  G6Probe.java> FUNCTION FUN_18008daf0 @ 18008daf0 (GhidraScript)  
+INFO  G6Probe.java> ##### XREF 0x180096fe0 ##### (GhidraScript)  
+INFO  G6Probe.java> 180219e20  <data>   | DATA  |  <no function> (GhidraScript)  
+INFO  G6Probe.java> 1801d9990  <data>   | DATA  |  <no function> (GhidraScript)  
+INFO  G6Probe.java> 180091b1f  CALL 0x180096fe0   | UNCONDITIONAL_CALL  |  FUN_180091ae0@180091ae0 (GhidraScript)  
+INFO  G6Probe.java> 180092842  CALL 0x180096fe0   | UNCONDITIONAL_CALL  |  FUN_180092810@180092810 (GhidraScript)  
+INFO  G6Probe.java> ##### 4 reference(s) to 0x180096fe0 ##### (GhidraScript)  
+INFO  G6Probe.java> ##### XREF 0x180198f28 ##### (GhidraScript)  
+INFO  G6Probe.java> 18009849d  LEA RCX,[0x180198f28]   | DATA  |  FUN_180098470@180098470 (GhidraScript)  
+INFO  G6Probe.java> 1800984a4  MOVZX EDX,word ptr [RCX + RAX*0x4]   | DATA  |  FUN_180098470@180098470 (GhidraScript)  
+INFO  G6Probe.java> 18009856f  LEA RCX,[0x180198f28]   | DATA  |  FUN_180098520@180098520 (GhidraScript)  
+INFO  G6Probe.java> 180098576  MOVZX ECX,word ptr [RCX + RAX*0x4]   | DATA  |  FUN_180098520@180098520 (GhidraScript)  
+INFO  G6Probe.java> ##### 4 reference(s) to 0x180198f28 ##### (GhidraScript)  
+INFO  G6Probe.java> ##### DATA 0x180198f28 (24 bytes) ##### (GhidraScript)  
+INFO  G6Probe.java> 180198f28  00 00 00 00 01 00 00 00 02 00 00 00 03 00 00 00 (GhidraScript)  
+INFO  G6Probe.java> 180198f38  04 00 00 00 04 00 00 00 (GhidraScript)  
+INFO  G6Probe.java> dwords: [0]=00000000 [4]=00000001 [8]=00000002 [c]=00000003 [10]=00000004 [14]=00000004 (GhidraScript)  
+INFO  G6Probe.java> ##### DATA 0x180185498 (16 bytes) ##### (GhidraScript)  
+INFO  G6Probe.java> 180185498  03 00 00 00 00 00 10 00 80 00 00 aa 00 38 9b 71 (GhidraScript)  
+INFO  G6Probe.java> dwords: [0]=00000003 [4]=00100000 [8]=aa000080 [c]=719b3800 (GhidraScript)  
+INFO  G6Probe.java> ##### DATA 0x180191558 (16 bytes) ##### (GhidraScript)  
+INFO  G6Probe.java> 180191558  01 00 00 00 00 00 10 00 80 00 00 aa 00 38 9b 71 (GhidraScript)  
+INFO  G6Probe.java> dwords: [0]=00000001 [4]=00100000 [8]=aa000080 [c]=719b3800 (GhidraScript)  
+INFO  G6Probe.java> ##### DISASM 0x180096fe0 (40) ##### (GhidraScript)  
+INFO  G6Probe.java> 180096fe0  PUSH RDI (GhidraScript)  
+INFO  G6Probe.java> 180096fe2  SUB RSP,0x50 (GhidraScript)  
+INFO  G6Probe.java> 180096fe6  MOV qword ptr [RSP + 0x28],-0x2 (GhidraScript)  
+INFO  G6Probe.java> 180096fef  MOV qword ptr [RSP + 0x68],RBX (GhidraScript)  
+INFO  G6Probe.java> 180096ff4  MOV RAX,qword ptr [0x1801f8390] (GhidraScript)  
+INFO  G6Probe.java> 180096ffb  XOR RAX,RSP (GhidraScript)  
+INFO  G6Probe.java> 180096ffe  MOV qword ptr [RSP + 0x40],RAX (GhidraScript)  
+INFO  G6Probe.java> 180097003  MOV RBX,RCX (GhidraScript)  
+INFO  G6Probe.java> 180097006  MOV qword ptr [RSP + 0x20],RCX (GhidraScript)  
+INFO  G6Probe.java> 18009700b  LEA RAX,[0x18018b758] (GhidraScript)  
+INFO  G6Probe.java> 180097012  MOV qword ptr [RCX],RAX (GhidraScript)  
+INFO  G6Probe.java> 180097015  MOV qword ptr [RCX + 0x8],RDX (GhidraScript)  
+INFO  G6Probe.java> 180097019  MOV qword ptr [RDX + 0x8],RCX (GhidraScript)  
+INFO  G6Probe.java> 18009701d  MOV RAX,qword ptr [RCX + 0x8] (GhidraScript)  
+INFO  G6Probe.java> 180097021  MOVUPS XMM0,xmmword ptr [RAX + 0x14] (GhidraScript)  
+INFO  G6Probe.java> 180097025  MOVUPS xmmword ptr [RCX + 0x10],XMM0 (GhidraScript)  
+INFO  G6Probe.java> 180097029  XOR R10D,R10D (GhidraScript)  
+INFO  G6Probe.java> 18009702c  MOV qword ptr [RCX + 0x28],R10 (GhidraScript)  
+INFO  G6Probe.java> 180097030  MOV dword ptr [RCX + 0x30],R10D (GhidraScript)  
+INFO  G6Probe.java> 180097034  XOR EAX,EAX (GhidraScript)  
+INFO  G6Probe.java> 180097036  MOV qword ptr [RCX + 0x34],RAX (GhidraScript)  
+INFO  G6Probe.java> 18009703a  MOV qword ptr [RCX + 0x3c],RAX (GhidraScript)  
+INFO  G6Probe.java> 18009703e  LEA RAX,[0x180196c48] (GhidraScript)  
+INFO  G6Probe.java> 180097045  MOV qword ptr [RCX],RAX (GhidraScript)  
+INFO  G6Probe.java> 180097048  LEA RAX,[0x180196c78] (GhidraScript)  
+INFO  G6Probe.java> 18009704f  MOV qword ptr [RCX + 0x20],RAX (GhidraScript)  
+INFO  G6Probe.java> 180097053  MOV dword ptr [RCX + 0x48],R8D (GhidraScript)  
+INFO  G6Probe.java> 180097057  MOV dword ptr [RCX + 0x4c],R9D (GhidraScript)  
+INFO  G6Probe.java> 18009705b  MOV EDX,dword ptr [RSP + 0x80] (GhidraScript)  
+INFO  G6Probe.java> 180097062  MOV dword ptr [RCX + 0x50],EDX (GhidraScript)  
+INFO  G6Probe.java> 180097065  MOV ECX,dword ptr [RSP + 0x88] (GhidraScript)  
+INFO  G6Probe.java> 18009706c  MOV dword ptr [RBX + 0x54],ECX (GhidraScript)  
+INFO  G6Probe.java> 18009706f  MOV EAX,dword ptr [RBX + 0x10] (GhidraScript)  
+INFO  G6Probe.java> 180097072  CMP R8D,EAX (GhidraScript)  
+INFO  G6Probe.java> 180097075  JA 0x180097085 (GhidraScript)  
+INFO  G6Probe.java> 180097077  CMP EAX,R9D (GhidraScript)  
+INFO  G6Probe.java> 18009707a  CMOVBE R9D,EAX (GhidraScript)  
+INFO  G6Probe.java> 18009707e  MOV dword ptr [RSP + 0x30],R9D (GhidraScript)  
+INFO  G6Probe.java> 180097083  JMP 0x18009708a (GhidraScript)  
+INFO  G6Probe.java> 180097085  MOV dword ptr [RSP + 0x30],R8D (GhidraScript)  
+INFO  G6Probe.java> ##### DISASM 0x180092820 (12) ##### (GhidraScript)  
+INFO  G6Probe.java> 180092823  MOV RBX,RCX (GhidraScript)  
+INFO  G6Probe.java> 180092826  MOV dword ptr [RSP + 0x28],0x2 (GhidraScript)  
+INFO  G6Probe.java> 18009282e  MOV dword ptr [RSP + 0x20],0x5 (GhidraScript)  
+INFO  G6Probe.java> 180092836  MOV R9D,0xbb80 (GhidraScript)  
+INFO  G6Probe.java> 18009283c  MOV R8D,0xc8 (GhidraScript)  
+INFO  G6Probe.java> 180092842  CALL 0x180096fe0 (GhidraScript)  
+INFO  G6Probe.java> 180092847  NOP (GhidraScript)  
+INFO  G6Probe.java> 180092848  LEA RAX,[0x1801967f8] (GhidraScript)  
+INFO  G6Probe.java> 18009284f  MOV qword ptr [RBX],RAX (GhidraScript)  
+INFO  G6Probe.java> 180092852  LEA RAX,[0x180196828] (GhidraScript)  
+INFO  G6Probe.java> 180092859  MOV qword ptr [RBX + 0x20],RAX (GhidraScript)  
+INFO  G6Probe.java> 18009285d  LEA RCX,[RBX + 0x58] (GhidraScript)  
+INFO  G6Probe.java> ===== 0x180096fe0 ===== (GhidraScript)  
+INFO  G6Probe.java> FUNCTION FUN_180096fe0 @ 180096fe0 (GhidraScript)  
 INFO  G6Probe.java> 
-ulonglong FUN_18008daf0(longlong param_1,uint param_2)
+/* WARNING: Function: __security_check_cookie replaced with injection: security_check_cookie */
+
+undefined8 *
+FUN_180096fe0(undefined8 *param_1,longlong param_2,uint param_3,uint param_4,undefined4 param_5,
+             uint param_6)
 
 {
-  ulonglong uVar1;
-  undefined4 *puVar2;
-  longlong lVar3;
+  uint uVar1;
+  longlong lVar2;
+  undefined4 uVar3;
+  undefined4 uVar4;
+  undefined4 uVar5;
+  char cVar6;
+  int iVar7;
+  undefined1 auStack_58 [32];
+  undefined8 *local_38;
+  undefined8 local_30;
+  uint local_28;
+  undefined4 uStack_24;
+  uint uStack_20;
+  undefined4 uStack_1c;
+  ulonglong local_18;
   
-  *(float *)(param_1 + 0x110c) = (float)param_2;
-  if (*(HLOCAL *)(param_1 + 0x1188) != (HLOCAL)0x0) {
-    LocalFree(*(HLOCAL *)(param_1 + 0x1188));
+  local_30 = 0xfffffffffffffffe;
+  local_18 = DAT_1801f8390 ^ (ulonglong)auStack_58;
+  *param_1 = CStreamingSink::vftable;
+  param_1[1] = param_2;
+  *(undefined8 **)(param_2 + 8) = param_1;
+  lVar2 = param_1[1];
+  uVar3 = *(undefined4 *)(lVar2 + 0x18);
+  uVar4 = *(undefined4 *)(lVar2 + 0x1c);
+  uVar5 = *(undefined4 *)(lVar2 + 0x20);
+  *(undefined4 *)(param_1 + 2) = *(undefined4 *)(lVar2 + 0x14);
+  *(undefined4 *)((longlong)param_1 + 0x14) = uVar3;
+  *(undefined4 *)(param_1 + 3) = uVar4;
+  *(undefined4 *)((longlong)param_1 + 0x1c) = uVar5;
+  param_1[5] = 0;
+  *(undefined4 *)(param_1 + 6) = 0;
+  *(undefined8 *)((longlong)param_1 + 0x34) = 0;
+  *(undefined8 *)((longlong)param_1 + 0x3c) = 0;
+  *param_1 = CPlug::vftable;
+  param_1[4] = CPlug::vftable;
+  *(uint *)(param_1 + 9) = param_3;
+  *(uint *)((longlong)param_1 + 0x4c) = param_4;
+  *(undefined4 *)(param_1 + 10) = param_5;
+  *(uint *)((longlong)param_1 + 0x54) = param_6;
+  uVar1 = *(uint *)(param_1 + 2);
+  local_28 = param_3;
+  if ((param_3 <= uVar1) && (local_28 = param_4, uVar1 <= param_4)) {
+    local_28 = uVar1;
   }
-  *(undefined8 *)(param_1 + 0x1188) = 0;
-  uVar1 = FUN_18008d9b0(param_1 + 0x1118,
-                        ((ulonglong)*(uint *)(param_1 + 0x1190) * (ulonglong)param_2) / 10000000,0);
-  if ((char)uVar1 != '\0') {
-    if (param_2 == 0x5622) {
-      *(undefined4 *)(param_1 + 0x1110) = 0;
-    }
-    else if (param_2 == 0xac44) {
-      *(undefined4 *)(param_1 + 0x1110) = 1;
-    }
-    else if (param_2 == 48000) {
-      *(undefined4 *)(param_1 + 0x1110) = 2;
-    }
-    else if (param_2 == 96000) {
-      *(undefined4 *)(param_1 + 0x1110) = 3;
-    }
-    else {
-      if (param_2 != 0x2ee00) {
-        *(undefined4 *)(param_1 + 0x1110) = 2;
-        goto LAB_18008db91;
-      }
-      *(undefined4 *)(param_1 + 0x1110) = 4;
-    }
-    uVar1 = (ulonglong)*(uint *)(param_1 + 0x1110);
-    *(undefined4 *)(param_1 + 0xdf8) = *(undefined4 *)(&DAT_180195a44 + uVar1 * 0x10);
-    *(undefined4 *)(param_1 + 0xdfc) = *(undefined4 *)(&DAT_180195a48 + uVar1 * 0x10);
-    *(undefined4 *)(param_1 + 0xe00) = *(undefined4 *)(&DAT_180195a4c + uVar1 * 0x10);
-    *(undefined4 *)(param_1 + 0xe04) = *(undefined4 *)(&DAT_1801959f0 + uVar1 * 0x10);
-    *(undefined4 *)(param_1 + 0xe08) = *(undefined4 *)(&DAT_1801959f4 + uVar1 * 0x10);
-    *(undefined4 *)(param_1 + 0xe0c) = *(undefined4 *)(&DAT_1801959f8 + uVar1 * 0x10);
-    *(undefined4 *)(param_1 + 0xe10) = *(undefined4 *)(&DAT_1801959fc + uVar1 * 0x10);
-    uVar1 = (ulonglong)*(uint *)(param_1 + 0x1110);
-    *(undefined4 *)(param_1 + 0xe28) = *(undefined4 *)(&UNK_180195ae4 + uVar1 * 0x10);
-    *(undefined4 *)(param_1 + 0xe2c) = *(undefined4 *)(&UNK_180195ae8 + uVar1 * 0x10);
-    *(undefined4 *)(param_1 + 0xe30) = *(undefined4 *)(&UNK_180195aec + uVar1 * 0x10);
-    *(undefined4 *)(param_1 + 0xe34) = *(undefined4 *)(&UNK_180195a90 + uVar1 * 0x10);
-    *(undefined4 *)(param_1 + 0xe38) = *(undefined4 *)(&UNK_180195a94 + uVar1 * 0x10);
-    *(undefined4 *)(param_1 + 0xe3c) = *(undefined4 *)(&UNK_180195a98 + uVar1 * 0x10);
-    lVar3 = 0x28;
-    *(undefined4 *)(param_1 + 0xe40) = *(undefined4 *)(&UNK_180195a9c + uVar1 * 0x10);
-    *(undefined2 *)(param_1 + 0x1109) = 0x101;
-    puVar2 = (undefined4 *)(param_1 + 0xd48);
-    do {
-      puVar2[-0x28] = 0x40000000;
-      *puVar2 = 0x40000000;
-      puVar2 = puVar2 + 1;
-      lVar3 = lVar3 + -1;
-    } while (lVar3 != 0);
-    *(undefined4 *)(param_1 + 0xde8) = 0;
-    *(undefined4 *)(param_1 + 0x10fc) = 0x3cf5c28f;
-    return CONCAT71((int7)((ulonglong)puVar2 >> 8),1);
+  uStack_24 = param_5;
+  uStack_20 = param_6;
+  if (*(uint *)(param_1 + 3) < param_6) {
+    uStack_20 = *(uint *)(param_1 + 3);
   }
-LAB_18008db91:
-  return uVar1 & 0xffffffffffffff00;
+  uStack_1c = 0;
+  local_38 = param_1;
+  cVar6 = FUN_180098120(param_1 + 2,&local_28);
+  if ((cVar6 != '\0') &&
+     (iVar7 = (*(code *)**(undefined8 **)param_1[1])((undefined8 *)param_1[1],&local_28), -1 < iVar7
+     )) {
+    param_1[2] = CONCAT44(uStack_24,local_28);
+    param_1[3] = CONCAT44(uStack_1c,uStack_20);
+  }
+  *(undefined8 *)((longlong)param_1 + 0x34) = param_1[2];
+  *(undefined8 *)((longlong)param_1 + 0x3c) = param_1[3];
+  return param_1;
 }
 
  (GhidraScript)  
-INFO  G6Probe.java> ===== 0x180092a50 ===== (GhidraScript)  
-INFO  G6Probe.java> FUNCTION FUN_180092a50 @ 180092a50 (GhidraScript)  
+INFO  G6Probe.java> ===== 0x180098120 ===== (GhidraScript)  
+INFO  G6Probe.java> FUNCTION FUN_180098120 @ 180098120 (GhidraScript)  
 INFO  G6Probe.java> 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
-void FUN_180092a50(float param_1,undefined4 *param_2,undefined4 *param_3)
+bool FUN_180098120(int *param_1,int *param_2)
 
 {
-  if (_DAT_180196868 <= param_1) {
-    *param_2 = 0x3f7f27bb;
-    *param_3 = 0xbf7e5604;
-    return;
+  bool bVar1;
+  
+  if ((((*param_1 != *param_2) || (param_1[1] != param_2[1])) || (param_1[2] != param_2[2])) ||
+     (bVar1 = true, param_1[3] != param_2[3])) {
+    bVar1 = false;
   }
-  if (_DAT_180196864 <= param_1) {
-    *param_2 = 0x3f7f1aa0;
-    *param_3 = 0xbf7e2eb2;
-    return;
-  }
-  if (_DAT_180196860 <= param_1) {
-    *param_2 = 0x3f7e5604;
-    *param_3 = 0xbf7cac08;
-    return;
-  }
-  if (_DAT_18019685c <= param_1) {
-    *param_2 = 0x3f7e2eb2;
-    *param_3 = 0xbf7c63f1;
-    return;
-  }
-  if (DAT_18018a624 <= param_1) {
-    *param_2 = 0x3f7cb296;
-    *param_3 = 0xbf79652c;
-    return;
-  }
-  if (DAT_18018a620 <= param_1) {
-    *param_2 = 0x3f7c6a7f;
-    *param_3 = 0xbf78ce70;
-    return;
-  }
-  if (DAT_18018a61c <= param_1) {
-    *param_2 = 0x3f7b0f28;
-    *param_3 = 0xbf7624dd;
-    return;
-  }
-  if (DAT_18018a618 <= param_1) {
-    *param_2 = 0x3f7978d5;
-    *param_3 = 0xbf72f1aa;
-    return;
-  }
-  if (DAT_18018a614 <= param_1) {
-    *param_2 = 0x3f78e8a7;
-    *param_3 = 0xbf71d14e;
-    return;
-  }
-  if (DAT_18018a610 <= param_1) {
-    *param_2 = 0x3f7652bd;
-    *param_3 = 0xbf6ca57a;
-    return;
-  }
-  if (DAT_180196858 <= param_1) {
-    *param_2 = 0x3f73404f;
-    *param_3 = 0xbf66809d;
-    return;
-  }
-  if (DAT_18018a60c <= param_1) {
-    *param_2 = 0x3f722d0e;
-    *param_3 = 0xbf6460aa;
-    return;
-  }
-  *param_2 = 0x3f6d4fdf;
-  *param_3 = 0xbf5aa64c;
-  return;
+  return !bVar1;
 }
 
  (GhidraScript)  
-INFO  G6Probe.java> ===== 0x180092da0 ===== (GhidraScript)  
-INFO  G6Probe.java> FUNCTION FUN_180092da0 @ 180092da0 (GhidraScript)  
+INFO  G6Probe.java> ===== 0x180098470 ===== (GhidraScript)  
+INFO  G6Probe.java> FUNCTION FUN_180098470 @ 180098470 (GhidraScript)  
 INFO  G6Probe.java> 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+undefined8 FUN_180098470(undefined2 *param_1,int *param_2)
 
-void FUN_180092da0(longlong param_1,uint *param_2)
+{
+  int iVar1;
+  int iVar2;
+  undefined8 uVar3;
+  undefined8 uVar4;
+  ushort uVar5;
+  short sVar6;
+  
+  if (param_2[1] == 0) {
+    return 0xc0000001;
+  }
+  *param_1 = 0xfffe;
+  iVar2 = param_2[2];
+  param_1[1] = (short)iVar2;
+  iVar1 = *param_2;
+  *(int *)(param_1 + 2) = iVar1;
+  uVar5 = *(ushort *)(&DAT_180198f28 + (longlong)param_2[1] * 4);
+  sVar6 = uVar5 << 3;
+  param_1[7] = sVar6;
+  param_1[9] = sVar6;
+  uVar5 = (uVar5 & 0x1fff) * (short)iVar2;
+  param_1[6] = uVar5;
+  param_1[8] = 0x16;
+  *(uint *)(param_1 + 4) = (uint)uVar5 * iVar1;
+  *(int *)(param_1 + 10) = param_2[3];
+  uVar4 = DAT_180191560;
+  uVar3 = DAT_1801854a0;
+  iVar1 = param_2[1];
+  if ((((iVar1 == 1) || (iVar1 == 2)) || (iVar1 == 3)) || (iVar1 == 4)) {
+    *(undefined8 *)(param_1 + 0xc) = DAT_180191558;
+    *(undefined8 *)(param_1 + 0x10) = uVar4;
+  }
+  else if (iVar1 == 5) {
+    *(undefined8 *)(param_1 + 0xc) = DAT_180185498;
+    *(undefined8 *)(param_1 + 0x10) = uVar3;
+    return 0;
+  }
+  return 0;
+}
+
+ (GhidraScript)  
+INFO  G6Probe.java> ===== 0x180092810 ===== (GhidraScript)  
+INFO  G6Probe.java> FUNCTION FUN_180092810 @ 180092810 (GhidraScript)  
+INFO  G6Probe.java> 
+undefined8 * FUN_180092810(undefined8 *param_1,undefined8 param_2)
 
 {
   undefined4 uVar1;
-  float fVar2;
-  float fVar3;
-  float fVar4;
-  float fVar5;
-  float fVar6;
+  undefined4 local_18;
+  undefined4 uStack_14;
+  undefined4 uStack_10;
+  undefined4 uStack_c;
   
-  fVar2 = (float)*param_2;
-  if (fVar2 != *(float *)(param_1 + 0x4bb4)) {
-    *(float *)(param_1 + 0x4bb4) = fVar2;
-    FUN_180092a50(fVar2,param_1 + 0x4bbc,param_1 + 0x4bc0);
-    fVar2 = (float)FUN_1800dc0b0(DAT_1801962b8);
-    uVar1 = DAT_18018870c;
-    fVar3 = (float)FUN_1800d96d0(DAT_18018870c,
-                                 fVar2 / (*(float *)(param_1 + 0x4bb4) * _DAT_18019683c));
-    fVar4 = DAT_180187b58;
-    fVar2 = DAT_1801865cc;
-    fVar5 = *(float *)(param_1 + 0x4bb4) * DAT_18018bfc0;
-    *(float *)(param_1 + 0x4ba0) = DAT_1801865cc - fVar3;
-    fVar3 = (float)FUN_1800d96d0(uVar1,fVar4 / fVar5);
-    fVar6 = *(float *)(param_1 + 0x4bf8) * _DAT_180196848;
-    fVar5 = *(float *)(param_1 + 0x4bb4) * _DAT_180196844;
-    *(float *)(param_1 + 0x4ba4) = fVar2 - fVar3;
-    *(float *)(param_1 + 0x4bc8) = fVar2 / fVar5;
-    fVar3 = (float)FUN_1800d96d0(uVar1,fVar4 / (fVar6 * *(float *)(param_1 + 0x4bb4)));
-    *(float *)(param_1 + 0x4b84) = fVar2 - fVar3;
-    fVar4 = (float)FUN_1800d96d0(uVar1,fVar4 / (*(float *)(param_1 + 0x4bf4) *
-                                               *(float *)(param_1 + 0x4bb4)));
-    *(float *)(param_1 + 0x4b88) = fVar2 - fVar4;
-    FUN_1800935c0(param_1,*(undefined4 *)(param_1 + 0x4bf0));
-  }
+  FUN_180096fe0(param_1,param_2,200,48000,5,2,0xfffffffffffffffe);
+  *param_1 = CPlugAGCCompressor::vftable;
+  param_1[4] = CPlugAGCCompressor::vftable;
+  FUN_1800d8d6c(param_1 + 0xb,0x2590,2,&LAB_180092800,&LAB_180092920);
+  *(undefined1 *)(param_1 + 0x970) = 1;
+  *(undefined4 *)((longlong)param_1 + 0x4bb4) = 0;
+  *(undefined4 *)(param_1 + 0x973) = 0xc0c66666;
+  *(undefined4 *)((longlong)param_1 + 0x4b8c) = 0x3ecccccd;
+  uVar1 = FUN_1800d96d0(DAT_18018870c,DAT_18019684c);
+  *(undefined4 *)(param_1 + 0x972) = uVar1;
+  *(undefined4 *)((longlong)param_1 + 0x4b9c) = 0x3f800000;
+  *(undefined4 *)(param_1 + 0x97f) = 0x3b83126f;
+  *(undefined4 *)((longlong)param_1 + 0x4bf4) = 0x41000000;
+  *(undefined4 *)(param_1 + 0x97e) = 0x3ca3d70a;
   FUN_180092bc0(param_1);
-  return;
-}
-
- (GhidraScript)  
-INFO  G6Probe.java> ===== 0x180092f30 ===== (GhidraScript)  
-INFO  G6Probe.java> FUNCTION FUN_180092f30 @ 180092f30 (GhidraScript)  
-INFO  G6Probe.java> 
-void FUN_180092f30(longlong param_1,longlong param_2)
-
-{
-  float fVar1;
-  float fVar2;
-  undefined4 uVar3;
-  float fVar4;
-  int iVar5;
-  uint uVar6;
-  float *pfVar7;
-  uint uVar8;
-  uint uVar9;
-  longlong lVar10;
-  ulonglong uVar11;
-  ulonglong uVar12;
-  uint uVar13;
-  float fVar14;
-  float fVar15;
-  float local_res10 [2];
-  
-  fVar4 = DAT_1801916b0;
-  uVar3 = DAT_18018870c;
-  fVar2 = DAT_1801865cc;
-  uVar13 = 0;
-  if (*(int *)(param_2 + 4) != 0) {
-    do {
-      uVar11 = 0;
-      if (*(int *)(param_1 + 0x18) != 0) {
-        uVar12 = 0;
-        do {
-          uVar8 = *(uint *)(param_1 + 0x1c) & 0x7fffffff;
-          if (uVar8 != 0) {
-            uVar9 = *(uint *)(&DAT_180196738 + uVar11 * 4);
-            while ((uVar9 & uVar8) == 0) {
-              uVar11 = (ulonglong)((int)uVar11 + 1);
-              uVar9 = *(uint *)(&DAT_180196738 + uVar11 * 4);
-            }
-          }
-          fVar15 = *(float *)(*(longlong *)(param_2 + 8 + uVar11 * 8) + (ulonglong)uVar13 * 4);
-          lVar10 = uVar12 * 0x2590 + param_1;
-          *(float *)(lVar10 + 0x60 + (ulonglong)*(uint *)(lVar10 + 0x25e0) * 4) = fVar15;
-          *(int *)(lVar10 + 0x25e0) = *(int *)(lVar10 + 0x25e0) + 1;
-          iVar5 = *(int *)(lVar10 + 0x25e0);
-          if (iVar5 == 0x960) {
-            iVar5 = 0;
-          }
-          uVar8 = (int)uVar12 + 1;
-          uVar11 = (ulonglong)((int)uVar11 + 1);
-          *(int *)(lVar10 + 0x25e0) = iVar5;
-          fVar14 = *(float *)(param_1 + 0x4bcc + uVar12 * 8);
-          fVar1 = *(float *)(param_1 + 0x4bbc);
-          *(float *)(param_1 + 0x4bcc + uVar12 * 8) = fVar15;
-          fVar15 = (fVar15 - fVar14) * fVar1 -
-                   *(float *)(param_1 + 0x4bc0) * *(float *)(param_1 + 0x4bd0 + uVar12 * 8);
-          *(float *)(param_1 + 0x4bd0 + uVar12 * 8) = fVar15;
-          fVar15 = fVar15 * fVar15 * *(float *)(param_1 + 0x4ba0) +
-                   (fVar2 - *(float *)(param_1 + 0x4ba0)) *
-                   *(float *)(param_1 + 0x4bdc + uVar12 * 4);
-          *(float *)(param_1 + 0x4bdc + uVar12 * 4) = fVar15;
-          local_res10[uVar12] = fVar15;
-          uVar12 = (ulonglong)uVar8;
-        } while (uVar8 < *(uint *)(param_1 + 0x18));
-      }
-      uVar11 = (ulonglong)*(uint *)(param_1 + 0x18);
-      fVar15 = local_res10[0];
-      if (*(uint *)(param_1 + 0x18) != 0) {
-        pfVar7 = local_res10;
-        do {
-          fVar14 = *pfVar7;
-          if (fVar15 < fVar14) {
-            local_res10[0] = fVar14;
-            fVar15 = fVar14;
-          }
-          pfVar7 = pfVar7 + 1;
-          uVar11 = uVar11 - 1;
-        } while (uVar11 != 0);
-      }
-      if (fVar15 == 0.0) {
-        fVar15 = *(float *)(param_1 + 0x4b98);
-LAB_1800930fc:
-        fVar14 = fVar15;
-      }
-      else {
-        fVar14 = (float)FUN_1800dc0b0(fVar15);
-        fVar15 = *(float *)(param_1 + 0x4b98);
-        if (fVar14 < fVar15) goto LAB_1800930fc;
-      }
-      fVar14 = (float)FUN_1800d96d0(uVar3,(((fVar14 - fVar15) * *(float *)(param_1 + 0x4b8c) +
-                                           fVar15) - fVar14) * fVar4);
-      fVar15 = *(float *)(param_1 + 0x4be4);
-      if (fVar15 <= fVar14) {
-        local_res10[1] = *(float *)(param_1 + 0x4b88);
-      }
-      else {
-        local_res10[1] = *(float *)(param_1 + 0x4b84);
-      }
-      uVar11 = 0;
-      uVar8 = 0;
-      *(float *)(param_1 + 0x4be4) = (fVar2 - local_res10[1]) * fVar15 + local_res10[1] * fVar14;
-      local_res10[0] =
-           ((*(float *)(param_1 + 0x4b9c) * *(float *)(param_1 + 0x4be8) + fVar2) -
-           *(float *)(param_1 + 0x4b9c)) * *(float *)(param_1 + 0x4b90);
-      fVar14 = *(float *)(param_1 + 0x4bec);
-      *(float *)(param_1 + 0x4be8) =
-           (fVar2 - *(float *)(param_1 + 0x4b84)) * *(float *)(param_1 + 0x4be8) +
-           *(float *)(param_1 + 0x4b84) * fVar15;
-      *(float *)(param_1 + 0x4bec) =
-           (local_res10[0] - fVar14) * *(float *)(param_1 + 0x4ba4) + fVar14;
-      if (*(int *)(param_1 + 0x3c) != 0) {
-        do {
-          uVar9 = *(uint *)(param_1 + 0x40) & 0x7fffffff;
-          uVar12 = uVar11;
-          if (uVar9 != 0) {
-            uVar6 = *(uint *)(&DAT_180196738 + uVar11 * 4);
-            while ((uVar6 & uVar9) == 0) {
-              uVar12 = (ulonglong)((int)uVar12 + 1);
-              uVar6 = *(uint *)(&DAT_180196738 + uVar12 * 4);
-            }
-          }
-          uVar9 = *(uint *)(param_1 + 0x4b78);
-          lVar10 = (ulonglong)uVar8 * 0x2590 + param_1;
-          uVar6 = *(uint *)(lVar10 + 0x25e0);
-          if (uVar6 < uVar9) {
-            uVar6 = (uVar6 - uVar9) + 0x960;
-          }
-          else {
-            uVar6 = uVar6 - uVar9;
-          }
-          local_res10[0] = *(float *)(lVar10 + 0x60 + (ulonglong)uVar6 * 4);
-          uVar9 = *(uint *)(param_1 + 0x4b7c);
-          uVar6 = *(uint *)(lVar10 + 0x25e0);
-          if (uVar6 < uVar9) {
-            uVar6 = (uVar6 - uVar9) + 0x960;
-          }
-          else {
-            uVar6 = uVar6 - uVar9;
-          }
-          local_res10[1] = *(float *)(lVar10 + 0x60 + (ulonglong)uVar6 * 4);
-          uVar8 = uVar8 + 1;
-          uVar11 = (ulonglong)((int)uVar12 + 1);
-          *(float *)(*(longlong *)(param_2 + 8 + uVar12 * 8) + (ulonglong)uVar13 * 4) =
-               ((fVar2 - *(float *)(param_1 + 0x4bc4)) * local_res10[1] +
-               *(float *)(param_1 + 0x4bc4) * local_res10[0]) * fVar14;
-        } while (uVar8 < *(uint *)(param_1 + 0x3c));
-      }
-      if (*(char *)(param_1 + 0x4bb9) == '\0') {
-        if ((*(char *)(param_1 + 0x4bb8) != '\0') &&
-           (fVar15 = *(float *)(param_1 + 0x4bc8) + *(float *)(param_1 + 0x4bc4),
-           *(float *)(param_1 + 0x4bc4) = fVar15, fVar2 < fVar15)) {
-          *(undefined4 *)(param_1 + 0x4bc4) = 0x3f800000;
-          *(undefined1 *)(param_1 + 0x4bb8) = 0;
-        }
-      }
-      else {
-        fVar15 = *(float *)(param_1 + 0x4bc4) - *(float *)(param_1 + 0x4bc8);
-        *(float *)(param_1 + 0x4bc4) = fVar15;
-        if (fVar15 < 0.0) {
-          *(undefined4 *)(param_1 + 0x4bc4) = 0;
-          *(undefined1 *)(param_1 + 0x4bb9) = 0;
-        }
-      }
-      uVar13 = uVar13 + 1;
-    } while (uVar13 < *(uint *)(param_2 + 4));
-  }
-  return;
+  local_18 = *(undefined4 *)(param_1 + 2);
+  uStack_14 = *(undefined4 *)((longlong)param_1 + 0x14);
+  uStack_10 = *(undefined4 *)(param_1 + 3);
+  uStack_c = *(undefined4 *)((longlong)param_1 + 0x1c);
+  FUN_180092da0(param_1,&local_18);
+  return param_1;
 }
 
  (GhidraScript)  

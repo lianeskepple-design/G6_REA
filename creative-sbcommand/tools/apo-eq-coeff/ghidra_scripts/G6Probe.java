@@ -1,6 +1,11 @@
 // Probe helper for the G6 APO work.
 //   G6Probe scan 0xf18 0xf1c 0xf20 0xf24   -> list instructions touching those struct displacements
 //   G6Probe dump 0x18008daf0 ...           -> decompile the listed functions
+//   G6Probe xref 0x180096fe0 ...           -> list every reference to the listed addresses
+//   G6Probe data 0x180198f28:0x20 ...      -> hex + dword dump of a data address
+//   G6Probe disasm 0x180096fe0:32 ...      -> raw disassembly of an address range
+//   G6Probe sym CPlugAGCCompressor ...     -> list symbol/namespace matches
+//   G6Probe vtable 0x1801f1e80:0x178 ...   -> resolve a global's vtable slots
 // Mixing both forms in one argument list is supported; "scan"/"dump" switch mode.
 // @category REA
 import ghidra.app.script.GhidraScript;
@@ -31,11 +36,14 @@ public class G6Probe extends GhidraScript {
         List<String> vtables = new ArrayList<>();
         List<String> symbols = new ArrayList<>();
         List<String> disasmSpecs = new ArrayList<>();
+        List<String> xrefs = new ArrayList<>();
+        List<String> dataSpecs = new ArrayList<>();
         String mode = "scan";
         for (String a : args) {
             if (a.equalsIgnoreCase("scan") || a.equalsIgnoreCase("dump")
                     || a.equalsIgnoreCase("vtable") || a.equalsIgnoreCase("sym")
-                    || a.equalsIgnoreCase("disasm")) {
+                    || a.equalsIgnoreCase("disasm") || a.equalsIgnoreCase("xref")
+                    || a.equalsIgnoreCase("data")) {
                 mode = a.toLowerCase();
             } else if (mode.equals("scan")) {
                 disps.add(a);
@@ -45,12 +53,22 @@ public class G6Probe extends GhidraScript {
                 symbols.add(a);
             } else if (mode.equals("disasm")) {
                 disasmSpecs.add(a);
+            } else if (mode.equals("xref")) {
+                xrefs.add(a);
+            } else if (mode.equals("data")) {
+                dataSpecs.add(a);
             } else {
                 funcs.add(a);
             }
         }
         for (String d : disps) {
             scanDisplacement(d);
+        }
+        for (String x : xrefs) {
+            dumpXrefs(x);
+        }
+        for (String d : dataSpecs) {
+            dumpData(d);
         }
         for (String v : vtables) {
             resolveVtable(v);
@@ -67,34 +85,84 @@ public class G6Probe extends GhidraScript {
     }
 
     /**
+     * Print every reference to an address: source instruction, owning function and the
+     * reference type. Data references are included so vtable stores are visible.
+     */
+    private void dumpXrefs(String spec) throws Exception {
+        Address target = toAddr(spec);
+        println("##### XREF " + spec + " #####");
+        int hits = 0;
+        for (ghidra.program.model.symbol.Reference ref
+                : currentProgram.getReferenceManager().getReferencesTo(target)) {
+            Address from = ref.getFromAddress();
+            Function f = getFunctionContaining(from);
+            String fn = (f == null) ? "<no function>"
+                    : f.getName() + "@" + f.getEntryPoint();
+            Instruction ins = currentProgram.getListing().getInstructionAt(from);
+            String text = (ins == null) ? "<data>" : ins.toString();
+            println(from + "  " + text + "   | " + ref.getReferenceType()
+                    + "  |  " + fn);
+            hits++;
+        }
+        println("##### " + hits + " reference(s) to " + spec + " #####");
+    }
+
+    /**
      * Print a named symbol's address and every qword slot that resolves to code.
      */
     private void dumpSymbolSlots(String name) throws Exception {
         ghidra.program.model.symbol.SymbolIterator it =
                 currentProgram.getSymbolTable().getSymbols(name);
-        if (!it.hasNext()) {
-            // Fall back to a substring search over the whole symbol table.
-            ghidra.program.model.symbol.SymbolTable table = currentProgram.getSymbolTable();
-            java.util.List<ghidra.program.model.symbol.Symbol> matches = new ArrayList<>();
-            for (ghidra.program.model.symbol.Symbol candidate : table.getAllSymbols(true)) {
-                if (candidate.getName().contains(name)) {
-                    matches.add(candidate);
-                }
+        boolean exact = false;
+        while (it.hasNext()) {
+            ghidra.program.model.symbol.Symbol candidate = it.next();
+            exact = true;
+            if (candidate.getAddress() == null
+                    || candidate.getAddress().equals(ghidra.program.model.address.Address.NO_ADDRESS)) {
+                println("skip (no address): " + candidate.getName());
+                continue;
             }
-            if (matches.isEmpty()) {
+            describeSymbolSlots(candidate);
+        }
+        // Always add the substring listing: namespaces have no address but their
+        // children (methods, vtables) are what the probe is usually after.
+        ghidra.program.model.symbol.SymbolTable table = currentProgram.getSymbolTable();
+        java.util.List<ghidra.program.model.symbol.Symbol> matches = new ArrayList<>();
+        for (ghidra.program.model.symbol.Symbol candidate : table.getAllSymbols(true)) {
+            String qualified = candidate.getName(true);
+            if (qualified.contains(name)
+                    && candidate.getAddress() != null
+                    && !candidate.getAddress().equals(
+                            ghidra.program.model.address.Address.NO_ADDRESS)) {
+                matches.add(candidate);
+            }
+        }
+        if (matches.isEmpty()) {
+            if (!exact) {
                 println("symbol not found: " + name);
-                return;
-            }
-            for (ghidra.program.model.symbol.Symbol match : matches) {
-                println("match: " + match.getName() + " @ " + match.getAddress());
             }
             return;
         }
-        ghidra.program.model.symbol.Symbol symbol = it.next();
+        int shown = 0;
+        for (ghidra.program.model.symbol.Symbol match : matches) {
+            if (shown++ >= 80) {
+                println("... truncated at 80 matches");
+                break;
+            }
+            println("match: " + match.getName(true) + " @ " + match.getAddress());
+        }
+    }
+
+    private void describeSymbolSlots(ghidra.program.model.symbol.Symbol symbol) throws Exception {
         Address base = symbol.getAddress();
         println("##### SYMBOL " + symbol.getName() + " @ " + base + " #####");
         for (long slot = 0; slot < 0x400; slot += 8) {
-            long target = currentProgram.getMemory().getLong(base.add(slot));
+            long target;
+            try {
+                target = currentProgram.getMemory().getLong(base.add(slot));
+            } catch (Exception e) {
+                continue;
+            }
             if (target < 0x180001000L || target > 0x180800000L) {
                 continue;
             }
@@ -144,6 +212,32 @@ public class G6Probe extends GhidraScript {
     }
 
     /**
+     * Print a data address as hex bytes plus a dword view. Spec: "address:length",
+     * for example "0x180198f28:0x20". Length defaults to 64 bytes.
+     */
+    private void dumpData(String spec) throws Exception {
+        String[] parts = spec.split(":");
+        Address address = toAddr(parts[0]);
+        long length = parts.length > 1 ? Long.decode(parts[1]) : 64;
+        println("##### DATA " + parts[0] + " (" + length + " bytes) #####");
+        for (long off = 0; off < length; off += 16) {
+            StringBuilder line = new StringBuilder(
+                    String.format("%08x  ", address.getOffset() + off));
+            for (int i = 0; i < 16 && off + i < length; i++) {
+                int b = currentProgram.getMemory().getByte(address.add(off + i)) & 0xff;
+                line.append(String.format("%02x ", b));
+            }
+            println(line.toString().trim());
+        }
+        StringBuilder dwords = new StringBuilder("dwords:");
+        for (long off = 0; off + 4 <= length; off += 4) {
+            dwords.append(String.format(" [%x]=%08x",
+                    off, currentProgram.getMemory().getInt(address.add(off))));
+        }
+        println(dwords.toString());
+    }
+
+    /**
      * Print instructions for "address:count".
      */
     private void dumpDisassembly(String spec) throws Exception {
@@ -159,8 +253,15 @@ public class G6Probe extends GhidraScript {
         }
     }
 
-    private void scanDisplacement(String hex) {
+    private void scanDisplacement(String spec) {
         long target;
+        String hex = spec;
+        String mnemonic = null;
+        int colon = spec.indexOf(':');
+        if (colon > 0) {
+            hex = spec.substring(0, colon);
+            mnemonic = spec.substring(colon + 1).toLowerCase();
+        }
 
         try {
             target = Long.parseLong(hex.toLowerCase().replace("0x", ""), 16);
@@ -169,9 +270,11 @@ public class G6Probe extends GhidraScript {
             return;
         }
         String needle = Long.toHexString(target);
-        Pattern pattern = Pattern.compile("(?i)(^|[^0-9a-f])0*" + needle + "(?![0-9a-f])");
+        // Require the 0x prefix so registers such as R14 are not treated as 0x14.
+        Pattern pattern = Pattern.compile("(?i)0x0*" + needle + "(?![0-9a-f])");
 
-        println("##### SCAN displacement 0x" + needle + " #####");
+        println("##### SCAN displacement 0x" + needle
+                + (mnemonic == null ? "" : " (mnemonic " + mnemonic + ")") + " #####");
         InstructionIterator it = currentProgram.getListing().getInstructions(true);
         int hits = 0;
         Set<String> seen = new LinkedHashSet<>();
@@ -180,6 +283,10 @@ public class G6Probe extends GhidraScript {
                 break;
             }
             Instruction ins = it.next();
+            if (mnemonic != null
+                    && !ins.getMnemonicString().toLowerCase().startsWith(mnemonic)) {
+                continue;
+            }
             boolean match = false;
             for (int i = 0; i < ins.getNumOperands() && !match; i++) {
                 String rep = ins.getDefaultOperandRepresentation(i);

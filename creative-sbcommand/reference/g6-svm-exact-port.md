@@ -23,6 +23,10 @@ Smart Volume 是**单检测器、全带**的 AGC/压缩器，不是 PDF 说的�
 | 改起音/释放 | `0x180093520` / `0x1800936c0` | 只影响 `+0x4b84` / `+0x4b88` |
 | log10 | `0x1800dc0b0` | 向量化 log10f |
 | 10^x | `0x1800d96d0` | 以 10 为底 |
+| CPlug 基类构造 | `0x180096fe0` | 拷贝源格式、协商、镜像到 `+0x34` |
+| 格式比较 | `0x180098120` | 4 个 u32 任一不等即返回 true |
+| 内部格式解码 | `0x180098470` | `{率, 类型, 声道, 掩码}` → `WAVEFORMATEXTENSIBLE` |
+| 样本类型表 | `0x180198f28` | u16[6] = 0,1,2,3,4,4 字节/样本 |
 
 `0x1800dc0b0` 是 log10 而不是 ln，判据有两条：
 1. 它引用的常量 `0x1801a0a00 = 0x3ede5bd9 = 0.43429449`，即 log10(e)；
@@ -150,8 +154,88 @@ out = ((1-crossfade)*ring[idx(delay_b)] + crossfade*ring[idx(delay_a)]) * applie
 
 即：小声被抬到约 -40 dBFS，大声被压到约 -49 dBFS 量级——是"夜间模式"式的高压缩，不是线性归一化。
 
-## 8. 未完成
+## 8. CPlug 基类构造与内部格式协商（`0x180096fe0`）
 
-- 输入声道数（`+0x18`）与输出声道数（`+0x3c`）在 DLL 里是两个字段；本实现按相等处理。
-- `0x180096fe0` 的基类初始化参数（200 / 48000 / 5 / 2）语义未解。
+`0x180096fe0` 是 `CPlug` 的基类构造，不是 AGC 专属 [E1]。
+
+```
+FUN_180096fe0(CPlug *this, CSource *source, uint minRate, uint maxRate,
+              uint sampleType, uint channels)
+```
+
+### 8.1 基类构造的动作 [E1]
+
+1. 先把 `this` 临时挂上 `CStreamingSink::vftable`（`0x18018b758`，`0x18009700b`），再覆盖为
+   `CPlug::vftable`（`0x180196c48`）；`this+0x20` 挂第二套接口表（`0x180196c78`）[E8]。
+2. `this+8 = source`，`source+8 = this`，双向回指。
+3. `this+0x10..0x1c = source+0x14..0x20`，即源端当前的 4 dword 内部格式。
+4. `this+0x48 = minRate`、`+0x4c = maxRate`、`+0x50 = sampleType`、`+0x54 = channels`。
+5. 执行 8.3 的协商，然后把 `this+0x10..0x1c` 整份镜像到 `this+0x34..0x40`。
+
+### 8.2 内部格式的 4 个字段 [E7]
+
+`0x180098470` 把这个 4 dword 结构翻译成 `WAVEFORMATEXTENSIBLE`，字段顺序由它确定：
+
+| 偏移 | 字段 | 去向 |
+|---|---|---|
+| `+0x10` | 采样率 | `nSamplesPerSec` |
+| `+0x14` | 样本类型 | `SubFormat` + `wBitsPerSample`（查表） |
+| `+0x18` | 声道数 | `nChannels`、`nBlockAlign`、`nAvgBytesPerSec` |
+| `+0x1c` | 声道掩码 | `dwChannelMask` |
+
+样本类型表 `0x180198f28` 是 u16[6]：`0,1,2,3,4,4` 字节/样本。
+1–4 配 PCM GUID（`0x180191558` = `{00000001-0000-0010-8000-00aa00389b71}`），
+5 配 IEEE float GUID（`0x180185498` = `{00000003-…}`），字节数同为 4，即 float32 [E7]。
+
+因此 `+0x18` 是声道数，不是旧记的 `+0x14`。DSP 侧也这么读 [E6]：
+
+- 输入循环上限 `*(uint*)(this+0x18)`，输出循环上限 `*(uint*)(this+0x3c)`；
+- `+0x1c` / `+0x40` 是 `& 0x7fffffff` 的声道掩码，0 表示不限。
+
+### 8.3 协商算法 [E3][E4]
+
+```c
+requested.rate     = (minRate <= src.rate) ? min(src.rate, maxRate) : minRate;
+requested.type     = sampleType;                  /* 恒为请求值，不钳位 */
+requested.channels = min(channels, src.channels);
+requested.mask     = 0;
+if (formatDiffers(this + 0x10, &requested) && source->SetFormat(&requested) >= 0)
+    this->format = requested;                     /* 否则保留源格式 */
+```
+
+`0x180098120` 是「任一字段不等」判定：4 个 u32 全等返回 false，否则 true [E4]。
+不要把返回值读成「相等」。
+
+### 8.4 两个调用点 [E2][E8]
+
+| 调用点 | 类 | minRate | maxRate | sampleType | channels |
+|---|---|---|---|---|---|
+| `0x180091b1f` | CPlugReverb | 22050 | 96000 | 5 | 1 |
+| `0x180092842` | CPlugAGCCompressor | 200 | 48000 | 5 | 2 |
+
+AGC 的实参来自 `0x180092820`：`MOV R8D,0xc8`、`MOV R9D,0xbb80`、
+`[RSP+0x20]=5`、`[RSP+0x28]=2` [E8]。全镜像只有这两处 `CALL 0x180096fe0` [E2]。
+
+### 8.5 本机默认路径不触发协商 [E5]
+
+`0x1800643b0` 建的 `CDummySource` 写入 `{48000, 5, 2, 0}`。AGC 的请求是
+`{48000, 5, min(2,2)=2, 0}`，4 个字段全等 → `0x180098120` 返回 false → 不调用 SetFormat，
+`this+0x10..0x1c` 保持源格式。
+
+Reverb 对同一个 `CDummySource` 的请求是 `{48000, 5, 1, 0}`，第三字段 1≠2 →
+会调 SetFormat 请求单声道。
+
+### 8.6 边界
+
+- [已验证] `minRate` 只在 `src.rate < minRate` 时成为请求值；DSP 端没有对应下限。
+  AGC 的 200 在正常源上不可达（源率均 ≥ 8 kHz），业务理由未取证 [E3]。
+- [已验证] 两个已知调用点的 `sampleType` 都是 5，内部链路按 float32 协商 [E2]。
+- [未验证] `sampleType = 5` 遇到 PCM 源时 `SetFormat` 是否成功、重采样归谁，未测。
+
+## 9. 未完成
+
+- 输入声道数（`+0x18`）与输出声道数（`+0x3c`）在构造时被镜像成同一份格式；
+  单独改写 `+0x3c` 的代码路径尚未找到，本实现按相等处理。
+- `minRate = 200`（AGC）与 `22050`（Reverb）只参与格式协商，业务理由未取证。
+- 源为 PCM 或源率低于下限时协商的成败与后续重采样归属，未测。
 - 实机 Smart Volume 听感与 APO 是否一致，仍需 G6 回环。
