@@ -890,35 +890,35 @@ impl eframe::App for LiveApp {
             }
 
             ui.add_enabled_ui(self.mode == Mode::Sbx, |ui| {
-            ui.checkbox(&mut self.crystalizer_on, "Crystalizer");
-            ui.add_enabled(
-                self.crystalizer_on,
-                egui::Slider::new(&mut self.crystalizer_strength, 0..=100).text("Strength"),
-            );
-            ui.checkbox(&mut self.bass_on, "Bass (missing fundamental)");
-            ui.add_enabled(
-                self.bass_on,
-                egui::Slider::new(&mut self.bass_strength, 0..=100).text("Bass strength"),
-            );
-            ui.add_enabled(
-                self.bass_on,
-                egui::Slider::new(&mut self.bass_cutoff_hz, 40.0..=200.0)
-                    .text("Bass cutoff (Hz)"),
-            );
-            ui.checkbox(&mut self.dialog_on, "Dialog+");
-            ui.add_enabled(
-                self.dialog_on,
-                egui::Slider::new(&mut self.dialog_strength, 0..=100).text("Dialog strength"),
-            );
-            ui.checkbox(&mut self.svm_on, "Smart Volume");
-            ui.add_enabled(
-                self.svm_on,
-                egui::Slider::new(&mut self.svm_level_db, -50.0..=0.0).text("Level (dB)"),
-            );
-            ui.add_enabled(
-                self.svm_on,
-                egui::Slider::new(&mut self.svm_mix, 0.0..=1.0).text("Mix"),
-            );
+                ui.checkbox(&mut self.crystalizer_on, "Crystalizer");
+                ui.add_enabled(
+                    self.crystalizer_on,
+                    egui::Slider::new(&mut self.crystalizer_strength, 0..=100).text("Strength"),
+                );
+                ui.checkbox(&mut self.bass_on, "Bass (missing fundamental)");
+                ui.add_enabled(
+                    self.bass_on,
+                    egui::Slider::new(&mut self.bass_strength, 0..=100).text("Bass strength"),
+                );
+                ui.add_enabled(
+                    self.bass_on,
+                    egui::Slider::new(&mut self.bass_cutoff_hz, 40.0..=200.0)
+                        .text("Bass cutoff (Hz)"),
+                );
+                ui.checkbox(&mut self.dialog_on, "Dialog+");
+                ui.add_enabled(
+                    self.dialog_on,
+                    egui::Slider::new(&mut self.dialog_strength, 0..=100).text("Dialog strength"),
+                );
+                ui.checkbox(&mut self.svm_on, "Smart Volume");
+                ui.add_enabled(
+                    self.svm_on,
+                    egui::Slider::new(&mut self.svm_level_db, -50.0..=0.0).text("Level (dB)"),
+                );
+                ui.add_enabled(
+                    self.svm_on,
+                    egui::Slider::new(&mut self.svm_mix, 0.0..=1.0).text("Mix"),
+                );
             });
 
             ui.separator();

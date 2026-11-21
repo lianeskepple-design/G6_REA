@@ -321,7 +321,7 @@
 
 - `dist/sbc-live-1.0.2-win64.zip`：静态 CRT 重建，解压后 `SHA256SUMS.txt` 5/5 一致，
   包内 `sbc-dsp --help` 已含 `--mode` / `--sbx-profile`。
-- ZIP SHA-256：`389724ec7b24b78502fa03d60b5606ea902ebdf50224f901afb5e710504247b9`。
+- ZIP SHA-256：`554d2d74f8ff56952304c7b228d133a562cb78ca2d03543c48b7afe01acf291c`。
 - 包内 README 增加了模式说明与两条示例命令。
 
 详细说明：[sbx-modes.md](sbx-modes.md)。
