@@ -350,3 +350,39 @@
   `0x180096fe0` 的调用点数量。
 
 详细依据：[g6-svm-exact-port.md](g6-svm-exact-port.md) §8。
+
+## 19. 2026-11-21：Bass 函数级补完（限幅器常量、mixer 状态、`CBassBoost` 定案）
+
+纯静态取证（Ghidra 12.1.4，`KSUSBAPO64.dll` 1.2.109.0）。未运行原厂代码，
+未改动 `C:\Windows\System32` 下任何文件；未做实时回环（本机无 G6 设备）。
+
+- 限幅器不是独立对象：`0x1800cbdb0` 的 `this` 是 `CBassManagementEfxMod+0x188`，
+  由 `0x18003eae0` 在按块大小预分配后以 `{1, (float)采样率, 帧数}` 调用。
+- 限幅器常量：`+0x2c = 0.5`（斜率）、`+0x1bf0 = -4.5`（拐点 dB）、
+  `+0x28 = 1 - exp(-2432 / (rate*250/[2]))`；`0x1800e1740` 是内联 `exp()`
+  （64 项 `2^(k/64)` 三表）。`[2]` = 8（<88.2 kHz）/ 16（≥88.2 kHz），
+  `+0x20 = frames/[2]` 且断言要求整除；四档采样率折算后时间常数同为 102.8 ms。
+- 两个 mixer（`CBassBoostMixerSmallSpeakers` / `CBassBoostMixerLFE`）是 0x48 复合对象：
+  `[0]` mixer vtable、`[+8]` `CHspIIR2State`、`[+0x30]` `CHspLimiter1State`，
+  在 init 里手写，没有构造函数；`0x18003de90` 把 `+0x168` 作为 `0x180088ff0`
+  的第一实参。所以 mixer 不是纯路由，但 0x48 字节里没有系数。
+- `CBassBoost` 没有内核：构造 `0x180089470` 只写 vtable 并构造 12 × 0x28 数组；
+  `CBassManager` 构造 `0x1800894e0` 把它放在 `+0x60`（`0x60 + 0x1e8 = 0x248`，
+  与紧邻的 `memset(+0x248, 0, 0xc0)` 对齐）。处理槽 `0x180089b80` 走
+  `0x180088d80(+0x60, +0x34, block)`，逐声道调全局 DSP 对象 `vt[+0x288]`。
+- 两处修正：属性描述符每条第 `0x14` 字节（`PROPERTYKEY`，9 条 = `0xb4`），不是 `0x18`；
+  `0x18004d1a0` 的 `+0x1bf0 = 2` 属于采样率转换器，与限幅器的 `-4.5f` 同偏移不同类。
+- `reference/g6_bass.c` 只加注释：mode 0 明确标为 PDF 方向参考，不是 APO 移植。
+
+| 项 | 状态 |
+|---|---|
+| 限幅器初值/公式 | 已解 |
+| mixer 实例化与状态布局 | 已解 |
+| `CBassBoost` 无内核 | 已解 |
+| `CBassManager` 构造常量 | 已解 |
+| 全局 DSP `vt[+0x288]` 语义 | 未解 |
+| `FUN_180088ff0` 如何消费 mixer 内嵌状态 | 未解 |
+| LFE 变体处理槽 | 未解 |
+| 实机扫频/听感 | 未执行 |
+
+详细依据：[g6-bass-dialog-vtable.md](g6-bass-dialog-vtable.md) §8。

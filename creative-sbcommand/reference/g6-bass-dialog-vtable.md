@@ -6,6 +6,8 @@
 
 结论先说：
 - **Bass**：已到处理函数级。`CBassManagementEfxMod` 的 init/process vtable、`CBassManager` 的构造/process、FIR/增益映射/限幅/混合子函数都已定位；FIR 与增益映射作用于增益包络，另有 `FUN_180089780` 的分频/低音路由核心。两条链都不是 Missing Fundamental 谐波合成。
+  2026-11-21 补完：两个 mixer 都是内嵌 `CHspIIR2State`（`+0x08`）与 `CHspLimiter1State`（`+0x30`）
+  的 0x48 复合对象；`CBassBoost` 只是 `CBassManager+0x60` 的 12 × 0x28 状态槽，没有采样循环（§8）。
 - **Dialog+**：只到“参数处理器 vtable”。SPI 里的 `THXDialogueAdvantage_Amount/isEnabled` 函数是属性读写 + vtable 调用，没有采样循环；APO 的 `CVocalSuppressorEfxMod` 是 4 段滤波器组候选，不是 Dialog+；实际 DSP 仍未找到。
 
 ## 1. Bass：RTTI 与 vtable
@@ -60,7 +62,9 @@ Python 解析 RTTI TypeDescriptor/COL/vftable：
 | +0x28 | `FUN_180089b80` | 122 |
 
 `CBassManager` 构造 `FUN_1800894e0`：设置 `CStreamingSink`/`CBassManager` vftable，
-初始化 `+0x49` 的 0xC0 字节状态、`+0x32c/+0x338` 开关、`+0x334/+0x33c` 的 1.0 增益。
+在 `+0x60` 构造 `CBassBoost`，清零 `+0x248` 的 0xC0 字节状态，并写
+`+0x328 = -1`、`+0x32c = 0`、`+0x330 = 100`、`+0x334 = 1.0f`、`+0x338 = 0`、
+`+0x33c = 100`、`+0x340 = 1.0f`（逐字段见 §8.6）。
 
 ## 3. Bass：处理链
 
@@ -220,8 +224,9 @@ env_db = s
 ```
 
 即软拐点前馈限幅器；`0.001` 是偏置，`+0x1bf0` 为负的拐点宽度。
-`+0x28/+0x2c/+0x1bf0` 的初值由 BassManager 初始化路径按采样率写入，
-尚未逐字段还原。
+`+0x28/+0x2c/+0x1bf0` 的初值已还原：`+0x2c = 0.5`、`+0x1bf0 = -4.5 dB`，
+`+0x28 = 1 - exp(-2432 / (rate * 250 / [2]))`，`[2]` 在 ≥88.2 kHz 时取 16、
+否则取 8（§8.2）。
 
 ### 其它常量
 
@@ -243,8 +248,8 @@ env_db = s
 | `DAT_180191740` | 3.3496544361 | 路由/混合增益 |
 
 `FUN_18003e420` 从 `DAT_1801775d0` 复制 9 条 **属性描述符** 到
-`param_1[0xd]`（0xB4 字节，`param_1[0xe] = 9`）。每条 0x18 字节：
-16 字节 GUID + u32 index + u32 0。三个 GUID 各出现 index 0..2：
+`param_1[0xd]`（0xB4 字节，`param_1[0xe] = 9`）。每条 0x14 字节，
+即 `PROPERTYKEY`：16 字节 GUID + u32 pid。三个 GUID 各出现 pid 0..2：
 
 | GUID | index |
 |---|---|
@@ -319,11 +324,11 @@ CrossOver 等）尚未逐个钉死。
 1. ~~解 `FUN_1800cc170` 的常数~~：已解出 `20*log10` 多项式与 dB 换算。
 2. 解 `FUN_1800cb9e0` 的交叉淡化系数（`param_5+0xC`、`+0x1C`、`+0x20`）
    与逐块混合顺序；已确认它把增益乘回音频并维护延迟参考线。
-3. 还原 `FUN_1800cc310` 的 `+0x28/+0x2c/+0x1bf0` 初值（按采样率/阈值）
-   以及 `CBassManager` 构造路径。
-4. `CBassManagement` 的分频/限幅已到函数级；若要确认 `CBassBoost` 是否
-   还有独立低频提升，继续追 `CBassBoostMixerSmallSpeakers`/`CBassBoostMixerLFE`
-   的非虚调用点。SBX Bass 若不在 APO，只能等实机/公开资料。
+3. ~~还原 `FUN_1800cc310` 的 `+0x28/+0x2c/+0x1bf0` 初值（按采样率/阈值）
+   以及 `CBassManager` 构造路径~~：已完成，见 §8.2、§8.6。
+4. ~~确认 `CBassBoost` 是否还有独立低频提升，追 `CBassBoostMixer*` 的非虚调用点~~：
+   已回答。mixer 在 init 里手写 vtable（§8.3），`CBassBoost` 无内核（§8.4）。
+   SBX Bass 若不在 APO，只能等实机/公开资料。
 5. Dialog：`CVocalSuppressorEfxMod` 已解到 vtable/属性/引擎级，但它是
    4 段滤波器组，不是 Dialog+；主机 APO/SPI 已无线索，G6 固件提取不现实，
    只能等实机回环或 Creative 公开资料。
@@ -351,3 +356,173 @@ CrossOver 等）尚未逐个钉死。
 - 结论：这是一个 **4 段可交叉淡化的滤波器组**（约 8 个频率/增益参数），
   更像“人声抑制/卡拉 OK”而不是 2–4 kHz 对白增强 + 维纳门。Dialog+ 的
   实际 DSP 仍未找到。
+
+## 8. 2026-11-21 补完：限幅器常量、mixer 实例化与 `CBassBoost` 定案
+
+纯静态取证（Ghidra 12.1.4，`KSUSBAPO64.dll` 1.2.109.0）。未运行原厂代码，
+未改动 `C:\Windows\System32` 下任何文件。
+
+### 8.1 对象图：限幅器是 `CBassManagementEfxMod` 的内联区域
+
+没有独立分配的限幅器对象。所有成员都在同一个 EfxMod 里：
+
+| 成员 | 偏移 | 证据 |
+|---|---|---|
+| `CBassBoostMixerSmallSpeakers*` | `+0x168` | E5：`FUN_18003e420` 写入；E6：`FUN_18003de90` 作第一实参传给 `FUN_180088ff0` |
+| `CBassManager*` | `+0x108` | `FUN_18003e420` 写入；`FUN_18003de90` 经 `[+0x20]+8` 槽调用 |
+| 对齐后的临时缓冲 | `+0x160` | `FUN_18003eae0` 分配 `frames*4+0x10` 并对齐 16 |
+| 限幅器组件（内联） | `+0x188` | E1：`FUN_1800cbdb0(this+0x188, …)` |
+| 块描述/双缓冲 | `+0x1da0`、`+0x1da8` | `FUN_18003de90` 各拷 0x1000 字节，再调 `FUN_1800cc050(this+0x188, this+0x1da0)` |
+| 限幅器输出结构 | `+0x1e60` | E1 第三实参；组件内 `+0x1c10` 保存它，`+0x40 = this+0x1e7c` |
+
+E1 `FUN_18003eae0` 是“按块大小预分配”：`param_2 % *(uint*)(this+0x5c) == 0`
+才继续，记录块大小、重分配缓冲，然后构造三元素入参并调用配置函数：
+
+```c
+local_28 = 1; local_24 = (float)*(uint*)(this + 0x20); local_20 = frames;
+FUN_1800cbdb0(this + 0x188, &local_28, this + 0x1e60, *(undefined8*)(this + 0x18));
+```
+
+### 8.2 限幅器字段与常量
+
+E2 `FUN_1800cbdb0` 里的断言串给出源码身份：`L"temp - floor(temp) == 0.0f"`、
+`L"LimiterRefComponent.c"`、行 `0x331`。
+
+| 偏移 | 写入值 | 语义 |
+|---|---|---|
+| `+0x00` | 采样率（float） | `param_2[1]` |
+| `+0x08` | `8` / `16` | 归一化除数 `[2]`；≥88.2 kHz 取 16 |
+| `+0x0c` | `1.0f / [2]` | — |
+| `+0x10` | `8` | 未解 |
+| `+0x14` | 输入码（本路径恒为 1） | `param_2[0]` |
+| `+0x18` | 映射码：1→2、2→4、3→6、4→7、5→8 | 阶梯表 |
+| `+0x1c` | `72` / `144` | 每声道状态跨距（float）；≥88.2 kHz 取 144 |
+| `+0x20` | `floor(frames / [2])` | 断言要求整除 |
+| `+0x24` | `9` | 后随 9 个 float 的计数 |
+| `+0x28` | `1 - exp(-2432 / (rate * 250 / [2]))` | 攻击系数 |
+| `+0x2c` | `0.5` | 拐点后斜率 |
+| `+0x34` | `0.0` | 上一采样输出 |
+| `+0x38` | `1.0` | 门控基准（`FUN_1800cc050` 用 `+0x38 < 1.0` 决定是否继续限幅） |
+| `+0x1bec` | `250.0` | 未解（本轮未定位读取者） |
+| `+0x1bf0` | `-4.5` | 拐点宽度（dB） |
+| `+0x1bf4` | `1`（整数） | 标志 |
+| `+0x1bf8..+0x1c0c` | `0` | 7 个 float |
+| `+0x1c10` | `param_3`（长整数指针） | 输出结构 |
+
+E3 `FUN_1800e1740` 是内联 `exp()`：64 项 `2^(k/64)` 三表（`0x1801a4980`、
+`0x1801a8820`、`0x1801a8620`）加多项式，不是自定义数学。
+
+E4 常量原值：`0x1801893b8` = `1.0`（double）、`0x18019e040` = `-2432.0`、
+`0x1801999e0` = `250.0f`、`0x1801865cc` = `1.0f`。
+
+数值（[推断] 状态机按 `N = rate / [2]` 跳拍，依据是 `+0x20 = frames / [2]`）：
+
+| 采样率 | `[2]` | 攻击系数 | `N` | 时间常数 |
+|---|---|---|---|---|
+| 48000 | 8 | 1.6203e-3 | 6000 | 102.8 ms |
+| 44100 | 8 | 1.7646e-3 | 5512.5 | 102.8 ms |
+| 96000 | 16 | 1.6203e-3 | 6000 | 102.8 ms |
+| 88200 | 16 | 1.7646e-3 | 5512.5 | 102.8 ms |
+
+四档回到同一时间常数，因为 `2432 / 250 = 9.728` 对应 `1 / 9.728 = 102.8 ms`；
+`[2]` 只是把系数折算到归一化采样率。
+
+### 8.3 mixer 是复合状态对象，不是纯路由
+
+E5 `FUN_18003e420`（小音箱）与 `FUN_1800414b0`（LFE 变体）都用
+`LocalAlloc(0x40, 0x48)` 加手写 vtable，没有构造函数：
+
+```c
+puVar7[1] = CHspIIR2State::vftable;      /* +0x08 */
+puVar7[6] = CHspLimiter1State::vftable;  /* +0x30 */
+*puVar7   = CBassBoostMixerSmallSpeakers::vftable;   /* 或 CBassBoostMixerLFE */
+```
+
+E6 `FUN_18003de90` 把这个 `+0x168` 指针作为第一实参传给 `FUN_180088ff0`，
+后者才是通道混合/路由实现（增益表见 §3）。
+
+结论：mixer 持有双二阶与限幅器的**状态**，但它 0x48 字节里没有系数；
+滤波系数与增益来自 `FUN_180088ff0` 与全局 DSP 对象。
+
+### 8.4 `CBassBoost` 没有独立内核
+
+E7 `FUN_180089470`（`CBassBoost` 构造）只做两件事：写 `CBassBoost::vftable`，
+用 `FUN_1800d8d6c(this+8, 0x28, 0xc, …)` 构造 **12 × 0x28** 数组。没有采样循环。
+
+E8 `FUN_1800894e0`（`CBassManager` 构造）唯一调用 `FUN_180089470(param_1 + 0xc)`，
+即 `CBassBoost` 固定在 `CBassManager+0x60`。尺寸自洽：`0x60 + 0x1e8 = 0x248`，
+正好是下一段 `memset(+0x248, 0, 0xc0)` 的起点。
+
+E9 `FUN_180089b80`（manager 处理槽）在上游块处理之后二选一：
+
+```c
+if ((*(byte*)(this + 0x20) & 8) != 0) FUN_180089780(this - 0x20, block);
+else FUN_180088d80(this + 0x40, this + 0x14, block);
+```
+
+`this = CBassManager+0x20`，所以 `this+0x40 = CBassManager+0x60 = CBassBoost`，
+`this+0x14 = CBassManager+0x34`（声道计数 + 掩码）。
+
+E10 `FUN_180088d80` 逐声道调全局 DSP 对象：
+
+```c
+global_dsp->vtable[+0x288](global_dsp, block->channel[i], block->frames,
+                           &CBassBoost->slot[i]);   /* 槽 = CBassBoost + 8 + i*0x28 */
+```
+
+掩码分支先按 `DAT_180191708[i]`（`i < 12`）过滤，非掩码分支按 `i*5+1` 个 qword
+排布，两者落到同一组 12 个槽。
+
+E11 `FUN_180089640` 是 `CBassManager` 析构：恢复两级 vftable，
+`_eh_vector_destructor_iterator_(this+0x68, 0x28, 0xc, …)` 析构 12 个槽，
+最后把上游源的回指清零。
+
+结论 [已验证]：`CBassBoost` 是 12 个 0x28 槽的状态容器，处理全部委托给
+全局 DSP 对象的 `+0x288` 槽；APO 侧没有 Missing Fundamental 谐波核。
+`+0x288` 的具体语义（拷贝/延迟/滤波）未解。
+
+### 8.5 两处修正
+
+- **属性描述符跨距**：`FUN_18003e420` 分配 `0xb4` 字节、循环 9 次、每次前进 `0x14`，
+  所以每条是 `PROPERTYKEY{GUID(16), pid(4)}`，不是旧记的 `0x18`。
+  原始字节在 `0x1801775d0`：`{CEA7DAB2-7E38-4BB6-B32D-ED366A966BF2}`、
+  `{D894C4D0-A6B9-4CA6-BF1D-70429B16394D}`、`{90B7F7E6-7DA2-4564-9858-91957A70B552}`，
+  各 `pid = 0/1/2`。
+- **`+0x1bf0 = 2` 不属于限幅器**：写它的 `FUN_18004d1a0` 是按采样率选系数表的
+  采样率转换器（`0x1801f4fc0`/`0x1801f1fb0`/`0x1801f78e0`，`+0x1bf4` = 20/24/36/64 抽头，
+  `+0x1bf8 = 0x80`，`+0x1c0c = 0x200`）。同一偏移在两个类里语义不同，不能跨类引用。
+
+### 8.6 `CBassManager` 构造常量
+
+E12 `FUN_1800894e0`：
+
+| 偏移 | 初值 |
+|---|---|
+| `+0x00` / `+0x20` | `CBassManager::vftable`（主/次） |
+| `+0x08` | 上游源指针；同时写 `[source+8] = this` |
+| `+0x10..+0x1c` | 源格式 4 个 dword |
+| `+0x248` | 清零 `0xc0` 字节 |
+| `+0x328` | `-1` |
+| `+0x32c` | `0`（bool，属性写 `+0x32c`） |
+| `+0x330` | `100` |
+| `+0x334` | `1.0f` |
+| `+0x338` | `0`（bool） |
+| `+0x33c` | `100` |
+| `+0x340` | `1.0f` |
+| `+0x34` / `+0x3c` | 仅在 `[+0x14] == 5` 时由源格式回填 |
+
+`[+0x14] != 5` 时返回 `0xC00000BB`，与 §3 的 5 声道约束一致。
+
+### 8.7 覆盖矩阵
+
+| 项 | 状态 |
+|---|---|
+| 限幅器初值与公式 | 已解（E1–E4） |
+| mixer 实例化与状态布局 | 已解（E5–E6） |
+| `CBassBoost` 是否含内核 | 已解：否（E7–E11） |
+| `CBassManager` 构造常量 | 已解（E12） |
+| 全局 DSP `vt[+0x288]` 语义 | 未解 |
+| `FUN_180088ff0` 如何消费 mixer 内嵌状态 | 未解 |
+| LFE 变体（`FUN_1800414b0`）的处理槽 | 未解 |
+| `+0x1bec = 250.0` 的读取点 | 未解 |
+| 实机听感/扫频回环 | 未执行（本机无 G6 设备） |

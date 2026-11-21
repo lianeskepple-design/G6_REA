@@ -92,7 +92,9 @@ divss xmm2, xmm1      ; ratio = f[i+1] / f[i]
 `app/src/eq_core.rs`（库目标 `aurora_audio_command`，CLI 与桌面共用）按本节实现滤波核心：
 
 - 第 1 段 `BandKind::LowShelf`、第 2–9 段 `BandKind::Peaking`（`alpha = tan(w0/(2·ratio))`，ratio 取相邻频点比）、第 10 段 `BandKind::HighShelf`。
-- 架式段用 RBJ 斜率 `S = 1` 近似；APO 架式内部公式（`0x180087970` / `0x1800887E0` 里的 0.4/0.45/2.0/3.0 常量与 5 连除 a0）尚未完整还原，这一部分是近似而非还原。
+- 架式段由 `apo_eq::low_shelf_from_db` / `high_shelf_from_db`（`app/src/apo_eq.rs`）按 APO 系数端口
+  （`0x180087970` / `0x1800887E0`）实现，调用点在 `app/src/eq_core.rs:351`、`app/src/eq_core.rs:354`；
+  `Biquad::design` 里的 RBJ 斜率 `S = 1` 只保留为对照（`app/src/eq_core.rs:7`），不在渲染链上。
 - 单元测试 13 项通过（另有桌面 6 项），其中：峰值段中心点达到标称增益且 DC/Nyquist 为单位增益、架式段在各自端点达到标称增益、带宽比非法（0 / NaN / 负数）被拒、单段整链响应命中标称增益、preamp/headroom 计入响应、34×2 条原厂曲线响应全程有限。
 - `Chain::response_db` 同时驱动桌面 Equalizer 页的曲线图，因此界面显示的就是渲染使用的响应。
 - 两套验证均通过：`verify-offline-eq.py` E2E PASS（31 Hz 级联实测 2.389 dB，与理论差 < 0.15 dB）；`verify-offline-eq-independent.py` 23/23（Rust 与 SciPy 独立实现最大样本差 < 1e-7）。

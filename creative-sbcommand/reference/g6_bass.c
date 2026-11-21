@@ -4,6 +4,16 @@
 #include <string.h>
 
 /*
+ * 2026-11-21 APO boundary (KSUSBAPO64.dll 1.2.109.0):
+ * - CBassBoost is a 12 x 0x28 state array at CBassManager+0x60. It has no
+ *   per-sample code and delegates to the global DSP object (slot +0x288).
+ * - The APO "bass" path is redirect + limiter: knee -4.5 dB, slope 0.5,
+ *   attack = 1 - exp(-2432 / (rate * 250 / 8 or 16)).
+ * - Mode 0 below stays a PDF-direction reference, not an APO port; it is not
+ *   bit-exact against the APO.
+ */
+
+/*
  * Legacy experimental tap set, read from KSUSBAPO64.dll 0x1801F7A28.
  * 2026-11-19 correction: in the APO this FIR smooths the limiter's gain
  * envelope, not the audio. Mode 1 below applies it to audio and is kept only
