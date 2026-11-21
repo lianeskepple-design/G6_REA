@@ -7,8 +7,14 @@
  * 2026-11-21 APO boundary (KSUSBAPO64.dll 1.2.109.0):
  * - CBassBoost is a 12 x 0x28 state array at CBassManager+0x60. It has no
  *   per-sample code and delegates to the global DSP object (slot +0x288).
+ * - CBassBoost coefficients come from FUN_180089c40: a1=(1-K)/(1+K),
+ *   b0=p*(2g-1), b1=p*K, with K=1/tan(pi*fc/fs), p=1/(1+K). Defaults are
+ *   fc=100 Hz and g=1.0; g=0.5 is the 100 Hz first-order high-pass point.
  * - The APO "bass" path is redirect + limiter: knee -4.5 dB, slope 0.5,
  *   attack = 1 - exp(-2432 / (rate * 250 / 8 or 16)).
+ * - The mixer's +0x2a8 (IIR) and +0x450 (limiter) coefficients are zeroed
+ *   in 0x18003e420 and no writer was found, so the path is transparent in
+ *   the analyzed route. Do not change mode 0 based on this.
  * - Mode 0 below stays a PDF-direction reference, not an APO port; it is not
  *   bit-exact against the APO.
  */
