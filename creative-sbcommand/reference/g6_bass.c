@@ -13,8 +13,9 @@
  * - The APO "bass" path is redirect + limiter: knee -4.5 dB, slope 0.5,
  *   attack = 1 - exp(-2432 / (rate * 250 / 8 or 16)).
  * - The mixer's +0x2a8 (IIR) and +0x450 (limiter) coefficients are zeroed
- *   in 0x18003e420 and no writer was found, so the path is transparent in
- *   the analyzed route. Do not change mode 0 based on this.
+ *   in 0x18003e420, then written by vtable +0xe0 (0x18003ef90) through
+ *   FUN_180088470 and FUN_180088cf0; the redirect path is not transparent.
+ *   Do not change mode 0 based on the init-time zeros.
  * - Mode 0 below stays a PDF-direction reference, not an APO port; it is not
  *   bit-exact against the APO.
  */
