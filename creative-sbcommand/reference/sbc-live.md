@@ -55,6 +55,9 @@ app\target\debug\sbc-live.exe
 
 界面提供：
 
+- **模式行：Direct / SBX / Scout**（互斥，语义见 [sbx-modes.md](sbx-modes.md)）。
+  选 SBX 时出现 23 个工厂 profile 的下拉框，选中即按 profile 的 Enable/Level 配置各效果；
+  Direct / Scout 下所有效果控件禁用，EQ 勾选也会被清掉。
 - 输入/输出设备下拉框、刷新、Start/Stop。
 - Input gain（-12..+36 dB）。
 - Crystalizer 开关 + 强度 0..100（运行中实时生效）。

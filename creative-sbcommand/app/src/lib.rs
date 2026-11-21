@@ -2,3 +2,4 @@
 
 pub mod apo_eq;
 pub mod eq_core;
+pub mod sbx_modes;

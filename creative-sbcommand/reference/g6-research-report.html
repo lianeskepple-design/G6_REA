@@ -527,8 +527,8 @@
           <table>
             <thead><tr><th>程序</th><th>功能</th><th>关键点</th></tr></thead>
             <tbody>
-              <tr><td><code>sbc-live</code></td><td>实时 WASAPI 桌面客户端：麦克风 → EQ → Crystalizer → Bass → Dialog+ → SVM → 输出</td><td>eframe/egui、设备选择、输入增益、效果开关/滑杆、RMS、underrun/overrun、buffer ms；60 ms 预缓冲；中文界面</td></tr>
-              <tr><td><code>sbc-dsp</code></td><td>离线 WAV 处理：EQ 预设、Crystalizer、Bass、Dialog+、6ch Surround、SVM</td><td>输出 float32 WAV；输入输出不能相同/输出不能已存在</td></tr>
+              <tr><td><code>sbc-live</code></td><td>实时 WASAPI 桌面客户端：麦克风 → EQ → Crystalizer → Bass → Dialog+ → SVM → 输出</td><td>eframe/egui、设备选择、输入增益、<strong>Direct/SBX/Scout 模式 + 23 个工厂 profile</strong>、RMS、underrun/overrun、buffer ms；60 ms 预缓冲；中文界面</td></tr>
+              <tr><td><code>sbc-dsp</code></td><td>离线 WAV 处理：EQ 预设、Crystalizer、Bass、Dialog+、6ch Surround、SVM</td><td><code>--mode</code>/<code>--sbx-profile</code>；Direct 输出与输入逐位一致；输出 float32 WAV</td></tr>
               <tr><td><code>sbc-eq</code></td><td>仅 EQ 的 WAV 渲染与预设列表</td><td>与桌面 EQ 页共用 <code>eq_core</code></td></tr>
             </tbody>
           </table>
@@ -589,6 +589,7 @@ cargo build --release --target x86_64-pc-windows-msvc</code></pre>
           <li><strong>SVM 是全带单检测器压缩器</strong>：已按 <code>CPlugAGCCompressor</code> 逐行移植；APO 内没有多频段 AGC/DRC/limiter，也没有模式曲线。</li>
           <li><strong>Crystalizer 无 <code>+0xF18</code> 输出级</strong>：位移扫描 0 次命中，旧结论已撤回。</li>
           <li><strong>实时客户端只做立体声</strong>：Surround 未放进 <code>sbc-live</code>。</li>
+          <li><strong>Scout 只有互斥语义</strong>：模式层关闭 SBX/EQ，Scout 的 DSP 在设备侧，主机未实现。</li>
         </ul>
       </section>
 

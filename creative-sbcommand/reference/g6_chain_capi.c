@@ -47,6 +47,8 @@ G6Chain *g6_chain_create(uint32_t sample_rate, uint32_t channels)
         free(chain);
         return NULL;
     }
+    /* A new chain is in steady state, so Smart Volume only runs when enabled. */
+    g6_svm_settle(&chain->svm);
     return chain;
 }
 

@@ -1,3 +1,7 @@
+> 注意：上表只显示 Level。产品数据里每个效果还带 `Enable` 标志，且各 profile 不同
+> （例如 Gaming 关闭 Bass/SVM/Dialog+，Movie 打开 SVM 0.40）。客户端按 Enable+Level
+> 一起套用，见 [sbx-modes.md](sbx-modes.md)。`Order` 为 100 的游戏 profile 在表里排在一起。
+
 | profile | Order | Surround | Crystalizer | Bass | SVM | SVM mode | Dialog+ | Scout |
 |---|---|---|---|---|---|---|---|---|
 | BaseProfile | 0 | 0.00 | 0.00 | 0.00 | 0.00 | 0 | on | off |

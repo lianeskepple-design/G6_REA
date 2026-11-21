@@ -279,3 +279,49 @@
 - 1.0.0 包保留作为历史，不再更新。
 
 详细依据：[g6-svm-exact-port.md](g6-svm-exact-port.md)。
+
+## 17. 2026-11-21：SBX / Scout / Direct 模式语义
+
+纯软件，无硬件依赖。此前 `sbc-live` 把五个效果当作互不相干的开关，这与产品语义不符。
+
+### 17.1 数据
+
+- 新增 `app/src/sbx_modes.rs`，以 `reference/g6-product-data.json` 为唯一来源解析 23 个工厂 profile。
+- 关键发现：profile 存的是**每个效果的 Enable + Level**，不是只有电平。Gaming 关闭 Bass/SVM/Dialog+，
+  Movie 打开 SVM(0.40)，RPG 同时打开 Bass(0.20) 与 Dialog+(0.15)。只写电平会得到错误状态。
+- 23/23：`SBXMaster.Enable` = on、`Scout.Enable` = off、`Bass.XOver` = 80、`SVM.Mode` = 0。
+  即互斥是运行时开关，profile 数据里没有 Scout 态；`SVM.Mode` 一致为 0，与 §16 的"没有模式曲线"吻合。
+- Speaker 与 Headphone 只有 2 个 profile 有差异，且都不在五个效果字段上，因此客户端只读 speaker 一份。
+
+### 17.2 行为
+
+- `Mode::{Direct, Sbx, Scout}`；`EffectLevels::bypass_all()` = `direct || scout || !sbx_master`。
+- `sbc-live`：顶部模式行 + profile 下拉；Direct/Scout 下效果控件禁用并清空 EQ 勾选；选中 profile 立即装载。
+- `sbc-dsp`：`--mode direct|sbx|scout`、`--sbx-profile NAME`；冲突组合直接报错。
+- 两处刻意近似并已在文档标注：profile 的 SVM 电平用 `-50 + 0.3*level` 映射到既有 dB 滑杆；
+  profile 不带宽高比 mask，6 声道固定 `0x3f`。
+
+### 17.3 顺带修掉的缺陷
+
+`g6_chain_create` 之前直接沿用 `g6_svm_init` 的构造函数状态（`0x180092810` 在开机时把延迟从
+2400 淡到 960），导致 `g6_svm_active()` 永远为真、链条在**没开 SVM 时也处理音频**。
+新增 `g6_svm_settle()` 让新链进入稳态；探针新增 `settled` 检查。
+
+| 检查 | 结果 |
+|---|---|
+| `cargo test` | 38 passed（29 lib + 6 桌面 + 3 链） |
+| `sbc-dsp --mode direct` vs 输入 | **逐字节一致**（1048576 字节） |
+| `--sbx-profile Gaming` / `movie` | 与输入及彼此均有差异（Movie 打开 SVM） |
+| 6 声道 + `--sbx-profile Gaming` | 走 Surround 分支，无跳过警告 |
+| 错误路径 | `--mode sbx` 缺 profile、Direct/Scout + 效果参数、未知 profile/mode 全部报错 |
+| `verify_svm.cmd` / `verify_crystalizer.cmd` / `verify_surround.cmd` | 全部 PASS |
+| `sbc-live` GUI | 6 秒无 panic（rc=124）；`--selftest 1` 正常 |
+
+### 17.4 重新打包
+
+- `dist/sbc-live-1.0.2-win64.zip`：静态 CRT 重建，解压后 `SHA256SUMS.txt` 5/5 一致，
+  包内 `sbc-dsp --help` 已含 `--mode` / `--sbx-profile`。
+- ZIP SHA-256：`389724ec7b24b78502fa03d60b5606ea902ebdf50224f901afb5e710504247b9`。
+- 包内 README 增加了模式说明与两条示例命令。
+
+详细说明：[sbx-modes.md](sbx-modes.md)。

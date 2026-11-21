@@ -121,6 +121,14 @@ int g6_svm_set_threshold_dbfs(G6SvmState *state, float threshold_dbfs);
 /* 1.0 applies the compressor, 0.0 returns the untouched input. Extension. */
 void g6_svm_set_mix(G6SvmState *state, float mix);
 
+/*
+ * Put a freshly initialised state into steady state: both taps at the current delay
+ * and no pending crossfade. `0x180092810` starts a 50 ms -> 20 ms fade on power-up;
+ * a client that is not emulating power-on does not need that transient, and without
+ * settling the chain would keep a 2400-sample tap alive and look "active" forever.
+ */
+void g6_svm_settle(G6SvmState *state);
+
 /* 1 while the compressor still has a wet/makeup crossfade to finish. */
 int g6_svm_active(const G6SvmState *state);
 

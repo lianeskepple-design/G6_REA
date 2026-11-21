@@ -5,6 +5,7 @@
 //! reached through `reference/g6_chain_capi.h`; no C struct layout is mirrored
 //! in Rust.
 use aurora_audio_command::eq_core::{self, Chain, OutputMode};
+use aurora_audio_command::sbx_modes::{EffectLevels, Mode, ProfileSet};
 use std::env;
 use std::error::Error;
 use std::path::PathBuf;
@@ -162,7 +163,9 @@ Options:\n\
   --surround-strength N      Surround strength 0..100 (required with mask)\n\
   --svm-level DB             Smart Volume threshold, legacy (level_db-12)/10\n\
   --svm-mix MIX              Smart Volume mix 0..1 (default 1.0)\n\
-  --svm-delay-ms MS          Smart Volume look-ahead in ms (DLL default 20, max 50)\n\n\
+  --svm-delay-ms MS          Smart Volume look-ahead in ms (DLL default 20, max 50)\n\
+  --mode MODE                direct|sbx|scout (Direct and Scout bypass everything)\n\
+  --sbx-profile NAME         apply a factory SBX profile (implies --mode sbx)\n\n\
 Input/output must differ and the output must not exist. Output is float32 WAV."
 }
 
@@ -202,6 +205,8 @@ fn run() -> Result<(), Box<dyn Error>> {
     let mut svm_level: Option<f32> = None;
     let mut svm_mix = 1.0f32;
     let mut svm_delay_ms: Option<f32> = None;
+    let mut mode_text: Option<String> = None;
+    let mut sbx_profile: Option<String> = None;
 
     let mut i = 3;
     while i < args.len() {
@@ -265,6 +270,14 @@ fn run() -> Result<(), Box<dyn Error>> {
                 svm_level = Some(args[i + 1].parse()?);
                 i += 2;
             }
+            "--mode" if i + 1 < args.len() => {
+                mode_text = Some(args[i + 1].clone());
+                i += 2;
+            }
+            "--sbx-profile" if i + 1 < args.len() => {
+                sbx_profile = Some(args[i + 1].clone());
+                i += 2;
+            }
             "--svm-delay-ms" if i + 1 < args.len() => {
                 svm_delay_ms = Some(args[i + 1].parse()?);
                 i += 2;
@@ -290,6 +303,65 @@ fn run() -> Result<(), Box<dyn Error>> {
         return Err("--bass-mode requires --bass".into());
     }
 
+    /* Resolve SBX / Scout / Direct before anything is applied. */
+    let (levels, mode_note) = match (&mode_text, &sbx_profile) {
+        (None, None) => (None, String::new()),
+        (Some(text), profile) => {
+            let mode = match text.to_ascii_lowercase().as_str() {
+                "direct" => Mode::Direct,
+                "scout" => Mode::Scout,
+                "sbx" => Mode::Sbx,
+                other => {
+                    return Err(format!("unknown mode {other}; use direct, sbx or scout").into())
+                }
+            };
+            let levels = match (mode, profile) {
+                (Mode::Sbx, None) => return Err("--mode sbx needs --sbx-profile NAME".into()),
+                (Mode::Direct, Some(_)) | (Mode::Scout, Some(_)) => {
+                    return Err("Direct and Scout bypass SBX, so --sbx-profile does not apply"
+                        .into())
+                }
+                (Mode::Direct, None) => EffectLevels::direct(),
+                (Mode::Scout, None) => EffectLevels::scout(),
+                (Mode::Sbx, Some(name)) => {
+                    let profiles = ProfileSet::load().map_err(|err| err.to_string())?;
+                    let profile = profiles
+                        .find(name)
+                        .ok_or_else(|| format!("unknown SBX profile {name}"))?;
+                    EffectLevels::from_profile(profile)
+                }
+            };
+            let note = match mode {
+                Mode::Direct => "mode direct (every effect bypassed)".to_string(),
+                Mode::Scout => "mode scout (SBX off; the Scout DSP is device-side and not implemented)"
+                    .to_string(),
+                Mode::Sbx => format!("mode sbx profile {}", profile.as_deref().unwrap_or("")),
+            };
+            let explicit_effect = crystalizer.is_some()
+                || bass.is_some()
+                || dialog.is_some()
+                || surround_mask.is_some()
+                || svm_level.is_some();
+            if levels.bypass_all() && (explicit_effect || eq_preset.is_some()) {
+                return Err(
+                    "Direct and Scout bypass every effect, including the equalizer; drop the effect flags"
+                        .into(),
+                );
+            }
+            (Some(levels), note)
+        }
+        (None, Some(name)) => {
+            let profiles = ProfileSet::load().map_err(|err| err.to_string())?;
+            let profile = profiles
+                .find(name)
+                .ok_or_else(|| format!("unknown SBX profile {name}"))?;
+            (
+                Some(EffectLevels::from_profile(profile)),
+                format!("mode sbx profile {}", profile.name),
+            )
+        }
+    };
+
     let (spec, mut samples) = eq_core::load_wav_f32(&input)?;
     let channels = spec.channels as usize;
     if channels == 0 || channels > 8 {
@@ -313,6 +385,31 @@ fn run() -> Result<(), Box<dyn Error>> {
     }
 
     let handle = ChainHandle::new(spec.sample_rate, spec.channels as u32)?;
+    if let Some(levels) = levels.as_ref() {
+        if !levels.bypass_all() {
+            if levels.crystalizer_on {
+                handle.set_crystalizer(levels.crystalizer as u32)?;
+            }
+            if levels.bass_on {
+                handle.set_bass(levels.bass as i32, levels.bass_crossover as f32)?;
+                handle.set_bass_mode(bass_mode)?;
+            }
+            if levels.dialog_on {
+                handle.set_dialog(levels.dialog as i32)?;
+            }
+            if levels.surround_on {
+                if channels != 6 {
+                    /* The factory profiles do not carry a mask; 0x3f is 5.1. */
+                    eprintln!("sbc-dsp: profile surround skipped, input is not 6-channel");
+                } else {
+                    handle.set_surround(0x3f, levels.surround as i32)?;
+                }
+            }
+            if levels.smart_volume_on {
+                handle.set_svm(levels.smart_volume_db(), svm_mix)?;
+            }
+        }
+    }
     if let Some(strength) = crystalizer {
         handle.set_crystalizer(strength)?;
     }
@@ -341,6 +438,9 @@ fn run() -> Result<(), Box<dyn Error>> {
     }
     eq_core::write_wav_f32(&output, spec, &samples)?;
 
+    if !mode_note.is_empty() {
+        println!("{mode_note}");
+    }
     println!(
         "wrote {} ({} Hz, {} ch, {} frames)",
         output.display(),

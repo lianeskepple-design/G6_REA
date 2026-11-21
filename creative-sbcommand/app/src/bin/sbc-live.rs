@@ -7,6 +7,7 @@
 //! render callback.
 
 use aurora_audio_command::eq_core::{self, Chain, OutputMode};
+use aurora_audio_command::sbx_modes::{EffectLevels, Mode, ProfileSet};
 use cpal::traits::{DeviceTrait, HostTrait, StreamTrait};
 use cpal::{Device, SampleFormat, Stream, StreamConfig};
 use eframe::egui;
@@ -587,6 +588,10 @@ struct LiveApp {
     svm_on: bool,
     svm_level_db: f32,
     svm_mix: f32,
+    profiles: ProfileSet,
+    profile_index: usize,
+    mode: Mode,
+    mode_note: String,
     params: Arc<LiveParams>,
     engine: Option<LiveEngine>,
     status: String,
@@ -606,7 +611,8 @@ impl LiveApp {
         } else {
             "Stopped".to_string()
         };
-        Self {
+        let profiles = ProfileSet::load().unwrap_or_default();
+        let mut app = Self {
             input_names,
             output_names,
             input_index: 0,
@@ -626,10 +632,66 @@ impl LiveApp {
             svm_on: false,
             svm_level_db: -20.0,
             svm_mix: 1.0,
+            profiles,
+            profile_index: 0,
+            mode: Mode::Direct,
+            mode_note: String::new(),
             params: Arc::new(LiveParams::default()),
             engine: None,
             status,
+        };
+        app.apply_mode();
+        app
+    }
+
+    /// Load the selected mode/profile into the effect switches.
+    ///
+    /// Direct and Scout bypass every effect, so the switches are cleared rather
+    /// than disabled quietly: the audio thread only reads these fields.
+    fn apply_mode(&mut self) {
+        let levels = match self.mode {
+            Mode::Direct => EffectLevels::direct(),
+            Mode::Scout => EffectLevels::scout(),
+            Mode::Sbx => {
+                let Some(profile) = self.profiles.profiles().get(self.profile_index) else {
+                    self.mode_note = "SBX profile data is missing".to_string();
+                    return;
+                };
+                EffectLevels::from_profile(profile)
+            }
+        };
+        self.crystalizer_on = levels.crystalizer_on;
+        self.crystalizer_strength = levels.crystalizer as u32;
+        self.bass_on = levels.bass_on;
+        self.bass_strength = levels.bass as u32;
+        self.bass_cutoff_hz = levels.bass_crossover as f32;
+        self.dialog_on = levels.dialog_on;
+        self.dialog_strength = levels.dialog as u32;
+        self.svm_on = levels.smart_volume_on;
+        self.svm_level_db = levels.smart_volume_db();
+        if levels.bypass_equalizer() {
+            self.eq_on = false;
         }
+        self.mode_note = match self.mode {
+            Mode::Direct => "Direct: every effect bypassed, including the equalizer.".to_string(),
+            Mode::Scout => {
+                "Scout: SBX, EQ and the other effects are off. The Scout DSP runs on the device, so this client only implements the exclusion."
+                    .to_string()
+            }
+            Mode::Sbx => {
+                let name = self
+                    .profiles
+                    .profiles()
+                    .get(self.profile_index)
+                    .map(|profile| profile.name.as_str())
+                    .unwrap_or("<none>");
+                if levels.surround_on {
+                    format!("SBX profile {name}; Surround is not in the real-time chain.")
+                } else {
+                    format!("SBX profile {name}.")
+                }
+            }
+        };
     }
 
     fn refresh_devices(&mut self) {
@@ -784,6 +846,50 @@ impl eframe::App for LiveApp {
                         .text("Input gain (dB)"),
                 );
             });
+            ui.separator();
+            ui.horizontal(|ui| {
+                ui.label("Mode:");
+                for mode in Mode::ALL {
+                    if ui.selectable_label(self.mode == mode, mode.label()).clicked()
+                        && self.mode != mode
+                    {
+                        self.mode = mode;
+                        self.apply_mode();
+                    }
+                }
+            });
+            if self.mode == Mode::Sbx {
+                let current = self
+                    .profiles
+                    .profiles()
+                    .get(self.profile_index)
+                    .map(|profile| profile.name.clone())
+                    .unwrap_or_else(|| "<none>".to_string());
+                let mut picked = None;
+                ui.horizontal(|ui| {
+                    egui::ComboBox::from_label("Profile")
+                        .selected_text(current)
+                        .show_ui(ui, |ui| {
+                            for (index, profile) in self.profiles.profiles().iter().enumerate() {
+                                if ui
+                                    .selectable_label(index == self.profile_index, &profile.name)
+                                    .clicked()
+                                {
+                                    picked = Some(index);
+                                }
+                            }
+                        });
+                });
+                if let Some(index) = picked {
+                    self.profile_index = index;
+                    self.apply_mode();
+                }
+            }
+            if !self.mode_note.is_empty() {
+                ui.label(egui::RichText::new(&self.mode_note).weak());
+            }
+
+            ui.add_enabled_ui(self.mode == Mode::Sbx, |ui| {
             ui.checkbox(&mut self.crystalizer_on, "Crystalizer");
             ui.add_enabled(
                 self.crystalizer_on,
@@ -813,9 +919,10 @@ impl eframe::App for LiveApp {
                 self.svm_on,
                 egui::Slider::new(&mut self.svm_mix, 0.0..=1.0).text("Mix"),
             );
+            });
 
             ui.separator();
-            ui.add_enabled_ui(!running, |ui| {
+            ui.add_enabled_ui(!running && self.mode == Mode::Sbx, |ui| {
                 ui.checkbox(&mut self.eq_on, "EQ preset (applies on Start)");
                 ui.add_enabled_ui(self.eq_on, |ui| {
                     egui::ComboBox::from_label("Preset")

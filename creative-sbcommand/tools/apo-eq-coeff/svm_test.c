@@ -86,6 +86,17 @@ int main(void)
     printf("tail %08x %08x %08x %08x\n", bits(state.gain1), bits(state.gain2),
            bits(state.mix_gain), bits(state.crossfade));
 
+    /* Settle: a chain start is steady state, so nothing is "active" yet. */
+    {
+        G6SvmState settled;
+        if (!g6_svm_init(&settled, 48000, 2)) {
+            return 4;
+        }
+        g6_svm_settle(&settled);
+        printf("settled %d %08x %08x %08x\n", g6_svm_active(&settled),
+               bits(settled.delay_a), bits(settled.delay_b), bits(settled.crossfade));
+    }
+
     /* Bypass: 0x180093420 sets wet = 0, makeup = 1 and delays the taps to 30. */
     if (!g6_svm_set_enabled(&state, 0)) {
         return 3;

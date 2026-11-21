@@ -281,6 +281,14 @@ def main(path):
     if model.target_down or model.target_up:
         fail("crossfade target flag still set")
 
+    # --- settle: a started chain must not look active -----------------------
+    settled = data["settled"]
+    if settled[0] != "0":
+        fail(f"a settled chain still reports active: {settled[0]}")
+    for slot, name in ((1, "delay_a"), (2, "delay_b")):
+        if from_bits(int(settled[slot], 16)) != 960.0:
+            fail(f"settled {name} {from_bits(int(settled[slot], 16))!r} != 960")
+
     # --- bypass --------------------------------------------------------------
     bypass = data["bypass"]
     if from_bits(int(bypass[9], 16)) != 0.0:

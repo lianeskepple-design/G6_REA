@@ -20,6 +20,9 @@ EQ (Rust, APO 精确系数)
 - Bass/Dialog+ 是按调研 PDF 算法类别做的参考近似，不是 G6 硬件逐位实现；
   详见 [g6-bass-dialog.md](g6-bass-dialog.md)。
 - 内部按 128 帧分块，Surround 的过渡斜坡与 DLL 的块行为一致。
+- `--mode direct|sbx|scout` 与 `--sbx-profile NAME` 实现产品的模式语义
+  （见 [sbx-modes.md](sbx-modes.md)）：Direct/Scout 全旁路，SBX 按 profile 的
+  Enable+Level 装载；profile 的 Surround 只对 6 声道输入生效。
 
 ## 构建
 
@@ -121,6 +124,8 @@ sbc-dsp --process-wav in.wav out.wav `
 - Smart Volume 已按 `CPlugAGCCompressor` 逐行移植（20 ms 前瞻、两抽头交叉淡化、
   三级平滑、`10^1.1` 补偿增益）；`--svm-level` 的 `(level_db-12)/10` 是 legacy 映射，
   DLL 内没有电平旋钮，新增 `--svm-delay-ms`。见 [g6-svm-exact-port.md](g6-svm-exact-port.md)。
+- 模式与 profile：`--mode` / `--sbx-profile`，Direct 输出与输入逐位一致；
+  profile 的 SVM 电平用 `-50 + 0.3*level` 的标注近似映射到 dB。见 [sbx-modes.md](sbx-modes.md)。
 - 未在 G6 实机上做回环验证。
 
 ## 文件

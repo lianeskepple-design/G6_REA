@@ -209,6 +209,32 @@ void g6_svm_set_mix(G6SvmState *state, float mix)
     state->user_mix = mix < 0.0f ? 0.0f : (mix > 1.0f ? 1.0f : mix);
 }
 
+void g6_svm_settle(G6SvmState *state)
+{
+    float delay;
+
+    if (state == NULL) {
+        return;
+    }
+    delay = state->enabled
+                ? state->delay_seconds * (float)state->sample_rate
+                : G6_SVM_MIN_DELAY_SAMPLES;
+    if (delay < G6_SVM_MIN_DELAY_SAMPLES) {
+        delay = G6_SVM_MIN_DELAY_SAMPLES;
+    }
+    {
+        const float maximum = G6_SVM_MAX_DELAY_SECONDS * (float)state->sample_rate;
+        if (delay > maximum) {
+            delay = maximum;
+        }
+    }
+    state->delay_a = delay;
+    state->delay_b = delay;
+    state->crossfade = 1.0f;
+    state->target_up = 0;
+    state->target_down = 0;
+}
+
 int g6_svm_active(const G6SvmState *state)
 {
     if (state == NULL) {
