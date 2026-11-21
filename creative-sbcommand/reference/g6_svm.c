@@ -3,6 +3,7 @@
 #include <math.h>
 #include <string.h>
 
+/* (k1, k2) detector pairs by sample rate, table selected in 0x180092a50. */
 typedef struct {
     float rate;
     float k1;
@@ -25,9 +26,66 @@ static const G6SvmFilterPair filter_pairs[] = {
     { 0.0f, 0.92699999f, -0.85409999f }
 };
 
+/* ctor constants: threshold 0xc0c66666, ratio 0x3ecccccd, makeup exponent 1.1. */
+#define G6_SVM_THRESHOLD (-6.2f)
+#define G6_SVM_RATIO 0.4f
+#define G6_SVM_MAKEUP_EXPONENT 1.1f
+#define G6_SVM_DELAY_SECONDS 0.02f
+#define G6_SVM_MIN_DELAY_SAMPLES 30.0f
+#define G6_SVM_MAX_DELAY_SECONDS 0.05f
+#define G6_SVM_RAMP_SECONDS 0.08f
+#define G6_SVM_ENERGY_SECONDS 0.04f
+#define G6_SVM_MAKEUP_SECONDS 0.01f
+#define G6_SVM_ATTACK_SECONDS (0.004f * 0.46593979f)
+#define G6_SVM_RELEASE_SECONDS 8.0f
+
+/* 1 - 10^(-1/(fs*seconds)), the shape used by 0x180092da0. */
 static float time_constant(unsigned sample_rate, float seconds)
 {
     return 1.0f - powf(10.0f, -1.0f / ((float)sample_rate * seconds));
+}
+
+static unsigned delay_index(unsigned write, float delay)
+{
+    const unsigned taps = (unsigned)(delay + 0.5f);
+    if (write < taps) {
+        return write - taps + G6_SVM_RING;
+    }
+    return write - taps;
+}
+
+/*
+ * 0x1800935c0: clamp the requested delay and hand it to the tap that the crossfade
+ * is currently fading away from (crossfade <= 0.5 uses tap A, otherwise tap B).
+ */
+static void apply_delay(G6SvmState *state)
+{
+    float delay;
+
+    if (!state->enabled) {
+        delay = G6_SVM_MIN_DELAY_SAMPLES;
+    } else {
+        delay = state->delay_seconds * (float)state->sample_rate;
+        if (delay < G6_SVM_MIN_DELAY_SAMPLES) {
+            delay = G6_SVM_MIN_DELAY_SAMPLES;
+        }
+        {
+            const float maximum = G6_SVM_MAX_DELAY_SECONDS * (float)state->sample_rate;
+            if (delay > maximum) {
+                delay = maximum;
+            }
+        }
+    }
+
+    if (state->crossfade <= 0.5f) {
+        state->delay_a = delay;
+        state->target_up = 1;
+        state->target_down = 0;
+    } else {
+        state->delay_b = delay;
+        state->target_up = 0;
+        state->target_down = 1;
+    }
 }
 
 int g6_svm_init(G6SvmState *state, unsigned sample_rate, unsigned channels)
@@ -48,18 +106,79 @@ int g6_svm_init(G6SvmState *state, unsigned sample_rate, unsigned channels)
             break;
         }
     }
-    state->alpha = time_constant(sample_rate, 0.04f);
-    state->beta = time_constant(sample_rate, 0.01f);
-    state->attack = time_constant(sample_rate, 0.0018638f);
-    state->release = time_constant(sample_rate, 8.0f);
-    state->ramp_step = 1.0f / (0.08f * (float)sample_rate);
-    state->lookahead = (unsigned)(0.05f * (float)sample_rate);
-    if (state->lookahead > 30) {
-        state->lookahead = 30;
+    state->alpha_energy = time_constant(sample_rate, G6_SVM_ENERGY_SECONDS);
+    state->alpha_makeup = time_constant(sample_rate, G6_SVM_MAKEUP_SECONDS);
+    state->ramp_step = 1.0f / ((float)sample_rate * G6_SVM_RAMP_SECONDS);
+    state->attack = time_constant(sample_rate, G6_SVM_ATTACK_SECONDS);
+    state->release = time_constant(sample_rate, G6_SVM_RELEASE_SECONDS);
+    state->threshold = G6_SVM_THRESHOLD;
+    state->ratio = G6_SVM_RATIO;
+
+    state->enabled = 1;
+    state->wet = 1.0f;
+    state->makeup = powf(10.0f, G6_SVM_MAKEUP_EXPONENT);
+    state->gain1 = 1.0f;
+    state->gain2 = 1.0f;
+    state->mix_gain = 1.0f;
+    state->crossfade = 1.0f;
+    state->delay_seconds = G6_SVM_DELAY_SECONDS;
+    state->user_mix = 1.0f;
+    /* 0x180092bc0 seeds both taps with 0.05*fs, then the ctor applies 0.02 s. */
+    state->delay_a = G6_SVM_MAX_DELAY_SECONDS * (float)sample_rate;
+    state->delay_b = state->delay_a;
+    apply_delay(state);
+    return 1;
+}
+
+int g6_svm_set_enabled(G6SvmState *state, int enabled)
+{
+    if (state == NULL) {
+        return 0;
     }
-    state->threshold = -6.2f;
-    state->gain = 1.0f;
-    state->mix = 1.0f;
+    enabled = enabled != 0;
+    if (enabled == state->enabled) {
+        return 1;
+    }
+    state->enabled = enabled;
+    if (enabled) {
+        state->wet = 1.0f;
+        state->makeup = powf(10.0f, G6_SVM_MAKEUP_EXPONENT);
+    } else {
+        state->wet = 0.0f;
+        state->makeup = 1.0f;
+    }
+    apply_delay(state);
+    return 1;
+}
+
+int g6_svm_set_delay_seconds(G6SvmState *state, float seconds)
+{
+    if (state == NULL || !isfinite(seconds)) {
+        return 0;
+    }
+    if (seconds < 0.0f) {
+        seconds = 0.0f;
+    }
+    state->delay_seconds = seconds;
+    apply_delay(state);
+    return 1;
+}
+
+int g6_svm_set_attack_seconds(G6SvmState *state, float seconds)
+{
+    if (state == NULL || !isfinite(seconds) || seconds <= 0.0f) {
+        return 0;
+    }
+    state->attack = time_constant(state->sample_rate, seconds);
+    return 1;
+}
+
+int g6_svm_set_release_seconds(G6SvmState *state, float seconds)
+{
+    if (state == NULL || !isfinite(seconds) || seconds <= 0.0f) {
+        return 0;
+    }
+    state->release = time_constant(state->sample_rate, seconds);
     return 1;
 }
 
@@ -72,23 +191,44 @@ int g6_svm_set_level(G6SvmState *state, float level_db)
     return 1;
 }
 
+int g6_svm_set_threshold_dbfs(G6SvmState *state, float threshold_dbfs)
+{
+    if (state == NULL || !isfinite(threshold_dbfs)) {
+        return 0;
+    }
+    /* dBFS of energy -> log10(energy): 10*log10(x) = dBFS. */
+    state->threshold = threshold_dbfs / 10.0f;
+    return 1;
+}
+
 void g6_svm_set_mix(G6SvmState *state, float mix)
 {
     if (state == NULL) {
         return;
     }
-    state->mix = mix < 0.0f ? 0.0f : (mix > 1.0f ? 1.0f : mix);
+    state->user_mix = mix < 0.0f ? 0.0f : (mix > 1.0f ? 1.0f : mix);
+}
+
+int g6_svm_active(const G6SvmState *state)
+{
+    if (state == NULL) {
+        return 0;
+    }
+    /* A pending tap crossfade still has to run even after a bypass request. */
+    return (state->target_up || state->target_down) ? 1 : 0;
 }
 
 int g6_svm_process(G6SvmState *state, float *const *buffers, size_t frames)
 {
     size_t n;
+    float values[G6_SVM_MAX_CHANNELS];
 
     if (state == NULL || buffers == NULL || frames == 0) {
         return 0;
     }
     for (n = 0; n < frames; ++n) {
         float detector = 0.0f;
+        float applied;
         unsigned channel;
 
         for (channel = 0; channel < state->channels; ++channel) {
@@ -98,17 +238,19 @@ int g6_svm_process(G6SvmState *state, float *const *buffers, size_t frames)
             float filtered;
 
             if (buffer == NULL) {
+                values[channel] = 0.0f;
                 continue;
             }
             x = buffer[n];
+            values[channel] = x;
             ch->ring[ch->write] = x;
             ch->write = (ch->write + 1u) % G6_SVM_RING;
 
             filtered = (x - ch->prev_x) * state->k1 - state->k2 * ch->prev_filtered;
             ch->prev_x = x;
             ch->prev_filtered = filtered;
-            ch->energy = state->alpha * filtered * filtered
-                         + (1.0f - state->alpha) * ch->energy;
+            ch->energy = state->alpha_energy * filtered * filtered
+                         + (1.0f - state->alpha_energy) * ch->energy;
             if (ch->energy > detector) {
                 detector = ch->energy;
             }
@@ -118,32 +260,68 @@ int g6_svm_process(G6SvmState *state, float *const *buffers, size_t frames)
             float target = 1.0f;
             if (detector > 0.0f) {
                 const float level = log10f(detector);
-                float over = level - state->threshold;
-                if (over < 0.0f) {
-                    over = 0.0f;
+                if (level >= state->threshold) {
+                    target = powf(10.0f, (level - state->threshold) * state->ratio
+                                        + state->threshold - level);
                 }
-                target = powf(10.0f, -0.3f * over);
             }
+
             {
-                const float coefficient = (target < state->gain)
-                                              ? state->attack
-                                              : state->release;
-                state->gain += (target - state->gain) * coefficient;
+                /* 0x180092f30: falling gain uses attack, rising gain uses release. */
+                const float previous = state->gain1;
+                const float coefficient = (previous <= target) ? state->release
+                                                               : state->attack;
+                state->gain1 = (1.0f - coefficient) * previous + coefficient * target;
+                /*
+                 * +0x4be8 follows the previous gain1 with the attack coefficient, and
+                 * +0x4bec smooths the wet/makeup blend at 10 ms; the output uses the
+                 * value computed on the previous frame.
+                 */
+                {
+                    const float blend = ((state->wet * state->gain2 + 1.0f) - state->wet)
+                                        * state->makeup;
+                    applied = state->mix_gain;
+                    state->gain2 = (1.0f - state->attack) * state->gain2
+                                   + state->attack * previous;
+                    state->mix_gain = (blend - state->mix_gain) * state->alpha_makeup
+                                      + state->mix_gain;
+                }
             }
         }
 
         for (channel = 0; channel < state->channels; ++channel) {
             G6SvmChannel *ch = &state->channel[channel];
             float *buffer = buffers[channel];
-            unsigned read;
-            float delayed;
+            float processed;
+            float dry;
 
             if (buffer == NULL) {
                 continue;
             }
-            read = (ch->write + G6_SVM_RING - state->lookahead) % G6_SVM_RING;
-            delayed = ch->ring[read];
-            buffer[n] = delayed * (1.0f + state->mix * (state->gain - 1.0f));
+            dry = values[channel];
+            processed = ((1.0f - state->crossfade)
+                             * ch->ring[delay_index(ch->write, state->delay_b)]
+                         + state->crossfade
+                               * ch->ring[delay_index(ch->write, state->delay_a)])
+                        * applied;
+            buffer[n] = dry + state->user_mix * (processed - dry);
+        }
+
+        /* Crossfade advance, 0x180092f30 tail. */
+        if (state->target_down) {
+            const float next = state->crossfade - state->ramp_step;
+            state->crossfade = next;
+            if (next < 0.0f) {
+                state->crossfade = 0.0f;
+                state->target_down = 0;
+            }
+        } else if (state->target_up) {
+            const float next = state->crossfade + state->ramp_step;
+            state->crossfade = next;
+            if (next > 1.0f) {
+                state->crossfade = 1.0f;
+                state->target_up = 0;
+            }
         }
     }
     return 1;

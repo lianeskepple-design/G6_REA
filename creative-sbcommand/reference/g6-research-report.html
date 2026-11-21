@@ -390,10 +390,10 @@
               </tr>
               <tr>
                 <td><strong>Crystalizer</strong></td>
-                <td>3 阶分析滤波、动态系数、128 样本块、256 点 Hann 两缓冲 OLA、<code>+0x1F8</code> dry 叠加、128 样本延迟、<code>+0xF18</code> 输出级</td>
+                <td>3 阶分析滤波、动态系数、128 样本块、256 点 Hann 两缓冲 OLA、<code>+0x1F8</code> dry 叠加、128 样本延迟、ramp 混合收尾</td>
                 <td><span class="pill re">逆向</span> <span class="pill check">对拍</span></td>
                 <td><code>0x18008E920</code>、<code>0x180146190</code>、<code>0x180195BD0</code>、<code>0x180195FD0</code></td>
-                <td><code>+0xF18</code> 默认直通，系数源未找到</td>
+                <td>没有额外输出二阶：<code>.text</code> 中位移 <code>0xf18</code> 0 次命中</td>
               </tr>
               <tr>
                 <td><strong>Surround</strong></td>
@@ -404,7 +404,7 @@
               </tr>
               <tr>
                 <td><strong>Smart Volume</strong></td>
-                <td>全带 AGC：40 ms 能量平滑、10 ms 增益平滑、1.9 ms 攻击、8 s 释放、80 ms 斜坡、30 样本前瞻</td>
+                <td>全带 AGC（<code>CPlugAGCCompressor</code>）：40 ms 能量平滑、10 ms makeup 平滑、1.9 ms 攻击、8 s 释放、20 ms 前瞻、两抽头延迟交叉淡化、+22 dB 补偿增益</td>
                 <td><span class="pill re">逆向</span> <span class="pill check">对拍</span></td>
                 <td><code>0x180092A50</code>、<code>0x180092DA0</code>、<code>0x180092F30</code>；48 kHz k1/k2 = 0.9871 / -0.9742</td>
                 <td>不是 PDF 的多频段 AGC+DRC+limiter</td>
@@ -586,8 +586,8 @@ cargo build --release --target x86_64-pc-windows-msvc</code></pre>
           <li><strong>G6 固件提取不现实</strong>：用户已明确；因此 SBX Bass 谐波内核、Dialog+ 实际 DSP、HRTF 数据集无法取得。</li>
           <li><strong>Bass / Dialog+ 是参考近似</strong>：按 PDF 的算法类别实现，不是 G6 硬件/APO 的逐位还原。</li>
           <li><strong>Surround 是矩阵层</strong>：公式已逆向/对拍；mask 语义有推断；无 HRTF FIR、ITD/IID、耳机路由。</li>
-          <li><strong>SVM 是全带简化版</strong>：不是多频段 AGC+DRC+limiter。</li>
-          <li><strong>Crystalizer <code>+0xF18</code> 默认直通</strong>：输出级系数源未找到。</li>
+          <li><strong>SVM 是全带单检测器压缩器</strong>：已按 <code>CPlugAGCCompressor</code> 逐行移植；APO 内没有多频段 AGC/DRC/limiter，也没有模式曲线。</li>
+          <li><strong>Crystalizer 无 <code>+0xF18</code> 输出级</strong>：位移扫描 0 次命中，旧结论已撤回。</li>
           <li><strong>实时客户端只做立体声</strong>：Surround 未放进 <code>sbc-live</code>。</li>
         </ul>
       </section>

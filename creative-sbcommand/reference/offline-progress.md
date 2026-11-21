@@ -98,10 +98,10 @@
 - 解码 `0x180147430` 的 3 阶 IIR 内核与 `0x1801468C0` 的一阶内核；`0x1801469E0` 的二阶内核与 EQ 相同。
 - 解码 `0x18008E611..0x18008E737` 的动态系数：一阶 `c1/c2/c3` 与二阶 `(x + y·z⁻¹)² / (1 + S·z⁻¹)²`，由两路活动量经 P10/P11 调制。
 - 新增 `reference/g6_crystalizer.c/h`：128 样本块处理，单声道 `(L+R)*0.75`，两路 3 阶分析滤波，直接调用已逐位验证的 `g6_crystalizer_legacy_analyze_block`，再按动态系数做逐声道一阶 + 二阶滤波。
-- 输出级：`+0xF18` 固定二阶已接入（默认直通，`g6_crystalizer_set_output_filter` 可装实测系数）；`0x180195BD0` 的 256 点 Hann 窗与 `0x180195FD0` 的 128 点增益斜坡 `1/(1-0.5·sin²(πn/128))` 已实现，探针校验窗口/斜坡值。
+- 输出级：`+0xF18` 固定二阶已接入（**2026-11-21 更正：该级不存在，见 §16**）；`0x180195BD0` 的 256 点 Hann 窗与 `0x180195FD0` 的 128 点增益斜坡 `1/(1-0.5·sin²(πn/128))` 已实现，探针校验窗口/斜坡值。
 - 对照：两路分析系数、16 点脉冲响应、动态系数与独立 float32 重算逐位一致；8192 帧立体声链输出全部有限；0.05 → 0.6 阶跃后第一/第二活动量约 0.37 / 0.29，强度 0 与 100 的输出最大差约 5.2e-3，证明检测器已驱动动态系数与逐声道滤波。
 - 两缓冲：`0x18008E920` 每声道取 `[上一块 dry, 当前块]` 共 256 点，乘 Hann → 一阶 → 二阶 → 再乘 Hann；`+0x1F8`（`FUN_180146190`）把 `+0x600` 第二缓冲的上一块 dry 以权重表 `0x180199E80 = {1,1,1,1}` 加到 scratch，随后两缓冲都写入当前 dry；输出取前 128 点乘 ramp，再经 `+0xF18`。首块为零，存在 128 样本延迟。
-- 仍未展开：`+0xF18` 系数初始化位置（默认直通，可设为实测值）。
+- 仍未展开：`+0xF18` 系数初始化位置（默认直通，可设为实测值）。**2026-11-21 撤回：位移 `0xf18` 在 `.text` 中 0 次命中，不存在这一级。**
 
 | 检查 | 结果 |
 |---|---|
@@ -130,8 +130,8 @@
 - 2026-11-19 复检：`Get-PnpDevice` 中 12 个 `VID_041E&PID_3256` 节点（含 MEDIA 下的 “Sound BlasterX G6”）全部 `Present=False`；当前在线的 USB 音频只有 `VID_08BB&PID_2902`、`VID_3554&PID_FB3E`、`VID_3837&PID_3033`；`-WaitSeconds 90` 轮询无枚举，完整流程与 `-PreflightOnly` 均退出 2。近 6 小时系统日志无任何 `VID_041E` 插拔/枚举记录；本机为 Lenovo 90RC018GCP，`HypervisorPresent=True`。
 - INF 复核：`oem33.inf` 的 G6 安装段 `[SB1770.Interface.Wave]` 使用 `SysFx1770.AddReg`，没有 `CTPKEY_GUID_SCOUT*`；唯一静态 Scout 表在 `SysFx1580.AddReg`，属于 `SB1580_Device`（PID_323A），值 `[2,3,3,-2,-2,0,3,4,3,2]`，不能代替 G6 实测。
 - 无设备自测：扫频生成 + 合成 APO 10 段链恢复（0.6 dB 容差）；USBPcap 解析已有 `scout-01.pcap`，4 个 `5a 11` 帧、8 条目、`id 0 = 1.0` 校验通过。
-- Crystalizer：`+0xF18` 固定二阶输出级接入（默认直通，可设实测系数）；`0x180195BD0` 的 256 点 Hann 窗与 `0x180195FD0` 的 128 点增益斜坡 `1/(1-0.5·sin²(πn/128))` 实现并对照；两缓冲重叠相加与 `+0x1F8` dry 叠加（权重全 1）、128 样本延迟已按 Ghidra 反编译补齐；探针新增窗口/斜坡、输出级、延迟与 dry 叠加检查。
-- 仍未展开：`+0xF18` 系数初始化位置；Scout 实机取数需 G6 接入。
+- Crystalizer：`+0xF18` 固定二阶输出级接入（**2026-11-21 撤回，见 §16**）；`0x180195BD0` 的 256 点 Hann 窗与 `0x180195FD0` 的 128 点增益斜坡 `1/(1-0.5·sin²(πn/128))` 实现并对照；两缓冲重叠相加与 `+0x1F8` dry 叠加（权重全 1）、128 样本延迟已按 Ghidra 反编译补齐；探针新增窗口/斜坡、输出级、延迟与 dry 叠加检查。
+- 仍未展开：Scout 实机取数需 G6 接入；`+0xF18` 一项已撤回（不存在该级）。
 
 | 检查 | 结果 |
 |---|---|
@@ -227,3 +227,55 @@
 
 
 
+
+## 16. 2026-11-21：Smart Volume 代码级移植与 Crystalizer 假级撤回
+
+无硬件、纯静态取证 + 重新对拍。全部结论来自 `KSUSBAPO64.dll` 1.2.109.0 的反编译与镜像常量读取，
+未运行原厂代码。
+
+### 16.1 Smart Volume 重写
+
+- 对象是 `CPlugAGCCompressor`：构造 `0x180092810`、复位 `0x180092bc0`、检测器系数 `0x180092a50`、
+  参数更新 `0x180092da0`、样本循环 `0x180092f30`、启用/旁路 `0x180093420`、改延迟 `0x1800935c0`。
+- 逐行重写 `reference/g6_svm.c`：单检测器全带压缩，**20 ms 前瞻**（此前写成 30 样本）、
+  两抽头延迟交叉淡化、三级平滑（gain1 / attack 平滑 gain2 / 10 ms makeup）、启用时 `10^1.1 = +22 dB` 补偿增益。
+- 数学函数定性有据：`0x1800dc0b0` 是 log10（引用常量 `0x1801a0a00 = 0.43429449 = log10(e)`），
+  `0x1800d96d0` 是 `10^x`；因此 `+0x4b98 = -6.2` 对应 -62 dBFS 能量、`10^1.1` 对应 +22 dB，都是整数 dB 设计值。
+- 旧 `set_level` 声称的 `(level_db-12)/10` 来自 `0x180093710`，但该地址**不是函数**；`+0x4b98`
+  与 `+0x4b8c` 在构造之外没有任何写入点，DLL 没有电平旋钮。旧映射保留为 legacy，
+  新增 `g6_svm_set_threshold_dbfs`。
+- PDF 的"多频段 AGC + 分频段 DRC + 峰值限幅"与 APO 不符：检测器每声道只有一个一阶高通 + 能量平滑，
+  跨声道取最大值，增益律是单一 log 域直线，没有独立限幅器。
+
+### 16.2 Crystalizer `+0xF18` 撤回
+
+- 全量扫描 `.text` 位移 `0xf14/0xf18/0xf1c/0xf20/0xf24`：`0xf18` 与 `0xf14`、`0xf24` 均 0 次命中。
+- `0x18008EC00` 的 `+0x2A8` 是全局 DSP 对象的 **vtable 槽位**（`(**code)(*(PTR_DAT_1801f1e80 + 0x2a8))`），
+  不是对象字段。`0x18008E920` 的真实结构是每声道三阶状态 `+0xe50+ch*0x18`、二阶状态 `+0xe98+ch*0x28`，
+  最后是与原始块的 ramp 混合（vtable `+0x180`）。
+- 已从 `g6_crystalizer.c/h` 删除 `output_filter` 与 `g6_crystalizer_set_output_filter`，探针改输出
+  `output_stage none`，参考脚本据此校验。
+
+### 16.3 新增工具
+
+- `tools/apo-eq-coeff/ghidra_scripts/G6Probe.java`：scan（位移扫描）/ dump（反编译）/ vtable / sym / disasm 五模式。
+- `tools/apo-eq-coeff/pe_read.py`：只读 PE 映像，按 VA 取 qword/dword/float（不加载、不执行 DLL）。
+- `tools/apo-eq-coeff/run_ghidra_probe*.cmd`：一次导入、多次 `-process` 复用已分析工程。
+
+| 检查 | 结果 |
+|---|---|
+| `verify_svm.cmd` | PASS（14 个常量位级一致、6144 帧增益轨迹、0.08 s 交叉淡化在第 3840 帧归零、旁路） |
+| `verify_crystalizer.cmd` | PASS（`output_stage none`） |
+| `cargo test` | 31 passed（22 + 6 + 3） |
+| `sbc-dsp` 端到端 | 48000 Hz / 2ch / 131072 帧，peak 0.25，rms 0.000488，全有限 |
+| `--svm-delay-ms 5 / 50` | 均正常，5 ms 被钳到 30 样本 |
+
+### 16.4 重新打包
+
+- `dist/sbc-live-1.0.1-win64.zip`：`sbc-live`/`sbc-dsp`/`sbc-eq` 全部按本版源码重建，静态 CRT
+  （`dumpbin /dependents` 对 `sbc-dsp` 只剩 `KERNEL32.dll`、`ntdll.dll`、`api-ms-win-core-synch-l1-2-0.dll`）。
+- 解压后 `SHA256SUMS.txt` 5/5 一致；包内 `sbc-live --list-devices` 与 `sbc-eq --list-eq-presets`（43 条）正常。
+- ZIP SHA-256：`410870b2e52011f7564d914d8f4b70b02fe8968ca910cb907a1f4b4fc6214b24`。
+- 1.0.0 包保留作为历史，不再更新。
+
+详细依据：[g6-svm-exact-port.md](g6-svm-exact-port.md)。

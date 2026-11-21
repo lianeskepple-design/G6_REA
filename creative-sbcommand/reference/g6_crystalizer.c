@@ -108,13 +108,6 @@ int g6_crystalizer_init(G6CrystalizerState *state, uint32_t sample_rate)
     state->detector.second_activity = 0.0f;
     state->detector.next_history_slot = 0;
 
-    state->output_filter.c8 = 0.0f;
-    state->output_filter.c12 = 0.0f;
-    state->output_filter.c16 = 1.0f;
-    state->output_filter.c20 = 0.0f;
-    state->output_filter.c24 = 0.0f;
-    state->output_filter.w1 = 0.0f;
-    state->output_filter.w2 = 0.0f;
     state->window_phase = 0;
     state->window_enabled = 1;
     state->dry_mix_enabled = 1;
@@ -160,24 +153,6 @@ void g6_crystalizer_compute_filters(G6CrystalizerState *state,
     state->biquad.c16 = x * x;
     state->biquad.c20 = 2.0f * x * y;
     state->biquad.c24 = y * y;
-}
-
-void g6_crystalizer_set_output_filter(G6CrystalizerState *state, float c8,
-                                      float c12, float c16, float c20,
-                                      float c24)
-{
-    if (state == NULL) {
-        return;
-    }
-    state->output_filter.c8 = c8;
-    state->output_filter.c12 = c12;
-    state->output_filter.c16 = c16;
-    state->output_filter.c20 = c20;
-    state->output_filter.c24 = c24;
-    for (size_t channel = 0; channel < G6_CRYSTALIZER_MAX_CHANNELS; ++channel) {
-        state->output_w1[channel] = 0.0f;
-        state->output_w2[channel] = 0.0f;
-    }
 }
 
 static float hann256(unsigned index)
@@ -301,9 +276,6 @@ int g6_crystalizer_process_interleaved(G6CrystalizerState *state, float *samples
                 if (state->window_enabled) {
                     value *= ramp128((unsigned)i);
                 }
-                value = biquad_run(&state->output_filter,
-                                   &state->output_w1[channel],
-                                   &state->output_w2[channel], value);
                 samples[(position + i) * channels + channel] = value;
             }
         }

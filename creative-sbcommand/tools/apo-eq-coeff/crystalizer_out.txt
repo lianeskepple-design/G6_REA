@@ -13,7 +13,7 @@ finite 1
 activity_debug 40121eeb 3d6459e1 40121eeb 3fb02407
 activity 3ebe7cb6 3e945514
 strength_delta 3b51a400
-output_filter 3f000000
+output_stage none
 delay_ok 1
 drymix_ok 1
 drymix_delta 00000000

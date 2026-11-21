@@ -1,0 +1,166 @@
+INFO  Using log config file: jar:file:/D:/tools/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (4152 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (8351 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    D:\工程\逆向工程\creative-sbcommand\tools\apo-eq-coeff\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: D:\tmp_ghidra_g6probe\G6Probe (HeadlessAnalyzer)  
+INFO  Opening project: D:\tmp_ghidra_g6probe\G6Probe (HeadlessProject)  
+INFO  REPORT: Processing project file: /KSUSBAPO64.dll (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: G6Probe.java 'vtable' '0x1801f1e80:0x178' '0x180' '0x1f8' '0x2a8' '0x2b8' 'dump' '0x180092810' '0x180093420' '0x180093520' '0x1800936c0'  (HeadlessAnalyzer)  
+INFO  SCRIPT: D:\工程\逆向工程\creative-sbcommand\tools\apo-eq-coeff\ghidra_scripts\G6Probe.java (HeadlessAnalyzer)  
+INFO  G6Probe.java> ##### VTABLE 0x1801f1e80 -> obj 0x180207c58 -> vtable 0x180207c58 ##### (GhidraScript)  
+INFO  G6Probe.java>   +0x178 = 0x0   |  <no function> (GhidraScript)  
+INFO  G6Probe.java> vtable spec must look like 0x1801f1e80:0x178,0x1f8 (GhidraScript)  
+INFO  G6Probe.java> vtable spec must look like 0x1801f1e80:0x178,0x1f8 (GhidraScript)  
+INFO  G6Probe.java> vtable spec must look like 0x1801f1e80:0x178,0x1f8 (GhidraScript)  
+INFO  G6Probe.java> vtable spec must look like 0x1801f1e80:0x178,0x1f8 (GhidraScript)  
+INFO  G6Probe.java> ===== 0x180092810 ===== (GhidraScript)  
+INFO  G6Probe.java> FUNCTION FUN_180092810 @ 180092810 (GhidraScript)  
+INFO  G6Probe.java> 
+undefined8 * FUN_180092810(undefined8 *param_1,undefined8 param_2)
+
+{
+  undefined4 uVar1;
+  undefined4 local_18;
+  undefined4 uStack_14;
+  undefined4 uStack_10;
+  undefined4 uStack_c;
+  
+  FUN_180096fe0(param_1,param_2,200,48000,5,2,0xfffffffffffffffe);
+  *param_1 = CPlugAGCCompressor::vftable;
+  param_1[4] = CPlugAGCCompressor::vftable;
+  FUN_1800d8d6c(param_1 + 0xb,0x2590,2,&LAB_180092800,&LAB_180092920);
+  *(undefined1 *)(param_1 + 0x970) = 1;
+  *(undefined4 *)((longlong)param_1 + 0x4bb4) = 0;
+  *(undefined4 *)(param_1 + 0x973) = 0xc0c66666;
+  *(undefined4 *)((longlong)param_1 + 0x4b8c) = 0x3ecccccd;
+  uVar1 = FUN_1800d96d0(DAT_18018870c,DAT_18019684c);
+  *(undefined4 *)(param_1 + 0x972) = uVar1;
+  *(undefined4 *)((longlong)param_1 + 0x4b9c) = 0x3f800000;
+  *(undefined4 *)(param_1 + 0x97f) = 0x3b83126f;
+  *(undefined4 *)((longlong)param_1 + 0x4bf4) = 0x41000000;
+  *(undefined4 *)(param_1 + 0x97e) = 0x3ca3d70a;
+  FUN_180092bc0(param_1);
+  local_18 = *(undefined4 *)(param_1 + 2);
+  uStack_14 = *(undefined4 *)((longlong)param_1 + 0x14);
+  uStack_10 = *(undefined4 *)(param_1 + 3);
+  uStack_c = *(undefined4 *)((longlong)param_1 + 0x1c);
+  FUN_180092da0(param_1,&local_18);
+  return param_1;
+}
+
+ (GhidraScript)  
+INFO  G6Probe.java> ===== 0x180093420 ===== (GhidraScript)  
+INFO  G6Probe.java> FUNCTION FUN_180093420 @ 180093420 (GhidraScript)  
+INFO  G6Probe.java> 
+void FUN_180093420(longlong param_1,char param_2)
+
+{
+  float fVar1;
+  undefined4 uVar2;
+  
+  uVar2 = DAT_18018870c;
+  if (*(char *)(param_1 + 0x4b80) == '\0') {
+    if (param_2 != '\0') {
+      *(undefined1 *)(param_1 + 0x4b80) = 1;
+      fVar1 = DAT_1801916b0;
+      *(undefined4 *)(param_1 + 0x4b9c) = *(undefined4 *)(param_1 + 0x4ba8);
+      *(undefined4 *)(param_1 + 0x4b90) = *(undefined4 *)(param_1 + 0x4bac);
+      if (fVar1 < *(float *)(param_1 + 0x4bc4)) {
+        *(undefined4 *)(param_1 + 0x4b7c) = *(undefined4 *)(param_1 + 0x4bb0);
+        *(undefined2 *)(param_1 + 0x4bb8) = 1;
+        return;
+      }
+      *(undefined4 *)(param_1 + 0x4b78) = *(undefined4 *)(param_1 + 0x4bb0);
+      *(undefined2 *)(param_1 + 0x4bb8) = 0x100;
+    }
+  }
+  else if (param_2 == '\0') {
+    *(undefined4 *)(param_1 + 0x4ba8) = *(undefined4 *)(param_1 + 0x4b9c);
+    *(undefined1 *)(param_1 + 0x4b80) = 0;
+    *(undefined4 *)(param_1 + 0x4bac) = *(undefined4 *)(param_1 + 0x4b90);
+    *(undefined4 *)(param_1 + 0x4b9c) = 0;
+    uVar2 = FUN_1800d96d0(uVar2,0);
+    fVar1 = DAT_1801916b0;
+    *(undefined4 *)(param_1 + 0x4b90) = uVar2;
+    if (*(float *)(param_1 + 0x4bc4) <= fVar1) {
+      uVar2 = *(undefined4 *)(param_1 + 0x4b7c);
+    }
+    else {
+      uVar2 = *(undefined4 *)(param_1 + 0x4b78);
+    }
+    *(undefined4 *)(param_1 + 0x4bb0) = uVar2;
+    FUN_1800935c0(param_1,0);
+    return;
+  }
+  return;
+}
+
+ (GhidraScript)  
+INFO  G6Probe.java> ===== 0x180093520 ===== (GhidraScript)  
+INFO  G6Probe.java> FUNCTION FUN_180093520 @ 180093520 (GhidraScript)  
+INFO  G6Probe.java> 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_180093520(longlong param_1,float param_2)
+
+{
+  float fVar1;
+  
+  fVar1 = DAT_180187b58;
+  *(float *)(param_1 + 0x4bf8) = param_2;
+  fVar1 = (float)FUN_1800d96d0(DAT_18018870c,
+                               fVar1 / (param_2 * _DAT_180196848 * *(float *)(param_1 + 0x4bb4)));
+  *(float *)(param_1 + 0x4b84) = DAT_1801865cc - fVar1;
+  return;
+}
+
+ (GhidraScript)  
+INFO  G6Probe.java> ===== 0x1800936c0 ===== (GhidraScript)  
+INFO  G6Probe.java> FUNCTION FUN_1800936c0 @ 1800936c0 (GhidraScript)  
+INFO  G6Probe.java> 
+void FUN_1800936c0(longlong param_1,float param_2)
+
+{
+  float fVar1;
+  
+  fVar1 = DAT_180187b58;
+  *(float *)(param_1 + 0x4bf4) = param_2;
+  fVar1 = (float)FUN_1800d96d0(DAT_18018870c,fVar1 / (param_2 * *(float *)(param_1 + 0x4bb4)));
+  *(float *)(param_1 + 0x4b88) = DAT_1801865cc - fVar1;
+  return;
+}
+
+ (GhidraScript)  
+INFO  REPORT: Save succeeded for processed file: /KSUSBAPO64.dll (HeadlessAnalyzer)  

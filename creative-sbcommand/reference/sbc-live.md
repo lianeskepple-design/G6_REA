@@ -133,7 +133,9 @@ SHA-256 fe3cff79442e5d1c328ff3942b304e8c285022d929d9dc635c9d70a56b29c76b
   0 underrun / 0 overrun。
 - Crystalizer 固定 128 样本延迟，加上设备缓冲，总延迟约几十毫秒。
 - EQ 预设只在 Start 时应用；Crystalizer/SVM/输入增益可运行中调。
-- SVM 的模式曲线与两抽头交叉淡化仍未细化；`+0xF18` 默认直通。
+- SVM 没有模式曲线（DLL 只导出 on/off、延迟、起音/释放）；两抽头交叉淡化与三级平滑已按
+  [g6-svm-exact-port.md](g6-svm-exact-port.md) 实现，默认前瞻 20 ms。
+- Crystalizer 没有 `+0xF18` 输出级（`.text` 中该位移 0 次命中），已从代码中移除。
 - 未做 G6 实机验证；当前验证使用 Windows 默认/WASAPI 设备与 UU 虚拟设备。
 
 ## 文件

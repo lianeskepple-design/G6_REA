@@ -43,6 +43,9 @@ int g6_chain_set_surround(G6Chain *chain, int enabled, uint32_t mask,
 /* enabled=0 bypasses; mix is clamped to 0..1. */
 int g6_chain_set_svm(G6Chain *chain, int enabled, float level_db, float mix);
 
+/* Smart Volume look-ahead in seconds; the DLL clamps it to [30, 0.05*fs] samples. */
+int g6_chain_set_svm_delay(G6Chain *chain, float seconds);
+
 /* In-place interleaved float32. Returns 1 on success, 0 on failure. */
 int g6_chain_process_interleaved(G6Chain *chain, float *samples, size_t frames);
 

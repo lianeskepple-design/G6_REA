@@ -199,14 +199,12 @@ int main(void)
         printf("strength_delta %08x\n", bits(maximum));
     }
 
-    {
-        G6CrystalizerState filter_state;
-        if (!g6_crystalizer_init(&filter_state, 48000)) {
-            return 6;
-        }
-        g6_crystalizer_set_output_filter(&filter_state, 0.0f, 0.0f, 0.5f, 0.0f, 0.0f);
-        printf("output_filter %08x\n", bits(filter_state.output_filter.c16));
-    }
+    /*
+     * KSUSBAPO64.dll has no extra output biquad: 0x18008e920 ends with the ramp mix at
+     * vtable +0x180, and displacement 0xf18 never appears in .text. This marker keeps
+     * the claim checkable instead of leaving an unused stage in the chain.
+     */
+    printf("output_stage none\n");
     {
         G6CrystalizerState mixed;
         G6CrystalizerState plain;

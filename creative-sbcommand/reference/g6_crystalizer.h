@@ -23,12 +23,12 @@ extern "C" {
  *   overlap         scratch = [prev dry, current dry] (256), Hann x2,
  *                   +0x1F8 adds the previous +0x600 dry block
  *                   (bank 0x180199E80 = {1,1,1,1}), first 128 x ramp
- *                   0x180195FD0, then the +0xF18 biquad (0x18008EC00).
+ *                   0x180195FD0. That ramp mix is the last stage: .text never
+ *                   accesses a +0xF18 displacement, so there is no extra output
+ *                   biquad in the DLL (the earlier note about one was wrong).
  *
  * Mono analysis input is (L+R)*0.75 (DAT_18018B7C4). Strength acts through
- * the interpolated 18-value parameter bank, as in the DLL. The coefficient
- * source for +0xF18 is still unknown; the default is a passthrough and
- * callers can install measured values.
+ * the interpolated 18-value parameter bank, as in the DLL.
  */
 
 #define G6_CRYSTALIZER_BLOCK_MAX 128
@@ -59,12 +59,9 @@ typedef struct {
     G6CrystalizerLegacyAnalysis detector;
     G6CrystalizerOnePole one_pole;
     G6CrystalizerBiquad biquad;
-    G6CrystalizerBiquad output_filter;
     float one_pole_state[G6_CRYSTALIZER_MAX_CHANNELS];
     float biquad_w1[G6_CRYSTALIZER_MAX_CHANNELS];
     float biquad_w2[G6_CRYSTALIZER_MAX_CHANNELS];
-    float output_w1[G6_CRYSTALIZER_MAX_CHANNELS];
-    float output_w2[G6_CRYSTALIZER_MAX_CHANNELS];
     float prev_input[G6_CRYSTALIZER_MAX_CHANNELS][128];
     float ola_b[G6_CRYSTALIZER_MAX_CHANNELS][128];
     unsigned window_phase;
@@ -90,15 +87,6 @@ int g6_crystalizer_set_strength(G6CrystalizerState *state, unsigned strength);
 void g6_crystalizer_compute_filters(G6CrystalizerState *state,
                                     float first_activity,
                                     float second_activity);
-
-/*
- * Fixed output biquad at object +0xF18 (0x18008EC00). The DLL's coefficient
- * source was not found in .text; the default is a passthrough and callers can
- * install measured values. Reset after changing it.
- */
-void g6_crystalizer_set_output_filter(G6CrystalizerState *state, float c8,
-                                      float c12, float c16, float c20,
-                                      float c24);
 
 /*
  * Output window: 256-sample Hann (0x180195BD0) times the 128-sample gain ramp

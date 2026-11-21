@@ -1,0 +1,70 @@
+INFO  Using log config file: jar:file:/D:/tools/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\Administrator\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (3186 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (7342 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    D:\工程\逆向工程\creative-sbcommand\tools\apo-eq-coeff\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    D:\tools\ghidra_12.1.4_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: D:\tmp_ghidra_g6probe\G6Probe (HeadlessAnalyzer)  
+INFO  Opening project: D:\tmp_ghidra_g6probe\G6Probe (HeadlessProject)  
+INFO  REPORT: Processing project file: /KSUSBAPO64.dll (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: G6Probe.java 'scan' '0x4b98' '0x4b8c' '0x4bbc' '0x4bc0' '0x4b80'  (HeadlessAnalyzer)  
+INFO  SCRIPT: D:\工程\逆向工程\creative-sbcommand\tools\apo-eq-coeff\ghidra_scripts\G6Probe.java (HeadlessAnalyzer)  
+INFO  G6Probe.java> ##### SCAN displacement 0x4b98 ##### (GhidraScript)  
+INFO  G6Probe.java> 180051c61  MOV qword ptr [RBX + 0x4b98],RAX   |  FUN_180051be0@180051be0 (GhidraScript)  
+INFO  G6Probe.java> 180092895  MOV dword ptr [RBX + 0x4b98],0xc0c66666   |  FUN_180092810@180092810 (GhidraScript)  
+INFO  G6Probe.java> 1800930da  MOVSS XMM0,dword ptr [RBX + 0x4b98]   |  FUN_180092f30@180092f30 (GhidraScript)  
+INFO  G6Probe.java> 1800930ef  MOVSS XMM0,dword ptr [RBX + 0x4b98]   |  FUN_180092f30@180092f30 (GhidraScript)  
+INFO  G6Probe.java> ##### 4 hit(s) for 0x4b98 ##### (GhidraScript)  
+INFO  G6Probe.java> ##### SCAN displacement 0x4b8c ##### (GhidraScript)  
+INFO  G6Probe.java> 18009289f  MOV dword ptr [RBX + 0x4b8c],0x3ecccccd   |  FUN_180092810@180092810 (GhidraScript)  
+INFO  G6Probe.java> 180093106  MULSS XMM1,dword ptr [RBX + 0x4b8c]   |  FUN_180092f30@180092f30 (GhidraScript)  
+INFO  G6Probe.java> ##### 2 hit(s) for 0x4b8c ##### (GhidraScript)  
+INFO  G6Probe.java> ##### SCAN displacement 0x4bbc ##### (GhidraScript)  
+INFO  G6Probe.java> 180092dce  LEA RDX,[RCX + 0x4bbc]   |  FUN_180092da0@180092da0 (GhidraScript)  
+INFO  G6Probe.java> 18009302e  MULSS XMM2,dword ptr [RBX + 0x4bbc]   |  FUN_180092f30@180092f30 (GhidraScript)  
+INFO  G6Probe.java> ##### 2 hit(s) for 0x4bbc ##### (GhidraScript)  
+INFO  G6Probe.java> ##### SCAN displacement 0x4bc0 ##### (GhidraScript)  
+INFO  G6Probe.java> 180051cff  MOV qword ptr [RBX + 0x4bc0],RAX   |  FUN_180051be0@180051be0 (GhidraScript)  
+INFO  G6Probe.java> 180092dc7  LEA R8,[RCX + 0x4bc0]   |  FUN_180092da0@180092da0 (GhidraScript)  
+INFO  G6Probe.java> 18009303f  MOVSS XMM0,dword ptr [RBX + 0x4bc0]   |  FUN_180092f30@180092f30 (GhidraScript)  
+INFO  G6Probe.java> ##### 3 hit(s) for 0x4bc0 ##### (GhidraScript)  
+INFO  G6Probe.java> ##### SCAN displacement 0x4b80 ##### (GhidraScript)  
+INFO  G6Probe.java> 180051c36  MOV qword ptr [RBX + 0x4b80],RCX   |  FUN_180051be0@180051be0 (GhidraScript)  
+INFO  G6Probe.java> 180092884  MOV byte ptr [RBX + 0x4b80],0x1   |  FUN_180092810@180092810 (GhidraScript)  
+INFO  G6Probe.java> 180093426  CMP byte ptr [RCX + 0x4b80],0x0   |  FUN_180093420@180093420 (GhidraScript)  
+INFO  G6Probe.java> 180093457  MOV byte ptr [RCX + 0x4b80],DL   |  FUN_180093420@180093420 (GhidraScript)  
+INFO  G6Probe.java> 1800934c1  MOV byte ptr [RCX + 0x4b80],0x1   |  FUN_180093420@180093420 (GhidraScript)  
+INFO  G6Probe.java> 180093586  CMP byte ptr [RCX + 0x4b80],0x0   |  FUN_180093580@180093580 (GhidraScript)  
+INFO  G6Probe.java> 1800935c0  CMP byte ptr [RCX + 0x4b80],0x0   |  FUN_1800935c0@1800935c0 (GhidraScript)  
+INFO  G6Probe.java> ##### 7 hit(s) for 0x4b80 ##### (GhidraScript)  
+INFO  REPORT: Save succeeded for processed file: /KSUSBAPO64.dll (HeadlessAnalyzer)  

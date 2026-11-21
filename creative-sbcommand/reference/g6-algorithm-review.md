@@ -72,9 +72,15 @@ PDF：非线性谐波再生，生成输入不存在的高次分量。
 ### 4. Smart Volume：多频段 AGC+DRC+限幅 vs 我们的全带 AGC
 
 PDF：多频段独立 AGC + 分频段 DRC + 峰值限幅；Normal/Loud/Night。
-我们：`g6_svm.c` 是单检测器、全带增益律（`10^(-0.3·max(0, log10(det)-threshold))`），有攻击/释放/前瞻，但没有分频段、没有 per-band DRC、没有峰值限幅、没有模式曲线。
 
-判断：我们的 SVM 是**全带简化版**，不是 PDF 描述的多频段系统。多频段行为可用双音/多音测试验证；当前实现不会出现“低频与高频独立压缩”。
+我们（2026-11-21 更新）：`reference/g6_svm.c` 已按 `CPlugAGCCompressor` 逐行重写（构造 `0x180092810`、
+样本循环 `0x180092f30`、启用/旁路 `0x180093420`）：**每声道一个**一阶高通检测器 + 能量平滑、跨声道取最大值、
+单条 log 域增益律（阈值 `-6.2` = -62 dBFS 能量，斜率 0.6）、三级平滑、20 ms 前瞻 + 两抽头交叉淡化、
+启用时 `10^1.1` 补偿增益。`+0x4b98`/`+0x4b8c` 在构造之外无写入点，所以 DLL 里**没有电平旋钮，也没有模式曲线**。
+
+判断：主机 APO 的 Smart Volume 本来就是全带单检测器，PDF 的“多频段 AGC + 分频段 DRC + 峰值限幅”
+在这份二进制里找不到对应代码。要么 G6 硬件另有一套，要么 PDF 是行为推断。旧版把我们的实现称为
+“全带简化版”——现在它是**代码级全带移植**，简化的是 PDF 的描述，不是实现。
 
 ### 5. Bass：缺失基频
 
@@ -144,7 +150,7 @@ PDF：22 个 SBX Profile（Apex、DOTA2、FPS、RPG 等）。
 优先级：
 1. Bass（Missing Fundamental）——缺失且相对独立，容易先做。
 2. Dialog+（2–4 kHz 带通 + 轻量噪声抑制）——缺失且独立。
-3. Smart Volume 多频段 AGC/DRC/限幅 + 三模式——替换现有全带 SVM 或加模式层。
+3. Smart Volume 三模式——先确认硬件是否真有模式曲线；APO 侧已确定没有（见 §4）。
 4. Surround HRTF FIR + ITD/IID——工作量最大，需要 HRTF 数据。
 5. Scout STFT 瞬态检测——工作量最大，且必须实机对照。
 
@@ -164,7 +170,7 @@ PDF 的**分类和方向**有价值，尤其是把 Bass、Dialog+、多频段 SV
 - EQ 原厂系数（代码级、位级对照）
 - Crystalizer 主机 APO 链（代码级、时变滤波；非线性方向一致，但未证明与硬件同算法）
 - Surround 矩阵层（非 HRTF）
-- Smart Volume 全带简化版
+- Smart Volume 全带压缩器（`CPlugAGCCompressor` 代码级移植，20 ms 前瞻/两抽头交叉淡化/三级平滑）
 - Scout 只有 USB 开关/测量工具，无算法
 
 下一步最值得做的是 P0 信号路径验证；硬件不在时，可以先补 Bass/Dialog+ 和 Scout 瞬态测量脚本。

@@ -33,6 +33,7 @@ extern "C" {
         strength: i32,
     ) -> i32;
     fn g6_chain_set_svm(chain: *mut G6Chain, enabled: i32, level_db: f32, mix: f32) -> i32;
+    fn g6_chain_set_svm_delay(chain: *mut G6Chain, seconds: f32) -> i32;
     fn g6_chain_process_interleaved(
         chain: *mut G6Chain,
         samples: *mut f32,
@@ -117,6 +118,16 @@ impl ChainHandle {
         Ok(())
     }
 
+    fn set_svm_delay(&self, seconds: f32) -> Result<(), Box<dyn Error>> {
+        if !seconds.is_finite() || seconds < 0.0 {
+            return Err("SVM delay must be a non-negative number of seconds".into());
+        }
+        if unsafe { g6_chain_set_svm_delay(self.0, seconds) } == 0 {
+            return Err("failed to set the Smart Volume delay".into());
+        }
+        Ok(())
+    }
+
     fn process(&self, samples: &mut [f32], channels: usize) -> Result<(), Box<dyn Error>> {
         if channels == 0 || samples.len() % channels != 0 {
             return Err("sample count is not channel aligned".into());
@@ -149,8 +160,9 @@ Options:\n\
   --dialog N                 Dialog+ strength 0..100\n\
   --surround-mask MASK       CMSS3D mask, decimal or 0x.. (requires 6 channels)\n\
   --surround-strength N      Surround strength 0..100 (required with mask)\n\
-  --svm-level DB             Smart Volume level in dB\n\
-  --svm-mix MIX              Smart Volume mix 0..1 (default 1.0)\n\n\
+  --svm-level DB             Smart Volume threshold, legacy (level_db-12)/10\n\
+  --svm-mix MIX              Smart Volume mix 0..1 (default 1.0)\n\
+  --svm-delay-ms MS          Smart Volume look-ahead in ms (DLL default 20, max 50)\n\n\
 Input/output must differ and the output must not exist. Output is float32 WAV."
 }
 
@@ -189,6 +201,7 @@ fn run() -> Result<(), Box<dyn Error>> {
     let mut surround_strength: Option<i32> = None;
     let mut svm_level: Option<f32> = None;
     let mut svm_mix = 1.0f32;
+    let mut svm_delay_ms: Option<f32> = None;
 
     let mut i = 3;
     while i < args.len() {
@@ -252,6 +265,10 @@ fn run() -> Result<(), Box<dyn Error>> {
                 svm_level = Some(args[i + 1].parse()?);
                 i += 2;
             }
+            "--svm-delay-ms" if i + 1 < args.len() => {
+                svm_delay_ms = Some(args[i + 1].parse()?);
+                i += 2;
+            }
             "--svm-mix" if i + 1 < args.len() => {
                 svm_mix = args[i + 1].parse()?;
                 i += 2;
@@ -312,6 +329,9 @@ fn run() -> Result<(), Box<dyn Error>> {
         }
         handle.set_surround(mask, strength)?;
     }
+    if let Some(ms) = svm_delay_ms {
+        handle.set_svm_delay(ms / 1000.0).map_err(|err| err.to_string())?;
+    }
     if let Some(level) = svm_level {
         handle.set_svm(level, svm_mix)?;
     }
@@ -343,11 +363,20 @@ mod tests {
     use super::*;
 
     #[test]
-    fn stereo_chain_is_finite() {
+    fn stereo_chain_has_lookahead_then_outputs_signal() {
         let handle = ChainHandle::new(48000, 2).unwrap();
         handle.set_crystalizer(50).unwrap();
         handle.set_svm(-20.0, 1.0).unwrap();
-        let mut samples = vec![0.1f32; 512 * 2];
+        /*
+         * Smart Volume runs a 20 ms look-ahead (960 frames at 48 kHz) and the
+         * Crystalizer block adds 128 more, so the first blocks are silent by
+         * construction; the tail has to carry the signal.
+         */
+        let mut head = vec![0.1f32; 512 * 2];
+        handle.process(&mut head, 2).unwrap();
+        assert!(head.iter().all(|sample| *sample == 0.0));
+
+        let mut samples = vec![0.1f32; 4096 * 2];
         handle.process(&mut samples, 2).unwrap();
         assert!(samples.iter().all(|sample| sample.is_finite()));
         assert!(samples.iter().any(|sample| *sample != 0.0));

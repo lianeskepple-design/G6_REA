@@ -196,8 +196,10 @@ def main(path):
         print(f"window mismatch\n actual  {window}\n expected {expected_window}")
         failures += 1
 
-    if data.get("output_filter") != [f"{bits(np.float32(0.5)):08x}"]:
-        print(f"output filter mismatch: {data.get('output_filter')}")
+    # KSUSBAPO64.dll has no output biquad after the ramp mix (0xf18 never appears
+    # as a displacement in .text), so the probe must not report one.
+    if data.get("output_stage") != ["none"]:
+        print(f"unexpected output stage: {data.get('output_stage')}")
         failures += 1
 
     if failures:

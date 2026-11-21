@@ -120,14 +120,24 @@ int g6_chain_set_svm(G6Chain *chain, int enabled, float level_db, float mix)
     if (chain == NULL) {
         return 0;
     }
-    if (enabled) {
-        if (!g6_svm_set_level(&chain->svm, level_db)) {
-            return 0;
-        }
-        g6_svm_set_mix(&chain->svm, mix);
+    if (!g6_svm_set_level(&chain->svm, level_db)) {
+        return 0;
+    }
+    g6_svm_set_mix(&chain->svm, mix);
+    /* 0x180093420: bypass is a wet/makeup crossfade, not a hard switch. */
+    if (!g6_svm_set_enabled(&chain->svm, enabled != 0)) {
+        return 0;
     }
     chain->svm_enabled = enabled != 0;
     return 1;
+}
+
+int g6_chain_set_svm_delay(G6Chain *chain, float seconds)
+{
+    if (chain == NULL) {
+        return 0;
+    }
+    return g6_svm_set_delay_seconds(&chain->svm, seconds);
 }
 
 static void deinterleave(G6Chain *chain, const float *block, size_t frames,
@@ -201,7 +211,7 @@ int g6_chain_process_interleaved(G6Chain *chain, float *samples, size_t frames)
                                 NULL, NULL, count);
             interleave(chain, block, count, 6);
         }
-        if (chain->svm_enabled) {
+        if (chain->svm_enabled || g6_svm_active(&chain->svm)) {
             float *buffers[G6_SVM_MAX_CHANNELS];
             size_t channel;
 

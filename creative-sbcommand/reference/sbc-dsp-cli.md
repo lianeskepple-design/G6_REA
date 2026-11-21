@@ -117,7 +117,10 @@ sbc-dsp --process-wav in.wav out.wav `
   包络），仅保留作历史对比；请用默认 `reference`。
 - Crystalizer 只处理前 3 个声道（与 DLL 一致）。
 - SVM 的两抽头交叉淡化与各模式曲线仍未细化；当前是统一增益律。
-- Crystalizer `+0xF18` 输出级默认直通，系数源仍未找到。
+- Crystalizer 没有 `+0xF18` 输出级：`.text` 中该位移 0 次命中，ramp 混合就是最后一级。
+- Smart Volume 已按 `CPlugAGCCompressor` 逐行移植（20 ms 前瞻、两抽头交叉淡化、
+  三级平滑、`10^1.1` 补偿增益）；`--svm-level` 的 `(level_db-12)/10` 是 legacy 映射，
+  DLL 内没有电平旋钮，新增 `--svm-delay-ms`。见 [g6-svm-exact-port.md](g6-svm-exact-port.md)。
 - 未在 G6 实机上做回环验证。
 
 ## 文件
