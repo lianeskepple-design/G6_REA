@@ -535,7 +535,7 @@ E12 `FUN_1800894e0`：
 | `vt[+0x450]` 语义 | 已解：包络限幅器（§10.5，E23） |
 | mixer 系数写入者 | 已解：`+0xd8`/`+0xe0`（§12.5，E27/E28） |
 | 贝斯管理 `FUN_180089780` | 已解（§11，E25） |
-| LFE 变体（`FUN_1800414b0`）的处理槽 | 部分解：`FUN_180088e60`/`FUN_1800891f0` 已读，绑定未定（§10.7） |
+| LFE 变体（`FUN_1800414b0`）的处理槽 | 已解：`CBassBoostMixerLFE` 归 `CCMSSEfxMod`，处理槽 `FUN_180040c20 → FUN_180088e60`（§13.12，E42–E44） |
 | `vt[+0x448]`（`0x18014ab90`）语义 | 已解：归一化幅度比检测器（§13，E31–E41） |
 | `+0x1bec = 250.0` 的读取点 | 未解 |
 | 实机听感/扫频回环 | 未执行（本机无 G6 设备） |
@@ -647,15 +647,16 @@ void FUN_180088ff0(longlong mixer, longlong blockDesc, longlong dst,
 | 1 | 门控 | 见 10.1 |
 | 2 | `memset(dst, 0, frames*4)` | `frames = *(uint*)(blockDesc+4)` |
 | 3 | `inter = inMask & outMask` | 结果为 0 时取 `3` |
-| 4 | `rest = ~inter & inMask` | 每个声道 `dst += ch * 0.56234`（-5 dB） |
+| 4 | `rest = ~inter & inMask` | 每个声道 `dst += ch * 0.17782794`（-15 dB） |
 | 5 | `vt[+0x2a8](dst, frames, mixer+8)` | 单声道二阶 IIR（转置型） |
 | 6 | `vt[+0x450](dst, frames, mixer+0x30)` | 包络限幅器 |
-| 7 | `vt[+0x158](dst, frames, 3.34965)`（+10.5 dB），再对 `inter` 每声道 `ch += dst` | 净增益 +5.5 dB |
+| 7 | `vt[+0x158](dst, frames, 3.34965)`（+10.5 dB），再对 `inter` 每声道 `ch += dst` | 净增益 -4.5 dB |
 
-第 4 步的增益常量是 `0x180191738 = 0.56234133`（-5 dB），第 7 步是
+第 4 步的增益常量是 `0x180191738 = 0.17782794`（-15 dB），第 7 步是
 `0x180191740 = 3.3496544`（+10.5 dB）。两者都已按位读出。
-旧记把 `0x180191738` 当成 -15 dB，是相邻常量错位；
-`0x18019173c = 0.17782794` 才是 -15 dB，LFE 变体 `FUN_180088e60` 用它。
+2026-11-21 二次校正：本条曾把两个地址写反，声称 `0x180191738` 是 -5 dB。
+`pe_read.py` 实读的位模式是 `0x180191738 = 0x3e361887`（-15 dB）、
+`0x18019173c = 0x3f0ff59a`（-5 dB）。旧记本来是对的，见 §13.12。
 
 ### 10.3 `+0x288` = `FUN_1801465a0`（E18）
 
@@ -800,13 +801,22 @@ FUN_180088470(mixer + 8, (float)fc / (float)fs);
 
 ### 10.7 同族变体
 
-`FUN_180088e60` 与 `FUN_1800891f0` 是同一流水线的两个变体：
+`FUN_180088ff0`、`FUN_180088e60`、`FUN_1800891f0` 共用同一套 mixer 内嵌状态，
+但宿主与输入不同。绑定见 §13.12（E42–E44）。
+
+| 流水线 | 宿主 | mixer | 输入 |
+|---|---|---|---|
+| `FUN_180088ff0` | `CBassManagementEfxMod`（vftable `0x180188560`，process `+0x40`） | `CBassBoostMixerSmallSpeakers` | 12 声道块 |
+| `FUN_180088e60` | `CCMSSEfxMod`（vftable `0x180188a98`，process `+0x40`） | `CBassBoostMixerLFE` | 单源（声道 3） |
+| `FUN_1800891f0` | 无（`.pdata` 只有 unwind 记录，无 `CALL`） | — | — |
 
 - `FUN_180088e60`：`outMask & 8` 为 0 且两个掩码非负才运行；
-  单源 `param_2` 在 `inMask & 8` 时以 -15 dB 累加；`bypass == 0` 时跳过 `+0x2a8`。
-- `FUN_1800891f0`：`rest` 声道以 -5 dB 累加，`bypass == 0` 时跳过 `+0x2a8`。
+  单源 `param_2` 在 `inMask & 8` 时以 -5 dB（`0x18019173c`）累加；
+  `bypass == 0` 时跳过 `+0x2a8`。
+- `FUN_1800891f0`：`rest` 声道以 -15 dB（`0x180191738`）累加，
+  `bypass == 0` 时跳过 `+0x2a8`。
 
-两者都在第 6 步调 `+0x450`、第 7 步 +10.5 dB。哪个 mixer 子类绑哪个变体未定位。
+三者都在第 6 步调 `+0x450`、第 7 步 +10.5 dB。
 
 ## 11. 2026-11-21 补完：`FUN_180089780` 的贝斯管理
 
@@ -824,10 +834,20 @@ else FUN_180088d80(this + 0x40, this + 0x14, block);
 
 `FUN_180089780` 逐样本处理：
 
-1. `sum = LFE(声道 3) * 0.17782794`（-15 dB）。
-2. 其余声道逐个过一阶高通，结果写回该声道，同时 `sum += y * 0.56234133`（-5 dB）。
+1. `sum = LFE(声道 3) * 0.56234133`（-5 dB）。
+2. 掩码许可的其余声道（最多 11 个）取**原始**样本累加 `sum += x * 0.17782794`（-15 dB），
+   随后把该声道缓冲覆盖为一阶高通输出。
 3. `sum` 过二阶低通。
 4. 目标声道（`block+0x20` = 声道 3）写 `y_lpf * [+0x5c]`。
+
+```
+sum = lfe[i] * 0.56234133f;              /* 0x18019173c，-5 dB */
+/* 每个未跳过的声道 */
+x = ch[i];
+sum += x * 0.17782794f;                  /* 0x180191738，-15 dB，原始样本 */
+y = (K2*prev_in - (x + 1e-8f)*K1) - a2*prev_out;
+ch[i] = y;                               /* 写回高通输出 */
+```
 
 声道 3 自身不参与高通（第一个 6 声道组里 `iVar9 != 2` 跳过它）。
 每个声道的高通状态占 `+0x24c + ch*0x10` 的 2 个 float，12 声道正好是
@@ -899,8 +919,8 @@ E26 属性 setter 的目标：`0x180089d80 → +0x330`、`0x180089d90 → +0x334
 | `0x1801916c4` | 6.2831855f | 2π |
 | `0x1801916cc` | -0.25f | 低通 k 缩放 |
 | `0x1801916d0` | -2.0f | 高通 a 分子 / 低通 a1 |
-| `0x180191738` | 0.56234133f | -5 dB |
-| `0x18019173c` | 0.17782794f | -15 dB |
+| `0x180191738` | 0.17782794f | -15 dB |
+| `0x18019173c` | 0.56234133f | -5 dB |
 | `0x180191740` | 3.3496544f | +10.5 dB |
 | `0x180191820` | 1e-8f | 高通直流偏置 |
 | `0x1801916ec` | 0.03f | limiter attack 分子（§12） |
@@ -1045,7 +1065,7 @@ H(z) = (b0 + b1 z^-1 + b2 z^-2) / (1 + a1 z^-1 + a2 z^-2)
 | `+0x2a8` 低通系数与布局 | 已解（E30） |
 | 正常 init 是否写系数 | 已解：`+0xe0` 在 `0x18003e420` 末尾调用 |
 | `+0x448`（`0x18014ab90`） | 已解（E31–E41），见 §13 |
-| LFE 变体绑定 | 部分解 |
+| LFE 变体绑定 | 已解（E42–E44，§13.12） |
 | 实机听感/扫频 | 未执行（无设备） |
 
 ## 13. 2026-11-21 补完：`+0x448` 是归一化幅度比检测器
@@ -1377,4 +1397,182 @@ acc[i] = (1.0f - k) * shaped + k * acc[i];
 | 输入对 A/B 的扬声器语义 | 未解（§13.10） |
 | `ctrl` 写入者 | 未解（§13.10） |
 | `n < 512` 的 SSE2 行为 | 推断，未验证 |
+| 实机听感 | 未执行（无设备） |
+
+### 13.12 LFE 变体绑定：`CBassBoostMixerLFE` 属于 `CCMSSEfxMod`（E42–E45）
+
+§10.7 长期把 `FUN_180088e60` 与 `FUN_1800891f0` 记成“同一流水线的两个变体，
+哪个子类绑哪个未定位”。本节把写入者、vtable 与调用点三头对齐。
+结论：**`FUN_180088e60` 不属于 bass 链，它属于 CMSS/SBX 链。**
+
+#### 两个 mixer 的唯一写入者（E42）
+
+`xref 0x1801886e0` 与 `xref 0x180188bd0` 各只有 2 条引用，都是 `LEA` + `MOV [obj],reg`：
+
+| mixer 类 | vftable | COL | 唯一写入函数 |
+|---|---|---|---|
+| `CBassBoostMixerSmallSpeakers` | `0x1801886e0` | `0x1801c0880` | `FUN_18003e420` |
+| `CBassBoostMixerLFE` | `0x180188bd0` | `0x1801c0c28` | `FUN_1800414b0` |
+
+RTTI 实读（COL `+0x0c` → 类型名）：
+
+```
+0x1801c0880 -> .?AVCBassBoostMixerSmallSpeakers@@
+0x1801c0c28 -> .?AVCBassBoostMixerLFE@@
+0x1801c0ab8 -> .?AVCBassBoostMixerBase@@
+0x1801c0950 -> .?AVCBassManagementEfxMod@@
+0x1801c0ca8 -> .?AVCCMSSEfxMod@@
+```
+
+两个写入函数的对象构造逐条相同：`LocalAlloc(0x40, 0x48)`，
+`+0x08 ← 0x1801886b0`（`CHspIIR2State::vftable`），
+`+0x30 ← 0x1801886c0`（`CHspLimiter1State::vftable`），
+`+0x10/+0x18/+0x20/+0x24/+0x28/+0x38/+0x3c/+0x44 ← 0`。
+差别只有首 qword 与写入宿主的位置：
+
+```
+FUN_18003e420（SmallSpeakers）          FUN_1800414b0（LFE）
+18003e48a LEA RCX,[0x1801886e0]        18004150e LEA RCX,[0x180188bd0]
+18003e494 MOV [RAX],RCX                180041518 MOV [RAX],RCX
+18003e49c MOV [RDI+0x168],RAX          180041520 MOV [RDI+0x1d0],RAX
+```
+
+#### 两个宿主（E43）
+
+`.rdata` qword 实读，vftable 前 8 字节是 COL：
+
+| 类 | COL（vftable-8） | vftable 基址 | `+0x18` init | `+0x40` process |
+|---|---|---|---|---|
+| `CBassManagementEfxMod` | `0x180188558` = `0x1801c0950` | `0x180188560` | `0x18003e420` | `0x18003de90` |
+| `CCMSSEfxMod` | `0x180188a90` = `0x1801c0ca8` | `0x180188a98` | `0x1800414b0` | `0x180040c20` |
+
+init 与 mixer 一一对应：
+
+- `CBassManagementEfxMod` ← `CBassBoostMixerSmallSpeakers`（存 `+0x168`）
+- `CCMSSEfxMod` ← `CBassBoostMixerLFE`（存 `+0x1d0`）
+
+#### 两个处理槽的调用点（E44）
+
+`FUN_18003de90`（`CBassManagementEfxMod::+0x40`，`RCX = this`）：
+
+```
+18003de9e  MOV RCX,[RCX+0x8]        nested obj
+18003deaa  CALL [RAX+0x40]          nested process
+18003dead  MOV EDX,[RSI+0x118]      bypass flag
+18003dec3  MOV EAX,[RSI+0x20]
+18003dec6  SUB EAX,0x5622           gate: [0x5622, 0x2fe00]
+18003ded0  JA  exit
+18003dede  MOV R9D,[RSI+0x40]       arg4 = inMask
+18003dee2  MOV R8,[RSI+0x160]       arg3 = dst
+18003dee9  MOV RCX,[RSI+0x168]      arg1 = mixer（SmallSpeakers）
+18003def0  CMP EDX,0x1
+18003def3  SETZ AL                  bypass
+18003def6  LEA RDX,[RSP+0x30]       arg2 = &block
+18003df11  MOV [RSP+0x28],AL        arg6 = bypass
+18003df15  MOV EAX,[RSI+0x138]      arg5 = outMask
+18003df1b  MOV [RSP+0x30],1         block+0 = 1
+18003df30  MOV [RSP+0x34],0x80      block+4 = 128 帧
+18003df38  MOV [RSP+0x20],EAX       arg5
+18003df52  CALL 0x180088ff0
+```
+
+`FUN_180040c20`（`CCMSSEfxMod::+0x40`，`RCX = this`）：
+
+```
+180040f94  CMP [RDI+0x144],1        bypass
+180040f9b  MOV RDX,[RDI+0x188]      scratch
+180040fa2  MOV R9,[RDI+0x198]       arg4 = dst
+180040fa9  MOV RCX,[RDI+0x1d0]      arg1 = mixer（LFE）
+180040fb0  SETZ AL
+180040fb3  MOV [RSP+0x40],1         block+0 = 1
+180040fbb  MOV [RSP+0x44],R13D      block+4 = frames
+180040fc0  MOVUPS [RSP+0x48],XMM0   block+8   ← [R12+0x8]（2 个指针）
+180040fcb  MOVUPS [RSP+0x58],XMM1   block+0x18 ← [R12+0x18]
+180040fd0  MOV [RSP+0x38],AL        arg8 = bypass
+180040fd4  MOV EAX,[RDI+0x140]      arg7 = mixMask
+180040fda  LEA R8,[RSP+0x40]        arg3 = &block
+180040fe5  MOVUPS [RSP+0x68],XMM0   block+0x28 ← [R12+0x28]
+180040ff0  MOV [RSP+0x30],EAX       arg7
+180040ff4  MOV EAX,[RDI+0x40]       arg6 = outMask
+180040ff7  MOV [RSP+0x28],EAX       arg6
+180040ffb  MOV EAX,[RDI+0x28]       arg5 = inMask
+18004100d  MOV [RSP+0x20],EAX       arg5
+180041015  MOV RDX,[RDX+0x20]       arg2 = scratch+0x20 = 声道 3 缓冲
+180041019  CALL 0x180088e60
+```
+
+八个实参：
+
+| # | 寄存器 | 值 | 含义 |
+|---|---|---|---|
+| 1 | `RCX` | `[this+0x1d0]` | `CBassBoostMixerLFE` |
+| 2 | `RDX` | `[[this+0x188]+0x20]` | 声道 3 单源缓冲 |
+| 3 | `R8` | `&block` | 块描述符（`+0 = 1`、`+4 = frames`、`+8` 起 6 个声道指针） |
+| 4 | `R9` | `[this+0x198]` | dst |
+| 5 | `[rsp+0x20]` | `[this+0x28]` | inMask |
+| 6 | `[rsp+0x28]` | `[this+0x40]` | outMask |
+| 7 | `[rsp+0x30]` | `[this+0x140]` | mixMask |
+| 8 | `[rsp+0x38]` | `[this+0x144] == 1` | bypass |
+
+`xref 0x180088e60` 共 4 条引用：3 条在 `.pdata`（`0x1802190c4`、`0x1801d7d58`、
+`0x1801d7d8c`），唯一 `CALL` 是 `0x180041019`。`xref 0x180088ff0` 同样只有
+`0x18003df52` 一条 `CALL`。
+
+结构侧交叉确认：两个流水线都把 `arg1+8` 当 IIR 配置、`arg1+0x30` 当 limiter 配置，
+正好是 mixer 的 `+0x08 CHspIIR2State` 与 `+0x30 CHspLimiter1State`。
+因此 `arg1` 必为 mixer，不是别的对象。
+
+#### `FUN_1800891f0` 不是独立变体
+
+`xref 0x1800891f0` 只有 3 条数据引用，没有任何 `CALL`：
+
+```
+0x180219124  .pdata RUNTIME_FUNCTION
+0x1801d7cd0  .pdata RUNTIME_FUNCTION
+0x1801d7d30  .pdata RUNTIME_FUNCTION
+```
+
+三条都形如 `{begin=0x1800891f0, end=0x180089221, unwind=0x1801d7cbc}`
+（`_RUNTIME_FUNCTION` 12 字节表，`0x180218ff0` 起）。
+[推断] 这是编译器为异常处理与内联生成的同一函数副本，不是可被虚表调用的第三实现。
+正常路径不可达（可达性未独立验证）。
+
+#### 常量归属（E45 二次校正）
+
+`pe_read.py` 逐位实读：
+
+| 地址 | 位模式 | 值 | dB |
+|---|---|---|---|
+| `0x180191738` | `0x3e361887` | 0.17782794 | -15 |
+| `0x18019173c` | `0x3f0ff59a` | 0.56234133 | -5 |
+| `0x180191740` | `0x405660bd` | 3.3496544 | +10.5 |
+| `0x1801916f0` | — | 0.17782794 | -15（limiter 门限） |
+
+代码用法与之一致：
+
+| 函数 | 用法 | 净增益 |
+|---|---|---|
+| `FUN_180088ff0` | rest × `0x180191738`（-15）→ `+0x2a8` → `+0x450` → × `0x180191740`（+10.5） | **-4.5 dB** |
+| `FUN_180088e60` | 单源 × `0x18019173c`（-5）→ +10.5 dB → 分发 | **+5.5 dB** |
+| `FUN_1800891f0` | 同 e60，另把 `~mixMask & outMask` × `0x180191738`（-15） | 分支而定 |
+| `FUN_180089780` | LFE(3) × `0x18019173c`（-5）；其余声道取**原始**样本 × `0x180191738`（-15），随后写回高通输出 | 见 §11 |
+
+2026-11-21 二次校正：本节之前的一次“修正”把这两个地址写反，并据此声称旧记错位。
+旧记本来是对的：`0x180191738` 是 -15 dB，`0x18019173c` 是 -5 dB。
+
+#### 覆盖矩阵
+
+| 项 | 状态 |
+|---|---|
+| 两个 mixer 的唯一写入者 | 已解（E42） |
+| 两个 mixer 的 vftable/COL/类名 | 已解（E42） |
+| mixer 复合布局（`+0x08` / `+0x30`） | 已解（E42） |
+| 两个宿主的 COL/vftable/init/process | 已解（E43） |
+| `SmallSpeakers → CBassManagementEfxMod` | 已解（E43/E44） |
+| `LFE → CCMSSEfxMod` | 已解（E43/E44） |
+| `FUN_180088e60` 的唯一调用点 | 已解（E44） |
+| `FUN_180088ff0` 的唯一调用点 | 已解（E44） |
+| `FUN_1800891f0` 的可达性 | 推断（`.pdata` 副本），未独立验证 |
+| 两个增益常量的位值与 dB | 已解（E45） |
+| CMSS 链下游处理 | 未解 |
 | 实机听感 | 未执行（无设备） |

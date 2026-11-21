@@ -212,7 +212,7 @@
 - 参考实现：新增 `reference/g6_bass.c/h`（Missing Fundamental）与 `reference/g6_dialog.c/h`（2–4 kHz + 轻量门），接进 `g6_chain_capi`、`sbc-dsp`、`sbc-live`；链路顺序 EQ→Crystalizer→Bass→Dialog→Surround→SVM。
 - 实测：Bass 100 / 60 Hz 输入 → 120 Hz -26.4 dB、180 Hz -39.9 dB；Dialog 100 / 1k+3k → 3 kHz +5.8 dB；实时 5 秒 Bass 100 + Dialog 100，buffer 48 ms，0 underrun。
 - APO 链近似：`g6_bass.c` 增加 `mode=1`（10-tap FIR + 三次整形 + 20 Hz DC 阻断），`sbc-dsp --bass-mode apo`；8× pre-gain 为听感校准，60 Hz 实测 180 Hz -20.8 dB、300 Hz -30.5 dB、120 Hz -45.8 dB，峰值 0.464。默认仍为 reference。
-- **2026-11-19 修正**：继续反编译确认 `FUN_1800cc560` 的 10-tap FIR 与 `FUN_1800cb5e0` 的三次多项式作用在**增益包络**上，不是音频；`CBassManagementEfxMod` 是软拐点限幅/动态链（包络→20log10→限幅→FIR 平滑→增益映射→乘回音频）。`FUN_180089780` 是 bass management 分频/路由核心：每声道一阶高通（`H(z)=c(z⁻¹-1)/(1+a2z⁻¹)`，`c=-2/(k+2)`、`a2=(k-2)/(k+2)`、`k=3π*cutoff/fs`），卫星声道去低频；同时把**原始** 6 声道以 -15 dB 汇总到 LFE/sub。不是低音提升，也不是 Missing Fundamental 谐波。`mode=1` 因此标记为 legacy 误读，仅保留历史对比。
+- **2026-11-19 修正**：继续反编译确认 `FUN_1800cc560` 的 10-tap FIR 与 `FUN_1800cb5e0` 的三次多项式作用在**增益包络**上，不是音频；`CBassManagementEfxMod` 是软拐点限幅/动态链（包络→20log10→限幅→FIR 平滑→增益映射→乘回音频）。`FUN_180089780` 是 bass management 分频/路由核心：每声道一阶高通（`H(z)=c(z⁻¹-1)/(1+a2z⁻¹)`，`c=-2/(k+2)`、`a2=(k-2)/(k+2)`、`k=3π*cutoff/fs`），卫星声道去低频；同时把**原始** 6 声道以 -15 dB 汇总到 LFE/sub。不是低音提升，也不是 Missing Fundamental 谐波。`mode=1` 因此标记为 legacy 误读，仅保留历史对比。（2026-11-21 补充：同一个和里，LFE（声道 3）另以 ×0.56234133（-5 dB）直接进入；其余声道取**原始**样本 ×0.17782794（-15 dB），再各自覆盖为一阶高通输出。见 §23。）
 - Dialog 补充：`CVocalSuppressorEfxMod` vftable `0x18018de98`、init `0x180077b20`、process `0x180077860` 已解；它是 4 段可交叉淡化滤波器组（属性 GUID `{1ee40950-a46c-45eb-a50c-f1fd995c0166}`，index 0..7），不是 Dialog+ 的 2–4 kHz 对白增强，未找到 `THXDialogueAdvantage` 的实际 DSP。32/64 位 APO 的 EfxMod 类名列表一致（118 个，均无 Dialog 类）；`KSUSBDGFX64.dll`/`KSUSBWrap64.dll` 只是 APO 包装器（IAudioSystemEffects / DaisyWrapEFX），无 DSP。
 - THX Bass 补充：`CBassMgmtEfxMod` vftable `0x18018cb38` 是另一条低音管理链：`FUN_180067890` 解析 `bass` 配置文件的 `crossover`/`boostlevel`/`virtuallevel`，`FUN_1800a9670` 做双二阶交叉滤波 + 128 帧参数淡化；它做分频/路由，不是 Missing Fundamental 谐波合成。
 - 文档：`reference/g6-bass-dialog.md`、`reference/g6-bass-dialog-vtable.md`；PDF 对照更新 `reference/g6-algorithm-review.md`。
@@ -382,11 +382,11 @@
 | `CBassManager` 构造常量 | 已解 |
 | 全局 DSP `vt[+0x288]` 语义 | 未解 |
 | `FUN_180088ff0` 如何消费 mixer 内嵌状态 | 未解 |
-| LFE 变体处理槽 | 未解 |
+| LFE 变体处理槽 | 已解（E42–E44，§23） |
 | 实机扫频/听感 | 未执行 |
 
-§20 更新：前三项已解（单例身份、七步流水线、两条低音链频响）；LFE 变体已读函数，
-子类映射仍为部分解。
+§20 更新：前三项已解（单例身份、七步流水线、两条低音链频响）。
+§23 更新：LFE 变体的子类映射已解（E42–E44）。
 
 详细依据：[g6-bass-dialog-vtable.md](g6-bass-dialog-vtable.md) §8。
 
@@ -414,17 +414,19 @@ E14：`0x180009a40` 按两个 CPU 特性字节选表；E15 的 RTTI 给出类名
 | 项 | 旧记 | 现行（E16/E23） |
 |---|---|---|
 | `+0x450` 指向 | `0x18014ab90` | `0x180088af0`（包络限幅器） |
-| `0x180191738` | -15 dB | **-5 dB**（0.56234133） |
-| `0x18019173c` | 未记 | -15 dB（0.17782794） |
+
+2026-11-21 二次校正（§23）：`0x180191738` 与 `0x18019173c` 的首次“修正”把两者写反。
+按位实读：`0x180191738 = 0.17782794`（-15 dB）、`0x18019173c = 0.56234133`（-5 dB）。
+本节早先版本声称前者是 -5 dB，该说法已撤回。
 
 `0x18014ab90` 实际在 `+0x448`，低音链路不调用；语义已于 §22 解出。
 
 ### 20.3 `FUN_180088ff0` 七步流水线（E17）
 
 门控为 `(inMask & 8) == 0 && (int)inMask >= 0 && bypass != 0`。随后：
-清零 `dst` → `inter = inMask & outMask`（为 0 则取 3）→ 非交声道以 -5 dB
+清零 `dst` → `inter = inMask & outMask`（为 0 则取 3）→ 非交声道以 -15 dB
 累加进 `dst` → `+0x2a8` 二阶 IIR（转置型）→ `+0x450` 峰值包络限幅器 →
-全体 +10.5 dB → 交声道相加回目标声道。交声道净增益 +5.5 dB。
+全体 +10.5 dB → 交声道相加回目标声道。交声道净增益 -4.5 dB。
 
 限幅器 `0x180088af0` 的递推：
 
@@ -458,7 +460,7 @@ H(z) = b1*((1+b0) + (a1-1)z^-1 - (a1+b0)z^-2) / (1 + 2*a1 z^-1 + a1^2 z^-2)
 
 ### 20.5 `FUN_180089780` 的贝斯管理链（E25/E26）
 
-信号流：LFE×(-15 dB) 加其余声道各自一阶高通后的 ×(-5 dB) → 二阶低通 →
+信号流：LFE×(-5 dB) 加其余声道各自的**原始**样本 ×(-15 dB)（声道随后写回一阶高通输出）→ 二阶低通 →
 `× [+0x5c]` → 声道 3。
 
 一阶高通 `K = 3π fc/fs`，`a = -2/(K+2)`、`c = (K-2)/(K+2)`。
@@ -490,7 +492,7 @@ IIR 系数；格式协商 `+0xd8`（`0x18003ec30`）也写同一组系数。
 | 贝斯管理两条滤波器与频响 | 已解（E25/E26） |
 | mixer 系数写入者 | 已解（E24/E27/E28） |
 | `+0x448`（`0x18014ab90`）语义 | 已解（E31–E41，§22） |
-| LFE 变体绑定（`0x180088e60` / `0x1800891f0`） | 部分解，函数已读，子类映射未定 |
+| LFE 变体绑定（`0x180088e60` / `0x1800891f0`） | 已解（E42–E44，§23）：LFE mixer 归 `CCMSSEfxMod` |
 | `+0x1bec = 250.0` 读取点 | 未解 |
 | 常量池其余项（`0x1801916b4..e8`、`0x180191830..`） | 归属未解；`0x1801916ec` 已用于 limiter |
 | 实机听感/扫频回环 | 未执行（无设备） |
@@ -574,7 +576,7 @@ y_n = cfg[0x14]*v_{n-1} + cfg[0x10]*v_n + cfg[0x18]*v_{n-2};
 | `+0x2a8` 低通系数与布局 | 已解（E30） |
 | 正常 init 是否写系数 | 已解：`+0xe0` 在 `0x18003e420` 末尾调用 |
 | `+0x448`（`0x18014ab90`） | 已解（E31–E41，§22） |
-| LFE 变体绑定 | 部分解 |
+| LFE 变体绑定 | 已解（E42–E44，§23） |
 | 实机听感/扫频 | 未执行（无设备） |
 
 详细依据：[g6-bass-dialog-vtable.md](g6-bass-dialog-vtable.md) §12。
@@ -703,3 +705,81 @@ SSE2 版把前三段固定成 `64 × 8 = 512` 个 float，只有门限尾循环�
 | 实机听感 | 未执行（无设备） |
 
 详细依据：[g6-bass-dialog-vtable.md](g6-bass-dialog-vtable.md) §13。
+
+## 23. 2026-11-21：LFE mixer 归 `CCMSSEfxMod`，两个增益常量二次校正
+
+`FUN_180088e60` 长期记作“LFE 变体、绑定未定”。本节把写入者、vtable 与调用点对齐。
+结论：`CBassBoostMixerLFE` 的宿主是 `CCMSSEfxMod`（CMSS/SBX 效果），
+不是 `CBassManagementEfxMod`。
+
+### 23.1 唯一写入者（E42）
+
+| mixer 类 | vftable | COL | 唯一写入函数 | 宿主槽 |
+|---|---|---|---|---|
+| `CBassBoostMixerSmallSpeakers` | `0x1801886e0` | `0x1801c0880` | `FUN_18003e420` | `CBassManagementEfxMod+0x168` |
+| `CBassBoostMixerLFE` | `0x180188bd0` | `0x1801c0c28` | `FUN_1800414b0` | `CCMSSEfxMod+0x1d0` |
+
+`xref` 显示每个 vftable 只有 2 条引用（`LEA` + 存指针）。两个写入函数的构造一致：
+`LocalAlloc(0x40, 0x48)`、`+0x08 ← 0x1801886b0`、`+0x30 ← 0x1801886c0`、其余清零。
+差别只有首 qword（`0x1801886e0` 对 `0x180188bd0`）与写入宿主的位置。
+
+RTTI 实读：`0x1801c0880` 是 `CBassBoostMixerSmallSpeakers`、
+`0x1801c0c28` 是 `CBassBoostMixerLFE`、`0x1801c0950` 是 `CBassManagementEfxMod`、
+`0x1801c0ca8` 是 `CCMSSEfxMod`。
+
+### 23.2 两个宿主（E43）
+
+| 类 | vftable | `+0x18` init | `+0x40` process |
+|---|---|---|---|
+| `CBassManagementEfxMod` | `0x180188560`（COL `0x1801c0950`） | `0x18003e420` | `0x18003de90` |
+| `CCMSSEfxMod` | `0x180188a98`（COL `0x1801c0ca8`） | `0x1800414b0` | `0x180040c20` |
+
+### 23.3 调用点（E44）
+
+```
+CBassManagementEfxMod::+0x40 = FUN_18003de90
+  18003dee9 MOV RCX,[RSI+0x168]   arg1 = SmallSpeakers mixer
+  18003df52 CALL 0x180088ff0
+
+CCMSSEfxMod::+0x40 = FUN_180040c20
+  180040fa9 MOV RCX,[RDI+0x1d0]   arg1 = LFE mixer
+  180041019 CALL 0x180088e60
+```
+
+`FUN_180088e60` 的实参：`RCX` mixer、`RDX` `[[this+0x188]+0x20]`（声道 3 缓冲）、
+`R8` 块描述符、`R9` `[this+0x198]`（dst）、`[rsp+0x20]` `[this+0x28]`（inMask）、
+`[rsp+0x28]` `[this+0x40]`（outMask）、`[rsp+0x30]` `[this+0x140]`（mixMask）、
+`[rsp+0x38]` `([this+0x144] == 1)`（bypass）。
+
+`xref 0x180088e60` 共 4 条：3 条 `.pdata`，唯一 `CALL` 在 `0x180041019`。
+`xref 0x180088ff0` 的唯一 `CALL` 在 `0x18003df52`。
+`xref 0x1800891f0` 只有 3 条 `.pdata` 记录，没有任何 `CALL`；
+[推断] 它是异常处理与内联生成的副本，不是第三实现（可达性未独立验证）。
+
+### 23.4 两个常量（E45，二次校正）
+
+| 地址 | 位模式 | 值 | dB | 使用者 |
+|---|---|---|---|---|
+| `0x180191738` | `0x3e361887` | 0.17782794 | -15 | `FUN_180088ff0` 的 rest、`FUN_1800891f0` 的 rest、`FUN_180089780` 的非 LFE 声道 |
+| `0x18019173c` | `0x3f0ff59a` | 0.56234133 | -5 | `FUN_180088e60` 的单源、`FUN_180089780` 的 LFE |
+| `0x180191740` | `0x405660bd` | 3.3496544 | +10.5 | 三条流水线的第 7 步 |
+
+§20.2 的首次“修正”把前两个地址写反。以本节为准：
+`FUN_180088ff0` 的交声道净增益是 **-4.5 dB**，
+`FUN_180088e60` 的净增益是 **+5.5 dB**。
+
+### 23.5 覆盖矩阵
+
+| 项 | 状态 |
+|---|---|
+| 两个 mixer 的唯一写入者 | 已解（E42） |
+| 两个宿主的 vftable/init/process | 已解（E43） |
+| `SmallSpeakers → CBassManagementEfxMod` | 已解（E43/E44） |
+| `LFE → CCMSSEfxMod` | 已解（E43/E44） |
+| `FUN_180088e60` / `FUN_180088ff0` 的唯一调用点 | 已解（E44） |
+| `FUN_1800891f0` 的可达性 | 推断（`.pdata` 副本），未独立验证 |
+| 两个增益常量的位值与 dB | 已解（E45） |
+| CMSS 链下游处理 | 未解 |
+| 实机听感/扫频 | 未执行（无设备） |
+
+详细依据：[g6-bass-dialog-vtable.md](g6-bass-dialog-vtable.md) §13.12。
